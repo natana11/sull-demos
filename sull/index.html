@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sull Produções — sites, automação de WhatsApp e audiovisual em Tubarão</title>
+<meta name="description" content="Sites, automação de atendimento no WhatsApp, produção audiovisual e soluções com IA para empresas de Tubarão e região.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#070707;--tinta:#f4f2ec;--amarelo:#f5c518;--vermelho:#e5231b;--vidro:rgba(255,255,255,.055);--borda:rgba(255,255,255,.13);--apagado:rgba(244,242,236,.64)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--preto);color:var(--tinta);font:400 17px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(60vw 60vw at 85% -10%,rgba(245,197,24,.20),transparent 60%),
+ radial-gradient(50vw 50vw at -10% 60%,rgba(245,197,24,.09),transparent 60%)}
+a{color:inherit}
+.miolo{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.marca{display:flex;align-items:center;gap:12px;font:800 18px Unbounded,sans-serif;letter-spacing:.04em;text-decoration:none}
+.marca svg{width:34px;height:34px}
+.pilula{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s}
+.pilula:hover{transform:translateY(-2px)}
+.cheia{background:var(--amarelo);color:#0b0b0b}
+.vazada{border:1px solid var(--borda);background:var(--vidro);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+header{padding:9vh 0 10vh}
+.sobre-titulo{font:500 12px Unbounded,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--amarelo);display:flex;align-items:center;gap:10px}
+.sobre-titulo::before{content:"";width:0;height:0;border:5px solid transparent;border-bottom:9px solid var(--vermelho);border-top:0}
+h1{font:800 clamp(34px,7.4vw,84px)/1.02 Unbounded,sans-serif;letter-spacing:-.03em;margin:22px 0 26px;max-width:15ch}
+h1 em{font-style:normal;color:var(--amarelo)}
+header p{max-width:56ch;color:var(--apagado);font-size:19px}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+section{padding:8vh 0}
+h2{font:800 clamp(26px,4.4vw,44px)/1.1 Unbounded,sans-serif;letter-spacing:-.02em;margin:14px 0 34px;max-width:20ch}
+.grade{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(245px,1fr))}
+.vidro{background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border:1px solid var(--borda);border-radius:26px;padding:28px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 24px 60px -30px #000}
+.vidro h3{font:500 18px Unbounded,sans-serif;margin-bottom:12px}
+.vidro p,.vidro li{color:var(--apagado);font-size:16px}
+.vidro ul{padding-left:18px;margin-top:10px}
+.numero{font:800 13px Unbounded,sans-serif;color:var(--amarelo);display:block;margin-bottom:18px}
+@media (min-width:860px){#servicos .grade{grid-template-columns:repeat(3,1fr)}}
+.destaque{grid-column:1/-1;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:center;border-color:rgba(245,197,24,.4)}
+.conversa{display:grid;gap:9px;font-size:15px}
+.balao{padding:10px 14px;border-radius:16px;max-width:86%;border:1px solid var(--borda);background:rgba(255,255,255,.06)}
+.balao.eu{justify-self:end;background:var(--amarelo);color:#0b0b0b;border-color:transparent;font-weight:600}
+.metodo{counter-reset:passo}
+.metodo .vidro::before{counter-increment:passo;content:"0" counter(passo);font:800 38px Unbounded,sans-serif;color:transparent;-webkit-text-stroke:1px var(--amarelo);display:block;margin-bottom:14px}
+.fim{text-align:center}
+.fim h2{margin-inline:auto}
+.fim .acoes{justify-content:center}
+footer{border-top:1px solid var(--borda);padding:30px 0 44px;color:var(--apagado);font-size:14px;display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pilula{transition:none}}
+</style>
+</head>
+<body>
+<div class="miolo">
+  <nav>
+    <a class="marca" href="#" aria-label="Sull Produções">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 1l4 6h-8z" fill="#e5231b"/><path d="M6 14l14-5 14 5v6L20 15 6 20z" fill="#f4f2ec"/><path d="M34 26l-14 5-14-5v-6l14 5 14-5z" fill="#f4f2ec"/><path d="M6 34l14 5 14-5v-4l-14 5-14-5z" fill="#f5c518"/></svg>
+      SULL
+    </a>
+    <a class="pilula vazada" href="https://wa.me/5548999522152">Falar no WhatsApp</a>
+  </nav>
+
+  <header>
+    <span class="sobre-titulo">Sull Produções · Tubarão/SC</span>
+    <h1>Seu negócio <em>encontrado</em>, respondido e lembrado.</h1>
+    <p>Site que funciona no celular, WhatsApp que responde sozinho e vídeo que mostra quem você é. A gente entende o problema, cria a solução e entrega funcionando.</p>
+    <div class="acoes">
+      <a class="pilula cheia" href="https://wa.me/5548999522152?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Sull%20e%20quero%20saber%20mais.">Quero conversar</a>
+      <a class="pilula vazada" href="#servicos">Ver o que fazemos</a>
+    </div>
+  </header>
+
+  <section id="servicos">
+    <span class="sobre-titulo">Serviços</span>
+    <h2>Quatro frentes, um só responsável.</h2>
+    <div class="grade">
+      <article class="vidro destaque">
+        <div>
+          <span class="numero">AUTOMAÇÃO DE WHATSAPP</span>
+          <h3>Atendimento que não deixa cliente esperando</h3>
+          <p>Um assistente no WhatsApp da sua empresa que responde dúvidas, passa valores, agenda horários e avisa você quando precisa de gente. Funciona de madrugada, no domingo e na hora do almoço.</p>
+        </div>
+        <div class="conversa" aria-label="Exemplo de conversa">
+          <span class="balao">Oi, vocês têm horário amanhã?</span>
+          <span class="balao eu">Temos sim! 9h30 ou 14h. Qual prefere?</span>
+          <span class="balao">14h</span>
+          <span class="balao eu">Agendado. Te lembro uma hora antes.</span>
+        </div>
+      </article>
+      <article class="vidro">
+        <span class="numero">SITES</span>
+        <h3>Site próprio, rápido e no seu domínio</h3>
+        <p>Página pensada para o celular, com botão de WhatsApp, mapa, horários e tudo que o cliente procura antes de decidir.</p>
+      </article>
+      <article class="vidro">
+        <span class="numero">AUDIOVISUAL</span>
+        <h3>Vídeo e foto que posicionam</h3>
+        <ul><li>Vídeo institucional e para redes</li><li>Fotografia</li><li>Imagens aéreas com drone</li><li>Edição, motion e color grading</li></ul>
+      </article>
+      <article class="vidro">
+        <span class="numero">SOLUÇÕES COM IA</span>
+        <h3>IA aplicada ao que trava o seu dia</h3>
+        <p>Mapeamos tarefas repetitivas e reclamações frequentes e montamos a automação certa, do orçamento ao pós-venda.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <span class="sobre-titulo">Como trabalhamos</span>
+    <h2>Entender, criar, resolver, entregar.</h2>
+    <div class="grade metodo">
+      <div class="vidro"><h3>Entender</h3><p>Conversa rápida para saber como seu cliente chega e onde ele desiste.</p></div>
+      <div class="vidro"><h3>Criar</h3><p>Você vê uma prévia antes de decidir qualquer coisa.</p></div>
+      <div class="vidro"><h3>Resolver</h3><p>Ajustamos com suas fotos, textos e forma de atender.</p></div>
+      <div class="vidro"><h3>Entregar</h3><p>No ar, testado e com você sabendo usar.</p></div>
+    </div>
+  </section>
+
+  <section class="fim">
+    <span class="sobre-titulo" style="justify-content:center">Vamos conversar</span>
+    <h2>Conta o que você precisa. A primeira conversa é sem compromisso.</h2>
+    <div class="acoes">
+      <a class="pilula cheia" href="https://wa.me/5548999522152">Chamar no WhatsApp</a>
+      <a class="pilula vazada" href="https://www.instagram.com/sullproducoes/">@sullproducoes</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Sull Produções · Tubarão/SC</span>
+    <a href="mailto:sullproducoes@gmail.com">sullproducoes@gmail.com</a>
+  </footer>
+</div>
+</body>
+</html>
