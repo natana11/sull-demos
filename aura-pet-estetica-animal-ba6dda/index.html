@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aura Pet Estética Animal | Banho e tosa em Tubarão/SC</title>
+<meta name="description" content="Banho com protocolo próprio, tosa e desembolo em Tubarão/SC. Atendimento com horário marcado, na SC-370, bairro São Martinho.">
+<meta name="theme-color" content="#1F2A10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231F2A10'/%3E%3Cpath d='M4 8Q16 11 28 8Q26 20 16 29Q6 20 4 8Z' fill='%23C8541E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --olive:#1F2A10; --cream:#F6EEE3; --bege:#EBD9C8; --caramel:#C2A381; --orange:#B3421A; --muted:#454E30;
+  --pad:clamp(20px,5vw,72px);
+  --disp:'Bricolage Grotesque','Arial Narrow',Arial,sans-serif;
+  --body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+  /* objeto-herói: tamanho e poses (celular) */
+  --w:min(70vw,40svh);
+  --x0:12vw; --y0:calc(27svh - .27*min(70vw,40svh)); --r0:180deg; --s0:1;
+  --x1:24vw; --y1:30svh; --r1:-10deg; --s1:.7;
+  --x2:0vw;  --y2:-24svh; --r2:0deg;  --s2:.72;
+  --x3:0vw;  --y3:4svh;   --r3:4deg;  --s3:.55;
+  --x4:10vw; --y4:12svh;  --r4:-14deg;--s4:1.05;
+  --x5:30vw; --y5:-36svh; --r5:12deg; --s5:.38;
+  --x6:30vw; --y6:-130svh;--r6:40deg; --s6:.3;
+}
+@media (min-width:900px){
+  :root{
+    --w:min(40vw,72svh);
+    --x0:24vw; --y0:calc(27svh - .27*min(40vw,72svh)); --r0:180deg; --s0:1;
+    --x1:28vw; --y1:-2svh; --r1:-8deg; --s1:1;
+    --x2:26vw; --y2:0svh;  --r2:0deg;  --s2:1.02;
+    --x3:18vw; --y3:2svh;  --r3:5deg;  --s3:.6;
+    --x4:27vw; --y4:4svh;  --r4:-14deg;--s4:1.2;
+    --x5:33vw; --y5:-6svh; --r5:10deg; --s5:.62;
+    --x6:33vw; --y6:-120svh;--r6:35deg;--s6:.5;
+  }
+}
+
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 1.0625rem/1.55 var(--body);color:var(--olive);background:var(--cream);overflow-x:clip}
+img,svg{display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:800}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--cream)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.stage{position:relative;overflow-x:clip}
+.stage>section{position:relative;background:var(--bg)}
+.dark{color:var(--cream)}
+.plate{position:relative;z-index:4;background:var(--bg)}
+.giant{position:relative;z-index:1}
+
+/* divisória ondulada */
+.wv::before{content:"";position:absolute;left:0;right:0;top:-23px;height:24px;background:var(--bg);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24'%3E%3Cpath d='M0 12C20 0 40 0 60 12S100 24 120 12V24H0Z'/%3E%3C/svg%3E") repeat-x 0 0/120px 24px;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24'%3E%3Cpath d='M0 12C20 0 40 0 60 12S100 24 120 12V24H0Z'/%3E%3C/svg%3E") repeat-x 0 0/120px 24px}
+
+/* ========== OBJETO-HERÓI ========== */
+@property --p1{syntax:'<number>';inherits:true;initial-value:0}
+@property --p2{syntax:'<number>';inherits:true;initial-value:0}
+@property --p3{syntax:'<number>';inherits:true;initial-value:0}
+@property --p4{syntax:'<number>';inherits:true;initial-value:0}
+@property --p5{syntax:'<number>';inherits:true;initial-value:0}
+@property --p6{syntax:'<number>';inherits:true;initial-value:0}
+@property --arc{syntax:'<number>';inherits:true;initial-value:0}
+
+.obj{--p1:0;--p2:0;--p3:0;--p4:0;--p5:0;--p6:0;--arc:0;
+  position:absolute;top:0;left:0;right:0;height:100svh;z-index:3;pointer-events:none}
+.art{position:absolute;left:50%;top:50%;width:var(--w);height:var(--w);margin:calc(var(--w) / -2) 0 0 calc(var(--w) / -2);
+  --tx:calc(var(--x0) + var(--p1)*(var(--x1) - var(--x0)) + var(--p2)*(var(--x2) - var(--x1)) + var(--p3)*(var(--x3) - var(--x2)) + var(--p4)*(var(--x4) - var(--x3)) + var(--p5)*(var(--x5) - var(--x4)) + var(--p6)*(var(--x6) - var(--x5)));
+  --ty:calc(var(--y0) + var(--p1)*(var(--y1) - var(--y0)) + var(--p2)*(var(--y2) - var(--y1)) + var(--p3)*(var(--y3) - var(--y2)) + var(--p4)*(var(--y4) - var(--y3)) + var(--p5)*(var(--y5) - var(--y4)) + var(--p6)*(var(--y6) - var(--y5)) - var(--arc)*16svh);
+  --rot:calc(var(--r0) + var(--p1)*(var(--r1) - var(--r0)) + var(--p2)*(var(--r2) - var(--r1)) + var(--p3)*(var(--r3) - var(--r2)) + var(--p4)*(var(--r4) - var(--r3)) + var(--p5)*(var(--r5) - var(--r4)) + var(--p6)*(var(--r6) - var(--r5)));
+  --sc:calc(var(--s0) + var(--p1)*(var(--s1) - var(--s0)) + var(--p2)*(var(--s2) - var(--s1)) + var(--p3)*(var(--s3) - var(--s2)) + var(--p4)*(var(--s4) - var(--s3)) + var(--p5)*(var(--s5) - var(--s4)) + var(--p6)*(var(--s6) - var(--s5)));
+  translate:var(--tx) var(--ty);rotate:var(--rot);scale:var(--sc)}
+.flip{width:100%;height:100%;transform:perspective(1100px) rotateY(calc(var(--p1)*360deg))}
+.sway{width:100%;height:100%}
+.art svg{width:100%;height:100%;overflow:visible}
+.bits{opacity:var(--p1)}
+.g-shadow{opacity:calc(1 - var(--p2) + var(--p3))}
+.g-ging{opacity:calc(1 - var(--p2) + var(--p3) - var(--p4) + var(--p5))}
+.g-solid{opacity:calc(var(--p4) - var(--p5))}
+.g-tech{opacity:calc(var(--p2) - var(--p3))}
+.g-water{opacity:calc(1 - var(--p1))}
+.prog{stroke-dasharray:1 1;stroke-dashoffset:0}
+.leg{display:none}
+@media (min-width:900px){.leg{display:inline}}
+
+/* ========== HERO ========== */
+.hero{--bg:var(--bege);min-height:100svh;display:flex;flex-direction:column;padding:0 var(--pad) calc(24svh + 15svh)}
+.hero-top{order:1;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:18px 0 8px}
+.mark{font:600 .76rem/1.3 var(--body);letter-spacing:.3em;text-transform:uppercase}
+.status{display:flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;line-height:1.25;text-align:right}
+.status[hidden]{display:none}
+.dot{flex:none;width:.7rem;height:.7rem;border-radius:50%;background:var(--orange)}
+.status.open .dot{background:#2F6B1F}
+.hero h1{order:3;margin-top:auto;font-size:34vw;line-height:.84;letter-spacing:-.045em;text-transform:uppercase;
+  font-weight:800;clip-path:inset(0 -50vw 0 -50vw);padding-top:.03em;margin-left:-.03em}
+.hero h1 .gl span{display:inline-block}
+.hero-intro{order:2;margin-top:22px;max-width:27rem}
+.hero-intro p{font-size:1.19rem;line-height:1.4;font-weight:500}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+@media (min-width:900px){
+  .hero{padding-bottom:calc(24svh + 4svh)}
+  .hero h1{order:2;margin-top:2svh;font-size:min(34vw,58svh)}
+  .hero-intro{order:3;margin-top:auto;max-width:30rem}
+  .hero-intro p{font-size:1.35rem}
+}
+
+/* botão com bolhas */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:1 1 auto;min-height:54px;padding:0 1.4rem;
+  font:700 1rem/1.1 var(--body);text-decoration:none;color:var(--cream);background:var(--olive);border:2px solid var(--olive);
+  border-radius:4px 20px 4px 20px;transition:background .2s,color .2s}
+.btn.alt{background:transparent;color:var(--olive)}
+.btn:hover{background:var(--orange);border-color:var(--orange);color:var(--cream)}
+.btn.alt:hover{background:var(--olive);border-color:var(--olive)}
+.bub{position:absolute;bottom:60%;width:12px;height:12px;border-radius:50%;opacity:0;pointer-events:none;
+  border:1.5px solid currentColor;background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.9) 0 16%,rgba(255,255,255,0) 18%)}
+.bub:nth-of-type(1){left:18%}.bub:nth-of-type(2){left:48%;width:9px;height:9px}.bub:nth-of-type(3){left:78%;width:14px;height:14px}
+@keyframes bubble{0%{opacity:0;transform:translateY(0) scale(.6)}25%{opacity:1}85%{opacity:1;transform:translateY(-44px) scale(1)}100%{opacity:0;transform:translateY(-52px) scale(1.7)}}
+@media (prefers-reduced-motion:no-preference){
+  .btn:hover .bub,.btn:focus-visible .bub{animation:bubble .95s ease-out both}
+  .btn:hover .bub:nth-of-type(2),.btn:focus-visible .bub:nth-of-type(2){animation-delay:.18s}
+  .btn:hover .bub:nth-of-type(3),.btn:focus-visible .bub:nth-of-type(3){animation-delay:.34s}
+}
+
+/* água */
+.water{--bg:var(--olive);position:absolute;left:0;right:0;bottom:0;min-height:24svh;background:var(--olive);color:var(--cream);
+  display:flex;align-items:center;padding:38px var(--pad) 20px}
+.facts-w{display:grid;grid-template-columns:auto 1fr;gap:18px 28px;width:100%;align-items:start}
+.fact b{display:block;font:800 clamp(1.7rem,3vw,2.6rem)/1 var(--disp);letter-spacing:-.03em;margin-bottom:.3rem}
+.fact span{display:block;font-size:.97rem;line-height:1.35;max-width:20rem}
+.fact.adr{display:none}
+@media (min-width:900px){
+  .facts-w{grid-template-columns:repeat(3,auto);justify-content:space-between}
+  .fact.adr{display:block}
+}
+
+/* ========== CONFIANÇA ========== */
+.state{--bg:var(--olive);min-height:100svh;padding:clamp(72px,14svh,160px) var(--pad) clamp(72px,12svh,140px)}
+.state h2{font-size:clamp(3.4rem,16vw,12rem);line-height:.88;letter-spacing:-.04em;margin-bottom:8svh}
+.state h2 span{display:block}
+.state h2 .l{font-weight:200}
+.state-body{max-width:31rem;padding:1rem 1rem 1rem 0}
+.lead{font:600 clamp(1.3rem,2.2vw,1.7rem)/1.3 var(--disp);letter-spacing:-.01em;margin-bottom:1rem}
+.lines{list-style:none;padding:0;margin-top:7svh;max-width:27rem}
+.lines li{padding:.75rem 1rem .75rem 0;border-top:1px solid rgba(246,238,227,.35)}
+.lines li:last-child{border-bottom:1px solid rgba(246,238,227,.35)}
+@media (min-width:900px){
+  .state h2{font-size:clamp(4rem,10.5vw,12rem)}
+  .lines{margin-left:clamp(0px,10vw,180px)}
+}
+
+/* ========== PROTOCOLO ========== */
+.proto{--bg:var(--cream);padding:clamp(80px,14svh,160px) var(--pad) 12svh}
+.proto h2{font-size:clamp(2.8rem,13vw,8.5rem);line-height:.88;letter-spacing:-.04em;font-weight:200}
+.proto h2 b{display:block;font-weight:800}
+.proto-head p{max-width:27rem;margin-top:1.4rem;padding-right:1rem}
+.steps{list-style:none;padding:0;margin:8svh 0 0}
+.step{min-height:46svh;display:flex;align-items:center}
+.step .plate{width:100%;max-width:30rem;padding:1.3rem 1rem 1.3rem 0;border-top:1.5px solid var(--olive)}
+.n{display:block;font:800 clamp(4rem,9vw,7rem)/1 var(--disp);color:var(--orange);margin-bottom:.6rem}
+.step h3{font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:.6rem}
+.incl{max-width:44rem;margin-top:6svh;padding:1rem 1rem 1rem 0}
+.incl h3{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;margin-bottom:1rem}
+.chk{list-style:none;padding:0;display:grid;gap:0 2.5rem}
+.chk li{display:grid;grid-template-columns:26px 1fr;gap:.8rem;align-items:start;padding:.6rem 0;border-top:1px solid rgba(31,42,16,.2)}
+.ck{width:24px;height:24px;margin-top:.1rem;color:var(--orange)}
+@media (min-width:700px){.chk{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.proto-head{max-width:44rem}}
+
+/* ========== PALAVRA QUE TROCA ========== */
+.swap{--bg:var(--caramel);padding:clamp(80px,12svh,140px) 0 12svh}
+.swap-h{max-width:34rem;margin-left:var(--pad);padding:1rem 1rem 1rem 0}
+.swap-h h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1;letter-spacing:-.03em;margin-bottom:.6rem}
+.words{list-style:none;padding:0;margin:8svh 0 0}
+.words li{min-height:30svh;padding:5svh var(--pad);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:0;border-top:1px solid rgba(31,42,16,.4)}
+.words li:last-child{border-bottom:1px solid rgba(31,42,16,.4)}
+.words .w{position:relative;z-index:1;display:block;max-width:100%;padding-bottom:.06em;font:800 clamp(2.7rem,12vw,11rem)/.92 var(--disp);letter-spacing:-.04em;text-wrap:balance}
+.cap{position:relative;z-index:4;max-width:24rem;margin-top:1.5rem;padding:.7rem 1rem .7rem 0;font-weight:500;background:var(--bg)}
+@media (min-width:900px){.words li{min-height:36svh}.words .w{font-size:clamp(4rem,11vw,11rem)}}
+
+/* ========== MANCHETE ========== */
+.bloc{--bg:var(--orange);color:var(--cream);min-height:100svh;display:flex;align-items:center;padding:14svh var(--pad)}
+.bloc h2{position:relative;z-index:1;font-size:13vw;line-height:.92;letter-spacing:-.03em;text-transform:uppercase}
+.bloc h2 span{display:block}
+@media (min-width:900px){.bloc h2{font-size:9.5vw}}
+
+/* ========== CLUBE ========== */
+.clube{--bg:var(--cream);padding:clamp(80px,14svh,160px) var(--pad) 12svh}
+.clube h2{font-size:clamp(3.6rem,17vw,12rem);line-height:.85;letter-spacing:-.045em}
+.clube h2 span{display:block}
+.clube .lt{font-weight:200}
+.clube-s{max-width:28rem;margin-top:1.4rem;padding:.5rem 1rem .5rem 0;font:600 clamp(1.2rem,2vw,1.5rem)/1.3 var(--disp);letter-spacing:-.01em}
+.col{max-width:100%}
+@media (min-width:900px){.col{max-width:60vw}}
+.plans{margin-top:7svh;padding-right:1rem}
+.plan{padding:1.5rem 0 1.8rem;border-top:1.5px solid var(--olive)}
+.plan:last-child{border-bottom:1.5px solid var(--olive)}
+.plan h3{font:600 .9rem/1.2 var(--body);letter-spacing:.2em;text-transform:uppercase}
+.price{font:800 clamp(3.2rem,10vw,7rem)/1 var(--disp);letter-spacing:-.045em;margin:.4rem 0 .8rem}
+.price small{font:500 .26em/1 var(--body);letter-spacing:0;margin-left:.2em}
+.plan p:last-child{max-width:30rem}
+.note{margin-top:1.2rem;padding:.4rem 1rem .4rem 0;max-width:30rem}
+.why{margin-top:9svh;padding:1rem 1rem 1rem 0}
+.why h3{font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.05;letter-spacing:-.025em;margin-bottom:1.2rem;max-width:22rem}
+.why>p{margin-top:1.4rem;font:600 1.15rem/1.35 var(--disp);max-width:26rem}
+.faq{margin-top:9svh;padding:1rem 1rem 1rem 0}
+.faq h3{font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.025em;margin-bottom:1rem}
+.faq dl{margin:0}
+.qa{padding:1.1rem 0 1.3rem;border-top:1px solid rgba(31,42,16,.35)}
+.qa:last-child{border-bottom:1px solid rgba(31,42,16,.35)}
+.qa dt{font:600 1.18rem/1.25 var(--disp);margin-bottom:.5rem}
+.qa dd{margin:0;max-width:34rem}
+
+/* ========== ONDE ========== */
+.where{--bg:var(--bege);padding:clamp(80px,14svh,150px) var(--pad) 12svh}
+.where-grid{display:grid;gap:56px;position:relative;z-index:4}
+.addr{font-size:clamp(3rem,14vw,9rem);line-height:.88;letter-spacing:-.045em;margin-bottom:1.4rem}
+.addr span{display:block}
+.ul{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.28em;text-decoration-color:var(--orange);font-weight:600;transition:text-decoration-thickness .15s}
+.ul:hover{text-decoration-thickness:5px}
+.where p.a{max-width:26rem}
+.where .go{margin:1rem 0 2.4rem}
+.hours{border-collapse:collapse;width:100%;max-width:30rem}
+.hours th,.hours td{padding:.85rem 0;border-top:1px solid rgba(31,42,16,.35);text-align:left;vertical-align:top;font-weight:500}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:1px solid rgba(31,42,16,.35)}
+.hours td{text-align:right;font-variant-numeric:tabular-nums}
+.hours th{font-weight:700}
+.hours tr.hoje th::after{content:"hoje";margin-left:.6rem;padding:.15rem .45rem;background:var(--olive);color:var(--cream);font:700 .7rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;vertical-align:.15em}
+.map{position:relative;margin:0 10px 10px 0;aspect-ratio:4/5;border:2px solid var(--olive);border-radius:0 0 0 clamp(60px,14vw,170px);box-shadow:10px 10px 0 var(--olive);overflow:hidden;background:var(--cream)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.35) saturate(.75) contrast(1.02)}
+@media (min-width:900px){
+  .where-grid{grid-template-columns:5fr 6fr;gap:6vw;align-items:end}
+  .map{aspect-ratio:1/1}
+}
+
+/* ========== AGENDAR ========== */
+.agenda{--bg:var(--cream);padding:clamp(80px,13svh,140px) var(--pad) 12svh}
+.agenda h2{font-size:clamp(3rem,13vw,9rem);line-height:.88;letter-spacing:-.045em;font-weight:200}
+.agenda h2 b{font-weight:800}
+.agenda>p{max-width:28rem;margin:1.4rem 0 2.6rem}
+.agenda [data-agendar]{min-height:12rem;max-width:56rem}
+
+/* ========== FECHO ========== */
+.close{--bg:var(--olive);color:var(--cream);padding:clamp(80px,14svh,160px) var(--pad) 36px}
+.close h2{font-size:clamp(2.8rem,12vw,9rem);line-height:.9;letter-spacing:-.04em;max-width:12ch;text-wrap:balance}
+.close h2 span{font-weight:200}
+.acts{list-style:none;padding:0;margin:9svh 0 0;border-bottom:1px solid rgba(246,238,227,.4)}
+.acts a{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:72px;padding:.8rem 0;border-top:1px solid rgba(246,238,227,.4);
+  text-decoration:none;font:600 clamp(1.35rem,4.2vw,3rem)/1.1 var(--disp);letter-spacing:-.02em;transition:padding .3s,background .3s,color .3s}
+.acts a:hover,.acts a:focus-visible{background:var(--cream);color:var(--olive);padding-inline:1rem}
+.acts svg{flex:none;width:1.5em;height:.75em;transition:transform .3s}
+.acts a:hover svg,.acts a:focus-visible svg{transform:translateX(8px)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;margin-top:10svh;font-size:.8rem;line-height:1.5;letter-spacing:.28em;text-transform:uppercase;opacity:.9}
+.foot span:last-child{letter-spacing:.06em;text-transform:none;font-size:.9rem}
+
+/* ========== MOVIMENTO ========== */
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes sway{from{transform:translateX(-2.2vw) rotate(-1.4deg)}to{transform:translateX(2.2vw) rotate(1.4deg)}}
+@keyframes k1{to{--p1:1}}
+@keyframes ka{0%{--arc:0}50%{--arc:1}100%{--arc:0}}
+@keyframes k2{to{--p2:1}}
+@keyframes k3{to{--p3:1}}
+@keyframes k4{to{--p4:1}}
+@keyframes k5{to{--p5:1}}
+@keyframes k6{to{--p6:1}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes rv{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(-20% -5% -20% -5%)}}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .gl span{animation:rise 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*90ms + 120ms)}
+  .sway{animation:sway 14s ease-in-out infinite alternate}
+}
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()) and (timeline-scope:--a){
+    .stage{timeline-scope:--t1,--t2,--t3,--t4,--t5,--t6}
+    .state{view-timeline:--t1 block}
+    .proto{view-timeline:--t2 block}
+    .swap{view-timeline:--t3 block}
+    .bloc{view-timeline:--t4 block}
+    .clube{view-timeline:--t5 block}
+    .where{view-timeline:--t6 block}
+    .obj{position:sticky;margin-bottom:-100svh;
+      animation:k1 linear both,ka linear both,k2 linear both,k3 linear both,k4 linear both,k5 linear both,k6 linear both;
+      animation-timeline:--t1,--t1,--t2,--t3,--t4,--t5,--t6;
+      animation-range:entry 0% entry 100%}
+    .prog{animation:draw linear both;animation-timeline:--t2;animation-range:entry 55% exit 45%}
+    .rv{animation:rv linear forwards;animation-timeline:view();animation-range:entry 0% entry 60%}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<style id="ajuste-celular">@media (max-width:899px){.obj{position:absolute!important;animation:none!important;margin-bottom:0!important}}</style>
+</head>
+<body><div id="faixa-demo" style="position:sticky;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a> para Aura Pet Estética Animal. Ainda não é o site oficial.</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ck" viewBox="0 0 24 24"><path d="M4.5 6.2C8 5.6 14 5.8 18 5.4 18.6 9 18.3 14 18.6 18.4 14 18.9 9 18.7 5.2 18.5 4.8 14.5 5 10 4.5 6.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 12.2L11 15.6 20 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ar" viewBox="0 0 32 16"><path d="M0 8H29M22 1.5L30 8 22 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<main class="stage">
+
+  <!-- objeto-herói: bandana xadrez (barbatana, bandana, desenho técnico) -->
+  <div class="obj" aria-hidden="true">
+    <div class="art"><div class="flip"><div class="sway">
+      <svg viewBox="0 0 400 400" focusable="false">
+        <defs>
+          <path id="sil" d="M28 84Q200 112 372 84Q330 250 200 372Q70 250 28 84Z"/>
+          <path id="ears" d="M30 86Q4 78 8 50Q40 52 64 90ZM370 86Q396 78 392 50Q360 52 336 90Z"/>
+          <path id="knot" d="M168 92Q172 66 200 64Q228 66 232 92Q236 118 200 126Q164 118 168 92Z"/>
+          <path id="st" d="M52 106Q88 250 200 334Q312 250 348 106Q200 132 52 106Z"/>
+          <pattern id="gz" width="36" height="36" patternUnits="userSpaceOnUse">
+            <rect width="36" height="36" fill="#F2E3CF"/>
+            <rect width="18" height="36" fill="#C8541E" fill-opacity=".62"/>
+            <rect width="36" height="18" fill="#C8541E" fill-opacity=".62"/>
+          </pattern>
+        </defs>
+
+        <g class="g-shadow"><use href="#sil" x="10" y="12" fill="#1F2A10" fill-opacity=".16"/></g>
+
+        <g class="g-ging" stroke="#1F2A10" stroke-width="3" stroke-linejoin="round">
+          <g class="bits"><use href="#ears" fill="url(#gz)"/></g>
+          <use href="#sil" fill="url(#gz)"/>
+          <path d="M28 84Q114 98 200 98L200 372Q70 250 28 84Z" fill="#1F2A10" fill-opacity=".08" stroke="none"/>
+          <use href="#st" fill="none" stroke-opacity=".6" stroke-width="2.4" stroke-dasharray="7 6" stroke-linecap="round"/>
+          <g class="bits"><use href="#knot" fill="url(#gz)"/><path d="M184 98Q200 112 216 98M200 112V124" fill="none" stroke-width="2.4" stroke-linecap="round"/></g>
+        </g>
+
+        <g class="g-solid" stroke="#1F2A10" stroke-width="3" stroke-linejoin="round">
+          <use href="#ears" fill="#F6EEE3"/>
+          <use href="#sil" fill="#F6EEE3"/>
+          <use href="#st" fill="none" stroke="#B3421A" stroke-width="3" stroke-dasharray="8 7" stroke-linecap="round"/>
+          <use href="#knot" fill="#F6EEE3"/>
+          <path d="M184 98Q200 112 216 98M200 112V124" fill="none" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+
+        <g class="g-tech" fill="none" stroke="#1F2A10" stroke-linejoin="round">
+          <use href="#ears" stroke-width="2"/>
+          <use href="#sil" stroke-width="2.6"/>
+          <use href="#knot" stroke-width="2"/>
+          <use href="#st" stroke-opacity=".4" stroke-width="2" stroke-dasharray="6 6"/>
+          <path d="M200 98V372" stroke-width="1.6" stroke-dasharray="2 8" stroke-opacity=".6"/>
+          <path d="M28 34H372M28 26V42M372 26V42" stroke-width="1.6"/>
+          <path class="prog" d="M52 106Q88 250 200 334Q312 250 348 106Q200 132 52 106Z" pathLength="1" stroke="#B3421A" stroke-width="5"/>
+          <g fill="#F6EEE3" stroke-width="2.4">
+            <circle cx="52" cy="106" r="14"/><circle cx="107" cy="235" r="14"/><circle cx="200" cy="334" r="14"/><circle cx="293" cy="235" r="14"/>
+          </g>
+          <g class="leg" font-family="Instrument Sans, sans-serif" font-size="16" font-weight="700" fill="#1F2A10" stroke="none" text-anchor="middle">
+            <text x="52" y="111.5">1</text><text x="107" y="240.5">2</text><text x="200" y="339.5">3</text><text x="293" y="240.5">4</text>
+            <text x="200" y="20" font-size="15" font-weight="600">100% algodão</text>
+          </g>
+        </g>
+
+        <g class="g-water">
+          <ellipse cx="200" cy="92" rx="215" ry="15" fill="#1F2A10"/>
+          <ellipse cx="200" cy="92" rx="228" ry="21" fill="none" stroke="#C2A381" stroke-opacity=".7" stroke-width="2.4"/>
+          <ellipse cx="200" cy="92" rx="262" ry="30" fill="none" stroke="#C2A381" stroke-opacity=".4" stroke-width="2"/>
+        </g>
+      </svg>
+    </div></div></div>
+  </div>
+
+  <!-- 1. ABERTURA -->
+  <section class="hero" id="topo">
+    <div class="hero-top plate">
+      <span class="mark">Aura Pet Estética Animal</span>
+      <div class="status" id="status" role="status" hidden><i class="dot" aria-hidden="true"></i><span></span></div>
+    </div>
+    <h1 class="giant"><span class="sr">Aura Pet Estética Animal</span><span class="gl" aria-hidden="true"><span style="--i:0">A</span><span style="--i:1">U</span><span style="--i:2">R</span><span style="--i:3">A</span></span></h1>
+    <div class="hero-intro plate">
+      <p>Banho, tosa e desembolo com protocolo próprio e hora marcada. Na SC-370, em Tubarão.</p>
+      <div class="btns">
+        <a class="btn" href="#agendar">Marcar horário<i class="bub" aria-hidden="true"></i><i class="bub" aria-hidden="true"></i><i class="bub" aria-hidden="true"></i></a>
+        <a class="btn alt" href="https://wa.me/5548996184033" target="_blank" rel="noopener">Chamar no WhatsApp<i class="bub" aria-hidden="true"></i><i class="bub" aria-hidden="true"></i><i class="bub" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="water wv dark">
+      <div class="facts-w">
+        <div class="fact"><b>5,0</b><span>no Google, em 5 avaliações</span></div>
+        <div class="fact"><b>Ter a sex</b><span>8h–12h e 13h30–19h. Sábado, 8h–14h.</span></div>
+        <div class="fact adr"><b>SC-370</b><span>4870, São Martinho, Tubarão</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CONFIANÇA -->
+  <section class="state dark" id="calma">
+    <h2 class="giant"><span class="rv">Confiança</span><span class="l rv">não se</span><span class="rv">apressa.</span></h2>
+    <div class="state-body plate">
+      <p class="lead">Na Aura Pet o banho vai além da estética: é higiene, conforto, prevenção e bem-estar.</p>
+      <p>Cada pet é recebido com calma, no tempo dele. Por isso atendemos só com horário marcado, num ambiente tranquilo.</p>
+    </div>
+    <ul class="lines plate">
+      <li>Atendimento com horário agendado</li>
+      <li>Respeitamos o tempo de cada pet</li>
+      <li>Produtos profissionais</li>
+      <li>Bandana 100% algodão para ir para casa</li>
+      <li>Táxi Pet, mediante consulta de endereço e distância</li>
+    </ul>
+  </section>
+
+  <!-- 3. PROTOCOLO -->
+  <section class="proto wv" id="protocolo">
+    <div class="proto-head">
+      <h2 class="giant">O protocolo <b>Aura</b></h2>
+      <p class="plate">Cada atendimento segue um protocolo exclusivo, em quatro etapas.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="plate"><span class="n">1</span><h3>Recepção acolhedora</h3><p>Cada pet é recebido com calma, respeitando seu tempo e suas necessidades.</p></div></li>
+      <li class="step"><div class="plate"><span class="n">2</span><h3>Avaliação</h3><p>Antes do banho, olhamos pele, pelagem, nós, sensibilidade e condições gerais.</p></div></li>
+      <li class="step"><div class="plate"><span class="n">3</span><h3>Banho personalizado</h3><p>Escolhemos os produtos mais adequados para cada pelagem. São produtos profissionais, com secagem cuidadosa no fim.</p></div></li>
+      <li class="step"><div class="plate"><span class="n">4</span><h3>Finalização</h3><p>Corte de unhas, quando necessário e quando o pet permitir um manejo seguro. Limpeza das orelhas, escovação, perfume suave e bandana 100% algodão.</p></div></li>
+    </ol>
+    <div class="incl plate">
+      <h3>Incluso em todo banho</h3>
+      <ul class="chk">
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Avaliação da pele e pelagem</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Produtos profissionais</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Banho completo</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Secagem cuidadosa</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Escovação</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Limpeza das orelhas</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Corte das unhas</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Higienização da região íntima</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Finalização</li>
+        <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Muito carinho durante todo o atendimento</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. PALAVRA QUE TROCA -->
+  <section class="swap wv" id="cuidados">
+    <div class="swap-h plate">
+      <h2>Além do banho</h2>
+      <p>Tratamentos para manter a saúde e a beleza da pelagem. Todos podem ser adicionados ao atendimento.</p>
+    </div>
+    <ol class="words">
+      <li><span class="w rv">Hidratação</span></li>
+      <li><span class="w rv">Nutrição</span></li>
+      <li><span class="w rv">Reconstrução</span></li>
+      <li><span class="w rv">Remoção de subpelo</span></li>
+      <li><span class="w rv">Banho terapêutico</span></li>
+      <li><span class="w rv">Tosa higiênica</span></li>
+      <li><span class="w rv">Tosa na tesoura ou máquina</span><p class="cap">Taxa de tosa: R$ 35,00. Serviço adicional.</p></li>
+      <li><span class="w rv">Desembolo</span><p class="cap">A partir de R$ 45,00, conforme a avaliação da pelagem.</p></li>
+      <li><span class="w rv">Táxi Pet</span><p class="cap">Disponível mediante consulta de endereço e distância do deslocamento.</p></li>
+    </ol>
+  </section>
+
+  <!-- 5. MANCHETE -->
+  <section class="bloc dark wv" id="manchete">
+    <h2><span class="rv">Nem todo</span><span class="rv">banho é só</span><span class="rv">um banho.</span></h2>
+  </section>
+
+  <!-- 6. CLUBE AURA -->
+  <section class="clube wv" id="clube">
+    <h2 class="giant"><span class="lt">Clube</span><span>Aura</span></h2>
+    <p class="clube-s plate">Planos de bem-estar. Cuidado contínuo para quem ama cuidar.</p>
+    <div class="col">
+      <div class="plans plate">
+        <article class="plan">
+          <h3>Plano quinzenal</h3>
+          <p class="price">R$ 150<small>/mês</small></p>
+          <p>2 banhos por mês com todo o cuidado do Protocolo Aura.</p>
+        </article>
+        <article class="plan">
+          <h3>Plano mensal</h3>
+          <p class="price">R$ 280<small>/mês</small></p>
+          <p>4 banhos por mês para manter seu pet sempre limpo, confortável e com a pelagem saudável.</p>
+        </article>
+      </div>
+      <p class="note plate">Tosa, desembolo e Táxi Pet entram como adicionais.</p>
+
+      <div class="why plate">
+        <h3>Por que manter uma rotina de banhos?</h3>
+        <ul class="chk">
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Manter a pele saudável</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Evitar nós e embaraços</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Reduzir odores</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Controlar excesso de oleosidade</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Diminuir o acúmulo de sujeira</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Melhorar a escovação diária</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Deixar o pet mais confortável</li>
+          <li><svg class="ck" aria-hidden="true"><use href="#ck"/></svg>Facilitar a identificação de alterações na pele e na pelagem</li>
+        </ul>
+        <p>Um cuidado frequente significa mais qualidade de vida para o seu melhor amigo.</p>
+      </div>
+
+      <div class="faq plate">
+        <h3>Perguntas frequentes</h3>
+        <dl>
+          <div class="qa">
+            <dt>Quando devo dar banho no meu pet?</dt>
+            <dd>A frequência varia conforme a raça, o tipo de pelagem e o estilo de vida. Para muitos cães de pequeno porte, os planos quinzenal ou mensal ajudam a manter a higiene e o conforto de forma contínua.</dd>
+          </div>
+          <div class="qa">
+            <dt>O banho inclui corte de unhas?</dt>
+            <dd>Sim, sempre que necessário e quando o pet permitir um manejo seguro.</dd>
+          </div>
+          <div class="qa">
+            <dt>Vocês oferecem transporte?</dt>
+            <dd>Sim. Consulte a disponibilidade do nosso Táxi Pet.</dd>
+          </div>
+          <div class="qa">
+            <dt>Posso incluir serviços extras?</dt>
+            <dd>Sim. Desembolo, tosa e outros cuidados podem ser adicionados ao atendimento.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ONDE FICA -->
+  <section class="where wv" id="onde">
+    <div class="where-grid">
+      <div>
+        <h2 class="addr"><span>SC-370,</span><span>4870</span></h2>
+        <p class="a">São Martinho, Tubarão/SC<br>CEP 88708-800</p>
+        <div class="go"><a class="ul" href="https://www.google.com/maps/dir/?api=1&amp;destination=SC-370%2C%204870%20-%20S%C3%A3o%20Martinho%2C%20Tubar%C3%A3o%20-%20SC%2C%2088708-800" target="_blank" rel="noopener">Traçar rota no Google Maps</a></div>
+        <table class="hours">
+          <caption class="sr">Horário de atendimento</caption>
+          <tbody>
+            <tr data-days="2,3,4,5"><th scope="row">Terça a sexta</th><td>08:00–12:00 e 13:30–19:00</td></tr>
+            <tr data-days="6"><th scope="row">Sábado</th><td>08:00–14:00</td></tr>
+            <tr data-days="0,1"><th scope="row">Segunda e domingo</th><td>Fechado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="map">
+        <iframe title="Mapa com a localização da Aura Pet Estética Animal" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=SC-370%2C%204870%20-%20S%C3%A3o%20Martinho%2C%20Tubar%C3%A3o%20-%20SC%2C%2088708-800&amp;output=embed"></iframe>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 8. AGENDAR -->
+  <section class="agenda wv" id="agendar">
+    <h2>Marque o <b>horário.</b></h2>
+    <p>Escolha o serviço, o dia e a hora. Atendimento só com horário marcado.</p>
+    <div data-agendar></div>
+  </section>
+
+  <!-- 9. FECHO -->
+  <section class="close dark wv" id="contato">
+    <h2>Será um prazer cuidar do seu <span>melhor amigo.</span></h2>
+    <ul class="acts">
+      <li><a href="#agendar">Marcar horário <svg aria-hidden="true"><use href="#ar"/></svg></a></li>
+      <li><a href="https://wa.me/5548996184033" target="_blank" rel="noopener">Chamar no WhatsApp <svg aria-hidden="true"><use href="#ar"/></svg></a></li>
+      <li><a href="tel:+5548996184033">Ligar (48) 99618-4033 <svg aria-hidden="true"><use href="#ar"/></svg></a></li>
+      <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=SC-370%2C%204870%20-%20S%C3%A3o%20Martinho%2C%20Tubar%C3%A3o%20-%20SC%2C%2088708-800" target="_blank" rel="noopener">Como chegar <svg aria-hidden="true"><use href="#ar"/></svg></a></li>
+      <li><a href="https://www.instagram.com/somosaurapet/" target="_blank" rel="noopener">Instagram @somosaurapet <svg aria-hidden="true"><use href="#ar"/></svg></a></li>
+    </ul>
+    <div class="foot">
+      <span>Aura Pet Estética Animal</span>
+      <span>SC-370, 4870 - São Martinho, Tubarão - SC, 88708-800</span>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script>
+(function(){
+  var S={0:[],1:[],2:[[480,720],[810,1140]],3:[[480,720],[810,1140]],4:[[480,720],[810,1140]],5:[[480,720],[810,1140]],6:[[480,840]]};
+  var N=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+  function f(m){var h=Math.floor(m/60),mm=m%60;return h+'h'+(mm?(mm<10?'0':'')+mm:'');}
+  var d,m;
+  try{
+    var o={};
+    new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'})
+      .formatToParts(new Date()).forEach(function(x){o[x.type]=x.value;});
+    d=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday);
+    m=(+o.hour%24)*60+(+o.minute);
+    if(d<0||isNaN(m))throw 0;
+  }catch(e){var n=new Date();d=n.getDay();m=n.getHours()*60+n.getMinutes();}
+
+  var msg='',open=false,sl=S[d],i,k,j;
+  for(i=0;i<sl.length;i++){if(m>=sl[i][0]&&m<sl[i][1]){open=true;msg='Aberto, fecha às '+f(sl[i][1]);break;}}
+  if(!open){
+    for(k=0;k<8&&!msg;k++){
+      var dd=(d+k)%7,s2=S[dd];
+      for(j=0;j<s2.length;j++){
+        if(k>0||s2[j][0]>m){
+          msg='Fechado, abre '+(k===0?'hoje':k===1?'amanhã':N[dd])+' às '+f(s2[j][0]);
+          break;
+        }
+      }
+    }
+  }
+  var st=document.getElementById('status');
+  if(st&&msg){st.querySelector('span').textContent=msg;if(open)st.className+=' open';st.hidden=false;}
+
+  var rows=document.querySelectorAll('[data-days]');
+  for(i=0;i<rows.length;i++){
+    if(rows[i].getAttribute('data-days').split(',').indexOf(String(d))>-1)rows[i].className+=' hoje';
+  }
+})();
+</script>
+<!--agendar:inicio--><style>.ag{--ag-fundo:transparent;--ag-texto:currentColor;--ag-destaque:currentColor;--ag-linha:rgba(127,127,127,.35);--ag-suave:rgba(127,127,127,.1);
+  color:var(--ag-texto);background:var(--ag-fundo);font:inherit;max-width:880px;margin:0 auto;text-align:left}
+.ag *{box-sizing:border-box}
+.ag button,.ag input,.ag a{font:inherit;color:inherit}
+.ag-passo{border-top:1px solid var(--ag-linha);padding:18px 0}
+
+.ag-passo:last-child{border-bottom:1px solid var(--ag-linha)}
+.ag-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:28px}
+.ag-n{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.08em;opacity:.6}
+.ag-n::before{content:"0"}
+.ag-tit{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ag-troca{margin-left:auto;background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.85;text-align:right}
+.ag-aberto>div:last-child{margin-top:14px}
+.ag-abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.ag-abas::-webkit-scrollbar{display:none}
+.ag-aba{flex:none;border:1px solid var(--ag-linha);background:none;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ag-aba[aria-selected=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-grade-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ag-serv{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--ag-linha);background:var(--ag-suave);border-radius:10px;padding:14px 16px;min-height:64px;cursor:pointer;transition:border-color .2s,transform .2s}
+.ag-serv:hover,.ag-serv:focus-visible{border-color:var(--ag-destaque);transform:translateY(-1px)}
+.ag-serv[aria-pressed=true]{border-color:var(--ag-destaque);box-shadow:inset 0 0 0 1px var(--ag-destaque)}
+.ag-serv-nome{font-weight:600;font-size:1rem;line-height:1.3}
+.ag-serv-info{font-size:.9rem;opacity:.75}
+.ag-dias{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin}
+.ag-dia{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;width:62px;min-height:60px;border:1px solid var(--ag-linha);background:none;border-radius:10px;padding:8px 0;cursor:pointer}
+.ag-dia-sem{font-size:.72rem;letter-spacing:.08em;opacity:.7}
+.ag-dia-num{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ag-dia:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.ag-dia[aria-pressed=true],.ag-hora[aria-pressed=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-periodo{margin:14px 0 8px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ag-periodo:first-child{margin-top:0}
+.ag-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.ag-hora{border:1px solid var(--ag-linha);background:none;border-radius:8px;min-height:44px;cursor:pointer;font-variant-numeric:tabular-nums}
+.ag-hora:hover,.ag-hora:focus-visible,.ag-dia:not(:disabled):hover{border-color:var(--ag-destaque)}
+.ag-vazio{opacity:.75;margin:0}
+.ag-fim{display:grid;gap:10px;max-width:520px}
+.ag-campo{width:100%;min-height:48px;border:1px solid var(--ag-linha);border-radius:8px;background:var(--ag-suave);padding:12px 14px;font-size:16px}
+.ag-campo:focus{outline:2px solid var(--ag-destaque);outline-offset:1px}
+.ag-previa{margin:4px 0;font-size:.95rem;line-height:1.5;opacity:.85}
+.ag-enviar{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)!important;text-decoration:none;font-weight:600}
+.ag-enviar:hover{filter:brightness(1.08)}
+.ag-nota{margin:12px 0 0;font-size:.78rem;opacity:.6;letter-spacing:.02em}
+.ag :focus-visible{outline:2px solid var(--ag-destaque);outline-offset:2px}
+@media (max-width:600px){.ag-grade-serv{grid-template-columns:1fr}.ag-horas{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.ag-serv{transition:none}}
+.ag .ag-passo:focus,.ag .ag-passo:focus-visible{outline:none}
+</style><script type="application/json" id="agenda-dados">{"servicos": [{"nome": "Banho completo (Protocolo Aura)", "categoria": "Banho", "duracao": 90, "exemplo": false}, {"nome": "Banho terapêutico", "categoria": "Banho", "duracao": 90, "exemplo": false}, {"nome": "Hidratação", "categoria": "Banho", "duracao": 30, "exemplo": false}, {"nome": "Tosa higiênica", "categoria": "Tosa e pelagem", "duracao": 30, "exemplo": false}, {"nome": "Tosa na tesoura ou máquina (taxa)", "categoria": "Tosa e pelagem", "duracao": 60, "preco": "R$ 35", "exemplo": false}, {"nome": "Desembolo", "categoria": "Tosa e pelagem", "duracao": 30, "preco": "a partir de R$ 45", "exemplo": false}], "equipe": [], "abre": {"dom": null, "seg": null, "ter": ["08:00", "12:00", "13:30", "19:00"], "qua": ["08:00", "12:00", "13:30", "19:00"], "qui": ["08:00", "12:00", "13:30", "19:00"], "sex": ["08:00", "12:00", "13:30", "19:00"], "sab": ["08:00", "14:00"]}, "cores": {"fundo": "#F6EEE3", "texto": "#1F2A10", "destaque": "#1F2A10", "botao": "#F6EEE3", "linha": "#D3C2AA", "suave": "#EBD9C8"}, "whatsapp": "5548996184033", "campo_extra": "Nome e porte do pet", "semente": "Aura Pet Estética Animal"}</script><script>/* Agendar — bloco de agendamento dos sites demonstrativos (Sull Produções).
+ * Fluxo inspirado no que funciona no Trinks: serviço → dia → horário (15 em 15 min, por período,
+ * só o que cabe a duração) → profissional → nome → WhatsApp da empresa com a mensagem pronta.
+ * Não grava nada em servidor: a demonstração simula os horários ocupados e avisa isso na tela.
+ * Dados: o bloco JSON de id agenda-dados no próprio site. Alvo: [data-agendar].
+ */
+(function () {
+  "use strict";
+  var DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  var NOME_DIA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"];
+  var DIA_LONGO = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var PADRAO = { dom: null, seg: ["09:00", "18:00"], ter: ["09:00", "18:00"], qua: ["09:00", "18:00"],
+                 qui: ["09:00", "18:00"], sex: ["09:00", "18:00"], sab: ["09:00", "13:00"] };
+
+  function min(hhmm) { var p = String(hhmm).split(":"); return (+p[0]) * 60 + (+p[1] || 0); }
+  function hhmm(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function chaveDia(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+
+  /* Hash estável: o mesmo dia e horário sempre aparecem ocupados (ou livres) para quem abre o site. */
+  function hash(txt) {
+    var h = 2166136261;
+    for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) / 4294967296;
+  }
+  function ocupado(semente, dia, inicio, taxa) { return hash(semente + "|" + chaveDia(dia) + "|" + inicio) < taxa; }
+
+  /* Faixas de funcionamento do dia: ["08:30","12:00","13:30","19:00"] vira [[510,720],[810,1140]]. */
+  function faixas(abre, dia) {
+    var f = abre ? abre[DIAS[dia.getDay()]] : null;
+    if (!f || !f.length) return [];
+    var r = [];
+    for (var i = 0; i + 1 < f.length; i += 2) r.push([min(f[i]), min(f[i + 1])]);
+    return r;
+  }
+
+  /* Horários livres de um dia para um serviço de `duracao` minutos.
+   * Só entra o horário em que o serviço termina dentro da faixa; hoje, só depois de agora + antecedência. */
+  function horarios(opc) {
+    var dia = opc.dia, agora = opc.agora || new Date(), passo = opc.intervalo || 15;
+    var antecedencia = opc.antecedencia == null ? 60 : opc.antecedencia;
+    var mesmoDia = chaveDia(dia) === chaveDia(agora);
+    var limite = mesmoDia ? agora.getHours() * 60 + agora.getMinutes() + antecedencia : -1;
+    var lista = [];
+    faixas(opc.abre, dia).forEach(function (fx) {
+      for (var t = fx[0]; t + opc.duracao <= fx[1]; t += passo) {
+        if (t < limite) continue;
+        if (ocupado(opc.semente || "", dia, t, opc.taxa == null ? 0.35 : opc.taxa)) continue;
+        lista.push(t);
+      }
+    });
+    return lista;
+  }
+
+  function periodo(t) { return t < 720 ? "Manhã" : t < 1080 ? "Tarde" : "Noite"; }
+
+  /* Profissionais livres naquele horário (simulado): cada um tem a própria agenda falsa. */
+  function livres(equipe, semente, dia, t) {
+    return equipe.filter(function (p) { return !ocupado(semente + "|" + p.nome, dia, t, 0.3); });
+  }
+
+  function mensagem(sel) {
+    var d = sel.dia, partes = ["Olá! Quero agendar " + sel.servico.nome,
+      (d.getDay() % 6 === 0 ? "no " : "na ") + DIA_LONGO[d.getDay()] + ", " + String(d.getDate()).padStart(2, "0") + "/" +
+      String(d.getMonth() + 1).padStart(2, "0") + ", às " + hhmm(sel.hora)];
+    if (sel.profissional) partes.push("com " + sel.profissional.nome);
+    var txt = partes.join(" ") + ".";
+    if (sel.extra) txt += " " + sel.extraRotulo + ": " + sel.extra + ".";
+    if (sel.nome) txt += " Meu nome é " + sel.nome + ".";
+    return txt;
+  }
+
+  function preco(s) {
+    if (s.preco == null || s.preco === "") return "a combinar";
+    if (typeof s.preco === "number") return s.preco === 0 ? "Grátis" : "R$ " + s.preco.toFixed(2).replace(".", ",");
+    return String(s.preco);
+  }
+  function duracaoTxt(m) { return m >= 60 ? Math.floor(m / 60) + "h" + (m % 60 ? " " + (m % 60) + "min" : "") : m + "min"; }
+
+  var API = { horarios: horarios, livres: livres, mensagem: mensagem, periodo: periodo, faixas: faixas,
+              preco: preco, duracaoTxt: duracaoTxt, hhmm: hhmm, PADRAO: PADRAO };
+  if (typeof module !== "undefined" && module.exports) { module.exports = API; return; }
+
+  /* ---------------------------------------------------------------- tela */
+  function el(tag, attrs, filhos) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (attrs[k] == null) return;
+      if (k === "texto") e.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    (filhos || []).forEach(function (f) { if (f) e.appendChild(f); });
+    return e;
+  }
+
+  function montar(alvo, dados) {
+    var servicos = (dados.servicos || []).filter(function (s) { return s && s.nome; }).map(function (s) {
+      return { nome: String(s.nome), categoria: s.categoria ? String(s.categoria) : "", preco: s.preco,
+               duracao: Math.max(15, Math.min(480, parseInt(s.duracao, 10) || 60)), exemplo: !!s.exemplo };
+    });
+    if (!servicos.length) return;
+    var equipe = (dados.equipe || []).filter(function (p) { return p && p.nome; });
+    var abreValido = dados.abre && DIAS.some(function (d) { return dados.abre[d] && dados.abre[d].length; });
+    var abre = abreValido ? dados.abre : PADRAO;
+    var semente = dados.semente || location.pathname;
+    var c = dados.cores || {};
+    ["fundo", "texto", "destaque", "linha", "suave"].forEach(function (k) {
+      if (c[k]) alvo.style.setProperty("--ag-" + k, c[k]);
+    });
+    if (c.botao) alvo.style.setProperty("--ag-fundo-botao", c.botao);
+    alvo.classList.add("ag");
+    var sel = { servico: null, dia: null, hora: null, profissional: null };
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var dias = [];
+    for (var i = 0; i < 30; i++) { var d = new Date(hoje); d.setDate(hoje.getDate() + i); dias.push(d); }
+    var categorias = servicos.reduce(function (a, s) { if (s.categoria && a.indexOf(s.categoria) < 0) a.push(s.categoria); return a; }, []);
+    var catAtual = categorias[0] || "";
+
+    function passo(n, titulo, corpo, resumo, aberto) {
+      var cab = el("div", { "class": "ag-cab" }, [el("span", { "class": "ag-n", texto: String(n) }),
+        el("span", { "class": "ag-tit", texto: titulo })]);
+      if (resumo && !aberto) {
+        cab.appendChild(el("button", { type: "button", "class": "ag-troca", texto: resumo + " · trocar",
+          onclick: function () { voltarPara(n); } }));
+      }
+      return el("div", { "class": "ag-passo" + (aberto ? " ag-aberto" : "") }, [cab, aberto ? corpo : null]);
+    }
+
+    function voltarPara(n) {
+      if (n <= 1) { sel.servico = null; }
+      if (n <= 2) { sel.dia = null; }
+      if (n <= 3) { sel.hora = null; }
+      if (n <= 4) { sel.profissional = null; sel.escolheuProf = false; }
+      desenhar(true);
+    }
+
+    function cartaoServico(s) {
+      return el("button", { type: "button", "class": "ag-serv", "aria-pressed": String(sel.servico === s),
+        onclick: function () { sel.servico = s; sel.dia = null; sel.hora = null; desenhar(true); } }, [
+        el("span", { "class": "ag-serv-nome", texto: s.nome }),
+        el("span", { "class": "ag-serv-info", texto: duracaoTxt(s.duracao) + " · " + preco(s) })]);
+    }
+
+    function blocoServicos() {
+      var corpo = el("div", {});
+      if (categorias.length > 1) {
+        var abas = el("div", { "class": "ag-abas", role: "tablist" });
+        categorias.forEach(function (cat) {
+          abas.appendChild(el("button", { type: "button", role: "tab", "class": "ag-aba", "aria-selected": String(cat === catAtual),
+            texto: cat, onclick: function () { catAtual = cat; desenhar(); } }));
+        });
+        corpo.appendChild(abas);
+      }
+      var grade = el("div", { "class": "ag-grade-serv" });
+      servicos.filter(function (s) { return categorias.length < 2 || s.categoria === catAtual; }).forEach(function (s) {
+        grade.appendChild(cartaoServico(s));
+      });
+      corpo.appendChild(grade);
+      if (servicos.some(function (s) { return s.exemplo; })) {
+        corpo.appendChild(el("p", { "class": "ag-nota", texto: "exemplo — ajustamos com as suas informações" }));
+      }
+      return corpo;
+    }
+
+    function blocoDias() {
+      var faixa = el("div", { "class": "ag-dias", role: "listbox", "aria-label": "Escolha o dia" });
+      dias.forEach(function (d) {
+        var fechado = !faixas(abre, d).length;
+        faixa.appendChild(el("button", { type: "button", "class": "ag-dia", "aria-pressed": String(sel.dia && +sel.dia === +d),
+          disabled: fechado ? "disabled" : null, "aria-label": DIA_LONGO[d.getDay()] + " " + d.getDate() + (fechado ? ", fechado" : ""),
+          onclick: function () { sel.dia = d; sel.hora = null; desenhar(true); } }, [
+          el("span", { "class": "ag-dia-sem", texto: NOME_DIA[d.getDay()] }),
+          el("span", { "class": "ag-dia-num", texto: String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") })]));
+      });
+      return faixa;
+    }
+
+    function blocoHoras() {
+      var corpo = el("div", {});
+      var lista = horarios({ abre: abre, dia: sel.dia, duracao: sel.servico.duracao, semente: semente + "|" + sel.servico.nome });
+      if (!lista.length) {
+        corpo.appendChild(el("p", { "class": "ag-vazio", texto: "Agenda cheia nesse dia. Que tal outra data?" }));
+        return corpo;
+      }
+      ["Manhã", "Tarde", "Noite"].forEach(function (p) {
+        var doPeriodo = lista.filter(function (t) { return periodo(t) === p; });
+        if (!doPeriodo.length) return;
+        var grade = el("div", { "class": "ag-horas" });
+        doPeriodo.forEach(function (t) {
+          grade.appendChild(el("button", { type: "button", "class": "ag-hora", "aria-pressed": String(sel.hora === t), texto: hhmm(t),
+            onclick: function () { sel.hora = t; sel.profissional = null; sel.escolheuProf = !equipe.length; desenhar(true); } }));
+        });
+        corpo.appendChild(el("p", { "class": "ag-periodo", texto: p }));
+        corpo.appendChild(grade);
+      });
+      return corpo;
+    }
+
+    function blocoEquipe() {
+      var grade = el("div", { "class": "ag-grade-serv" });
+      var quem = livres(equipe, semente, sel.dia, sel.hora);
+      if (!quem.length) quem = equipe.slice(0, 1);
+      [{ nome: "Sem preferência", funcao: "quem estiver livre" }].concat(quem).forEach(function (p) {
+        grade.appendChild(el("button", { type: "button", "class": "ag-serv", onclick: function () {
+          sel.profissional = p.nome === "Sem preferência" ? null : p; sel.escolheuProf = true; desenhar(true); } }, [
+          el("span", { "class": "ag-serv-nome", texto: p.nome }),
+          el("span", { "class": "ag-serv-info", texto: p.funcao || "" })]));
+      });
+      return grade;
+    }
+
+    function blocoFim() {
+      var corpo = el("div", { "class": "ag-fim" });
+      var nome = el("input", { type: "text", "class": "ag-campo", autocomplete: "given-name", placeholder: "Seu nome", "aria-label": "Seu nome" });
+      var extra = dados.campo_extra ? el("input", { type: "text", "class": "ag-campo", placeholder: String(dados.campo_extra), "aria-label": String(dados.campo_extra) }) : null;
+      var tel = String(dados.whatsapp || "").replace(/\D/g, "");
+      var botao = el("a", { "class": "ag-enviar", target: "_blank", rel: "noopener", href: "#",
+        texto: tel ? "Enviar pedido pelo WhatsApp" : (dados.telefone ? "Ligar para agendar" : "Pedir agendamento") });
+      function atualizar() {
+        var txt = mensagem({ servico: sel.servico, dia: sel.dia, hora: sel.hora, profissional: sel.profissional,
+          nome: nome.value.trim(), extra: extra ? extra.value.trim() : "", extraRotulo: dados.campo_extra });
+        previa.textContent = "“" + txt + "”";
+        botao.href = tel ? "https://wa.me/" + tel + "?text=" + encodeURIComponent(txt)
+                         : (dados.telefone ? "tel:" + String(dados.telefone).replace(/[^\d+]/g, "") : "#contato");
+      }
+      var previa = el("p", { "class": "ag-previa" });
+      nome.addEventListener("input", atualizar);
+      if (extra) extra.addEventListener("input", atualizar);
+      corpo.appendChild(nome); if (extra) corpo.appendChild(extra);
+      corpo.appendChild(previa); corpo.appendChild(botao);
+      corpo.appendChild(el("p", { "class": "ag-nota", texto: "Demonstração: os horários ocupados são simulados. A confirmação chega pelo WhatsApp." }));
+      atualizar();
+      return corpo;
+    }
+
+    function desenhar(rolar) {
+      alvo.innerHTML = "";
+      var etapa = !sel.servico ? 1 : !sel.dia ? 2 : sel.hora == null ? 3 : !sel.escolheuProf ? 4 : 5;
+      var dataTxt = sel.dia ? NOME_DIA[sel.dia.getDay()] + " " + String(sel.dia.getDate()).padStart(2, "0") + "/" + String(sel.dia.getMonth() + 1).padStart(2, "0") : "";
+      alvo.appendChild(passo(1, "Serviço", etapa === 1 ? blocoServicos() : null, sel.servico && sel.servico.nome, etapa === 1));
+      if (etapa >= 2) alvo.appendChild(passo(2, "Dia", etapa === 2 ? blocoDias() : null, dataTxt, etapa === 2));
+      if (etapa >= 3) alvo.appendChild(passo(3, "Horário", etapa === 3 ? blocoHoras() : null, sel.hora != null ? hhmm(sel.hora) : "", etapa === 3));
+      var n = 4;
+      if (equipe.length && etapa >= 4) { alvo.appendChild(passo(4, "Profissional", etapa === 4 ? blocoEquipe() : null, sel.profissional ? sel.profissional.nome : "Sem preferência", etapa === 4)); n = 5; }
+      if (etapa === 5) alvo.appendChild(passo(n, "Confirmar", blocoFim(), "", true));
+      if (rolar) {
+        var aberto = alvo.querySelector(".ag-aberto");
+        var r = aberto && aberto.getBoundingClientRect();
+        if (r && (r.top < 60 || r.top > innerHeight * 0.6)) aberto.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (aberto) { aberto.setAttribute("tabindex", "-1"); aberto.focus({ preventScroll: true }); }
+      }
+    }
+    desenhar(false);
+  }
+
+  function iniciar() {
+    var fonte = document.getElementById("agenda-dados"), alvo = document.querySelector("[data-agendar]");
+    if (!fonte || !alvo) return;
+    try { montar(alvo, JSON.parse(fonte.textContent)); } catch (e) { /* dado quebrado: o site segue sem o bloco */ }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script><!--agendar:fim--></body>
+</html>
