@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Churrascaria Espetão Presidente · Tubarão/SC</title>
+<meta name="description" content="Churrascaria Espetão Presidente, na Vila Esperança, em Tubarão/SC. Almoço todos os dias a partir das 11h. R. Januário Corrêa Bittencourt, 10.">
+<meta name="theme-color" content="#3E270F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF5E5;
+  --ink:#201B19;
+  --orange:#D6681D;
+  --cafe:#3E270F;
+  --cream:#FFF1DD;
+  --sand:#BCAF87;
+  --pad:clamp(18px,4vw,56px);
+  --display:"Caprasimo",Georgia,serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--cafe);-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--mono);font-size:16px;line-height:1.6;font-weight:400;
+  color:var(--ink);font-variant-numeric:tabular-nums;overflow-x:hidden;
+}
+h1,h2,h3,p,ul,address{margin:0;padding:0}
+ul{list-style:none}
+address{font-style:normal}
+a{color:inherit}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--cream);padding:10px 14px;z-index:20}
+.skip:focus{top:12px}
+
+/* ---------- tiras de comanda ---------- */
+.tira{position:relative;background-color:var(--bg)}
+.paper{--bg:var(--paper);color:var(--ink);
+  background-image:radial-gradient(rgba(62,39,15,.07) .7px,transparent .9px);background-size:7px 7px}
+.cafe{--bg:var(--cafe);color:var(--cream);
+  background-image:radial-gradient(rgba(255,241,221,.06) .7px,transparent .9px);background-size:7px 7px}
+.tira:not(.ultima)::after{
+  content:"";position:absolute;left:0;right:0;top:100%;height:10px;background:var(--bg);z-index:3;
+  -webkit-mask:radial-gradient(circle at 50% 0,#000 8.5px,transparent 9px) 0 0/16px 10px repeat-x;
+          mask:radial-gradient(circle at 50% 0,#000 8.5px,transparent 9px) 0 0/16px 10px repeat-x;
+}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:16px;padding-inline:var(--pad)}
+.grid>*{grid-column:1/-1}
+.rot{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;line-height:1.5}
+.cafe .rot{color:var(--sand)}
+
+/* ---------- divisória pontilhada com a nadadeira ---------- */
+.linha{position:relative;height:46px;overflow:hidden;margin-top:clamp(56px,9vw,130px);margin-bottom:26px}
+.linha::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:4px;opacity:.6;
+  background:radial-gradient(circle,currentColor 1.4px,transparent 1.9px) 0 50%/11px 4px repeat-x;
+}
+.nada{position:absolute;left:0;bottom:1px;width:46px;height:34px;animation:nada 14s linear infinite;will-change:transform}
+.nada i{position:absolute;inset:0;background:var(--orange);
+  clip-path:path("M0 34 C10 30 14 14 16 0 C34 4 44 20 46 34 Z")}
+.nada::before{
+  content:"";position:absolute;right:100%;bottom:-2px;width:min(46vw,190px);height:6px;margin-right:-6px;
+  background:radial-gradient(circle,var(--orange) 1.7px,transparent 2.2px) 0 50%/12px 6px repeat-x;
+  -webkit-mask:linear-gradient(to right,transparent,#000);mask:linear-gradient(to right,transparent,#000);
+}
+.d2 .nada{animation-delay:-5s}
+.d3 .nada{animation-delay:-9s}
+@keyframes nada{from{transform:translateX(-60px)}to{transform:translateX(calc(100vw + 20px))}}
+
+/* ---------- botão ---------- */
+.btn{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px;
+  padding:16px 22px;background:var(--orange);color:var(--ink);text-decoration:none;
+  font-weight:500;font-size:17px;letter-spacing:.04em;text-transform:uppercase;
+  border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  transition:transform .15s,box-shadow .15s,background .15s;
+}
+.cafe .btn{border-color:var(--cream);box-shadow:6px 6px 0 var(--cream)}
+.btn:hover{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink);background:#E87A2B}
+.cafe .btn:hover{box-shadow:2px 2px 0 var(--cream)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.cafe .btn:focus-visible{outline-color:var(--cream)}
+.btn svg{width:30px;height:20px;flex:none;transition:transform .15s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* links com estilo */
+.lk{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--orange);transition:background .15s,color .15s}
+.lk:hover{background:var(--orange);color:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;padding-top:22px}
+.topo{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:14px}
+.topo .num{font-family:var(--display);font-size:clamp(3.4rem,9vw,8rem);line-height:.8;color:var(--orange);display:flex;align-items:flex-end;gap:.15em}
+.topo .num span{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);font-weight:500;line-height:1.2;padding-bottom:.4em}
+h1{margin-block:auto;padding-block:clamp(36px,7vw,90px) clamp(28px,5vw,60px);font-weight:400}
+h1 .pre{display:block;font-family:var(--mono);font-size:clamp(14px,1.6vw,20px);letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:1.1rem}
+h1 .t{display:block;overflow:hidden;font-family:var(--display);font-size:clamp(3rem,13vw,13rem);line-height:1.02;letter-spacing:-.015em;padding-top:.04em}
+h1 .t span{display:inline-block;animation:sobe .9s cubic-bezier(.2,.8,.2,1) both}
+h1 .t+.t span{animation-delay:.14s}
+@keyframes sobe{from{transform:translateY(105%)}to{transform:none}}
+.hero .baixo{align-items:start;row-gap:28px}
+.hero .baixo p.fato{max-width:34ch;font-size:clamp(17px,1.5vw,20px);line-height:1.55;margin-bottom:26px}
+.hero .cta{max-width:460px}
+.status{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:15px;font-weight:500}
+.status[hidden]{display:none}
+.status .ponto{width:11px;height:11px;background:var(--sand);flex:none;border:1.5px solid var(--ink)}
+.status.on .ponto{background:var(--orange)}
+.carimbo{
+  justify-self:start;display:inline-block;transform:rotate(-6deg);background:var(--orange);color:var(--ink);
+  padding:18px 26px 16px;outline:2px solid var(--ink);outline-offset:-8px;text-align:center;
+  animation:carimba .45s .5s cubic-bezier(.3,0,.2,1) both;
+}
+.carimbo b{display:block;font:400 clamp(2.4rem,6vw,4.2rem)/.95 var(--display)}
+.carimbo small{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-top:8px;line-height:1.4}
+@keyframes carimba{from{transform:rotate(-6deg) scale(1.35)}to{transform:rotate(-6deg) scale(1)}}
+
+/* ---------- CARDÁPIO ---------- */
+.cardapio{padding-top:clamp(56px,9vw,120px)}
+.cab h2{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,7vw,6.4rem);line-height:.95;margin:14px 0 22px}
+.etiqueta{display:inline-block;border:1px dashed var(--sand);color:var(--sand);padding:6px 10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;line-height:1.4;max-width:30ch}
+.grupo{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--sand);border-bottom:1px solid rgba(188,175,135,.5);padding-bottom:10px;margin:0 0 6px}
+.lista{margin-bottom:44px}
+.item{display:flex;align-items:flex-end;gap:12px;padding:12px 0 8px}
+.item .nome{font-family:var(--display);font-size:clamp(1.5rem,3.3vw,2.6rem);line-height:1.1;min-width:0}
+.item .pts{flex:1;min-width:16px;border-bottom:3px dotted var(--sand);margin-bottom:.55em;transition:border-color .2s}
+.item .n{font-family:var(--display);font-size:clamp(1.5rem,3.3vw,2.6rem);line-height:1.1;color:var(--orange)}
+.item:hover .pts{border-color:var(--orange)}
+.nota-menu{margin-top:8px;font-size:16px;max-width:46ch;color:var(--cream)}
+@supports (animation-timeline:view()){
+  .item{animation:imprime steps(6,end) forwards;animation-timeline:view();animation-range:entry 0% entry 70%}
+}
+@keyframes imprime{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
+
+/* ---------- A CASA ---------- */
+.casa{padding-top:clamp(64px,10vw,140px)}
+.casa .nota{position:relative}
+.casa .gigante{font-family:var(--display);font-size:clamp(9rem,22vw,22rem);line-height:.82;letter-spacing:-.03em;margin-top:18px;margin-left:-.04em;padding-bottom:.3em}
+.estrelas{display:flex;gap:6px;margin:0 0 16px}
+.estrelas svg{width:clamp(28px,3.4vw,44px);height:auto}
+.casa .legenda{max-width:28ch}
+.casa .texto{margin-top:48px}
+.casa .frase{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.08;margin:14px 0 28px}
+.casa .texto p{max-width:46ch;font-size:17px;margin-bottom:18px}
+.casa .texto p.peq{font-size:16px}
+
+/* ---------- ONDE E QUANDO ---------- */
+.onde{padding-top:clamp(64px,10vw,130px);padding-bottom:clamp(40px,6vw,70px)}
+.onde h2{font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,7vw,6.4rem);line-height:.95;margin:14px 0 30px}
+.horas li{position:relative;display:flex;align-items:flex-end;gap:10px;padding:7px 0 4px}
+.horas .pts{flex:1;min-width:14px;border-bottom:2px dotted var(--sand);margin-bottom:.4em}
+.horas .dia{font-weight:500}
+/* marca do dia atual: fica na margem, fora da coluna, para o texto não se mover */
+.horas li.hoje::before{content:"";position:absolute;left:calc(var(--pad) * -.5);top:6px;bottom:3px;width:5px;background:var(--orange)}
+.horas li.hoje .dia,.horas li.hoje span:last-child{color:var(--cream)}
+.onde .status{color:var(--cream)}
+.onde .status .ponto{border-color:var(--cream)}
+.onde address{margin:34px 0 26px;font-size:17px;line-height:1.7}
+.onde .btn{max-width:480px}
+.onde .fone{margin-top:20px;font-size:16px}
+.mapa{margin-top:48px}
+.mapa figure{margin:0;background:var(--cream);color:var(--ink);padding:10px 10px 0;border:2px solid var(--cream);position:relative}
+.mapa iframe{display:block;width:100%;height:320px;border:0;filter:sepia(.4) saturate(.8) contrast(1.05)}
+.mapa figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px 2px 12px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.mapa figcaption b{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1;color:var(--orange);letter-spacing:0}
+.fim{margin-top:clamp(56px,8vw,100px);padding-top:18px;border-top:1px dashed var(--sand);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+.fim a{color:var(--cream)}
+
+/* ---------- desktop ---------- */
+@media (min-width:900px){
+  .hero{padding-top:30px}
+  h1 .t+.t{margin-left:5vw}
+  .hero .baixo .esq{grid-column:1/7}
+  .hero .baixo .carimbo{grid-column:9/13;justify-self:end;margin-right:2vw}
+  .cardapio .cab{grid-column:1/5;position:sticky;top:36px;align-self:start}
+  .cardapio .lista-wrap{grid-column:6/13}
+  .casa .nota{grid-column:1/7}
+  .casa .texto{grid-column:8/13;margin-top:110px}
+  .onde .esq{grid-column:1/7}
+  .onde .mapa{grid-column:8/13;margin-top:96px}
+  .mapa iframe{height:440px}
+  .fim{justify-content:space-between}
+}
+@media (max-width:899px){
+  .hero .baixo .carimbo{margin-top:12px;margin-left:6px}
+  .cardapio .lista-wrap{margin-top:34px}
+}
+
+/* ---------- movimento reduzido ---------- */
+@media (prefers-reduced-motion:reduce){
+  h1 .t span,.carimbo{animation:none}
+  .carimbo{transform:rotate(-6deg)}
+  .item{animation:none;clip-path:none}
+  .nada{animation:none;left:70%}
+  .btn,.btn svg,.item .pts{transition:none}
+}
+</style>
+</head>
+<body><div id="faixa-demo" style="position:sticky;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a> para Churrascaria Espetão Presidente. Ainda não é o site oficial.</div>
+<a class="skip" href="#contato">Ir para contato</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="meia" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="50%" stop-color="#D6681D"/><stop offset="50%" stop-color="#FAF5E5"/>
+    </linearGradient>
+    <symbol id="estrela" viewBox="0 0 24 23">
+      <polygon points="12,1.5 15,8.6 22.5,9.3 16.8,14.3 18.6,21.7 12,17.8 5.4,21.7 7.2,14.3 1.5,9.3 9,8.6" stroke-linejoin="miter"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- 01 · CAPA DA COMANDA -->
+<header class="tira paper hero" id="topo">
+  <div class="grid">
+    <div class="topo">
+      <p class="rot">Comanda<br>Tubarão/SC · Vila Esperança</p>
+      <p class="num" aria-label="Número 10"><span>nº</span>10</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <h1>
+      <span class="pre">Churrascaria</span>
+      <span class="t"><span>Espetão</span></span>
+      <span class="t"><span>Presidente</span></span>
+    </h1>
+  </div>
+
+  <div class="grid baixo">
+    <div class="esq">
+      <p class="fato">Churrascaria na Vila Esperança, em Tubarão. Almoço todos os dias, a partir das 11h.</p>
+      <div class="cta">
+        <a class="btn" href="https://wa.me/5548998089700" target="_blank" rel="noopener">
+          <span>Chamar no WhatsApp</span>
+          <svg viewBox="0 0 30 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M0 10h27M19 2l8 8-8 8"/></svg>
+        </a>
+        <p class="status" data-status hidden><i class="ponto"></i><span></span></p>
+      </div>
+    </div>
+    <div class="carimbo" role="img" aria-label="Almoço todos os dias, a partir das 11 horas">
+      <b>Almoço</b>
+      <small>todos os dias<br>a partir das 11h</small>
+    </div>
+  </div>
+
+  <div class="linha" aria-hidden="true"><div class="nada"><i></i></div></div>
+</header>
+
+<main>
+<!-- 02 · CARDÁPIO -->
+<section class="tira cafe cardapio d2" id="cardapio" aria-labelledby="t-cardapio">
+  <div class="grid">
+    <div class="cab">
+      <p class="rot">02 / Cardápio</p>
+      <h2 id="t-cardapio">Cardápio</h2>
+      <p class="etiqueta">exemplo — ajustamos com as suas informações</p>
+    </div>
+
+    <div class="lista-wrap">
+      <h3 class="grupo">Carnes no espeto</h3>
+      <ul class="lista">
+        <li class="item"><span class="nome">Picanha</span><span class="pts" aria-hidden="true"></span><span class="n">01</span></li>
+        <li class="item"><span class="nome">Costela</span><span class="pts" aria-hidden="true"></span><span class="n">02</span></li>
+        <li class="item"><span class="nome">Fraldinha</span><span class="pts" aria-hidden="true"></span><span class="n">03</span></li>
+        <li class="item"><span class="nome">Linguiça</span><span class="pts" aria-hidden="true"></span><span class="n">04</span></li>
+        <li class="item"><span class="nome">Coração de frango</span><span class="pts" aria-hidden="true"></span><span class="n">05</span></li>
+      </ul>
+
+      <h3 class="grupo">Para acompanhar</h3>
+      <ul class="lista">
+        <li class="item"><span class="nome">Arroz</span><span class="pts" aria-hidden="true"></span><span class="n">06</span></li>
+        <li class="item"><span class="nome">Feijão</span><span class="pts" aria-hidden="true"></span><span class="n">07</span></li>
+        <li class="item"><span class="nome">Farofa</span><span class="pts" aria-hidden="true"></span><span class="n">08</span></li>
+        <li class="item"><span class="nome">Vinagrete</span><span class="pts" aria-hidden="true"></span><span class="n">09</span></li>
+        <li class="item"><span class="nome">Saladas</span><span class="pts" aria-hidden="true"></span><span class="n">10</span></li>
+      </ul>
+
+      <p class="nota-menu">Valores e o que entra no almoço: <a class="lk" href="https://wa.me/5548998089700" target="_blank" rel="noopener">pergunte no WhatsApp</a>.</p>
+    </div>
+  </div>
+
+  <div class="linha" aria-hidden="true"><div class="nada"><i></i></div></div>
+</section>
+
+<!-- 03 · A CASA -->
+<section class="tira paper casa d3" aria-labelledby="t-casa">
+  <div class="grid">
+    <div class="nota">
+      <p class="rot">03 / A casa</p>
+      <p class="gigante" aria-label="Nota 4,5 no Google">4,5</p>
+      <div class="estrelas" aria-hidden="true">
+        <svg viewBox="0 0 24 23" fill="#D6681D" stroke="#201B19" stroke-width="1.2"><use href="#estrela"/></svg>
+        <svg viewBox="0 0 24 23" fill="#D6681D" stroke="#201B19" stroke-width="1.2"><use href="#estrela"/></svg>
+        <svg viewBox="0 0 24 23" fill="#D6681D" stroke="#201B19" stroke-width="1.2"><use href="#estrela"/></svg>
+        <svg viewBox="0 0 24 23" fill="#D6681D" stroke="#201B19" stroke-width="1.2"><use href="#estrela"/></svg>
+        <svg viewBox="0 0 24 23" fill="url(#meia)" stroke="#201B19" stroke-width="1.2"><use href="#estrela"/></svg>
+      </div>
+      <p class="rot legenda">Nota no Google · 1.011 avaliações</p>
+    </div>
+
+    <div class="texto">
+      <h2 class="frase" id="t-casa">Almoço todo dia, na Vila Esperança.</h2>
+      <p>A Churrascaria Espetão Presidente fica na Rua Januário Corrêa Bittencourt, número 10, em Tubarão. A porta abre às 11h, de segunda a domingo.</p>
+      <p>Mais de mil pessoas deixaram avaliação no Google, e a nota ficou em 4,5.</p>
+      <p class="peq">Novidades da casa no Instagram: <a class="lk" href="https://instagram.com/espetaopresidente" target="_blank" rel="noopener">@espetaopresidente</a></p>
+    </div>
+  </div>
+
+  <div class="linha" aria-hidden="true"><div class="nada"><i></i></div></div>
+</section>
+
+<!-- 04 · RODAPÉ DA COMANDA -->
+<section class="tira cafe onde ultima" id="contato" aria-labelledby="t-onde">
+  <div class="grid">
+    <div class="esq">
+      <p class="rot">04 / Horário e endereço</p>
+      <h2 id="t-onde">Onde e quando</h2>
+
+      <ul class="horas" id="horas">
+        <li data-d="1"><span class="dia">Segunda-feira</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:00</span></li>
+        <li data-d="2"><span class="dia">Terça-feira</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:00</span></li>
+        <li data-d="3"><span class="dia">Quarta-feira</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:00</span></li>
+        <li data-d="4"><span class="dia">Quinta-feira</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:00</span></li>
+        <li data-d="5"><span class="dia">Sexta-feira</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:00</span></li>
+        <li data-d="6"><span class="dia">Sábado</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:30</span></li>
+        <li data-d="0"><span class="dia">Domingo</span><span class="pts" aria-hidden="true"></span><span>11:00 – 14:00</span></li>
+      </ul>
+      <p class="status" data-status hidden><i class="ponto"></i><span></span></p>
+
+      <address>
+        R. Januário Corrêa Bittencourt, 10<br>
+        Vila Esperança, Tubarão – SC<br>
+        88708-285<br>
+        <a class="lk" href="https://www.google.com/maps/search/?api=1&amp;query=R.+Janu%C3%A1rio+Corr%C3%AAa+Bittencourt%2C+10%2C+Tubar%C3%A3o+-+SC" target="_blank" rel="noopener">Abrir no Google Maps</a>
+      </address>
+
+      <a class="btn" href="https://wa.me/5548998089700" target="_blank" rel="noopener">
+        <span>Chamar no WhatsApp</span>
+        <svg viewBox="0 0 30 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M0 10h27M19 2l8 8-8 8"/></svg>
+      </a>
+      <p class="fone">ou ligue: <a class="lk" href="tel:+5548998089700">(48) 99808-9700</a></p>
+    </div>
+
+    <div class="mapa">
+      <figure>
+        <iframe title="Mapa: Churrascaria Espetão Presidente, R. Januário Corrêa Bittencourt, 10, Tubarão/SC" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=R.+Janu%C3%A1rio+Corr%C3%AAa+Bittencourt,+10,+Vila+Esperan%C3%A7a,+Tubar%C3%A3o+-+SC,+88708-285&amp;output=embed"></iframe>
+        <figcaption><span>Rua Januário Corrêa Bittencourt</span><b>nº 10</b></figcaption>
+      </figure>
+    </div>
+
+    <div class="fim">
+      <span>— fim da comanda nº 10 —</span>
+      <a class="lk" href="https://instagram.com/espetaopresidente" target="_blank" rel="noopener">@espetaopresidente</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  try{
+    var f=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'});
+    var p={};f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    var dias={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    var d=dias[p.weekday];
+    var m=(parseInt(p.hour,10)%24)*60+parseInt(p.minute,10);
+    var abre=11*60;
+    var fecha=[14*60,14*60,14*60,14*60,14*60,14*60,14*60+30];
+    function hm(x){var h=Math.floor(x/60),mi=x%60;return (h<10?'0':'')+h+':'+(mi<10?'0':'')+mi}
+    var on=false,txt;
+    if(m>=abre&&m<fecha[d]){on=true;txt='Aberto agora · até '+hm(fecha[d])}
+    else if(m<abre){txt='Fechado · abre hoje às 11:00'}
+    else{txt='Fechado · abre amanhã às 11:00'}
+    document.querySelectorAll('[data-status]').forEach(function(el){
+      el.querySelector('span').textContent=txt;
+      if(on)el.classList.add('on');
+      el.hidden=false;
+    });
+    var li=document.querySelector('#horas li[data-d="'+d+'"]');
+    if(li){li.classList.add('hoje');li.setAttribute('aria-current','date')}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
