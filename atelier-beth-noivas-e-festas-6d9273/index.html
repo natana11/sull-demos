@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Beth Noivas e Festas, aluguel de vestidos e ternos em Tubarão/SC</title>
+<meta name="description" content="Aluguel de vestidos de noiva, debutante, damas e festa, e de ternos, com ajuste sob medida. Rua Osvaldo Cruz, 219, sala 101, Centro, Tubarão/SC.">
+<meta name="theme-color" content="#F6F0EE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600&family=Italiana&family=Jost:wght@400;500&family=Monoton&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F0EE;
+  --ink:#1D1A1C;
+  --rosa:#F3D2DB;
+  --rosad:#8A3049;
+  --f-cond:'Antonio','Arial Narrow',sans-serif;
+  --f-mono:'Monoton',sans-serif;
+  --f-ita:'Italiana',serif;
+  --f-script:'Pinyon Script',cursive;
+  --f-body:'Jost',system-ui,sans-serif;
+  --pad:clamp(18px,5vw,76px);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .11 0 0 0 0 .1 0 0 0 0 .11 0 0 0 .25 -.06'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  background-color:var(--paper);
+  background-image:var(--grain);
+  color:var(--ink);
+  font:400 17px/1.55 var(--f-body);
+  padding-bottom:76px;
+  overflow-x:clip;
+}
+a{color:inherit}
+ul{list-style:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--rosad);outline-offset:3px}
+
+/* desenho: vestidos, cabide, flor */
+.gs{fill:none;stroke:var(--gstroke,var(--ink));stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gf{fill:var(--gfill,var(--paper))}
+.gr{fill:var(--gpink,var(--rosa))}
+.gt{stroke-width:1.1}
+.gl ellipse,.gl circle{fill:var(--gfill,var(--paper));stroke:var(--gstroke,var(--ink));stroke-width:1.1}
+.hg path{fill:none;stroke:var(--gstroke,var(--ink));stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* cabeçalho */
+.top{position:absolute;inset:0 0 auto 0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;padding:18px var(--pad)}
+.top a{font:400 14px/1 var(--f-ita);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.top a.r{justify-self:end}
+.top a:hover{color:var(--rosad)}
+.mark{flex-direction:column;justify-content:center;text-align:center;gap:0}
+.mark .a{font:400 12px/1 var(--f-ita);letter-spacing:.38em;padding-left:.38em}
+.mark .b{font:400 50px/.85 var(--f-script);letter-spacing:0;text-transform:none;margin:2px 0 4px}
+.mark .c{font:400 12px/1 var(--f-ita);letter-spacing:.2em;padding-left:.2em}
+.top a.mark:hover{color:var(--ink)}
+
+/* botão e dock */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;background:var(--ink);color:var(--paper);font:500 14px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);transition:background .25s,border-color .25s}
+.btn:hover{background:var(--rosad);border-color:var(--rosad)}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px var(--pad);background:var(--paper);border-top:1px solid rgba(29,26,29,.2)}
+.st{display:flex;align-items:center;gap:8px;font:400 15px/1.2 var(--f-body);min-width:0}
+.st i{flex:none;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink)}
+.st.on i{background:var(--ink)}
+
+/* tipografia de manchete */
+.dsp{font:400 clamp(2.4rem,10.4vw,3.8rem)/.98 var(--f-cond);text-transform:uppercase;letter-spacing:.012em}
+.dsp small{font-size:.44em;letter-spacing:.08em;font-weight:500}
+/* etiqueta de exemplo: legível, em tinta sobre fundo, com moldura fina */
+.tag{display:inline-block;justify-self:start;font:500 15px/1.3 var(--f-body);letter-spacing:.03em;color:var(--ink);border:1px solid var(--ink);padding:6px 12px}
+
+/* HERO */
+.hero{position:relative;min-height:max(100svh,760px);padding:132px var(--pad) 40px;overflow:clip;isolation:isolate}
+.ghost{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero h1{position:relative;z-index:2;text-align:center;font:400 clamp(2rem,9.4vw,3.6rem)/1 var(--f-cond);text-transform:uppercase;letter-spacing:.012em}
+.ln{display:block;overflow:hidden;padding-top:.16em;margin-top:-.1em}
+.ln>span{display:inline-block}
+.hero h1 small{font-size:.44em;letter-spacing:.08em;font-weight:500}
+.badge{position:relative;z-index:6;width:176px;height:132px;margin:28px auto 0}
+.badge svg{position:absolute;inset:0;width:100%;height:100%}
+.badge p{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.1}
+.badge b{font:500 42px/1 var(--f-cond)}
+.badge .g{font:400 13px/1.2 var(--f-ita);letter-spacing:.12em;text-transform:uppercase}
+.badge .n{font:500 14px/1.3 var(--f-body)}
+.posters{position:relative;height:112vw;margin-top:52px}
+.pw{position:absolute;z-index:3}
+.pw.a{left:2vw;top:26vw;width:46vw}
+.pw.b{right:2vw;top:0;width:48vw}
+.poster{container-type:inline-size;aspect-ratio:3/4.15;display:flex;flex-direction:column;padding:7% 7% 6%;box-shadow:0 1px 0 rgba(29,26,29,.25)}
+.pk{background:var(--rosa);color:var(--ink);transform:perspective(1100px) rotateZ(-10deg) rotateY(18deg) rotateX(6deg)}
+.ik{background:var(--ink);color:var(--paper);transform:perspective(1100px) rotateZ(5deg) rotateY(-12deg) rotateX(4deg)}
+.p-brand{font:400 12px/1 var(--f-ita);letter-spacing:.3em;text-align:center;padding-left:.3em}
+.p-t2{display:flex;flex-direction:column;align-items:center;margin-top:5%;text-transform:uppercase;font-family:var(--f-cond)}
+.p-t2 span:first-child{font-size:40px;font-size:30cqw;font-weight:500;line-height:.9}
+.p-t2 span:last-child{font-size:20px;font-size:15cqw;letter-spacing:.2em;padding-left:.2em;line-height:1}
+.p-m{font:400 22px/1 var(--f-mono);font-size:15cqw;color:var(--rosa);text-align:center;margin:5% 0 4%;text-transform:uppercase}
+.p-art{flex:1;min-height:0;margin-top:5%;background:var(--paper);border-radius:50% 50% 0 0/8% 8% 0 0;overflow:hidden;display:flex}
+.ik .p-art{background:var(--rosa)}
+.p-art svg{width:100%;height:100%}
+.p-cap{font:400 12px/1.15 var(--f-cond);font-size:max(12px,5.4cqw);text-transform:uppercase;letter-spacing:.03em;text-align:center;margin-top:6%}
+
+/* CASA */
+.casa{position:relative;padding:clamp(70px,10vw,130px) var(--pad) clamp(60px,8vw,110px);overflow:clip}
+.rowlabel{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--ink);padding-top:12px;font:400 14px/1.2 var(--f-ita);letter-spacing:.2em;text-transform:uppercase}
+.rowlabel .mid{display:none}
+.stage{--sh:128vw;position:relative;height:var(--sh);margin-top:10px}
+.giant{position:absolute;z-index:0;left:50%;top:50%;transform:translate(-50%,-52%);font:400 50vw/1 var(--f-script);color:var(--rosa);white-space:nowrap}
+.cobj{--tx:-50%;position:absolute;z-index:1;top:2%;left:50%;height:calc(var(--sh)*.95);width:auto;aspect-ratio:1/2;transform:translateX(var(--tx));transform-origin:50% 3%;overflow:visible}
+.casa-tx{margin-top:34px;display:grid;gap:22px}
+.casa-tx p{max-width:44ch}
+.casa-tx a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.casa-tx a:hover{color:var(--rosad)}
+
+/* COLEÇÃO: um cartão por peça, empilhados */
+.acts{border-top:1px solid var(--ink)}
+.acts-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;padding:18px var(--pad) 18px}
+.acts-head h2{font:400 15px/1.2 var(--f-ita);letter-spacing:.2em;text-transform:uppercase}
+.act{position:relative;display:grid;gap:16px;align-content:center;justify-items:start;padding:56px var(--pad) 96px;min-height:100svh;background-color:var(--bg,var(--paper));background-image:var(--grain);color:var(--fg,var(--ink));border-top:1px solid var(--fg,var(--ink));overflow:clip}
+.a2{--bg:var(--rosa);--gpink:#E8A9BA}
+.a4{--bg:var(--ink);--fg:var(--paper);--gstroke:#F6F0EE;--gfill:#2B2629}
+.a5{--bg:var(--rosa);--gpink:#E8A9BA}
+.word{font:400 1em/1 var(--f-mono);font-size:calc(88vw / var(--n));text-transform:uppercase;white-space:nowrap}
+.obj{height:min(42svh,96vw);width:auto;aspect-ratio:1/2;justify-self:center;overflow:visible}
+.cap{font-size:18px;max-width:34ch}
+@media (min-height:700px){
+  .act{position:sticky;top:0}
+}
+
+/* SOB MEDIDA */
+.tec{display:grid;gap:44px;padding:clamp(80px,12vw,170px) var(--pad);border-top:1px solid var(--ink)}
+.tec .dsp{font-size:clamp(2.6rem,11.4vw,4.4rem)}
+.tec .tx{display:grid;gap:22px;align-content:center}
+.tec .tx p{max-width:40ch}
+.meas{border-bottom:1px solid var(--ink);max-width:360px}
+.meas li{font:500 26px/1 var(--f-cond);text-transform:uppercase;letter-spacing:.04em;padding:14px 0;border-top:1px solid var(--ink)}
+.tec-fig{justify-self:center}
+.tec-svg{height:min(86svh,150vw);width:auto;aspect-ratio:440/800;overflow:visible;display:block}
+.dim{fill:none;stroke:var(--rosad);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1 1}
+.lbl{font:500 19px var(--f-body);letter-spacing:.1em;fill:var(--rosad)}
+.stitch{fill:none;stroke:var(--rosad);stroke-width:1.2;stroke-dasharray:4 4}
+
+/* BLOCO */
+.bloco{position:relative;z-index:3;background:var(--rosa);padding:clamp(70px,10vw,140px) var(--pad);overflow-x:clip;display:grid;gap:40px}
+.manchete{font:400 clamp(3.2rem,15.5vw,17rem)/.9 var(--f-cond);text-transform:uppercase;letter-spacing:-.005em}
+.manchete span{display:block}
+.manchete span:nth-child(2){padding-left:7vw}
+.manchete span:nth-child(3){padding-left:2vw}
+.manchete span:nth-child(4){padding-left:15vw}
+.bl-side{display:grid;gap:22px;justify-items:start;max-width:42ch}
+.bl-side p{font-size:19px}
+
+/* ONDE */
+.loc{display:grid;gap:44px;padding:clamp(80px,12vw,170px) var(--pad) clamp(60px,8vw,110px)}
+.loc .dsp{font-size:clamp(2.5rem,10.6vw,4.6rem)}
+.mapa{background:var(--rosa);padding:14px 14px 18px;transform:rotate(-2.2deg);max-width:640px}
+.mapa .mh{font:400 13px/1 var(--f-ita);letter-spacing:.3em;text-transform:uppercase;text-align:center;margin-bottom:12px}
+.mapa iframe{display:block;width:100%;height:300px;border:0;border-radius:50% 50% 0 0/6% 6% 0 0;filter:grayscale(1) contrast(1.05);background:var(--paper)}
+.mapa figcaption{font:500 24px/1.1 var(--f-cond);text-transform:uppercase;letter-spacing:.04em;margin-top:14px;text-align:center}
+.horas{border-bottom:1px solid var(--ink)}
+.horas li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 14px;min-height:52px;padding:8px 10px;border-top:1px solid var(--ink)}
+.horas .dn{font:400 17px var(--f-body);text-transform:capitalize}
+.horas .hr{font:500 20px/1.1 var(--f-cond);letter-spacing:.04em;text-align:right}
+.horas .hr span{display:inline-block;margin-left:12px}
+.horas li.hoje{background:var(--ink);color:var(--paper)}
+.horas .ht{font:400 13px var(--f-ita);letter-spacing:.2em;text-transform:uppercase;margin-left:8px;color:var(--rosa)}
+.end{margin-top:22px;font-size:18px}
+
+/* FECHO */
+.fecho{padding:clamp(60px,9vw,130px) var(--pad) 30px}
+.fecho .dsp{font-size:clamp(2.6rem,12vw,5.4rem);margin-bottom:30px}
+.acoes{border-bottom:1px solid var(--ink)}
+.acoes a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;padding:12px 0;border-top:1px solid var(--ink);font:400 clamp(1.5rem,6.2vw,4.2rem)/1.02 var(--f-cond);text-transform:uppercase;letter-spacing:.015em;text-decoration:none;transition:padding .3s,background .3s,color .3s}
+.acoes a:hover,.acoes a:focus-visible{background:var(--ink);color:var(--paper);padding-inline:16px}
+.acoes .ar{flex:none;width:clamp(28px,5vw,64px);height:auto;fill:none;stroke:currentColor;stroke-width:1.6}
+.rodape{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-top:56px;font-size:16px}
+.rodape .b{font:400 64px/.8 var(--f-script)}
+.rodape address{font-style:normal}
+
+@media (min-width:600px){
+  .rowlabel .mid{display:inline}
+  .rowlabel{letter-spacing:.26em}
+}
+
+/* DESKTOP */
+@media (min-width:900px){
+  .top{padding:26px var(--pad)}
+  .top a{font-size:16px}
+  .mark .a{font-size:13px}
+  .mark .b{font-size:60px}
+  .mark .c{font-size:12px}
+  .hero h1{font-size:clamp(3rem,4.6vw,6.4rem)}
+  .posters{position:static;height:0;margin:0}
+  .pw.a{left:3vw;top:auto;bottom:70px;width:clamp(260px,21vw,360px)}
+  .pw.b{right:2vw;top:120px;width:clamp(280px,22vw,380px)}
+  .pk{transform:perspective(1400px) rotateZ(-14deg) rotateY(24deg) rotateX(9deg)}
+  .ik{transform:perspective(1400px) rotateZ(7deg) rotateY(-15deg) rotateX(6deg)}
+  .stage{--sh:max(88svh,560px)}
+  .giant{font-size:46vw}
+  .cobj{left:64%;height:calc(var(--sh)*.95)}
+  .casa-tx{grid-template-columns:repeat(12,1fr);align-items:end;margin-top:20px}
+  .casa-tx .lead{grid-column:1/8}
+  .casa-tx .rt{grid-column:9/13}
+  .casa .dsp{font-size:clamp(2.6rem,5vw,6.4rem)}
+  .act{grid-template-columns:1.4fr .6fr;grid-template-rows:auto auto;align-content:center;align-items:center;column-gap:4vw;row-gap:20px;padding:80px var(--pad) 100px}
+  .act .word{grid-column:1;grid-row:1;align-self:end;font-size:calc(56vw / var(--n))}
+  .act .cap{grid-column:1;grid-row:2;align-self:start;font-size:20px}
+  .act .obj{grid-column:2;grid-row:1/3;height:min(66svh,620px);justify-self:center}
+  .a2,.a4{grid-template-columns:.6fr 1.4fr;justify-items:end}
+  .a2 .word,.a4 .word,.a2 .cap,.a4 .cap{grid-column:2;justify-self:end;text-align:right}
+  .a2 .obj,.a4 .obj{grid-column:1}
+  .tec{grid-template-columns:repeat(12,1fr);align-items:center}
+  .tec .tx{grid-column:1/7}
+  .tec-fig{grid-column:8/13}
+  .tec .dsp{font-size:clamp(3rem,6.6vw,8rem)}
+  .bloco{grid-template-columns:repeat(12,1fr);align-items:end}
+  .manchete{grid-column:1/10;font-size:clamp(5rem,14vw,17rem)}
+  .bl-side{grid-column:10/13}
+  .loc{grid-template-columns:repeat(12,1fr);align-items:start;column-gap:24px}
+  .loc .dsp{grid-column:1/13;font-size:clamp(3rem,7vw,8.4rem)}
+  .loc .lm{grid-column:1/8}
+  .loc .lh{grid-column:9/13;padding-top:40px}
+  .mapa iframe{height:420px}
+  .acoes a{min-height:96px}
+}
+
+/* MOVIMENTO */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .ln>span{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 .ln:nth-child(2)>span{animation-delay:.08s}
+  .hero h1 .ln:nth-child(3)>span{animation-delay:.16s}
+  .hero h1 .ln:nth-child(4)>span{animation-delay:.24s}
+  .hero h1 .ln:nth-child(5)>span{animation-delay:.32s}
+  .poster{animation:pin 1.3s cubic-bezier(.2,.7,.2,1) .2s both}
+  .ik{animation-delay:.38s}
+  @keyframes rise{from{transform:translateY(105%)}}
+  @keyframes pin{from{translate:0 12vh}}
+}
+
+@media (prefers-reduced-motion:no-preference){
+@supports (animation-timeline:view()){
+  @keyframes gdrift{to{transform:translateY(14vh) rotate(2deg)}}
+  @keyframes drifta{to{transform:translateY(-16vh)}}
+  @keyframes driftb{to{transform:translateY(-7vh)}}
+  @keyframes sway{from{transform:translateX(var(--tx)) rotate(-6deg)}to{transform:translateX(var(--tx)) rotate(6deg)}}
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  @keyframes inL{from{transform:translateX(-6vw)}}
+  @keyframes inR{from{transform:translateX(6vw)}}
+  @keyframes turn{from{transform:perspective(900px) rotateY(28deg) scale(.92)}to{transform:none}}
+
+  .ghost{animation:gdrift linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  .pw.a{animation:drifta linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  .pw.b{animation:driftb linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  .cobj{animation:sway linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+
+  .act .obj{animation:turn linear both;animation-timeline:view();animation-range:entry 10% entry 100%}
+
+  .dim{animation:draw linear both;animation-timeline:view();animation-range:entry 20% entry 90%}
+
+  .manchete span:nth-child(odd){animation:inR linear both;animation-timeline:view();animation-range:entry 0% cover 38%}
+  .manchete span:nth-child(even){animation:inL linear both;animation-timeline:view();animation-range:entry 0% cover 38%}
+}
+}
+@media (prefers-reduced-motion:reduce){.acoes a,.btn{transition:none}}
+</style>
+</head>
+<body><div id="faixa-demo" style="position:sticky;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a> para Atelier Beth Noivas e Festas. Ainda não é o site oficial.</div>
+
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+<defs>
+  <g id="cabide" class="hg">
+    <path d="M200 92V78C200 64 226 60 226 42C226 22 194 16 188 36"/>
+    <path d="M200 92L60 174Q46 184 62 188H338Q354 184 340 174Z"/>
+  </g>
+
+  <g id="flor" class="gl">
+    <ellipse cx="0" cy="-6" rx="3" ry="6"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="6" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="6" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="6" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="6" transform="rotate(288)"/>
+    <circle r="1.8"/>
+  </g>
+
+  <g id="g-noiva">
+    <path class="gs" d="M120 188L152 238"/>
+    <path class="gs" d="M280 188L248 238"/>
+    <path class="gs gf" d="M163 346C150 470 92 620 28 748Q114 780 200 764Q286 780 372 748C308 620 250 470 237 346Q200 356 163 346Z"/>
+    <path class="gs gr gt" d="M200 354C214 480 240 640 276 767Q200 761 124 767C160 640 186 480 200 354Z"/>
+    <path class="gs gt" d="M176 352C166 470 118 630 72 758"/>
+    <path class="gs gt" d="M224 352C234 470 282 630 328 758"/>
+    <path class="gs gt" d="M52 736Q120 764 200 750Q280 764 348 736"/>
+    <path class="gs gf" d="M150 236Q175 216 200 242Q225 216 250 236C256 272 242 304 237 336Q200 346 163 336C158 304 144 272 150 236Z"/>
+    <path class="gs gt" d="M200 242V340M178 230C173 272 176 308 180 340M222 230C227 272 224 308 220 340"/>
+    <path class="gs gr" d="M163 336Q200 346 237 336L238 350Q200 360 162 350Z"/>
+    <use href="#flor" transform="translate(176 266) scale(.75)"/>
+    <use href="#flor" transform="translate(226 288) scale(.75)"/>
+    <use href="#flor" transform="translate(200 308) scale(.6)"/>
+    <use href="#flor" transform="translate(206 410)"/>
+    <use href="#flor" transform="translate(192 500) scale(1.1)"/>
+    <use href="#flor" transform="translate(214 590) scale(1.1)"/>
+    <use href="#flor" transform="translate(176 690) scale(1.1)"/>
+    <use href="#flor" transform="translate(232 700) scale(1.2)"/>
+    <use href="#flor" transform="translate(145 566) scale(.9)"/>
+    <use href="#flor" transform="translate(256 566) scale(.9)"/>
+    <use href="#flor" transform="translate(112 656)"/>
+    <use href="#flor" transform="translate(290 656)"/>
+    <use href="#flor" transform="translate(80 722) scale(.9)"/>
+    <use href="#flor" transform="translate(322 722) scale(.9)"/>
+    <use href="#flor" transform="translate(150 748) scale(.8)"/>
+    <use href="#flor" transform="translate(252 748) scale(.8)"/>
+  </g>
+
+  <g id="g-debu">
+    <path class="gs" d="M122 188L148 244"/>
+    <path class="gs" d="M278 188L252 244"/>
+    <path class="gs gf" d="M162 346C120 430 40 520 12 770Q200 796 388 770C360 520 280 430 238 346Q200 356 162 346Z"/>
+    <path class="gs gr gt" d="M28 668Q200 712 372 668C378 700 384 740 388 770Q200 796 12 770C16 740 22 700 28 668Z"/>
+    <path class="gs gt" d="M141 498Q200 520 259 498M50 584Q200 622 350 584"/>
+    <path class="gs gt" d="M176 352C150 460 100 620 60 770M224 352C250 460 300 620 340 770"/>
+    <path class="gs gf" d="M148 242C124 232 106 246 112 266C128 268 140 262 152 254Z"/>
+    <path class="gs gf" d="M252 242C276 232 294 246 288 266C272 268 260 262 248 254Z"/>
+    <path class="gs gf" d="M148 242Q175 226 200 248Q225 226 252 242C257 280 244 310 238 338Q200 348 162 338C156 310 143 280 148 242Z"/>
+    <path class="gs gt" d="M200 248V340M178 236C173 276 176 310 180 340M222 236C227 276 224 310 220 340"/>
+    <path class="gs gr" d="M200 342C180 330 166 336 168 350C182 354 194 350 200 342C206 350 218 354 232 350C234 336 220 330 200 342Z"/>
+    <use href="#flor" transform="translate(176 276) scale(.7)"/>
+    <use href="#flor" transform="translate(226 292) scale(.7)"/>
+    <use href="#flor" transform="translate(200 430)"/>
+    <use href="#flor" transform="translate(170 540)"/>
+    <use href="#flor" transform="translate(236 548)"/>
+    <use href="#flor" transform="translate(120 630) scale(1.1)"/>
+    <use href="#flor" transform="translate(280 636) scale(1.1)"/>
+  </g>
+
+  <g id="g-dama">
+    <path class="gs" d="M130 188L154 240"/>
+    <path class="gs" d="M270 188L246 240"/>
+    <path class="gs gf gr" d="M162 316C152 380 112 450 84 548Q200 574 316 548C288 450 248 380 238 316Q200 324 162 316Z"/>
+    <path class="gs gt" d="M178 322L148 548M200 324V560M222 322L252 548M164 320L116 548M236 320L284 548"/>
+    <path class="gs gf" d="M152 242Q176 228 200 246Q224 228 248 242C250 268 242 290 238 310Q200 318 162 310C158 290 150 268 152 242Z"/>
+    <path class="gs gr" d="M200 318C180 306 166 312 168 326C182 330 194 326 200 318C206 326 218 330 232 326C234 312 220 306 200 318Z"/>
+    <use href="#flor" transform="translate(176 272) scale(.6)"/>
+    <use href="#flor" transform="translate(224 272) scale(.6)"/>
+    <use href="#flor" transform="translate(150 470) scale(.8)"/>
+    <use href="#flor" transform="translate(250 470) scale(.8)"/>
+    <use href="#flor" transform="translate(200 420) scale(.9)"/>
+  </g>
+
+  <g id="g-festa">
+    <path class="gs" d="M128 188L150 236"/>
+    <path class="gs gf gr" d="M160 342C158 470 148 610 134 768Q200 786 270 768C256 610 244 470 240 342Q200 352 160 342Z"/>
+    <path class="gs gt" d="M172 350C174 480 164 630 152 772M200 354C202 480 198 640 200 776"/>
+    <path class="gs gt" d="M214 556C220 640 238 710 262 770"/>
+    <path class="gs gf" d="M150 236L252 268C254 292 246 314 240 338Q200 348 160 338C150 306 148 270 150 236Z"/>
+    <path class="gs gt" d="M178 254C174 290 176 318 180 342"/>
+    <use href="#flor" transform="translate(196 304) scale(.9)"/>
+    <use href="#flor" transform="translate(176 410) scale(.8)"/>
+  </g>
+
+  <g id="g-terno">
+    <g transform="translate(0 62)">
+      <path class="gs gf" d="M176 112L62 178C46 190 44 212 42 250L34 600Q58 612 84 604L96 360L98 640Q200 672 302 640L304 360L316 604Q342 612 366 600L358 250C356 212 354 190 338 178L224 112Q200 150 176 112Z"/>
+      <path class="gs gr gt" d="M176 112Q200 150 224 112L200 300Z"/>
+      <path class="gs gf gt" d="M176 112L140 200L186 236L200 300L196 160Z"/>
+      <path class="gs gf gt" d="M224 112L260 200L214 236L200 300L204 160Z"/>
+      <path class="gs gt" d="M200 300V640M240 318H278M232 462H284"/>
+      <circle class="gs gt" cx="200" cy="350" r="4"/>
+      <circle class="gs gt" cx="200" cy="410" r="4"/>
+      <path class="gs gr" d="M200 140L172 126V154ZM200 140L228 126V154Z"/>
+      <rect class="gs gr" x="194" y="132" width="12" height="16" rx="3"/>
+    </g>
+  </g>
+
+  <g id="ramo" fill="#1D1A1C" stroke="none">
+    <path d="M58 112Q10 80 38 8" fill="none" stroke="#1D1A1C" stroke-width="1.4"/>
+    <g id="fo-a"><ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(45 100) rotate(-85)"/><ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(45 100) rotate(-9)"/></g>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(30 86) rotate(-65)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(30 86) rotate(11)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(22 70) rotate(-49)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(22 70) rotate(27)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(19 54) rotate(-31)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(19 54) rotate(45)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(21 38) rotate(-18)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(21 38) rotate(58)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(26 24) rotate(-4)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(26 24) rotate(72)"/>
+    <ellipse cx="0" cy="-8" rx="3.4" ry="8" transform="translate(34 12) rotate(7)"/>
+  </g>
+
+  <symbol id="seta" viewBox="0 0 64 24"><path d="M2 12H60M48 2L60 12L48 22"/></symbol>
+</defs>
+</svg>
+
+<header class="top">
+  <a href="#colecao">Coleção</a>
+  <a class="mark" href="#topo" aria-label="Atelier Beth Noivas e Festas, início">
+    <span class="a">Atelier</span><span class="b">Beth</span><span class="c">Noivas e Festas</span>
+  </a>
+  <a class="r" href="https://wa.me/5548991078162" target="_blank" rel="noopener">Agendar
+    <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10L10 2M4 2H10V8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+  </a>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <svg class="ghost" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <use href="#g-noiva" transform="translate(300 470) rotate(-16) scale(1.05) translate(-200 -400)" style="--gfill:#EFE5E3;--gpink:#EBDDDF;--gstroke:transparent"/>
+    <use href="#g-noiva" transform="translate(1060 450) rotate(15) scale(.98) translate(-200 -400)" style="--gfill:#EFE5E3;--gpink:#EBDDDF;--gstroke:transparent"/>
+    <use href="#g-noiva" transform="translate(720 430) rotate(3) scale(1.2) translate(-200 -400)" style="--gfill:#EAE0DE;--gpink:#E6D6D9;--gstroke:transparent"/>
+  </svg>
+
+  <h1>
+    <span class="sr">Atelier Beth Noivas e Festas: </span>
+    <span class="ln"><span>Aluguel <small>de</small> vestidos</span></span>
+    <span class="ln"><span><small>para</small> noivas <small>e</small> damas,</span></span>
+    <span class="ln"><span>debutantes <small>e</small> festas,</span></span>
+    <span class="ln"><span>ternos <small>e</small> sob medida</span></span>
+    <span class="ln"><span><small>no</small> centro <small>de</small> Tubarão</span></span>
+  </h1>
+
+  <div class="badge">
+    <svg viewBox="0 0 160 120" aria-hidden="true"><use href="#ramo"/><use href="#ramo" transform="translate(160 0) scale(-1 1)"/></svg>
+    <p><b>4,9</b><span class="g">no Google</span><span class="n">29 avaliações</span></p>
+  </div>
+
+  <div class="posters" aria-hidden="true">
+    <div class="pw a">
+      <figure class="poster pk">
+        <span class="p-brand">ATELIER BETH</span>
+        <p class="p-t2"><span>Sob</span><span>medida</span></p>
+        <div class="p-art">
+          <svg viewBox="0 0 240 260" preserveAspectRatio="xMidYMid meet">
+            <path d="M122 134C80 170 150 200 100 224S40 244 14 250" fill="none" stroke="#8A3049" stroke-width="20"/>
+            <path d="M122 134C80 170 150 200 100 224S40 244 14 250" fill="none" stroke="#F6F0EE" stroke-width="20" stroke-dasharray="1.4 7"/>
+            <circle cx="150" cy="86" r="54" fill="#F3D2DB" stroke="#1D1A1C" stroke-width="1.6"/>
+            <circle cx="150" cy="86" r="40" fill="none" stroke="#1D1A1C" stroke-width="1"/>
+            <circle cx="150" cy="86" r="16" fill="#F6F0EE" stroke="#1D1A1C" stroke-width="1.6"/>
+            <path d="M150 46V70M150 102V126M110 86H134M166 86H190" stroke="#1D1A1C" stroke-width="1"/>
+          </svg>
+        </div>
+        <p class="p-cap">Vestidos e ternos, sob medida</p>
+      </figure>
+    </div>
+    <div class="pw b">
+      <figure class="poster ik">
+        <span class="p-brand">ATELIER BETH</span>
+        <p class="p-m">Noivas</p>
+        <div class="p-art">
+          <svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid meet"><use href="#g-noiva"/><use href="#cabide"/></svg>
+        </div>
+        <p class="p-cap">Aluguel de vestidos de noiva</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CASA: nome gigante, cabide na frente -->
+<section class="casa" id="casa" aria-labelledby="casa-h">
+  <div class="rowlabel"><span>Atelier</span><span class="mid">Noivas e Festas</span><span>Tubarão/SC</span></div>
+  <div class="stage">
+    <p class="giant" aria-hidden="true">Beth</p>
+    <svg class="cobj" viewBox="0 0 400 800" aria-hidden="true"><use href="#g-noiva"/><use href="#cabide"/></svg>
+  </div>
+  <div class="casa-tx">
+    <h2 class="dsp lead" id="casa-h">Um atelier <small>no</small> centro <small>de</small> Tubarão, <small>com</small> provador <small>e</small> atendimento <small>de</small> segunda <small>a</small> sábado</h2>
+    <div class="rt">
+      <p>Aqui se alugam vestidos e ternos. Noivas, debutantes, damas e festas passam pelo provador, com horário marcado pelo WhatsApp.</p>
+      <p style="margin-top:14px"><a href="https://www.instagram.com/atelierbethnoivasefestas/" target="_blank" rel="noopener">@atelierbethnoivasefestas</a>, 3.652 seguidores no Instagram.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLEÇÃO: um cartão por peça, a palavra troca a cada dobra -->
+<section class="acts" id="colecao" aria-labelledby="acts-h">
+  <div class="acts-head">
+    <h2 id="acts-h">O que se aluga</h2>
+    <p class="tag">exemplo — ajustamos com as suas informações</p>
+  </div>
+
+  <article class="act a1">
+    <h3 class="word" style="--n:5.9">Noivas</h3>
+    <svg class="obj" viewBox="0 0 400 800" aria-hidden="true"><use href="#g-noiva"/><use href="#cabide"/></svg>
+    <p class="cap">Vestidos de noiva para alugar, com ajuste sob medida e prova no ateliê.</p>
+  </article>
+
+  <article class="act a2">
+    <h3 class="word" style="--n:9.8">Debutantes</h3>
+    <svg class="obj" viewBox="0 0 400 800" aria-hidden="true"><use href="#g-debu"/><use href="#cabide"/></svg>
+    <p class="cap">Vestidos de debutante. A escolha e a prova são com horário marcado.</p>
+  </article>
+
+  <article class="act a3">
+    <h3 class="word" style="--n:4.9">Damas</h3>
+    <svg class="obj" viewBox="0 0 400 800" aria-hidden="true"><use href="#g-dama"/><use href="#cabide"/></svg>
+    <p class="cap">Vestidos para as damas do cortejo.</p>
+  </article>
+
+  <article class="act a4">
+    <h3 class="word" style="--n:5.9">Festas</h3>
+    <svg class="obj" viewBox="0 0 400 800" aria-hidden="true"><use href="#g-festa"/><use href="#cabide"/></svg>
+    <p class="cap">Vestidos de festa para quem vai como convidada.</p>
+  </article>
+
+  <article class="act a5">
+    <h3 class="word" style="--n:5.9">Ternos</h3>
+    <svg class="obj" viewBox="0 0 400 800" aria-hidden="true"><use href="#g-terno"/><use href="#cabide"/></svg>
+    <p class="cap">Locação de ternos para noivos e convidados.</p>
+  </article>
+</section>
+
+<!-- SOB MEDIDA: desenho técnico -->
+<section class="tec" id="sob-medida" aria-labelledby="tec-h">
+  <div class="tx">
+    <h2 class="dsp" id="tec-h">Ajuste <small>sob</small> medida <small>em</small> vestidos <small>e</small> ternos</h2>
+    <p>Sob medida é um dos destaques do ateliê. Conte a data do evento e o que você procura, e o ajuste é combinado na prova, com horário marcado.</p>
+    <p class="tag">exemplo — ajustamos com as suas informações</p>
+    <ul class="meas" aria-label="Medidas que costumam entrar no ajuste">
+      <li>Busto</li><li>Cintura</li><li>Quadril</li><li>Comprimento</li>
+    </ul>
+  </div>
+  <figure class="tec-fig">
+    <svg class="tec-svg" viewBox="-30 0 440 800" role="img" aria-label="Desenho técnico de um vestido de noiva com as medidas busto, cintura, quadril e comprimento">
+      <use href="#g-noiva" style="--gfill:transparent;--gpink:transparent"/>
+      <use href="#cabide"/>
+      <path class="stitch" d="M200 242V340"/>
+      <path class="stitch" d="M200 354C186 480 160 640 124 767"/>
+      <path class="dim" pathLength="1" d="M149 262H290M149 255V269M251 255V269"/>
+      <path class="dim" pathLength="1" d="M163 346H290M163 339V353M237 339V353"/>
+      <path class="dim" pathLength="1" d="M150 423H290M150 416V430M250 416V430"/>
+      <path class="dim" pathLength="1" d="M-8 232V764M-15 232H-1M-15 764H-1"/>
+      <text class="lbl" x="298" y="268">BUSTO</text>
+      <text class="lbl" x="298" y="352">CINTURA</text>
+      <text class="lbl" x="298" y="429">QUADRIL</text>
+      <text class="lbl" transform="translate(-14 498) rotate(-90)" text-anchor="middle">COMPRIMENTO</text>
+    </svg>
+  </figure>
+</section>
+
+<!-- BLOCO EM COR CHAPADA -->
+<section class="bloco" aria-labelledby="bl-h">
+  <h2 class="manchete" id="bl-h"><span>Marque</span><span>o horário,</span><span>prove,</span><span>alugue.</span></h2>
+  <div class="bl-side">
+    <p>Atendimento de segunda a sábado, com horário marcado pelo WhatsApp. Diga a data do evento e o que você procura.</p>
+    <a class="btn" href="https://wa.me/5548991078162" target="_blank" rel="noopener">Marcar pelo WhatsApp</a>
+  </div>
+</section>
+
+<!-- ONDE E QUANDO -->
+<section class="loc" id="onde" aria-labelledby="loc-h">
+  <h2 class="dsp" id="loc-h">Rua Osvaldo Cruz, <small>nº</small> 219, <small>sala</small> 101</h2>
+  <div class="lm">
+    <figure class="mapa">
+      <p class="mh">Atelier Beth</p>
+      <iframe title="Mapa: Atelier Beth Noivas e Festas, Rua Osvaldo Cruz, 219, Tubarão/SC" src="https://www.google.com/maps?q=R.+Osvaldo+Cruz,+219,+Tubar%C3%A3o+-+SC,+88701-060&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <figcaption>Centro, Tubarão/SC</figcaption>
+    </figure>
+    <p class="end">Rua Osvaldo Cruz, 219, sala 101<br>Centro, Tubarão/SC, 88701-060</p>
+  </div>
+  <div class="lh">
+    <ul class="horas" aria-label="Horários de atendimento">
+      <li data-d="1"><span class="dn">segunda-feira</span><span class="hr"><span>09:00 – 12:00</span><span>13:30 – 18:00</span></span></li>
+      <li data-d="2"><span class="dn">terça-feira</span><span class="hr"><span>09:00 – 12:00</span><span>13:30 – 18:00</span></span></li>
+      <li data-d="3"><span class="dn">quarta-feira</span><span class="hr"><span>09:00 – 12:00</span><span>13:30 – 18:00</span></span></li>
+      <li data-d="4"><span class="dn">quinta-feira</span><span class="hr"><span>09:00 – 12:00</span><span>13:30 – 18:00</span></span></li>
+      <li data-d="5"><span class="dn">sexta-feira</span><span class="hr"><span>09:00 – 12:00</span><span>13:30 – 18:00</span></span></li>
+      <li data-d="6"><span class="dn">sábado</span><span class="hr"><span>08:30 – 12:00</span></span></li>
+      <li data-d="0"><span class="dn">domingo</span><span class="hr"><span>Fechado</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FECHO -->
+<section class="fecho" id="contato" aria-labelledby="fe-h">
+  <h2 class="dsp" id="fe-h">Marque <small>a</small> sua prova</h2>
+  <ul class="acoes">
+    <li><a href="https://wa.me/5548991078162" target="_blank" rel="noopener"><span>Pedir horário pelo WhatsApp</span><svg class="ar" viewBox="0 0 64 24" aria-hidden="true"><use href="#seta"/></svg></a></li>
+    <li><a href="tel:+5548991078162"><span>Ligar (48) 99107-8162</span><svg class="ar" viewBox="0 0 64 24" aria-hidden="true"><use href="#seta"/></svg></a></li>
+    <li><a href="https://www.google.com/maps/search/?api=1&amp;query=R.+Osvaldo+Cruz,+219,+Tubar%C3%A3o+-+SC" target="_blank" rel="noopener"><span>Como chegar</span><svg class="ar" viewBox="0 0 64 24" aria-hidden="true"><use href="#seta"/></svg></a></li>
+    <li><a href="https://www.instagram.com/atelierbethnoivasefestas/" target="_blank" rel="noopener"><span>Ver o Instagram</span><svg class="ar" viewBox="0 0 64 24" aria-hidden="true"><use href="#seta"/></svg></a></li>
+  </ul>
+  <div class="rodape">
+    <span class="b" aria-hidden="true">Beth</span>
+    <address>Atelier Beth Noivas e Festas<br>Rua Osvaldo Cruz, 219, sala 101, Centro, Tubarão/SC</address>
+  </div>
+</section>
+
+</main>
+
+<div class="dock">
+  <p class="st" id="st"><i></i><span id="stt">Seg a sáb, com horário marcado</span></p>
+  <a class="btn" href="https://wa.me/5548991078162" target="_blank" rel="noopener">Agendar no WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  try{
+    var H={0:[],1:[[540,720],[810,1080]],2:[[540,720],[810,1080]],3:[[540,720],[810,1080]],4:[[540,720],[810,1080]],5:[[540,720],[810,1080]],6:[[510,720]]};
+    var N=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+    var W={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    function f(m){var h=Math.floor(m/60),r=m%60;return h+'h'+(r?('0'+r).slice(-2):'')}
+    var o={};
+    new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).forEach(function(x){o[x.type]=x.value});
+    var d=W[o.weekday],m=(+o.hour)*60+(+o.minute),t='',on=false,i,k,r,dd;
+    for(k=0;k<H[d].length;k++){r=H[d][k];if(m>=r[0]&&m<r[1]){on=true;t='Aberto, fecha às '+f(r[1]);}}
+    if(!on){
+      for(i=0;i<8&&!t;i++){
+        dd=(d+i)%7;
+        for(k=0;k<H[dd].length;k++){
+          r=H[dd][k];
+          if(i>0||r[0]>m){t='Fechado, abre '+(i===0?'hoje':(i===1?'amanhã':N[dd]))+' às '+f(r[0]);break;}
+        }
+      }
+    }
+    if(t){
+      document.getElementById('stt').textContent=t;
+      if(on)document.getElementById('st').classList.add('on');
+    }
+    var row=document.querySelector('.horas [data-d="'+d+'"]');
+    if(row){
+      row.classList.add('hoje');
+      row.setAttribute('aria-current','date');
+      var s=document.createElement('span');s.className='ht';s.textContent='hoje';
+      row.querySelector('.dn').appendChild(s);
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
