@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACR Medical Center — Centro médico em Tubarão/SC</title>
+<meta name="description" content="Centro médico em Tubarão/SC com mais de 15 especialidades e exames. Av. José Acácio Moreira, 1691, Centro. Agendamento pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E6ECF3;
+  --navy:#0E2140;
+  --navy2:#18325C;
+  --gold:#C8952B;
+  --gold-soft:#EBCB7E;
+  --white:#fff;
+  --serif:"Newsreader","Times New Roman",serif;
+  --sans:"Figtree",system-ui,sans-serif;
+  --pad:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--navy);font:400 1.0625rem/1.55 var(--sans);letter-spacing:-.01em;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,ul,blockquote,figure{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--navy);outline-offset:4px;border-radius:4px}
+footer :focus-visible{outline-color:var(--gold-soft)}
+.serif,h1,h2,h3{font-family:var(--serif);font-weight:500;font-optical-sizing:auto}
+.cap{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.u{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--gold)}
+.u:hover{text-decoration-thickness:2px}
+
+/* faixa */
+.strip{background:var(--navy);color:var(--bg);text-align:center;font-size:.9375rem;line-height:1.4;padding:9px var(--pad)}
+.strip a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.strip a:hover{color:#fff}
+
+/* topo */
+.top{display:flex;align-items:center;gap:16px;padding:14px var(--pad)}
+.top nav{display:none}
+.logo{display:flex;align-items:flex-start;gap:3px;text-decoration:none;order:-1;margin-right:auto;line-height:1}
+.logo b{font:500 2rem/1 var(--serif);letter-spacing:.14em}
+.logo svg{width:13px;height:13px;fill:var(--gold);margin-top:2px}
+.logo small{display:block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;margin-top:6px}
+.line{display:none}
+
+/* botão: pílula com círculo */
+.btn{display:inline-flex;align-items:center;gap:16px;min-height:48px;padding-right:22px;border:1px solid var(--navy);border-radius:999px;text-decoration:none;font-size:1rem;font-weight:500;background:transparent;color:var(--navy);transition:background .3s,color .3s}
+.btn .ic{width:48px;height:48px;margin:-1px 0 -1px -1px;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;flex:none;transition:background .3s,border-color .3s,transform .3s}
+.btn .ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.btn:hover .ic{background:var(--navy);color:var(--white);transform:rotate(-45deg)}
+.btn--sm{min-height:44px;padding:0 20px;gap:0}
+.btn--sm:hover{background:var(--navy);color:#fff}
+.btn--light{color:var(--bg);border-color:var(--bg)}
+.btn--light .ic{border-color:var(--bg)}
+.btn--light:hover .ic{background:var(--gold-soft);color:var(--navy);border-color:var(--gold-soft)}
+
+/* hero */
+.hero{display:grid;gap:44px;padding:40px var(--pad) 140px}
+.hero h1{font-size:13.6vw;line-height:.98;letter-spacing:-.035em;font-weight:500}
+.hero h1 .l{display:block;animation:rise 1s cubic-bezier(.2,.7,.1,1) backwards;animation-delay:calc(var(--i)*.13s + .1s)}
+.hero h1 .l2{margin-left:1.05em}
+.hero h1 .l3{margin-left:.42em}
+.hero .sub{margin-top:28px;max-width:26em;font-size:1.1875rem;line-height:1.5}
+.hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:18px 20px;margin-top:30px}
+.rate{display:flex;flex-direction:column;gap:6px;font-size:.9375rem;text-decoration:none}
+.rate .stars{display:flex;gap:3px}
+.rate .stars svg{width:15px;height:15px;fill:var(--navy)}
+.rate span.u{width:max-content}
+@keyframes rise{from{opacity:0;transform:translateY(.35em)}}
+.stage{position:relative;padding-bottom:0}
+.oval{border:1px solid var(--navy);border-radius:999px;overflow:hidden;background:var(--navy);aspect-ratio:790/555}
+.oval svg{width:100%;height:100%;animation:settle 1.6s cubic-bezier(.2,.7,.1,1) backwards}
+@keyframes settle{from{transform:scale(1.14)}}
+.shine{animation:shine 10s ease-in-out infinite alternate}
+@keyframes shine{from{transform:translateX(-260px)}to{transform:translateX(520px)}}
+.badge{position:absolute;right:0;bottom:-100px;width:132px;aspect-ratio:1;border-radius:50%;background:var(--gold-soft);border:1px solid var(--navy);display:grid;place-items:center;text-align:center;padding:12px;text-decoration:none;font:600 .875rem/1.18 var(--serif);letter-spacing:-.01em;transition:transform .5s cubic-bezier(.2,.7,.1,1);z-index:2}
+.badge:hover{transform:rotate(-6deg) scale(1.04)}
+.badge i{display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--navy);border-radius:50%;margin:6px auto 0}
+.badge i svg{width:13px;height:13px;fill:none;stroke:var(--navy);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* bloco dividido */
+.split{display:grid;gap:36px;padding:30px var(--pad) 70px}
+.split-l h2{font-size:clamp(1.9rem,7.6vw,2.4rem);line-height:1.12;letter-spacing:-.02em;font-weight:600;margin:14px 0 28px}
+.svc{border-top:1px solid var(--navy);padding:34px 0 46px}
+.svc header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}
+.svc h3{font-size:clamp(2rem,9vw,2.75rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin-top:10px}
+.svc p.d{max-width:31em}
+.ico{flex:none;width:68px;height:68px;border:1px solid var(--navy);border-radius:50%;display:grid;place-items:center;transition:background .3s}
+.ico svg{width:34px;height:34px;fill:none;stroke:var(--navy);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc:hover .ico{background:var(--gold-soft)}
+.svc:last-child{border-bottom:1px solid var(--navy)}
+
+/* faixa correndo */
+.marq{overflow:hidden;padding:26px 0 70px;white-space:nowrap}
+.marq .track{display:inline-flex;animation:run 38s linear infinite;will-change:transform}
+.marq span{font:600 clamp(3rem,10vw,6.6rem)/1.1 var(--serif);letter-spacing:-.035em;padding-right:.35em}
+.marq span em{font-style:normal;color:var(--gold);padding:0 .3em 0 0}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* voz */
+.voice{display:grid;gap:40px;padding:20px var(--pad) 90px;align-items:center}
+.arch{border:1px solid var(--navy);border-radius:999px;overflow:hidden;background:var(--navy);aspect-ratio:424/606;width:min(100%,424px)}
+.arch svg{width:100%;height:100%}
+.voice blockquote{font:600 clamp(1.9rem,8vw,2.9rem)/1.1 var(--serif);letter-spacing:-.025em}
+.voice cite{display:block;margin-top:28px;font:400 .9375rem/1.4 var(--sans);font-style:normal;letter-spacing:0}
+
+/* equipe */
+.team{padding:40px var(--pad) 110px;text-align:center}
+.team h2{font-size:clamp(2.3rem,10vw,3.6rem);line-height:1.02;letter-spacing:-.035em;font-weight:600;max-width:12em;margin:0 auto}
+.team .lead{max-width:34em;margin:26px auto 30px}
+.trio{display:flex;flex-direction:column;margin-top:64px}
+.pill{position:relative;border:1px solid var(--navy);border-radius:999px;min-height:210px;display:grid;place-content:center;gap:6px;padding:26px 46px;text-align:center;transition:background .4s}
+.pill+.pill{margin-top:-34px}
+.pill:hover{background:var(--gold-soft);z-index:2}
+.pill b{font:600 clamp(3rem,13vw,4.4rem)/.95 var(--serif);letter-spacing:-.04em}
+.pill span{font:500 1.2rem/1.2 var(--serif);max-width:12em;margin:0 auto}
+
+/* onde */
+.where{display:grid;gap:44px;padding:30px var(--pad) 100px}
+.where h2{font-size:clamp(2.2rem,9.6vw,3.3rem);line-height:1.02;letter-spacing:-.035em;font-weight:600;margin:14px 0 14px}
+.addr{font-size:1.1875rem}
+.status{display:inline-flex;align-items:center;gap:10px;margin:28px 0 12px;font-weight:500}
+.status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);flex:none}
+.hours li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--navy)}
+.hours li:last-child{border-bottom:1px solid var(--navy)}
+.hours li.today{font-weight:600}
+.hours li.today span:first-child::after{content:" · hoje";color:var(--navy2);font-weight:500;font-size:.875rem}
+.tel{display:inline-block;margin-top:30px;font:600 clamp(1.9rem,8vw,2.5rem)/1 var(--serif);letter-spacing:-.03em;text-decoration:none}
+.tel:hover{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:6px;text-decoration-thickness:2px}
+.map{border:1px solid var(--navy);border-radius:999px;overflow:hidden;aspect-ratio:4/5;background:var(--bg);position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35) contrast(1.05)}
+
+/* rodapé */
+footer{background:var(--navy);color:var(--bg);padding:70px var(--pad) 28px;position:relative;overflow:hidden}
+footer h2{font-size:clamp(2.4rem,11vw,4.4rem);line-height:1;letter-spacing:-.035em;font-weight:600;max-width:9em;margin:14px 0 32px}
+footer .cols{display:grid;gap:28px;margin-top:60px;font-size:1rem}
+footer .cols p{max-width:22em}
+footer .cap{color:var(--gold-soft)}
+footer a:not(.btn){text-underline-offset:4px;text-decoration-color:var(--gold)}
+footer a:not(.btn):hover{color:#fff}
+.legal{margin-top:44px;padding-top:18px;border-top:1px solid rgba(230,236,243,.3);font-size:.9375rem;opacity:.9;line-height:1.5}
+.word{font:500 34vw/1.1 var(--serif);letter-spacing:-.05em;color:var(--gold-soft);margin:24px 0 0 -.03em;padding-bottom:.06em;display:flex;align-items:flex-start;white-space:nowrap}
+.word svg{width:.22em;height:.22em;flex:none;fill:var(--gold);margin:.14em 0 0 .05em}
+
+/* botão fixo no celular: só aparece depois que o botão do hero sai da tela */
+.dock{position:fixed;left:16px;right:16px;bottom:16px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px;padding:0 8px 0 24px;border-radius:999px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;border:1px solid var(--gold-soft);transition:transform .4s cubic-bezier(.2,.7,.1,1),opacity .3s}
+.dock.off{transform:translateY(130%);opacity:0;pointer-events:none;visibility:hidden}
+.dock i{width:40px;height:40px;border-radius:50%;background:var(--gold-soft);display:grid;place-items:center}
+.dock i svg{width:17px;height:17px;fill:none;stroke:var(--navy);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+@media(min-width:900px){
+  :root{--pad:48px}
+  .dock{display:none}
+  .strip{font-size:.875rem}
+  .top{padding:12px var(--pad)}
+  .top nav{display:flex;gap:24px}
+  .top nav a{text-decoration:none;font-size:1rem;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 1px no-repeat;padding-bottom:3px;transition:background-size .35s}
+  .top nav a:hover{background-size:100% 1px}
+  .line{display:block;width:47px;height:1px;background:var(--navy);margin-left:6px}
+  .logo{order:3;margin-right:0;margin-left:auto}
+  .top .btn--sm{order:2}
+  .hero{grid-template-columns:5fr 7fr;align-items:center;gap:0;padding:96px var(--pad) 130px}
+  .hero h1{font-size:5.5rem}
+  .hero .sub{font-size:1.25rem}
+  .stage{margin-left:0}
+  .badge{width:222px;bottom:-50px;font-size:1.3rem;padding:24px}
+  .badge i{width:40px;height:40px;margin-top:14px}
+  .badge i svg{width:15px;height:15px}
+  .split{grid-template-columns:5fr 7fr;gap:0;padding:60px var(--pad) 120px}
+  .split-l{position:sticky;top:32px;align-self:start;padding-right:70px}
+  .split-l h2{font-size:2.2rem}
+  .svc{padding:56px 0 64px}
+  .svc h3{font-size:2.75rem}
+  .svc header{margin-bottom:34px}
+  .ico{width:80px;height:80px}
+  .ico svg{width:40px;height:40px}
+  .marq{padding:30px 0 130px}
+  .voice{grid-template-columns:5fr 7fr;gap:0;padding:20px var(--pad) 170px}
+  .voice blockquote{font-size:2.6rem;max-width:15em}
+  .team{padding:30px var(--pad) 160px}
+  .team h2{font-size:4.2rem;max-width:11em}
+  .trio{flex-direction:row;margin-top:80px}
+  .pill{flex:1;min-height:336px;padding:30px 70px}
+  .pill+.pill{margin-top:0;margin-left:-4.2%}
+  .pill b{font-size:5.4rem}
+  .pill span{font-size:1.5rem}
+  .where{grid-template-columns:5fr 7fr;gap:0;padding:30px var(--pad) 150px;align-items:center}
+  .where .info{padding-right:70px}
+  .where h2{font-size:3.4rem}
+  .map{aspect-ratio:736/540}
+  footer{padding:110px var(--pad) 40px}
+  footer .top2{display:grid;grid-template-columns:5fr 7fr;align-items:end}
+  footer h2{font-size:5.2rem;margin-bottom:0}
+  footer .cta{padding-bottom:14px}
+  footer .cols{grid-template-columns:5fr 3.5fr 3.5fr;margin-top:90px}
+  .legal{margin-top:70px}
+  .word{font-size:min(30rem,34vw);line-height:.9;padding-bottom:.04em;margin-top:34px}
+  .word svg{margin-top:.07em}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .marq{overflow-x:auto}
+}
+</style>
+</head>
+<body><div id="faixa-demo" style="position:sticky;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a> para ACR Medical Center. Ainda não é o site oficial.</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="plus" viewBox="-10 -10 20 20"><path d="M-2.2-9h4.4v6.8h6.8v4.4H2.2V9h-4.4V2.2h-6.8v-4.4h6.8z"/></symbol>
+  <symbol id="star" viewBox="0 0 20 20"><path d="M10 1.2l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 14.7 4.6 17.7l1.2-6L1.3 7.5l6.1-.7z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 20 20"><path d="M3 10h13M11 4.5L16.5 10 11 15.5" fill="none"/></symbol>
+</svg>
+
+<div class="strip">
+  Centro médico em Tubarão/SC · <span class="js-status">Segunda a sexta, 07:30 – 19:00</span> ·
+  <a href="https://wa.me/5548996226173">Agendar pelo WhatsApp</a>
+</div>
+
+<header class="top">
+  <a class="logo" href="#topo" aria-label="ACR Medical Center — início">
+    <span><b>ACR</b><small>Medical Center</small></span>
+    <svg aria-hidden="true"><use href="#plus"/></svg>
+  </a>
+  <nav aria-label="Principal">
+    <a href="#especialidades">Especialidades</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#onde">Horários</a>
+    <a href="#onde">Onde fica</a>
+  </nav>
+  <span class="line" aria-hidden="true"></span>
+  <a class="btn btn--sm" href="https://wa.me/5548996226173">Agendar consulta</a>
+</header>
+
+<main id="topo">
+
+<section class="hero" aria-labelledby="h1">
+  <div>
+    <h1 id="h1">
+      <span class="l l1" style="--i:0">Assistência</span>
+      <span class="l l2" style="--i:1">Cuidado</span>
+      <span class="l l3" style="--i:2">Recuperação</span>
+    </h1>
+    <p class="sub">Centro médico no Centro de Tubarão, com mais de 15 especialidades e exames no mesmo endereço.</p>
+    <div class="acts">
+      <a class="btn" href="https://wa.me/5548996226173">
+        <span class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#arrow"/></svg></span>
+        Agendar no WhatsApp
+      </a>
+      <a class="rate" href="https://www.google.com/maps/search/?api=1&query=ACR+Medical+Center+Tubar%C3%A3o" aria-label="Nota 4,9 no Google, 1.172 avaliações">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 20 20"><use href="#star"/></svg><svg viewBox="0 0 20 20"><use href="#star"/></svg><svg viewBox="0 0 20 20"><use href="#star"/></svg><svg viewBox="0 0 20 20"><use href="#star"/></svg><svg viewBox="0 0 20 20"><use href="#star"/></svg>
+        </span>
+        <span class="u">4,9 no Google · 1.172 avaliações</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="oval" role="img" aria-label="Desenho da fachada de vidro do prédio, com o número 1691">
+      <svg viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <clipPath id="bld"><rect x="170" y="40" width="460" height="520"/></clipPath>
+          <pattern id="panes" x="170" y="40" width="57.5" height="65" patternUnits="userSpaceOnUse">
+            <rect x="1.5" y="1.5" width="54.5" height="62" fill="#16305A" stroke="#EBCB7E" stroke-opacity=".55" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="800" height="560" fill="#0E2140"/>
+        <rect x="170" y="40" width="460" height="520" fill="url(#panes)"/>
+        <g clip-path="url(#bld)"><polygon class="shine" points="0,560 110,560 330,0 220,0" fill="#EBCB7E" opacity=".16"/></g>
+        <rect x="170" y="40" width="460" height="520" fill="none" stroke="#EBCB7E" stroke-width="2"/>
+        <rect x="250" y="352" width="300" height="104" fill="#C8952B"/>
+        <text x="400" y="430" text-anchor="middle" font-family="Newsreader,serif" font-weight="600" font-size="80" fill="#0E2140" letter-spacing="-2">1691</text>
+        <rect x="338" y="456" width="124" height="104" fill="#0E2140" stroke="#EBCB7E" stroke-width="2"/>
+        <line x1="400" y1="456" x2="400" y2="560" stroke="#EBCB7E" stroke-width="2"/>
+        <use href="#plus" x="112" y="112" width="30" height="30" fill="#EBCB7E"/>
+        <use href="#plus" x="80" y="288" width="22" height="22" fill="#fff"/>
+        <use href="#plus" x="684" y="236" width="30" height="30" fill="#fff"/>
+        <use href="#plus" x="650" y="420" width="24" height="24" fill="#EBCB7E"/>
+      </svg>
+    </div>
+    <a class="badge" href="https://www.google.com/maps/search/?api=1&query=Av.+Jos%C3%A9+Ac%C3%A1cio+Moreira%2C+1691%2C+Tubar%C3%A3o+SC">
+      <span>Av. José Acácio Moreira, 1691<i><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#arrow"/></svg></i></span>
+    </a>
+  </div>
+</section>
+
+<section class="split" id="especialidades" aria-labelledby="h-esp">
+  <div class="split-l">
+    <p class="cap">Especialidades e exames</p>
+    <h2 id="h-esp">Médicos de várias áreas e exames, no mesmo endereço.</h2>
+    <a class="btn" href="https://wa.me/5548996226173">
+      <span class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#arrow"/></svg></span>
+      Marcar pelo WhatsApp
+    </a>
+  </div>
+
+  <div class="split-r">
+    <article class="svc">
+      <header>
+        <div><p class="cap">01</p><h3>Ginecologia</h3></div>
+        <span class="ico"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="15" r="8"/><path d="M20 23v13M14 30h12"/></svg></span>
+      </header>
+      <p class="d">Saúde da mulher, com médico especialista.</p>
+    </article>
+    <article class="svc">
+      <header>
+        <div><p class="cap">02</p><h3>Urologia</h3></div>
+        <span class="ico"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="23" r="8"/><path d="M23 17l10-10M25 7h8v8"/></svg></span>
+      </header>
+      <p class="d">Consulta com médico especialista em urologia.</p>
+    </article>
+    <article class="svc">
+      <header>
+        <div><p class="cap">03</p><h3>Neurologia</h3></div>
+        <span class="ico"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="9" cy="24" r="3"/><circle cx="20" cy="9" r="3"/><circle cx="31" cy="24" r="3"/><circle cx="20" cy="33" r="3"/><path d="M11 21.5l7-10.5M22 11l7 10.5M12 24h16M11 26.5l6.5 5M28.5 26.5l-6.5 5M20 12v18"/></svg></span>
+      </header>
+      <p class="d">Consulta com médico especialista em neurologia.</p>
+    </article>
+    <article class="svc">
+      <header>
+        <div><p class="cap">04</p><h3>Oncologia</h3></div>
+        <span class="ico"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5c-6 0-9 6-5 13l5 7 5-7c4-7 1-13-5-13z"/><path d="M16 24l-5 11M24 24l5 11"/></svg></span>
+      </header>
+      <p class="d">Atendimento oncológico, no centro de Tubarão.</p>
+    </article>
+    <article class="svc">
+      <header>
+        <div><p class="cap">05</p><h3>Mamografia e ultrassom</h3></div>
+        <span class="ico"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 17Q20 6 32 17M12.5 22Q20 14.5 27.5 22M17 27Q20 24 23 27"/><circle cx="20" cy="32" r="1.6"/></svg></span>
+      </header>
+      <p class="d">Exames de imagem, com agendamento pelo WhatsApp.</p>
+    </article>
+    <article class="svc">
+      <header>
+        <div><p class="cap">+15</p><h3>E outras especialidades e exames</h3></div>
+        <span class="ico"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8v24M8 20h24"/></svg></span>
+      </header>
+      <p class="d">Procura uma especialidade ou um exame que não está aqui? Pergunte pelo WhatsApp.</p>
+    </article>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <span>Urologia <em>+</em> Ginecologia <em>+</em> Neurologia <em>+</em> Oncologia <em>+</em> Mamografia <em>+</em> Ultrassom <em>+</em> +15 especialidades e exames <em>+</em></span>
+    <span>Urologia <em>+</em> Ginecologia <em>+</em> Neurologia <em>+</em> Oncologia <em>+</em> Mamografia <em>+</em> Ultrassom <em>+</em> +15 especialidades e exames <em>+</em></span>
+  </div>
+</div>
+
+<section class="voice" aria-label="Sobre o centro médico">
+  <div class="arch" role="img" aria-label="Número 5, anos de cuidado">
+    <svg viewBox="0 0 424 606" aria-hidden="true">
+      <use href="#plus" x="186" y="62" width="52" height="52" fill="#C8952B"/>
+      <text x="212" y="420" text-anchor="middle" font-family="Newsreader,serif" font-style="italic" font-weight="500" font-size="380" fill="#EBCB7E" letter-spacing="-10">5</text>
+      <text x="212" y="490" text-anchor="middle" font-family="Newsreader,serif" font-weight="500" font-size="44" fill="#E6ECF3">anos</text>
+    </svg>
+  </div>
+  <div>
+    <blockquote>“São 5 anos cuidando das histórias, vidas e saúde de todos.”</blockquote>
+    <cite>— ACR Medical Center · Assistência, cuidado e recuperação</cite>
+  </div>
+</section>
+
+<section class="team" id="equipe" aria-labelledby="h-eq">
+  <p class="cap">Nosso time</p>
+  <h2 id="h-eq" style="margin-top:14px">Quem cuida de você.</h2>
+  <p class="lead">O ACR Medical Center é registrado no CRM/SC sob o nº 7574. A direção técnica é do Dr. Rodrigo Ramos, CRM/SC 18937.</p>
+  <a class="btn" href="https://wa.me/5548996226173">
+    <span class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#arrow"/></svg></span>
+    Falar com a equipe
+  </a>
+  <div class="trio">
+    <div class="pill"><b>+15</b><span>especialidades e exames</span></div>
+    <div class="pill"><b>5 anos</b><span>cuidando da saúde de todos</span></div>
+    <div class="pill"><b>4,9</b><span>nota no Google, em 1.172 avaliações</span></div>
+  </div>
+</section>
+
+<section class="where" id="onde" aria-labelledby="h-onde">
+  <div class="info">
+    <p class="cap">Onde fica · Agendamentos</p>
+    <h2 id="h-onde">Av. José Acácio Moreira, 1691</h2>
+    <p class="addr">Centro, Tubarão — SC<br>CEP 88704-557</p>
+    <p class="status js-status-wrap"><span class="js-status">Segunda a sexta, 07:30 – 19:00</span></p>
+    <ul class="hours" aria-label="Horários de atendimento">
+      <li data-d="1"><span>Segunda-feira</span><span>07:30 – 19:00</span></li>
+      <li data-d="2"><span>Terça-feira</span><span>07:30 – 19:00</span></li>
+      <li data-d="3"><span>Quarta-feira</span><span>07:30 – 19:00</span></li>
+      <li data-d="4"><span>Quinta-feira</span><span>07:30 – 19:00</span></li>
+      <li data-d="5"><span>Sexta-feira</span><span>07:30 – 19:00</span></li>
+      <li data-d="6"><span>Sábado</span><span>Fechado</span></li>
+      <li data-d="0"><span>Domingo</span><span>Fechado</span></li>
+    </ul>
+    <a class="tel" href="tel:+5548996226173">(48) 99622-6173</a>
+  </div>
+  <div class="map">
+    <iframe title="Mapa: ACR Medical Center, Av. José Acácio Moreira, 1691, Tubarão" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Jos%C3%A9+Ac%C3%A1cio+Moreira,+1691+-+Centro,+Tubar%C3%A3o+-+SC,+88704-557&output=embed"></iframe>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="top2">
+    <div>
+      <p class="cap">Agendamentos</p>
+      <h2>Marque a sua consulta pelo WhatsApp.</h2>
+    </div>
+    <div class="cta">
+      <a class="btn btn--light" href="https://wa.me/5548996226173">
+        <span class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#arrow"/></svg></span>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="cols">
+    <div>
+      <p class="cap">Endereço</p>
+      <p>Av. José Acácio Moreira, 1691<br>Centro, Tubarão — SC, 88704-557</p>
+    </div>
+    <div>
+      <p class="cap">Contato</p>
+      <p><a href="tel:+5548996226173">(48) 99622-6173</a><br><a href="https://www.instagram.com/acrcentromedico" rel="noopener">@acrcentromedico</a></p>
+    </div>
+    <div>
+      <p class="cap">Horário</p>
+      <p>Segunda a sexta, 07:30 – 19:00<br>Sábado e domingo: fechado</p>
+    </div>
+  </div>
+  <p class="legal">ACR Medical Center — Centro médico · CRM/SC 7574 · Diretor técnico: Dr. Rodrigo Ramos, CRM/SC 18937</p>
+  <div class="word" aria-hidden="true">ACR<svg viewBox="-10 -10 20 20"><use href="#plus"/></svg></div>
+</footer>
+
+<a class="dock" href="https://wa.me/5548996226173">Agendar no WhatsApp<i><svg viewBox="0 0 20 20" aria-hidden="true"><use href="#arrow"/></svg></i></a>
+
+<script>
+(function(){
+  var H={1:[450,1140],2:[450,1140],3:[450,1140],4:[450,1140],5:[450,1140]};
+  var nomes=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  try{
+    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var d=0,h=0,m=0;
+    p.forEach(function(x){
+      if(x.type==='weekday')d=map[x.value];
+      if(x.type==='hour')h=parseInt(x.value,10)%24;
+      if(x.type==='minute')m=parseInt(x.value,10);
+    });
+    var min=h*60+m,txt;
+    if(H[d]&&min>=H[d][0]&&min<H[d][1]){
+      txt='Aberto agora · fecha às 19:00';
+    }else if(H[d]&&min<H[d][0]){
+      txt='Fechado agora · abre hoje às 07:30';
+    }else{
+      var i=1,d2;
+      for(;i<=7;i++){d2=(d+i)%7;if(H[d2])break;}
+      txt='Fechado agora · abre '+(i===1?'amanhã':nomes[d2])+' às 07:30';
+    }
+    document.querySelectorAll('.js-status').forEach(function(el){el.textContent=txt;});
+    var li=document.querySelector('.hours li[data-d="'+d+'"]');
+    if(li)li.classList.add('today');
+  }catch(e){}
+
+  /* botão fixo: aparece só depois do botão do hero, e some quando o rodapé chega */
+  var dock=document.querySelector('.dock'),acts=document.querySelector('.hero .acts'),foot=document.querySelector('footer');
+  if(dock&&acts&&foot){
+    var tick=function(){
+      var hide=acts.getBoundingClientRect().bottom>0||foot.getBoundingClientRect().top<window.innerHeight*0.7;
+      dock.classList.toggle('off',hide);
+    };
+    tick();
+    window.addEventListener('scroll',tick,{passive:true});
+    window.addEventListener('resize',tick);
+  }
+})();
+</script>
+</body>
+</html>
