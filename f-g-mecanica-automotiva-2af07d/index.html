@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F & G Mecânica Automotiva | Oficina em Tubarão</title>
+    
+    <!-- Fontes: Space Grotesk (Geométrica técnica) e IBM Plex Mono (Detalhe industrial) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIÁVEIS E RESET --- */
+        :root {
+            --vinho: #6B1A1A;
+            --grafite: #222222;
+            --cinza-claro: #E5E5E5;
+            --branco-papel: #F4F4F0; /* Papel técnico, não branco puro */
+            
+            --font-titulo: 'Space Grotesk', sans-serif;
+            --font-tecnica: 'IBM Plex Mono', monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--branco-papel);
+            color: var(--grafite);
+            font-family: var(--font-tecnica);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- UTILITÁRIOS E TIPOGRAFIA --- */
+        h1, h2, h3 {
+            font-family: var(--font-titulo);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.95;
+        }
+
+        /* Legenda técnica espaçada */
+        .label {
+            font-family: var(--font-tecnica);
+            font-size: 0.7rem; 
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .text-vinho { color: var(--vinho); }
+        
+        /* Container que respeita margens no desktop */
+        .container {
+            width: 92%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container { width: 88%; padding: 0 2rem; }
+        }
+
+        /* --- HERO: O OBJETO E A LENTE --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a; /* Fundo escuro técnico */
+            overflow: hidden;
+        }
+
+        /* A "Lente" funciona como a moldura do objeto */
+        .hero-lens {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vw;
+            max-width: 900px;
+            max-height: 900px;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 1; /* Atrás do texto */
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        }
+
+        .hero-lens img {
+            width: 120%; 
+            height: 120%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1); /* Look técnico */
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Texto à frente da lente */
+            text-align: center;
+            width: 100%;
+            padding-top: 20vh; /* Empurra o texto para baixo da lente */
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 12vw, 9rem);
+            color: var(--branco-papel);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.04em;
+            /* Texto nítido, sem sombra */
+        }
+
+        .hero p {
+            font-family: var(--font-tecnica);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #ddd;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero .label {
+            color: var(--vinho); /* Acento de cor */
+            font-weight: 600;
+            background: rgba(0,0,0,0.6);
+            padding: 4px 8px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Botão estilo técnico (Retangular, sem arredondamento) */
+        .btn-tech {
+            display: inline-block;
+            background: var(--branco-papel);
+            color: var(--vinho);
+            padding: 1rem 2.5rem;
+            font-family: var(--font-titulo);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            border-radius: 0; /* Reto */
+            transition: transform 0.2s ease, background-color 0.2s;
+            border: 2px solid var(--branco-papel);
+        }
+
+        .btn-tech:hover {
+            background: transparent;
+            color: var(--branco-papel);
+            transform: translateY(-3px);
+        }
+
+        /* --- SEÇÃO AVALIAÇÃO (Texto que acende) --- */
+        .section-reputation {
+            padding: 10rem 0;
+            background-color: var(--branco-papel);
+            text-align: center;
+            position: relative;
+        }
+
+        .rating-display {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Estrelas desenhadas com CSS para não usar emoji */
+        .stars {
+            font-size: 2rem;
+            color: var(--vinho);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.2em;
+        }
+        
+        /* Aspas decorativas */
+        .stars::before, .stars::after { content: "★"; font-size: 1rem; vertical-align: middle; color: #ccc; }
+        .stars::before { margin-right: 5px; }
+        .stars::after { margin-left: 5px; }
+
+        .highlight-quote {
+            font-family: var(--font-titulo);
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 500;
+            color: #ccc; /* Texto "apagado" */
+            transition: color 0.8s ease, transform 0.8s ease;
+        }
+
+        .highlight-quote span {
+            color: var(--vinho);
+            font-weight: 700;
+        }
+
+        .highlight-quote.active {
+            color: var(--grafite);
+        }
+
+        .author {
+            margin-top: 1.5rem;
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- SEÇÃO SERVIÇOS (Grade Técnica) --- */
+        .section-services {
+            padding: 6rem 0;
+            background-color: var(--cinza-claro);
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        @media (min-width: 768px) {
+            .grid-services { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .service-card {
+            padding: 2rem;
+            border-right: 1px solid #ccc;
+            background: transparent;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .service-card:nth-child(3n) { border-right: none; }
+        }
+        
+        @media (max-width: 767px) {
+             .service-card { border-bottom: 1px solid #ccc; border-right: none; }
+        }
+
+        .service-card:hover {
+            background-color: var(--branco-papel);
+        }
+
+        /* Números grandes estilo técnico */
+        .service-number {
+            font-family: var(--font-titulo);
+            font-size: 3rem;
+            color: var(--vinho);
+            opacity: 0.2;
+            margin-bottom: 1rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--grafite);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        /* --- SEÇÃO AGENDAMENTO (Estilo Bloco de Cor) --- */
+        #agendar {
+            padding: 8rem 0;
+            background-color: var(--vinho);
+            color: var(--branco-papel);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Padrão técnico no fundo (gerado via CSS) */
+        #agendar::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+
+        .agenda-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .agenda-wrapper h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1rem;
+        }
+
+        /* Mockup visual do componente */
+        .agenda-box {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mock-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: var(--font-titulo);
+        }
+        
+        .day-slot {
+            padding: 0.8rem 0;
+            border: 1px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .day-slot:hover {
+            background: var(--branco-papel);
+            color: var(--vinho);
+            border-color: var(--branco-papel);
+        }
+
+        /* --- SEÇÃO MAPA (Moldura) --- */
+        .section-map {
+            height: 85vh;
+            width: 100%;
+            position: relative;
+            background-color: #eee;
+        }
+
+        .section-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) contrast(90%); /* Mapa estilizado */
+        }
+
+        /* --- FECHO (Lista de Ações) --- */
+        .section-footer {
+            background-color: var(--grafite);
+            color: var(--branco-papel);
+            padding: 8rem 0 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr 2fr; }
+        }
+
+        .action-list {
+            list-style: none;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .action-item {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 1.5rem 0;
+        }
+
+        .action-link {
+            color: var(--branco-papel);
+            text-decoration: none;
+            font-family: var(--font-titulo);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .action-link:hover {
+            color: var(--cinza-claro);
+            opacity: 1;
+        }
+
+        /* Seta técnica */
+        .arrow {
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .action-link:hover .arrow {
+            transform: translateX(8px);
+        }
+        
+        /* Botão flutuante mobile */
+        .mobile-cta {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: var(--vinho);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0; /* Reto */
+            font-family: var(--font-titulo);
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-cta { display: none; }
+        }
+
+    </style>
+</head>
+<body><style>#faixa-demo{position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.35 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518}#faixa-demo .so-pc{display:none}@media(min-width:700px){#faixa-demo .so-pc{display:inline}}</style><div id="faixa-demo">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a><span class="so-pc"> para F &amp; G Mecanica Automotiva</span>. Ainda não é o site oficial.</div><script>(function(){var f=document.getElementById("faixa-demo");function p(){var h=f.offsetHeight;document.documentElement.style.setProperty("--faixa-demo",h+"px");document.body.style.paddingTop=h+"px";document.querySelectorAll("body *").forEach(function(e){if(e===f||f.contains(e))return;var s=getComputedStyle(e),t=parseFloat(s.top);if((s.position==="fixed"||s.position==="sticky")&&t<h){if(e.dataset.topo===undefined)e.dataset.topo=t||0;e.style.top=(parseFloat(e.dataset.topo)+h)+"px";}if(!e.dataset.tela&&Math.abs(e.getBoundingClientRect().height-innerHeight)<2&&e.children.length){e.dataset.tela="1";e.style.height="calc(100vh - "+h+"px)";e.style.minHeight="0";}});}if(document.readyState==="loading")addEventListener("DOMContentLoaded",p);else p();addEventListener("resize",p);})()</script>
+
+    <!-- HERO -->
+    <section class="hero palco-dobra palco-dobra-1">
+        <!-- A "Lente" que vê o interior da oficina -->
+        <div class="hero-lens">
+            <img src="img/flow-1.jpg" alt="Interior de oficina mecânica limpa com carro no elevador" width="2752" height="1536">
+        </div>
+        
+        <!-- Conteúdo sobre a lente -->
+        <div class="hero-content container">
+            <span class="label">Tubarão - SC</span>
+            <h1>F & G<br>Mecânica</h1>
+            <p>Serviço local. Preço justo.</p>
+            <a href="#agendar" class="btn-tech">Agendar hora</a>
+        </div>
+    </section>
+
+    <!-- AVALIAÇÃO (Texto que acende) -->
+    <section class="section-reputation palco-dobra palco-dobra-2">
+        <div class="container rating-display">
+            <span class="label">Avaliações no Google</span>
+            <div class="rating-display">
+                <div class="stars text-vinho"></div>
+                <!-- Texto começa apagado (cinza claro), acende via JS -->
+                <p class="highlight-quote" id="quote-text">"Equipe excelente, <span>preço justo.</span>"</p>
+                <p class="author">— Pedro, cliente verificado</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="section-services palco-dobra palco-dobra-3">
+        <div class="container">
+            <span class="label" style="margin-bottom: 2rem;">Especialidades</span>
+            
+            <div class="grid-services">
+                <div class="service-card">
+                    <span class="service-number">01</span>
+                    <h3>Mecânica Geral</h3>
+                    <p>Diagnóstico preciso e reparo de motor e câmbio. Manutenção preventiva e corretiva.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-number">02</span>
+                    <h3>Sistema Elétrico</h3>
+                    <p>Injeção eletrônica, baterias, sensores e diagnósticos com scanner de última geração.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-number">03</span>
+                    <h3>Freios e Suspensão</h3>
+                    <p>Segurança em primeiro lugar. Troca de pastilhas, discos e revisão completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDAMENTO -->
+    <section id="agendar">
+        <div class="container agenda-wrapper">
+            <span class="label" style="color: rgba(255,255,255,0.7);">Agendamento Online</span>
+            <h2>Sua vez.<br>Na fila.</h2>
+            
+            <!-- Mockup visual do componente de agendamento -->
+            <div class="agenda-box">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem;">
+                    <span>Novembro 2024</span>
+                    <span>&lt;</span>
+                </div>
+                <!-- Calendário visual (mockup) -->
+                <div class="mock-calendar">
+                    <div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">D</div><div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">S</div><div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">T</div><div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">Q</div><div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">Q</div><div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">S</div><div class="day-slot" style="font-size: 0.7em; opacity: 0.6;">F</div>
+                    <div class="day-slot" style="opacity: 0.3;">27</div><div class="day-slot" style="opacity: 0.3;">28</div><div class="day-slot" style="opacity: 0.3;">29</div><div class="day-slot" style="opacity: 0.3;">30</div><div class="day-slot" style="opacity: 0.3;">31</div>
+                    <div class="day-slot">1</div><div class="day-slot">2</div><div class="day-slot">3</div><div class="day-slot">4</div><div class="day-slot">5</div><div class="day-slot">6</div><div class="day-slot">7</div>
+                    <div class="day-slot">8</div><div class="day-slot">9</div><div class="day-slot" style="background: white; color: black;">10</div><div class="day-slot">11</div><div class="day-slot">12</div><div class="day-slot">13</div><div class="day-slot">14</div>
+                    <div class="day-slot">15</div><div class="day-slot">16</div><div class="day-slot">17</div><div class="day-slot">18</div><div class="day-slot">19</div><div class="day-slot">20</div><div class="day-slot">21</div>
+                </div>
+                <a href="https://wa.me/5548998319226" class="btn-tech">Confirmar agendamento pelo WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="section-map">
+        <iframe src="https://www.google.com/maps?q=R.+Duque+de+Caxias+-+Humaitá,+Tubarão+-+SC,+88704-590&output=embed" allowfullscreen loading="lazy"></iframe>
+    </section>
+
+    <!-- FOOTER -->
+    <section id="agendar" style="padding:64px 20px"><h2 style="text-align:center">Agende seu horário</h2><div data-agendar></div></section><footer class="section-footer">
+        <div class="container footer-grid">
+            <div>
+                <h2 style="font-size: 1.5rem; margin-bottom: 2rem;">F & G</h2>
+                <p style="opacity: 0.7; font-family: var(--font-tecnica); font-size: 0.9rem;">Mecânica automotiva com nota máxima no Google.</p>
+            </div>
+            
+            <ul class="action-list">
+                <li class="action-item">
+                    <a href="https://wa.me/5548998319226" class="action-link">
+                        Pedir pelo WhatsApp <span class="arrow">→</span>
+                    </a>
+                </li>
+                <li class="action-item">
+                    <a href="tel:+5548998319226" class="action-link">
+                        Ligar agora <span class="arrow">→</span>
+                    </a>
+                </li>
+                <li class="action-item">
+                    <a href="https://instagram.com/fgmecanicaautomotiva" class="action-link">
+                        Seguir no Instagram <span class="arrow">→</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div style="font-size: 0.8rem; opacity: 0.5;">
+                &copy; 2024 F & G Mecânica Automotiva.<br>Aceitamos Crédito, Débito e NFC.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Mobile Fixo -->
+    <a href="#agendar" class="mobile-cta">
+        Agendar agora
+    </a>
+
+    <!-- DADOS DO AGENDAMENTO (SISTEMA) -->
+    
+
+    <!-- COREOGRAFIA DO FIO CONDUTOR (SISTEMA) -->
+    
+
+    <script>
+        // Texto que acende ao rolar
+        const quoteText = document.getElementById('quote-text');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    quoteText.classList.add('active');
+                } else {
+                    quoteText.classList.remove('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(quoteText);
+    </script>
+<!--agendar:inicio--><style>.ag{--ag-fundo:transparent;--ag-texto:currentColor;--ag-destaque:currentColor;--ag-linha:rgba(127,127,127,.35);--ag-suave:rgba(127,127,127,.1);
+  color:var(--ag-texto);background:var(--ag-fundo);font:inherit;max-width:880px;margin:0 auto;text-align:left}
+.ag *{box-sizing:border-box}
+.ag button,.ag input,.ag a{font:inherit;color:inherit}
+.ag-passo{border-top:1px solid var(--ag-linha);padding:18px 0}
+
+.ag-passo:last-child{border-bottom:1px solid var(--ag-linha)}
+.ag-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:28px}
+.ag-n{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.08em;opacity:.6}
+.ag-n::before{content:"0"}
+.ag-tit{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ag-troca{margin-left:auto;background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.85;text-align:right}
+.ag-aberto>div:last-child{margin-top:14px}
+.ag-abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.ag-abas::-webkit-scrollbar{display:none}
+.ag-aba{flex:none;border:1px solid var(--ag-linha);background:none;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ag-aba[aria-selected=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-grade-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ag-serv{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--ag-linha);background:var(--ag-suave);border-radius:10px;padding:14px 16px;min-height:64px;cursor:pointer;transition:border-color .2s,transform .2s}
+.ag-serv:hover,.ag-serv:focus-visible{border-color:var(--ag-destaque);transform:translateY(-1px)}
+.ag-serv[aria-pressed=true]{border-color:var(--ag-destaque);box-shadow:inset 0 0 0 1px var(--ag-destaque)}
+.ag-serv-nome{font-weight:600;font-size:1rem;line-height:1.3}
+.ag-serv-info{font-size:.9rem;opacity:.75}
+.ag-dias{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin}
+.ag-dia{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;width:62px;min-height:60px;border:1px solid var(--ag-linha);background:none;border-radius:10px;padding:8px 0;cursor:pointer}
+.ag-dia-sem{font-size:.72rem;letter-spacing:.08em;opacity:.7}
+.ag-dia-num{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ag-dia:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.ag-dia[aria-pressed=true],.ag-hora[aria-pressed=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-periodo{margin:14px 0 8px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ag-periodo:first-child{margin-top:0}
+.ag-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.ag-hora{border:1px solid var(--ag-linha);background:none;border-radius:8px;min-height:44px;cursor:pointer;font-variant-numeric:tabular-nums}
+.ag-hora:hover,.ag-hora:focus-visible,.ag-dia:not(:disabled):hover{border-color:var(--ag-destaque)}
+.ag-vazio{opacity:.75;margin:0}
+.ag-fim{display:grid;gap:10px;max-width:520px}
+.ag-campo{width:100%;min-height:48px;border:1px solid var(--ag-linha);border-radius:8px;background:var(--ag-suave);padding:12px 14px;font-size:16px}
+.ag-campo:focus{outline:2px solid var(--ag-destaque);outline-offset:1px}
+.ag-previa{margin:4px 0;font-size:.95rem;line-height:1.5;opacity:.85}
+.ag-enviar{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)!important;text-decoration:none;font-weight:600}
+.ag-enviar:hover{filter:brightness(1.08)}
+.ag-nota{margin:12px 0 0;font-size:.78rem;opacity:.6;letter-spacing:.02em}
+.ag :focus-visible{outline:2px solid var(--ag-destaque);outline-offset:2px}
+@media (max-width:600px){.ag-grade-serv{grid-template-columns:1fr}.ag-horas{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.ag-serv{transition:none}}
+.ag .ag-passo:focus,.ag .ag-passo:focus-visible{outline:none}
+</style><script type="application/json" id="agenda-dados">{"servicos": [{"nome": "Mecânica Geral", "categoria": "Serviços", "duracao": 60, "exemplo": true}, {"nome": "Revisão de Freios", "categoria": "Serviços", "duracao": 45, "exemplo": true}, {"nome": "Diagnóstico Elétrico", "categoria": "Serviços", "duracao": 30, "exemplo": true}, {"nome": "Troca de Óleo", "categoria": "Manutenção", "duracao": 40, "preco": "A combinar"}], "equipe": [], "abre": {"dom": null, "seg": ["08:00", "18:30"], "ter": ["08:00", "18:30"], "qua": ["08:00", "18:30"], "qui": ["08:00", "18:30"], "sex": ["08:00", "18:30"], "sab": null}, "cores": {"fundo": "#F4F4F0", "texto": "#222222", "destaque": "#6B1A1A", "botao": "#FFFFFF", "linha": "#E5E5E5", "suave": "#4a1212"}, "whatsapp": "5548998319226", "campo_extra": "Modelo do carro", "semente": "F & G Mecanica Automotiva"}</script><script>/* Agendar — bloco de agendamento dos sites demonstrativos (Sull Produções).
+ * Fluxo inspirado no que funciona no Trinks: serviço → dia → horário (15 em 15 min, por período,
+ * só o que cabe a duração) → profissional → nome → WhatsApp da empresa com a mensagem pronta.
+ * Não grava nada em servidor: a demonstração simula os horários ocupados e avisa isso na tela.
+ * Dados: o bloco JSON de id agenda-dados no próprio site. Alvo: [data-agendar].
+ */
+(function () {
+  "use strict";
+  var DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  var NOME_DIA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"];
+  var DIA_LONGO = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var PADRAO = { dom: null, seg: ["09:00", "18:00"], ter: ["09:00", "18:00"], qua: ["09:00", "18:00"],
+                 qui: ["09:00", "18:00"], sex: ["09:00", "18:00"], sab: ["09:00", "13:00"] };
+
+  function min(hhmm) { var p = String(hhmm).split(":"); return (+p[0]) * 60 + (+p[1] || 0); }
+  function hhmm(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function chaveDia(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+
+  /* Hash estável: o mesmo dia e horário sempre aparecem ocupados (ou livres) para quem abre o site. */
+  function hash(txt) {
+    var h = 2166136261;
+    for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) / 4294967296;
+  }
+  function ocupado(semente, dia, inicio, taxa) { return hash(semente + "|" + chaveDia(dia) + "|" + inicio) < taxa; }
+
+  /* Faixas de funcionamento do dia: ["08:30","12:00","13:30","19:00"] vira [[510,720],[810,1140]]. */
+  function faixas(abre, dia) {
+    var f = abre ? abre[DIAS[dia.getDay()]] : null;
+    if (!f || !f.length) return [];
+    var r = [];
+    for (var i = 0; i + 1 < f.length; i += 2) r.push([min(f[i]), min(f[i + 1])]);
+    return r;
+  }
+
+  /* Horários livres de um dia para um serviço de `duracao` minutos.
+   * Só entra o horário em que o serviço termina dentro da faixa; hoje, só depois de agora + antecedência. */
+  function horarios(opc) {
+    var dia = opc.dia, agora = opc.agora || new Date(), passo = opc.intervalo || 15;
+    var antecedencia = opc.antecedencia == null ? 60 : opc.antecedencia;
+    var mesmoDia = chaveDia(dia) === chaveDia(agora);
+    var limite = mesmoDia ? agora.getHours() * 60 + agora.getMinutes() + antecedencia : -1;
+    var lista = [];
+    faixas(opc.abre, dia).forEach(function (fx) {
+      for (var t = fx[0]; t + opc.duracao <= fx[1]; t += passo) {
+        if (t < limite) continue;
+        if (ocupado(opc.semente || "", dia, t, opc.taxa == null ? 0.35 : opc.taxa)) continue;
+        lista.push(t);
+      }
+    });
+    return lista;
+  }
+
+  function periodo(t) { return t < 720 ? "Manhã" : t < 1080 ? "Tarde" : "Noite"; }
+
+  /* Profissionais livres naquele horário (simulado): cada um tem a própria agenda falsa. */
+  function livres(equipe, semente, dia, t) {
+    return equipe.filter(function (p) { return !ocupado(semente + "|" + p.nome, dia, t, 0.3); });
+  }
+
+  function mensagem(sel) {
+    var d = sel.dia, partes = ["Olá! Quero agendar " + sel.servico.nome,
+      (d.getDay() % 6 === 0 ? "no " : "na ") + DIA_LONGO[d.getDay()] + ", " + String(d.getDate()).padStart(2, "0") + "/" +
+      String(d.getMonth() + 1).padStart(2, "0") + ", às " + hhmm(sel.hora)];
+    if (sel.profissional) partes.push("com " + sel.profissional.nome);
+    var txt = partes.join(" ") + ".";
+    if (sel.extra) txt += " " + sel.extraRotulo + ": " + sel.extra + ".";
+    if (sel.nome) txt += " Meu nome é " + sel.nome + ".";
+    return txt;
+  }
+
+  function preco(s) {
+    if (s.preco == null || s.preco === "") return "a combinar";
+    if (typeof s.preco === "number") return s.preco === 0 ? "Grátis" : "R$ " + s.preco.toFixed(2).replace(".", ",");
+    return String(s.preco);
+  }
+  function duracaoTxt(m) { return m >= 60 ? Math.floor(m / 60) + "h" + (m % 60 ? " " + (m % 60) + "min" : "") : m + "min"; }
+
+  var API = { horarios: horarios, livres: livres, mensagem: mensagem, periodo: periodo, faixas: faixas,
+              preco: preco, duracaoTxt: duracaoTxt, hhmm: hhmm, PADRAO: PADRAO };
+  if (typeof module !== "undefined" && module.exports) { module.exports = API; return; }
+
+  /* ---------------------------------------------------------------- tela */
+  function el(tag, attrs, filhos) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (attrs[k] == null) return;
+      if (k === "texto") e.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    (filhos || []).forEach(function (f) { if (f) e.appendChild(f); });
+    return e;
+  }
+
+  function montar(alvo, dados) {
+    var servicos = (dados.servicos || []).filter(function (s) { return s && s.nome; }).map(function (s) {
+      return { nome: String(s.nome), categoria: s.categoria ? String(s.categoria) : "", preco: s.preco,
+               duracao: Math.max(15, Math.min(480, parseInt(s.duracao, 10) || 60)), exemplo: !!s.exemplo };
+    });
+    if (!servicos.length) return;
+    var equipe = (dados.equipe || []).filter(function (p) { return p && p.nome; });
+    var abreValido = dados.abre && DIAS.some(function (d) { return dados.abre[d] && dados.abre[d].length; });
+    var abre = abreValido ? dados.abre : PADRAO;
+    var semente = dados.semente || location.pathname;
+    var c = dados.cores || {};
+    ["fundo", "texto", "destaque", "linha", "suave"].forEach(function (k) {
+      if (c[k]) alvo.style.setProperty("--ag-" + k, c[k]);
+    });
+    if (c.botao) alvo.style.setProperty("--ag-fundo-botao", c.botao);
+    alvo.classList.add("ag");
+    var sel = { servico: null, dia: null, hora: null, profissional: null };
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var dias = [];
+    for (var i = 0; i < 30; i++) { var d = new Date(hoje); d.setDate(hoje.getDate() + i); dias.push(d); }
+    var categorias = servicos.reduce(function (a, s) { if (s.categoria && a.indexOf(s.categoria) < 0) a.push(s.categoria); return a; }, []);
+    var catAtual = categorias[0] || "";
+
+    function passo(n, titulo, corpo, resumo, aberto) {
+      var cab = el("div", { "class": "ag-cab" }, [el("span", { "class": "ag-n", texto: String(n) }),
+        el("span", { "class": "ag-tit", texto: titulo })]);
+      if (resumo && !aberto) {
+        cab.appendChild(el("button", { type: "button", "class": "ag-troca", texto: resumo + " · trocar",
+          onclick: function () { voltarPara(n); } }));
+      }
+      return el("div", { "class": "ag-passo" + (aberto ? " ag-aberto" : "") }, [cab, aberto ? corpo : null]);
+    }
+
+    function voltarPara(n) {
+      if (n <= 1) { sel.servico = null; }
+      if (n <= 2) { sel.dia = null; }
+      if (n <= 3) { sel.hora = null; }
+      if (n <= 4) { sel.profissional = null; sel.escolheuProf = false; }
+      desenhar(true);
+    }
+
+    function cartaoServico(s) {
+      return el("button", { type: "button", "class": "ag-serv", "aria-pressed": String(sel.servico === s),
+        onclick: function () { sel.servico = s; sel.dia = null; sel.hora = null; desenhar(true); } }, [
+        el("span", { "class": "ag-serv-nome", texto: s.nome }),
+        el("span", { "class": "ag-serv-info", texto: duracaoTxt(s.duracao) + " · " + preco(s) })]);
+    }
+
+    function blocoServicos() {
+      var corpo = el("div", {});
+      if (categorias.length > 1) {
+        var abas = el("div", { "class": "ag-abas", role: "tablist" });
+        categorias.forEach(function (cat) {
+          abas.appendChild(el("button", { type: "button", role: "tab", "class": "ag-aba", "aria-selected": String(cat === catAtual),
+            texto: cat, onclick: function () { catAtual = cat; desenhar(); } }));
+        });
+        corpo.appendChild(abas);
+      }
+      var grade = el("div", { "class": "ag-grade-serv" });
+      servicos.filter(function (s) { return categorias.length < 2 || s.categoria === catAtual; }).forEach(function (s) {
+        grade.appendChild(cartaoServico(s));
+      });
+      corpo.appendChild(grade);
+      if (servicos.some(function (s) { return s.exemplo; })) {
+        corpo.appendChild(el("p", { "class": "ag-nota", texto: "exemplo — ajustamos com as suas informações" }));
+      }
+      return corpo;
+    }
+
+    function blocoDias() {
+      var faixa = el("div", { "class": "ag-dias", role: "listbox", "aria-label": "Escolha o dia" });
+      dias.forEach(function (d) {
+        var fechado = !faixas(abre, d).length;
+        faixa.appendChild(el("button", { type: "button", "class": "ag-dia", "aria-pressed": String(sel.dia && +sel.dia === +d),
+          disabled: fechado ? "disabled" : null, "aria-label": DIA_LONGO[d.getDay()] + " " + d.getDate() + (fechado ? ", fechado" : ""),
+          onclick: function () { sel.dia = d; sel.hora = null; desenhar(true); } }, [
+          el("span", { "class": "ag-dia-sem", texto: NOME_DIA[d.getDay()] }),
+          el("span", { "class": "ag-dia-num", texto: String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") })]));
+      });
+      return faixa;
+    }
+
+    function blocoHoras() {
+      var corpo = el("div", {});
+      var lista = horarios({ abre: abre, dia: sel.dia, duracao: sel.servico.duracao, semente: semente + "|" + sel.servico.nome });
+      if (!lista.length) {
+        corpo.appendChild(el("p", { "class": "ag-vazio", texto: "Agenda cheia nesse dia. Que tal outra data?" }));
+        return corpo;
+      }
+      ["Manhã", "Tarde", "Noite"].forEach(function (p) {
+        var doPeriodo = lista.filter(function (t) { return periodo(t) === p; });
+        if (!doPeriodo.length) return;
+        var grade = el("div", { "class": "ag-horas" });
+        doPeriodo.forEach(function (t) {
+          grade.appendChild(el("button", { type: "button", "class": "ag-hora", "aria-pressed": String(sel.hora === t), texto: hhmm(t),
+            onclick: function () { sel.hora = t; sel.profissional = null; sel.escolheuProf = !equipe.length; desenhar(true); } }));
+        });
+        corpo.appendChild(el("p", { "class": "ag-periodo", texto: p }));
+        corpo.appendChild(grade);
+      });
+      return corpo;
+    }
+
+    function blocoEquipe() {
+      var grade = el("div", { "class": "ag-grade-serv" });
+      var quem = livres(equipe, semente, sel.dia, sel.hora);
+      if (!quem.length) quem = equipe.slice(0, 1);
+      [{ nome: "Sem preferência", funcao: "quem estiver livre" }].concat(quem).forEach(function (p) {
+        grade.appendChild(el("button", { type: "button", "class": "ag-serv", onclick: function () {
+          sel.profissional = p.nome === "Sem preferência" ? null : p; sel.escolheuProf = true; desenhar(true); } }, [
+          el("span", { "class": "ag-serv-nome", texto: p.nome }),
+          el("span", { "class": "ag-serv-info", texto: p.funcao || "" })]));
+      });
+      return grade;
+    }
+
+    function blocoFim() {
+      var corpo = el("div", { "class": "ag-fim" });
+      var nome = el("input", { type: "text", "class": "ag-campo", autocomplete: "given-name", placeholder: "Seu nome", "aria-label": "Seu nome" });
+      var extra = dados.campo_extra ? el("input", { type: "text", "class": "ag-campo", placeholder: String(dados.campo_extra), "aria-label": String(dados.campo_extra) }) : null;
+      var tel = String(dados.whatsapp || "").replace(/\D/g, "");
+      var botao = el("a", { "class": "ag-enviar", target: "_blank", rel: "noopener", href: "#",
+        texto: tel ? "Enviar pedido pelo WhatsApp" : (dados.telefone ? "Ligar para agendar" : "Pedir agendamento") });
+      function atualizar() {
+        var txt = mensagem({ servico: sel.servico, dia: sel.dia, hora: sel.hora, profissional: sel.profissional,
+          nome: nome.value.trim(), extra: extra ? extra.value.trim() : "", extraRotulo: dados.campo_extra });
+        previa.textContent = "“" + txt + "”";
+        botao.href = tel ? "https://wa.me/" + tel + "?text=" + encodeURIComponent(txt)
+                         : (dados.telefone ? "tel:" + String(dados.telefone).replace(/[^\d+]/g, "") : "#contato");
+      }
+      var previa = el("p", { "class": "ag-previa" });
+      nome.addEventListener("input", atualizar);
+      if (extra) extra.addEventListener("input", atualizar);
+      corpo.appendChild(nome); if (extra) corpo.appendChild(extra);
+      corpo.appendChild(previa); corpo.appendChild(botao);
+      corpo.appendChild(el("p", { "class": "ag-nota", texto: "Demonstração: os horários ocupados são simulados. A confirmação chega pelo WhatsApp." }));
+      atualizar();
+      return corpo;
+    }
+
+    function desenhar(rolar) {
+      alvo.innerHTML = "";
+      var etapa = !sel.servico ? 1 : !sel.dia ? 2 : sel.hora == null ? 3 : !sel.escolheuProf ? 4 : 5;
+      var dataTxt = sel.dia ? NOME_DIA[sel.dia.getDay()] + " " + String(sel.dia.getDate()).padStart(2, "0") + "/" + String(sel.dia.getMonth() + 1).padStart(2, "0") : "";
+      alvo.appendChild(passo(1, "Serviço", etapa === 1 ? blocoServicos() : null, sel.servico && sel.servico.nome, etapa === 1));
+      if (etapa >= 2) alvo.appendChild(passo(2, "Dia", etapa === 2 ? blocoDias() : null, dataTxt, etapa === 2));
+      if (etapa >= 3) alvo.appendChild(passo(3, "Horário", etapa === 3 ? blocoHoras() : null, sel.hora != null ? hhmm(sel.hora) : "", etapa === 3));
+      var n = 4;
+      if (equipe.length && etapa >= 4) { alvo.appendChild(passo(4, "Profissional", etapa === 4 ? blocoEquipe() : null, sel.profissional ? sel.profissional.nome : "Sem preferência", etapa === 4)); n = 5; }
+      if (etapa === 5) alvo.appendChild(passo(n, "Confirmar", blocoFim(), "", true));
+      if (rolar) {
+        var aberto = alvo.querySelector(".ag-aberto");
+        var r = aberto && aberto.getBoundingClientRect();
+        if (r && (r.top < 60 || r.top > innerHeight * 0.6)) aberto.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (aberto) { aberto.setAttribute("tabindex", "-1"); aberto.focus({ preventScroll: true }); }
+      }
+    }
+    desenhar(false);
+  }
+
+  function iniciar() {
+    var fonte = document.getElementById("agenda-dados"), alvo = document.querySelector("[data-agendar]");
+    if (!fonte || !alvo) return;
+    try { montar(alvo, JSON.parse(fonte.textContent)); } catch (e) { /* dado quebrado: o site segue sem o bloco */ }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script><!--agendar:fim--><!--palco:inicio--><style>/* O palco do fio condutor. Parte fixa; as curvas por dobra são geradas em app/palco.py.
+   Ordem do Natan, 13/11/2026: "o mesmo óculos tem que ir caindo, fechando, abrindo, ou dentro dele
+   vai tendo as visões de outros lugares" / "pega sempre um elemento principal daquele setor e faz
+   com que esse elemento fique rolando junto com a cena. É só isso que eu quero."
+   Mecânica aprovada por ele em 13/11/2026: a lente do objeto fica ancorada no mesmo ponto da tela
+   do site inteiro, a cena seguinte aparece dentro dela, e na rolagem a lente cresce até a gente
+   passar para dentro daquela cena. O objeto gira e muda de tamanho em volta da própria lente;
+   ele nunca anda pela tela (quando anda, a janela desgruda e vira um ponto solto). */
+
+#palco { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: clip; display: none }
+#palco .cena { position: absolute; inset: 0 }
+#palco .fundo { position: absolute; inset: 0; background-size: cover; background-position: center }
+#palco .cena.janela .fundo { will-change: transform }
+#objeto { position: absolute; display: block; max-width: none; will-change: transform, opacity }
+/* Sobra de rolagem para a última travessia fechar; só existe com o palco de pé. */
+.palco-fim { display: none }
+
+/* Sem animação presa à rolagem (navegador antigo, ou quem pediu menos movimento):
+   o palco não entra e os fundos de reserva de cada dobra continuam valendo. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body { isolation: isolate }
+    #palco { display: block }
+    .palco-dobra { background: none !important; background-color: transparent !important }
+    .palco-reserva { display: none }
+  }
+}
+:root{--palco-cx:76%;--palco-cy:50%;--palco-ow:50vw;--palco-lx:50.0%;--palco-ly:50.0%;--palco-r0:calc(var(--palco-ow) * 0.2)}@property --s1{syntax:'<number>';inherits:true;initial-value:0}@property --z1{syntax:'<number>';inherits:true;initial-value:0}@property --f1{syntax:'<number>';inherits:true;initial-value:0}@property --s2{syntax:'<number>';inherits:true;initial-value:0}@property --z2{syntax:'<number>';inherits:true;initial-value:0}@property --f2{syntax:'<number>';inherits:true;initial-value:0}@keyframes passo1{0%{--s1:0}62%{--s1:1}100%{--s1:1}}@keyframes mergulho1{0%{--z1:0}48%{--z1:.01}56%{--z1:.1}62%{--z1:1}63%{--z1:0}100%{--z1:0}}@keyframes some1{0%{--f1:0}40%{--f1:0}48%{--f1:1}62%{--f1:1}69%{--f1:0}100%{--f1:0}}@keyframes passo2{0%{--s2:0}62%{--s2:1}100%{--s2:1}}@keyframes mergulho2{0%{--z2:0}48%{--z2:.01}56%{--z2:.1}62%{--z2:1}63%{--z2:0}100%{--z2:0}}@keyframes some2{0%{--f2:0}40%{--f2:0}48%{--f2:1}62%{--f2:1}69%{--f2:0}100%{--f2:0}}#palco{--a:0;--v:1}#palco .cena.janela{clip-path:circle(calc(var(--palco-r0) * var(--v) * (1 + 16 * var(--a))) at var(--palco-cx) var(--palco-cy))}#palco .cena.janela .fundo{transform:scale(calc(1.08 - .08 * var(--a)));transform-origin:var(--palco-cx) var(--palco-cy)}#objeto{left:var(--palco-cx);top:var(--palco-cy);width:var(--palco-ow);transform-origin:var(--palco-lx) var(--palco-ly);--giro:calc(-6deg + var(--s1) * 9deg + var(--s2) * -14deg);--porte:calc(1 + var(--s1) * -0.06 + var(--s2) * 0.08);--mergulho:calc(var(--z1) + var(--z2));transform:translate(calc(-1 * var(--palco-lx)),calc(-1 * var(--palco-ly))) rotate(var(--giro)) scale(calc(var(--porte) * (1 + 16 * var(--mergulho))));opacity:calc(1 - var(--f1) - var(--f2))}@media (max-width:860px){:root{--palco-cx:50%;--palco-cy:15%;--palco-ow:78vw}}@supports (animation-timeline: view()){@media (prefers-reduced-motion: no-preference){.palco-fim{display:block;height:85svh;pointer-events:none}html{timeline-scope:--t2,--t3}.palco-dobra-2{view-timeline:--t2 block}.palco-dobra-3{view-timeline:--t3 block}body{animation:passo1 linear both,mergulho1 linear both,some1 linear both,passo2 linear both,mergulho2 linear both,some2 linear both;animation-timeline:--t2,--t2,--t2,--t3,--t3,--t3;animation-range:cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%}.palco-cena-2{--a:var(--s1)}.palco-cena-3{--a:var(--s2);--v:calc(var(--s1) * (1 - var(--f1)))}@keyframes palco-passagem{0%{opacity:0;transform:translateY(26px)}16%{opacity:1;transform:none}64%{opacity:1;transform:none}92%{opacity:0;transform:translateY(-20px)}100%{opacity:0;transform:translateY(-20px)}}.palco-dobra > *{animation:palco-passagem linear both;animation-timeline:view();animation-range:entry 20% exit 60%}@media (max-width:860px){.palco-dobra > *{animation-range:entry 20% exit 2%}}.palco-dobra-1,.palco-dobra-1 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.btn-tech,.section-reputation,.section-services,.service-card,.agenda-box,.day-slot,.section-map,.section-footer,.mobile-cta,.ag,.ag-aba,.ag-serv,.ag-dia)):not(:is(.hero,.btn-tech,.section-reputation,.section-services,.service-card,.agenda-box,.day-slot,.section-map,.section-footer,.mobile-cta,.ag,.ag-aba,.ag-serv,.ag-dia) *){color:#ffffff}.palco-dobra-2,.palco-dobra-2 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.btn-tech,.section-reputation,.section-services,.service-card,.agenda-box,.day-slot,.section-map,.section-footer,.mobile-cta,.ag,.ag-aba,.ag-serv,.ag-dia)):not(:is(.hero,.btn-tech,.section-reputation,.section-services,.service-card,.agenda-box,.day-slot,.section-map,.section-footer,.mobile-cta,.ag,.ag-aba,.ag-serv,.ag-dia) *){color:#ffffff}.palco-dobra-3,.palco-dobra-3 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.btn-tech,.section-reputation,.section-services,.service-card,.agenda-box,.day-slot,.section-map,.section-footer,.mobile-cta,.ag,.ag-aba,.ag-serv,.ag-dia)):not(:is(.hero,.btn-tech,.section-reputation,.section-services,.service-card,.agenda-box,.day-slot,.section-map,.section-footer,.mobile-cta,.ag,.ag-aba,.ag-serv,.ag-dia) *){color:#222222}}}</style><div class="palco-fim" aria-hidden="true"></div><div id="palco" aria-hidden="true"><div class="cena"><div class="fundo" style="background-color:#1a1a1a"></div></div><div class="cena janela palco-cena-2"><div class="fundo" style="background-color:#6B1A1A"></div></div><div class="cena janela palco-cena-3"><div class="fundo" style="background-color:#E5E5E5"></div></div><img id="objeto" src="img/objeto.png" alt=""></div><script type="application/json" id="coreografia">{"objeto": "img/objeto.png", "dobras": [{"cena": "#1a1a1a", "texto": "#ffffff"}, {"cena": "#6B1A1A", "texto": "#ffffff"}, {"cena": "#E5E5E5", "texto": "#222222"}], "lente": {"x": 50.0, "y": 50.0, "raio": 0.2}}</script><!--palco:fim--></body>
+</html>
