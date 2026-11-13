@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bruning Mecanica Automotiva | Mecânica para carros em Tubarão/SC</title>
+<meta name="description" content="Oficina mecânica no Humaitá de Cima, Tubarão/SC. Segunda a sexta, das 8h às 18h. Chame no WhatsApp (48) 99644-0480.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F4F2;--ink:#111110;--grey:#5C5C58;--line:#CFCFCB;--soft:#E9E9E6;--acc:#D3271B;
+  --m:20px;--g:16px;--hw:110px;
+  --cw:calc((100vw - 2*var(--m) - 11*var(--g))/12);
+  --wv:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 420'%3E%3Cpath fill-rule='evenodd' d='M33 13.3V56A17 17 0 0 0 67 56V13.3A46 46 0 0 1 66 99.1V396A16 16 0 0 1 34 396V99.1A46 46 0 0 1 33 13.3ZM42 376a8 8 0 1 0 16 0a8 8 0 1 0-16 0Z'/%3E%3C/svg%3E");
+  --wvd:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1612'%3E%3Cg transform='translate(100 1612) rotate(180)'%3E%3Cpath fill-rule='evenodd' d='M33 13.3V56A17 17 0 0 0 67 56V13.3A46 46 0 0 1 66 99.1V1596A16 16 0 0 1 34 1596V99.1A46 46 0 0 1 33 13.3ZM42 1576a8 8 0 1 0 16 0a8 8 0 1 0-16 0Z'/%3E%3C/g%3E%3C/svg%3E");
+  --wh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 100'%3E%3Cg transform='translate(0 100) rotate(-90)'%3E%3Cpath fill-rule='evenodd' d='M33 13.3V56A17 17 0 0 0 67 56V13.3A46 46 0 0 1 66 99.1V396A16 16 0 0 1 34 396V99.1A46 46 0 0 1 33 13.3ZM42 376a8 8 0 1 0 16 0a8 8 0 1 0-16 0Z'/%3E%3C/g%3E%3C/svg%3E");
+  --whead:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='10 0 115 100'%3E%3Cg transform='translate(0 100) rotate(-90)'%3E%3Cpath d='M33 13.3V56A17 17 0 0 0 67 56V13.3A46 46 0 0 1 66 99.1V125H34V99.1A46 46 0 0 1 33 13.3Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (min-width:900px){:root{--m:72px;--g:32px;--hw:calc(2*var(--cw) + var(--g))}}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:24px;background:var(--bg);color:var(--ink);overflow-x:clip;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+h1,h2,h3,b,strong{font-weight:500}
+a{color:inherit}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
+section,header,footer{scroll-margin-top:56px}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.s{position:relative;padding:64px var(--m);overflow-x:clip}
+.dark{background:#0E0E0D;color:#F4F4F2;--ink:#F4F4F2;--bg:#0E0E0D;--grey:#A5A5A0;--line:#2F2F2D}
+.soft{background:var(--soft);--line:#C9C9C4}
+
+/* o texto sempre fica na frente de qualquer imagem ou desenho que sangre */
+.sh,.rows,.steps,.mural>.mod,.fnote,.ig,.faq-l,.agd .lead,.agd [data-agendar],.fg,.foot,.facts4{position:relative;z-index:3}
+
+/* barra */
+.bar{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--line);transition:transform .25s ease}
+.bar.hide{transform:translateY(-100%)}
+.bar nav{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 var(--m)}
+.bar a{display:inline-flex;align-items:center;min-height:48px;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;font-weight:500;background:linear-gradient(currentColor,currentColor) 0 calc(50% + 12px)/0 1px no-repeat;transition:background-size .15s}
+.bar a:hover{background-size:100% 1px}
+
+/* índice lateral */
+.idx{display:none;position:fixed;right:8px;top:50%;transform:translateY(-50%);z-index:55;flex-direction:column;gap:2px;background:#F4F4F2;padding:8px 6px}
+.idx.dk{background:#0E0E0D}
+.idx a{display:flex;align-items:center;gap:4px;min-height:28px;font-size:12px;line-height:16px;text-decoration:none;color:#5C5C58;font-variant-numeric:tabular-nums}
+.idx svg{width:16px;height:16px;visibility:hidden}
+.idx a.on{color:#111110;font-weight:500}
+.idx a.on svg{visibility:visible;color:var(--acc)}
+.idx.dk a{color:#A5A5A0}.idx.dk a.on{color:#F4F4F2}
+@media (min-width:1200px){.idx{display:flex}}
+
+/* cabeçalho de seção */
+.sh{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);margin-bottom:48px;align-items:start}
+.sh .n{grid-column:1/-1;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);font-variant-numeric:tabular-nums;margin-bottom:8px}
+.sh h2{grid-column:1/-1;font-size:48px;line-height:56px;letter-spacing:-.02em}
+.tag{grid-column:1/-1;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-top:16px}
+@media (min-width:720px){
+  .sh .n{grid-column:1/3;padding-top:20px;margin-bottom:0}
+  .sh h2,.sh .tag{grid-column:3/-1}
+}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 24px 0 16px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:500;font-size:16px;line-height:24px;text-decoration:none;transition:background-color .15s,color .15s,transform .15s;cursor:pointer}
+.btn svg{width:28px;height:28px;flex:none;transition:transform .2s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn:hover svg{transform:rotate(90deg)}
+.btn:active{transform:translateY(1px)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--bg)}
+.sq{display:inline-block;width:8px;height:8px;border:1px solid currentColor;margin-right:8px;vertical-align:1px}
+.sq.open{background:var(--acc);border-color:var(--acc)}
+.cap{font-size:12px;line-height:16px;color:var(--grey);margin-top:8px}
+
+/* PX: moldura com paralaxe. A imagem tem exatamente o tamanho da moldura;
+   o movimento é o recorte (object-position) deslizando, sem nada vazar sobre texto */
+.px{position:relative;overflow:hidden;isolation:isolate}
+.px>img,.px>iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--bx,50%) var(--oy,50%);border:0}
+
+/* 01 topo */
+.hero{--ww:64px;position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr);row-gap:24px;padding:24px var(--m) 24px calc(var(--m) + var(--ww) + var(--g));align-content:start;overflow-x:clip}
+.hero>*{position:relative;z-index:2}
+.wv{position:absolute!important;z-index:1!important;left:var(--m);top:0;bottom:calc(var(--ww)*-.5);width:var(--ww);-webkit-mask:var(--wvd) center bottom/100% auto no-repeat;mask:var(--wvd) center bottom/100% auto no-repeat;background:#1b1b1a}
+.wv>img{filter:grayscale(1) brightness(.6) contrast(1.3)}
+.name{order:1;font-size:16px;line-height:1}
+.nm{display:block;font-size:clamp(56px,16vw,248px);line-height:.9;letter-spacing:-.05em;font-weight:500;margin-left:-.04em}
+.sub{display:block;font-size:24px;line-height:32px;font-weight:400;margin-top:8px;letter-spacing:-.01em}
+.hinfo{order:2}
+.hinfo .lead{font-size:24px;line-height:32px;letter-spacing:-.01em;max-width:18em}
+.st{font-size:16px;line-height:24px;margin-top:16px}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin-top:24px}
+.lnk{display:inline-flex;align-items:center;min-height:48px;font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;transition:text-decoration-thickness .15s}
+.lnk:hover{text-decoration-thickness:2px}
+.hp{order:3}
+.hp .px{aspect-ratio:4/3;background:#DADAD8}
+.nrow{order:4;display:flex;align-items:center;width:100%;gap:16px}
+.rule{flex:1;height:1px;background:var(--ink);min-width:16px}
+.numeral{display:block;font-size:19vw;line-height:1;font-weight:500;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--ink);white-space:nowrap;user-select:none}
+@media (min-width:900px){
+  .hero{--ww:calc(2*var(--cw) + var(--g));grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding:24px var(--m) 32px}
+  .name{grid-column:3/-1;grid-row:1}
+  .sub{font-size:48px;line-height:56px;margin-top:0}
+  .hp{grid-column:3/8;grid-row:2;order:0}
+  .hinfo{grid-column:8/-1;grid-row:2;align-self:end;order:0}
+  .nrow{grid-column:3/-1;grid-row:3;order:0;gap:24px}
+  .numeral{font-size:min(15vw,216px)}
+}
+
+/* faixa de fatos */
+.band{padding:48px var(--m) 64px calc(var(--m) + 64px + var(--g))}
+.facts4{border-bottom:1px solid var(--ink)}
+.facts4 li{display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:16px;align-items:start;padding:16px 0;border-top:1px solid var(--ink);font-size:16px;line-height:24px;font-weight:500}
+.facts4 svg{width:32px;height:32px;rotate:var(--r,0deg)}
+.facts4 svg use{stroke-width:1.25}
+@media (min-width:900px){
+  .band{padding:64px var(--m)}
+  .facts4{margin-left:calc(2*(var(--cw) + var(--g)));display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--g)}
+  .facts4 li{grid-template-columns:32px minmax(0,1fr);padding:24px 0;font-size:24px;line-height:32px;letter-spacing:-.01em;min-height:120px}
+}
+
+/* 02 serviços */
+.svc{padding-top:96px;padding-bottom:208px}
+.rows li{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:var(--g);padding:24px 0;border-top:1px solid var(--ink);transition:background-color .15s}
+.rows li:last-child{border-bottom:1px solid var(--ink)}
+.rows li:hover{background:var(--soft)}
+.num{position:relative;display:inline-block;width:fit-content;height:fit-content;padding:8px 12px;font-size:24px;line-height:32px;font-variant-numeric:tabular-nums;font-weight:500}
+.num::before{content:"";position:absolute;inset:0;border:1px solid var(--ink);border-top:0;border-radius:0 0 20px 20px;opacity:0;transform:translateY(-8px);transition:opacity .15s,transform .15s}
+.rows li:hover .num::before{opacity:1;transform:none}
+.rows h3{font-size:24px;line-height:32px;letter-spacing:-.01em}
+.rows p{margin-top:8px;max-width:30em}
+.cons{grid-column:2;margin-top:8px;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+.wh{position:absolute;z-index:1;bottom:24px;left:52%;width:640px;height:152px;-webkit-mask:var(--wh) left center/100% 100% no-repeat;mask:var(--wh) left center/100% 100% no-repeat;background:#222}
+.wh>img{filter:grayscale(1) contrast(1.2);--bx:30%;--oy:70%}
+@media (min-width:900px){
+  .svc{padding-bottom:160px}
+  .rows{max-width:calc(9*var(--cw) + 8*var(--g))}
+  .rows li{grid-template-columns:repeat(9,minmax(0,1fr));padding:32px 0}
+  .rows .num{grid-column:1/3}
+  .rows .tx{grid-column:3/8}
+  .rows h3{font-size:48px;line-height:56px;letter-spacing:-.02em}
+  .cons{grid-column:8/10;grid-row:1;text-align:right;margin-top:12px}
+  .wh{bottom:auto;top:256px;left:calc(var(--m) + 9*(var(--cw) + var(--g)));width:1000px;height:238px}
+}
+
+/* 03 etapas */
+.como{padding-top:96px;padding-bottom:128px}
+.ruler{position:relative;z-index:1;display:flex;align-items:center;margin-right:calc(-1*var(--m) - 24px)}
+.rh{flex:none;width:var(--hw);aspect-ratio:115/100;-webkit-mask:var(--whead) center/100% 100% no-repeat;mask:var(--whead) center/100% 100% no-repeat;background:#1b1b1a}
+.rb{flex:1;height:calc(var(--hw)*.296);margin-left:-1px;background:#1b1b1a}
+.rb>img,.rh>img{filter:grayscale(1) brightness(.62) contrast(1.35)}
+.rb::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+   repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 1px,transparent 1px calc((var(--cw) + var(--g))/4)) var(--g) bottom/100% 7px repeat-x,
+   repeating-linear-gradient(90deg,rgba(255,255,255,.9) 0 1px,transparent 1px calc(2*(var(--cw) + var(--g)))) var(--g) bottom/100% 14px repeat-x}
+.steps{margin-top:32px;border-left:1px solid var(--ink)}
+.steps li{position:relative;padding:0 0 32px 24px}
+.steps li::before{content:"";position:absolute;left:-4px;top:8px;width:7px;height:7px;background:var(--ink)}
+.steps li:last-child{padding-bottom:0}
+.steps .k{display:block;font-size:12px;line-height:16px;letter-spacing:.08em;color:var(--grey);font-variant-numeric:tabular-nums;margin-bottom:4px}
+.steps h3{font-size:24px;line-height:32px;letter-spacing:-.01em}
+.steps p{margin-top:8px;max-width:26em}
+@media (min-width:900px) and (max-width:1359px){
+  .steps{margin-left:calc(2*(var(--cw) + var(--g)))}
+}
+@media (min-width:1360px){
+  .steps{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);margin-top:calc(var(--hw)*-.287);border-left:0}
+  .steps li{grid-column:var(--c)/span 2;border-left:1px solid var(--ink);padding:calc(24px + var(--i)*16px) 8px 0 16px}
+  .steps li::before{left:-4px;top:-1px}
+  .steps li:last-child{padding-bottom:0}
+}
+
+/* 04 fotos */
+.fotos{padding-top:96px;padding-bottom:96px}
+.mural{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--g)}
+.steel{aspect-ratio:4/3;background:#2a2a28}
+.steel>img{filter:grayscale(.85) contrast(1.15) brightness(.85)}
+.mod .fr{aspect-ratio:4/3;background:#DADAD8}
+.mod .b{opacity:0;transition:opacity .15s}
+.mod:hover .b,.mod:focus-visible .b{opacity:1}
+.mod figcaption{display:flex;gap:16px;margin-top:12px;font-size:16px;line-height:24px}
+.mod figcaption span{font-size:12px;line-height:24px;color:var(--grey);font-variant-numeric:tabular-nums;transition:color .15s}
+.mod:hover figcaption span{color:var(--ink)}
+.fnote{margin-top:32px;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+@media (min-width:900px){
+  .mural{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g)}
+  .steel{grid-column:1/4;align-self:stretch;aspect-ratio:auto}
+  .mod:nth-of-type(1){grid-column:4/7}.mod:nth-of-type(2){grid-column:7/10}.mod:nth-of-type(3){grid-column:10/13}
+  .mod .fr{aspect-ratio:3/4}
+}
+
+/* 05 avaliações */
+.rev{padding-top:96px;padding-bottom:128px;overflow:clip}
+.cota{position:absolute;z-index:0;right:-6vw;top:56px;width:min(70vw,520px);aspect-ratio:1;color:#3A3A37;overflow:visible;pointer-events:none}
+.cota use{stroke-width:1}
+.rev>*:not(.cota){position:relative;z-index:2}
+.rv{display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-items:end}
+.big{font-size:min(38vw,440px);line-height:.85;font-weight:500;letter-spacing:-.05em;color:#F4F4F2;padding-bottom:.06em}
+.rv-side p{font-size:24px;line-height:32px;letter-spacing:-.01em;max-width:14em;margin-bottom:24px}
+.empty{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+@media (min-width:900px){
+  .rv{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g)}
+  .big{grid-column:1/9}
+  .rv-side{grid-column:9/-1}
+}
+
+/* 06 informações */
+.info{padding-top:96px;padding-bottom:128px}
+.ig{display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+.facts li{display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:24px;padding:24px 0;border-top:1px solid var(--ink)}
+.facts li:last-child{border-bottom:1px solid var(--ink)}
+.mk{width:48px;height:48px;rotate:var(--r,0deg);flex:none}
+.mk use{stroke-width:1.25}
+.facts h3{font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+.facts p{font-size:24px;line-height:32px;letter-spacing:-.01em;overflow-wrap:anywhere}
+.facts .st{font-size:16px;line-height:24px;margin-top:12px}
+.map{aspect-ratio:1/1;border:1px solid var(--ink);background:var(--soft)}
+.map iframe{filter:grayscale(1) contrast(1.05)}
+@media (min-width:900px){
+  .ig{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g)}
+  .facts{grid-column:1/8}
+  .map{grid-column:8/-1;aspect-ratio:4/5}
+}
+
+/* 07 perguntas */
+.faqs{padding-top:96px;padding-bottom:96px}
+.faq-l details{border-top:1px solid var(--ink)}
+.faq-l details:last-of-type{border-bottom:1px solid var(--ink)}
+.faq-l summary{display:flex;align-items:center;gap:24px;min-height:80px;padding:16px 0;font-size:24px;line-height:32px;letter-spacing:-.01em;font-weight:500;cursor:pointer;list-style:none;transition:background-color .15s}
+.faq-l summary::-webkit-details-marker{display:none}
+.faq-l summary:hover{background:var(--soft)}
+.faq-l summary .mk{width:40px;height:40px;transition:rotate .2s}
+.faq-l summary:hover .mk{rotate:calc(var(--r,0deg) + 45deg)}
+.faq-l details p{padding:0 0 24px 64px;max-width:34em}
+@media (min-width:900px){.faq-l{margin-left:calc(2*(var(--cw) + var(--g)))}}
+
+/* 08 agendar */
+.agd{padding-top:96px;padding-bottom:96px}
+.agd .lead{font-size:24px;line-height:32px;letter-spacing:-.01em;max-width:20em;margin-bottom:32px}
+@media (min-width:900px){.agd .lead,.agd [data-agendar]{margin-left:calc(2*(var(--cw) + var(--g)))}}
+
+/* 09 fecho */
+.fim{padding-top:96px;padding-bottom:32px}
+.fg{display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+.acts li{border-top:1px solid var(--ink)}
+.acts li:last-child{border-bottom:1px solid var(--ink)}
+.acts a,.acts .row{display:grid;grid-template-columns:minmax(0,1fr) 32px;column-gap:16px;align-items:center;min-height:80px;padding:16px 0;text-decoration:none;transition:background-color .15s,padding .15s}
+.acts .row{grid-template-columns:minmax(0,1fr)}
+.acts span{font-size:24px;line-height:32px;font-weight:500;letter-spacing:-.01em}
+.acts em{font-style:normal;grid-column:1;color:var(--grey)}
+.acts b{grid-row:1/3;grid-column:2;font-size:24px;transition:transform .15s}
+.acts a:hover{background:var(--soft);padding-left:8px}
+.acts a:hover b{transform:translateX(4px)}
+.kit{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));column-gap:8px;align-items:end;border:1px solid var(--ink);padding:24px 16px}
+.kit i{display:block;justify-self:center;height:calc(var(--h)*1px);aspect-ratio:100/420;background:var(--ink);-webkit-mask:var(--wv) center bottom/100% 100% no-repeat;mask:var(--wv) center bottom/100% 100% no-repeat}
+.kit .last{grid-column:span 3;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;text-decoration:none;font-weight:500;line-height:20px}
+.kit .last .wr{display:block;height:184px;aspect-ratio:100/420;background:var(--ink);-webkit-mask:var(--wv) center bottom/100% 100% no-repeat;mask:var(--wv) center bottom/100% 100% no-repeat;transform-origin:50% 100%;transition:transform .25s}
+.kit .last:hover .wr,.kit .last:focus-visible .wr{transform:rotate(14deg)}
+.kit .last span.t{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:48px;display:flex;align-items:center;justify-content:center}
+.foot{margin-top:96px;padding:16px 0 8px;border-top:1px solid var(--ink);font-size:12px;line-height:16px;color:var(--grey)}
+@media (min-width:900px){
+  .fg{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:end}
+  .acts{grid-column:1/8}
+  .kit{grid-column:8/-1}
+}
+
+/* movimento */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .nm{animation:rev 1s cubic-bezier(.2,.7,.2,1) both}
+  .sub,.hinfo{animation:fade .8s .2s both}
+  @keyframes rev{from{transform:translateY(40px)}to{transform:none}}
+  @keyframes fade{from{transform:translateY(12px)}to{transform:none}}
+  @supports (animation-timeline:view()){
+    .px>img{animation:panx linear both;animation-timeline:view()}
+    .px.py>img{animation-name:pany}
+    @keyframes panx{
+      from{object-position:calc(var(--bx,50%) - var(--p,6%)) var(--oy,50%)}
+      to{object-position:calc(var(--bx,50%) + var(--p,6%)) var(--oy,50%)}}
+    @keyframes pany{
+      from{object-position:var(--bx,50%) calc(var(--oy,50%) - var(--p,6%))}
+      to{object-position:var(--bx,50%) calc(var(--oy,50%) + var(--p,6%))}}
+    .map{animation:mapin linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+    @keyframes mapin{from{clip-path:inset(14% 0 0 0)}to{clip-path:inset(0)}}
+    .numeral{animation:num linear both;animation-timeline:scroll(root);animation-range:0px 700px}
+    @keyframes num{to{transform:translateY(40px)}}
+    .wh{animation:whm linear both;animation-timeline:view()}
+    @keyframes whm{from{transform:translate(40px,-12px) rotate(-3deg)}to{transform:translate(-24px,12px) rotate(2deg)}}
+    .rows li,.steps li,.facts li,.facts4 li{animation:enter linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+    @keyframes enter{from{transform:translateY(16px)}to{transform:none}}
+    .mod:nth-of-type(2){animation:enter linear both;animation-timeline:view();animation-range:entry 10% entry 80%}
+    .mod:nth-of-type(3){animation:enter linear both;animation-timeline:view();animation-range:entry 20% entry 100%}
+    .big{animation:bigm linear both;animation-timeline:view()}
+    @keyframes bigm{from{transform:translateY(4%)}to{transform:translateY(-4%)}}
+    .cota{animation:cota linear both;animation-timeline:view()}
+    @keyframes cota{from{transform:translateY(-3%) rotate(-6deg)}to{transform:translateY(3%) rotate(6deg)}}
+    .facts .mk,.facts4 svg{animation:screw linear both;animation-timeline:view()}
+    @keyframes screw{from{rotate:var(--r,0deg)}to{rotate:calc(var(--r,0deg) + 50deg)}}
+    .kit i,.kit .last{animation:rise linear both;animation-timeline:view();animation-range:entry calc(var(--i,0)*4%) entry calc(60% + var(--i,0)*4%)}
+    @keyframes rise{from{transform:translateY(24px)}to{transform:none}}
+  }
+}
+</style>
+</head>
+<body><style>#faixa-demo{position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.35 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518}#faixa-demo .so-pc{display:none}@media(min-width:700px){#faixa-demo .so-pc{display:inline}}</style><div id="faixa-demo">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a><span class="so-pc"> para Bruning Mecanica Automotiva</span>. Ainda não é o site oficial.</div><script>(function(){var f=document.getElementById("faixa-demo");function p(){var h=f.offsetHeight;document.documentElement.style.setProperty("--faixa-demo",h+"px");document.body.style.paddingTop=h+"px";document.querySelectorAll("body *").forEach(function(e){if(e===f||f.contains(e))return;var s=getComputedStyle(e),t=parseFloat(s.top);if((s.position==="fixed"||s.position==="sticky")&&t<h){if(e.dataset.topo===undefined)e.dataset.topo=t||0;e.style.top=(parseFloat(e.dataset.topo)+h)+"px";}if(!e.dataset.tela&&Math.abs(e.getBoundingClientRect().height-innerHeight)<2&&e.children.length){e.dataset.tela="1";e.style.height="calc(100vh - "+h+"px)";e.style.minHeight="0";}});}if(document.readyState==="loading")addEventListener("DOMContentLoaded",p);else p();addEventListener("resize",p);})()</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="boca" viewBox="0 0 40 40"><path d="M14.46 6.1V20A5.54 5.54 0 0 0 25.54 20V6.1A15 15 0 1 1 14.46 6.1ZM14.8 34.1V40M25.2 34.1V40" fill="none" stroke="currentColor" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></symbol>
+</svg>
+
+<header class="bar" id="bar">
+  <nav aria-label="Principal">
+    <a href="#topo">Bruning</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#como">Etapas</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<nav class="idx" id="idx" aria-label="Seções da página">
+  <a href="#topo"><svg aria-hidden="true"><use href="#boca"/></svg>01</a>
+  <a href="#servicos"><svg aria-hidden="true"><use href="#boca"/></svg>02</a>
+  <a href="#como"><svg aria-hidden="true"><use href="#boca"/></svg>03</a>
+  <a href="#fotos"><svg aria-hidden="true"><use href="#boca"/></svg>04</a>
+  <a href="#avaliacoes"><svg aria-hidden="true"><use href="#boca"/></svg>05</a>
+  <a href="#info"><svg aria-hidden="true"><use href="#boca"/></svg>06</a>
+  <a href="#perguntas"><svg aria-hidden="true"><use href="#boca"/></svg>07</a>
+  <a href="#agendar"><svg aria-hidden="true"><use href="#boca"/></svg>08</a>
+  <a href="#contato"><svg aria-hidden="true"><use href="#boca"/></svg>09</a>
+</nav>
+
+<main>
+
+<section id="topo" class="hero" data-idx>
+  <div class="wv px" aria-hidden="true" style="--p:3%;--bx:24%;--oy:62%"><img src="img/flow-3.jpg" alt="" width="2752" height="1536" decoding="async"></div>
+  <h1 class="name"><span class="nm">Bruning</span><span class="sub">Mecanica Automotiva</span></h1>
+  <div class="hinfo">
+    <p class="lead">Mecânica automotiva no Humaitá de Cima, em Tubarão.</p>
+    <p class="st"><i class="sq" aria-hidden="true"></i><span data-status>Segunda a sexta, das 8h às 18h</span></p>
+    <div class="cta">
+      <a class="btn" href="https://wa.me/5548996440480"><svg aria-hidden="true"><use href="#boca" style="stroke-width:1.5"/></svg>Chamar no WhatsApp</a>
+      <a class="lnk" href="#agendar">Marcar horário</a>
+    </div>
+  </div>
+  <figure class="hp">
+    <div class="px" style="--p:12%"><img src="img/flow-1.jpg" alt="Close de um jogo de pastilhas e disco de freio de carro sobre fundo liso claro" width="2752" height="1536" fetchpriority="high" decoding="async"></div>
+    <figcaption class="cap">Disco e pastilhas de freio (ilustração)</figcaption>
+  </figure>
+  <div class="nrow" aria-hidden="true"><span class="rule"></span><span class="numeral">08/18</span></div>
+</section>
+
+<section class="band" aria-label="Diferenciais da oficina">
+  <ul class="facts4">
+    <li style="--r:0deg"><svg aria-hidden="true"><use href="#boca"/></svg><span>Nota 5,0 no Google</span></li>
+    <li><svg aria-hidden="true" style="--r:62deg"><use href="#boca"/></svg><span>Segunda a sexta, das 8h às 18h</span></li>
+    <li><svg aria-hidden="true" style="--r:135deg"><use href="#boca"/></svg><span>Cartão de crédito e débito</span></li>
+    <li><svg aria-hidden="true" style="--r:214deg"><use href="#boca"/></svg><span>Pagamento por celular (NFC)</span></li>
+    <li><svg aria-hidden="true" style="--r:290deg"><use href="#boca"/></svg><span>Entrada com acessibilidade</span></li>
+    <li><svg aria-hidden="true" style="--r:340deg"><use href="#boca"/></svg><span>Estacionamento com acessibilidade</span></li>
+  </ul>
+</section>
+
+<section id="servicos" class="s svc" data-idx>
+  <div class="sh">
+    <span class="n">02</span>
+    <h2>O que a gente conserta</h2>
+    <p class="tag">exemplo — ajustamos com as suas informações</p>
+  </div>
+  <ol class="rows">
+    <li><span class="num">01</span><div class="tx"><h3>Diagnóstico</h3><p>Achar a causa antes de trocar peça.</p></div><span class="cons">a combinar</span></li>
+    <li><span class="num">02</span><div class="tx"><h3>Freios</h3><p>Pastilhas, discos e fluido.</p></div><span class="cons">a combinar</span></li>
+    <li><span class="num">03</span><div class="tx"><h3>Suspensão</h3><p>Amortecedores, buchas e barulho em buraco.</p></div><span class="cons">a combinar</span></li>
+    <li><span class="num">04</span><div class="tx"><h3>Parte elétrica</h3><p>Bateria, alternador e luz acesa no painel.</p></div><span class="cons">a combinar</span></li>
+    <li><span class="num">05</span><div class="tx"><h3>Injeção eletrônica</h3><p>Carro falhando ou gastando demais.</p></div><span class="cons">a combinar</span></li>
+    <li><span class="num">06</span><div class="tx"><h3>Revisão e troca de óleo</h3><p>Óleo, filtros e o que a revisão pede.</p></div><span class="cons">a combinar</span></li>
+  </ol>
+  <div class="wh px py" aria-hidden="true" style="--p:4%"><img src="img/flow-3.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async"></div>
+</section>
+
+<section id="como" class="s como soft" data-idx>
+  <div class="sh">
+    <span class="n">03</span>
+    <h2>Do contato à entrega</h2>
+  </div>
+  <div class="ruler" aria-hidden="true">
+    <div class="rh px" style="--p:6%"><img src="img/flow-3.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async"></div>
+    <div class="rb px py" style="--p:1%"><img src="img/flow-3.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async"></div>
+  </div>
+  <ol class="steps">
+    <li style="--c:3;--i:0"><span class="k">01</span><h3>Contato</h3><p>Você chama no WhatsApp e conta o carro e o problema.</p></li>
+    <li style="--c:5;--i:1"><span class="k">02</span><h3>Diagnóstico</h3><p>O carro é olhado na oficina para achar a causa.</p></li>
+    <li style="--c:7;--i:2"><span class="k">03</span><h3>Orçamento</h3><p>Você sabe o que precisa ser feito antes de o serviço começar.</p></li>
+    <li style="--c:9;--i:3"><span class="k">04</span><h3>Serviço</h3><p>Mão na obra, com as peças combinadas.</p></li>
+    <li style="--c:11;--i:4"><span class="k">05</span><h3>Entrega</h3><p>O carro volta para você e a gente explica o que foi feito.</p></li>
+  </ol>
+</section>
+
+<section id="fotos" class="s fotos" data-idx>
+  <div class="sh">
+    <span class="n">04</span>
+    <h2>Peça, ferramenta e bancada</h2>
+  </div>
+  <div class="mural">
+    <div class="steel px" aria-hidden="true" style="--p:12%;--bx:20%"><img src="img/flow-3.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async"></div>
+    <figure class="mod" tabindex="0">
+      <div class="fr px" style="--p:6%;--bx:38%">
+        <img src="img/flow-1.jpg" alt="Close de um jogo de pastilhas e disco de freio de carro sobre fundo liso claro" width="2752" height="1536" loading="lazy" decoding="async">
+        <img class="b" src="img/flow-3.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span>01</span>Disco e pastilhas de freio</figcaption>
+    </figure>
+    <figure class="mod" tabindex="0">
+      <div class="fr px" style="--p:6%;--bx:30%">
+        <img src="img/flow-2.jpg" alt="Bancada de oficina mecânica com ferramentas organizadas sob luz suave" width="2752" height="1536" loading="lazy" decoding="async">
+        <img class="b" src="img/flow-1.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span>02</span>Chaves de boca na bancada</figcaption>
+    </figure>
+    <figure class="mod" tabindex="0">
+      <div class="fr px" style="--p:6%;--bx:36%">
+        <img src="img/flow-3.jpg" alt="Detalhe de um motor de carro limpo com velas de ignição e metal escovado" width="2752" height="1536" loading="lazy" decoding="async">
+        <img class="b" src="img/flow-2.jpg" alt="" width="2752" height="1536" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span>03</span>Motor e metal escovado</figcaption>
+    </figure>
+  </div>
+  <p class="fnote">Ilustrações feitas para esta demonstração. As fotos reais da oficina entram aqui.</p>
+</section>
+
+<section id="avaliacoes" class="s rev dark" data-idx data-theme="dark">
+  <svg class="cota" aria-hidden="true" viewBox="-4 -4 48 48">
+    <use href="#boca"/>
+    <path d="M2 20H38M20 0V40M14.46 3H25.54M14.46 2V4M25.54 2V4" fill="none" stroke="currentColor" stroke-width=".6" stroke-dasharray="1 1" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="sh">
+    <span class="n">05</span>
+    <h2>Nota no Google</h2>
+  </div>
+  <div class="rv">
+    <p class="big" role="img" aria-label="Nota 5,0">5,0</p>
+    <div class="rv-side">
+      <p>Nota 5,0 no Google Maps, baseada em 1 avaliação.</p>
+      <a class="btn line" href="https://www.google.com/maps/search/?api=1&amp;query=Bruning%20Mecanica%20Automotiva%20Tubar%C3%A3o%20SC" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#boca" style="stroke-width:1.5"/></svg>Avalie a oficina</a>
+      <div class="empty">Comentários de clientes</div>
+    </div>
+  </div>
+</section>
+
+<section id="info" class="s info" data-idx>
+  <div class="sh">
+    <span class="n">06</span>
+    <h2>Onde e quando</h2>
+  </div>
+  <div class="ig">
+    <ul class="facts">
+      <li style="--r:0deg"><svg class="mk" aria-hidden="true"><use href="#boca"/></svg><div><h3>Endereço</h3><p>R. Manoel Miguel Bittencourt, 1002, Humaitá de Cima, Tubarão/SC, CEP 88708-050</p></div></li>
+      <li style="--r:62deg"><svg class="mk" aria-hidden="true"><use href="#boca"/></svg><div><h3>Horário</h3><p>Segunda a sexta, das 8h às 18h. Sábado e domingo fechado.</p><p class="st"><i class="sq" aria-hidden="true"></i><span data-status>Segunda a sexta, das 8h às 18h</span></p></div></li>
+      <li style="--r:135deg"><svg class="mk" aria-hidden="true"><use href="#boca"/></svg><div><h3>Pagamento</h3><p>Cartão de crédito, cartão de débito e pagamento por celular (NFC).</p></div></li>
+      <li style="--r:214deg"><svg class="mk" aria-hidden="true"><use href="#boca"/></svg><div><h3>Acessibilidade</h3><p>Entrada e estacionamento com acessibilidade para cadeirantes.</p></div></li>
+    </ul>
+    <figure class="map px">
+      <iframe title="Mapa: R. Manoel Miguel Bittencourt, 1002, Humaitá de Cima, Tubarão/SC" src="https://www.google.com/maps?q=R.%20Manoel%20Miguel%20Bittencourt%2C%201002%20-%20Humait%C3%A1%20de%20Cima%2C%20Tubar%C3%A3o%20-%20SC&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </figure>
+  </div>
+</section>
+
+<section id="perguntas" class="s faqs soft" data-idx>
+  <div class="sh">
+    <span class="n">07</span>
+    <h2>Perguntas</h2>
+  </div>
+  <div class="faq-l">
+    <details open><summary><svg class="mk" aria-hidden="true" style="--r:20deg"><use href="#boca"/></svg>Que horas a oficina abre?</summary><p>De segunda a sexta, das 8h às 18h. Sábado e domingo fechado.</p></details>
+    <details><summary><svg class="mk" aria-hidden="true" style="--r:110deg"><use href="#boca"/></svg>Como posso pagar?</summary><p>Cartão de crédito, cartão de débito e pagamento por celular (NFC).</p></details>
+    <details><summary><svg class="mk" aria-hidden="true" style="--r:200deg"><use href="#boca"/></svg>A oficina tem acesso para cadeirante?</summary><p>Sim. A entrada e o estacionamento têm acessibilidade para pessoas em cadeira de rodas.</p></details>
+    <details><summary><svg class="mk" aria-hidden="true" style="--r:290deg"><use href="#boca"/></svg>Preciso agendar?</summary><p>Você pode chamar no WhatsApp ou marcar um horário aqui no site, de segunda a sexta.</p></details>
+    <details><summary><svg class="mk" aria-hidden="true" style="--r:350deg"><use href="#boca"/></svg>Faz orçamento?</summary><p>Mande no WhatsApp o modelo do carro, o ano e o problema, e a oficina responde.</p></details>
+  </div>
+</section>
+
+<section id="agendar" class="s agd" data-idx>
+  <div class="sh">
+    <span class="n">08</span>
+    <h2>Agende um horário</h2>
+  </div>
+  <p class="lead">Escolha o serviço, o dia e o horário, de segunda a sexta.</p>
+  <div data-agendar></div>
+</section>
+
+<section id="contato" class="s fim" data-idx>
+  <div class="sh">
+    <span class="n">09</span>
+    <h2>Fale com a oficina</h2>
+  </div>
+  <div class="fg">
+    <ul class="acts">
+      <li><a href="https://wa.me/5548996440480"><span>Chamar no WhatsApp</span><em>(48) 99644-0480</em><b aria-hidden="true">→</b></a></li>
+      <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=R.%20Manoel%20Miguel%20Bittencourt%2C%201002%2C%20Tubar%C3%A3o%20-%20SC" target="_blank" rel="noopener"><span>Como chegar</span><em>R. Manoel Miguel Bittencourt, 1002, Humaitá de Cima</em><b aria-hidden="true">→</b></a></li>
+      <li><a href="tel:+5548996440480"><span>Ligar</span><em>(48) 99644-0480</em><b aria-hidden="true">→</b></a></li>
+      <li><div class="row"><span>Horário</span><em>Segunda a sexta, das 8h às 18h</em></div></li>
+    </ul>
+    <div class="kit">
+      <i aria-hidden="true" style="--h:64;--i:0"></i>
+      <i aria-hidden="true" style="--h:80;--i:1"></i>
+      <i aria-hidden="true" style="--h:96;--i:2"></i>
+      <i aria-hidden="true" style="--h:112;--i:3"></i>
+      <i aria-hidden="true" style="--h:128;--i:4"></i>
+      <i aria-hidden="true" style="--h:144;--i:5"></i>
+      <i aria-hidden="true" style="--h:160;--i:6"></i>
+      <a class="last" href="https://wa.me/5548996440480" style="--i:7"><span class="wr" aria-hidden="true"></span><span class="t">Chamar agora</span></a>
+    </div>
+  </div>
+  <footer class="foot">Bruning Mecanica Automotiva, R. Manoel Miguel Bittencourt, 1002, Humaitá de Cima, Tubarão/SC.</footer>
+</section>
+
+</main>
+
+
+
+<script>
+(function(){
+  var bar=document.getElementById('bar'),y=0;
+  addEventListener('scroll',function(){var c=scrollY;bar.classList.toggle('hide',c>y&&c>160);y=c},{passive:true});
+
+  var nav=document.getElementById('idx'),links=[].slice.call(nav.querySelectorAll('a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){var on=l.getAttribute('href')==='#'+e.target.id;l.classList.toggle('on',on);if(on)l.setAttribute('aria-current','true');else l.removeAttribute('aria-current')});
+          nav.classList.toggle('dk',e.target.getAttribute('data-theme')==='dark');
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    [].slice.call(document.querySelectorAll('[data-idx]')).forEach(function(s){io.observe(s)});
+  }
+
+  try{
+    var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+    var d=n.getDay(),m=n.getHours()*60+n.getMinutes();
+    var open=d>=1&&d<=5&&m>=480&&m<1080,t;
+    if(open)t='Aberto agora, até as 18h';
+    else if(d>=1&&d<=5&&m<480)t='Fechado agora, abre hoje às 8h';
+    else if(d>=1&&d<=4)t='Fechado agora, abre amanhã às 8h';
+    else t='Fechado agora, abre segunda às 8h';
+    [].slice.call(document.querySelectorAll('[data-status]')).forEach(function(e){
+      e.textContent=t;
+      var q=e.previousElementSibling;if(q)q.classList.toggle('open',open);
+    });
+  }catch(e){}
+})();
+</script>
+<!--agendar:inicio--><style>.ag{--ag-fundo:transparent;--ag-texto:currentColor;--ag-destaque:currentColor;--ag-linha:rgba(127,127,127,.35);--ag-suave:rgba(127,127,127,.1);
+  color:var(--ag-texto);background:var(--ag-fundo);font:inherit;max-width:880px;margin:0 auto;text-align:left}
+.ag *{box-sizing:border-box}
+.ag button,.ag input,.ag a{font:inherit;color:inherit}
+.ag-passo{border-top:1px solid var(--ag-linha);padding:18px 0}
+
+.ag-passo:last-child{border-bottom:1px solid var(--ag-linha)}
+.ag-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:28px}
+.ag-n{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.08em;opacity:.6}
+.ag-n::before{content:"0"}
+.ag-tit{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ag-troca{margin-left:auto;background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.85;text-align:right}
+.ag-aberto>div:last-child{margin-top:14px}
+.ag-abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.ag-abas::-webkit-scrollbar{display:none}
+.ag-aba{flex:none;border:1px solid var(--ag-linha);background:none;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ag-aba[aria-selected=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-grade-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ag-serv{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--ag-linha);background:var(--ag-suave);border-radius:10px;padding:14px 16px;min-height:64px;cursor:pointer;transition:border-color .2s,transform .2s}
+.ag-serv:hover,.ag-serv:focus-visible{border-color:var(--ag-destaque);transform:translateY(-1px)}
+.ag-serv[aria-pressed=true]{border-color:var(--ag-destaque);box-shadow:inset 0 0 0 1px var(--ag-destaque)}
+.ag-serv-nome{font-weight:600;font-size:1rem;line-height:1.3}
+.ag-serv-info{font-size:.9rem;opacity:.75}
+.ag-dias{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin}
+.ag-dia{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;width:62px;min-height:60px;border:1px solid var(--ag-linha);background:none;border-radius:10px;padding:8px 0;cursor:pointer}
+.ag-dia-sem{font-size:.72rem;letter-spacing:.08em;opacity:.7}
+.ag-dia-num{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ag-dia:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.ag-dia[aria-pressed=true],.ag-hora[aria-pressed=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-periodo{margin:14px 0 8px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ag-periodo:first-child{margin-top:0}
+.ag-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.ag-hora{border:1px solid var(--ag-linha);background:none;border-radius:8px;min-height:44px;cursor:pointer;font-variant-numeric:tabular-nums}
+.ag-hora:hover,.ag-hora:focus-visible,.ag-dia:not(:disabled):hover{border-color:var(--ag-destaque)}
+.ag-vazio{opacity:.75;margin:0}
+.ag-fim{display:grid;gap:10px;max-width:520px}
+.ag-campo{width:100%;min-height:48px;border:1px solid var(--ag-linha);border-radius:8px;background:var(--ag-suave);padding:12px 14px;font-size:16px}
+.ag-campo:focus{outline:2px solid var(--ag-destaque);outline-offset:1px}
+.ag-previa{margin:4px 0;font-size:.95rem;line-height:1.5;opacity:.85}
+.ag-enviar{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)!important;text-decoration:none;font-weight:600}
+.ag-enviar:hover{filter:brightness(1.08)}
+.ag-nota{margin:12px 0 0;font-size:.78rem;opacity:.6;letter-spacing:.02em}
+.ag :focus-visible{outline:2px solid var(--ag-destaque);outline-offset:2px}
+@media (max-width:600px){.ag-grade-serv{grid-template-columns:1fr}.ag-horas{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.ag-serv{transition:none}}
+.ag .ag-passo:focus,.ag .ag-passo:focus-visible{outline:none}
+</style><script type="application/json" id="agenda-dados">{"servicos": [{"nome": "Diagnóstico", "duracao": 60, "exemplo": true}, {"nome": "Freios", "duracao": 90, "exemplo": true}, {"nome": "Suspensão", "duracao": 120, "exemplo": true}, {"nome": "Parte elétrica", "duracao": 60, "exemplo": true}, {"nome": "Injeção eletrônica", "duracao": 90, "exemplo": true}, {"nome": "Revisão e troca de óleo", "duracao": 60, "exemplo": true}], "equipe": [], "abre": {"dom": null, "seg": ["08:00", "18:00"], "ter": ["08:00", "18:00"], "qua": ["08:00", "18:00"], "qui": ["08:00", "18:00"], "sex": ["08:00", "18:00"], "sab": null}, "cores": {"fundo": "#F4F4F2", "texto": "#111110", "destaque": "#111110", "botao": "#F4F4F2", "linha": "#CFCFCB", "suave": "#E9E9E6"}, "whatsapp": "5548996440480", "campo_extra": "Modelo do carro", "semente": "Bruning Mecanica Automotiva"}</script><script>/* Agendar — bloco de agendamento dos sites demonstrativos (Sull Produções).
+ * Fluxo inspirado no que funciona no Trinks: serviço → dia → horário (15 em 15 min, por período,
+ * só o que cabe a duração) → profissional → nome → WhatsApp da empresa com a mensagem pronta.
+ * Não grava nada em servidor: a demonstração simula os horários ocupados e avisa isso na tela.
+ * Dados: o bloco JSON de id agenda-dados no próprio site. Alvo: [data-agendar].
+ */
+(function () {
+  "use strict";
+  var DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  var NOME_DIA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"];
+  var DIA_LONGO = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var PADRAO = { dom: null, seg: ["09:00", "18:00"], ter: ["09:00", "18:00"], qua: ["09:00", "18:00"],
+                 qui: ["09:00", "18:00"], sex: ["09:00", "18:00"], sab: ["09:00", "13:00"] };
+
+  function min(hhmm) { var p = String(hhmm).split(":"); return (+p[0]) * 60 + (+p[1] || 0); }
+  function hhmm(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function chaveDia(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+
+  /* Hash estável: o mesmo dia e horário sempre aparecem ocupados (ou livres) para quem abre o site. */
+  function hash(txt) {
+    var h = 2166136261;
+    for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) / 4294967296;
+  }
+  function ocupado(semente, dia, inicio, taxa) { return hash(semente + "|" + chaveDia(dia) + "|" + inicio) < taxa; }
+
+  /* Faixas de funcionamento do dia: ["08:30","12:00","13:30","19:00"] vira [[510,720],[810,1140]]. */
+  function faixas(abre, dia) {
+    var f = abre ? abre[DIAS[dia.getDay()]] : null;
+    if (!f || !f.length) return [];
+    var r = [];
+    for (var i = 0; i + 1 < f.length; i += 2) r.push([min(f[i]), min(f[i + 1])]);
+    return r;
+  }
+
+  /* Horários livres de um dia para um serviço de `duracao` minutos.
+   * Só entra o horário em que o serviço termina dentro da faixa; hoje, só depois de agora + antecedência. */
+  function horarios(opc) {
+    var dia = opc.dia, agora = opc.agora || new Date(), passo = opc.intervalo || 15;
+    var antecedencia = opc.antecedencia == null ? 60 : opc.antecedencia;
+    var mesmoDia = chaveDia(dia) === chaveDia(agora);
+    var limite = mesmoDia ? agora.getHours() * 60 + agora.getMinutes() + antecedencia : -1;
+    var lista = [];
+    faixas(opc.abre, dia).forEach(function (fx) {
+      for (var t = fx[0]; t + opc.duracao <= fx[1]; t += passo) {
+        if (t < limite) continue;
+        if (ocupado(opc.semente || "", dia, t, opc.taxa == null ? 0.35 : opc.taxa)) continue;
+        lista.push(t);
+      }
+    });
+    return lista;
+  }
+
+  function periodo(t) { return t < 720 ? "Manhã" : t < 1080 ? "Tarde" : "Noite"; }
+
+  /* Profissionais livres naquele horário (simulado): cada um tem a própria agenda falsa. */
+  function livres(equipe, semente, dia, t) {
+    return equipe.filter(function (p) { return !ocupado(semente + "|" + p.nome, dia, t, 0.3); });
+  }
+
+  function mensagem(sel) {
+    var d = sel.dia, partes = ["Olá! Quero agendar " + sel.servico.nome,
+      (d.getDay() % 6 === 0 ? "no " : "na ") + DIA_LONGO[d.getDay()] + ", " + String(d.getDate()).padStart(2, "0") + "/" +
+      String(d.getMonth() + 1).padStart(2, "0") + ", às " + hhmm(sel.hora)];
+    if (sel.profissional) partes.push("com " + sel.profissional.nome);
+    var txt = partes.join(" ") + ".";
+    if (sel.extra) txt += " " + sel.extraRotulo + ": " + sel.extra + ".";
+    if (sel.nome) txt += " Meu nome é " + sel.nome + ".";
+    return txt;
+  }
+
+  function preco(s) {
+    if (s.preco == null || s.preco === "") return "a combinar";
+    if (typeof s.preco === "number") return s.preco === 0 ? "Grátis" : "R$ " + s.preco.toFixed(2).replace(".", ",");
+    return String(s.preco);
+  }
+  function duracaoTxt(m) { return m >= 60 ? Math.floor(m / 60) + "h" + (m % 60 ? " " + (m % 60) + "min" : "") : m + "min"; }
+
+  var API = { horarios: horarios, livres: livres, mensagem: mensagem, periodo: periodo, faixas: faixas,
+              preco: preco, duracaoTxt: duracaoTxt, hhmm: hhmm, PADRAO: PADRAO };
+  if (typeof module !== "undefined" && module.exports) { module.exports = API; return; }
+
+  /* ---------------------------------------------------------------- tela */
+  function el(tag, attrs, filhos) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (attrs[k] == null) return;
+      if (k === "texto") e.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    (filhos || []).forEach(function (f) { if (f) e.appendChild(f); });
+    return e;
+  }
+
+  function montar(alvo, dados) {
+    var servicos = (dados.servicos || []).filter(function (s) { return s && s.nome; }).map(function (s) {
+      return { nome: String(s.nome), categoria: s.categoria ? String(s.categoria) : "", preco: s.preco,
+               duracao: Math.max(15, Math.min(480, parseInt(s.duracao, 10) || 60)), exemplo: !!s.exemplo };
+    });
+    if (!servicos.length) return;
+    var equipe = (dados.equipe || []).filter(function (p) { return p && p.nome; });
+    var abreValido = dados.abre && DIAS.some(function (d) { return dados.abre[d] && dados.abre[d].length; });
+    var abre = abreValido ? dados.abre : PADRAO;
+    var semente = dados.semente || location.pathname;
+    var c = dados.cores || {};
+    ["fundo", "texto", "destaque", "linha", "suave"].forEach(function (k) {
+      if (c[k]) alvo.style.setProperty("--ag-" + k, c[k]);
+    });
+    if (c.botao) alvo.style.setProperty("--ag-fundo-botao", c.botao);
+    alvo.classList.add("ag");
+    var sel = { servico: null, dia: null, hora: null, profissional: null };
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var dias = [];
+    for (var i = 0; i < 30; i++) { var d = new Date(hoje); d.setDate(hoje.getDate() + i); dias.push(d); }
+    var categorias = servicos.reduce(function (a, s) { if (s.categoria && a.indexOf(s.categoria) < 0) a.push(s.categoria); return a; }, []);
+    var catAtual = categorias[0] || "";
+
+    function passo(n, titulo, corpo, resumo, aberto) {
+      var cab = el("div", { "class": "ag-cab" }, [el("span", { "class": "ag-n", texto: String(n) }),
+        el("span", { "class": "ag-tit", texto: titulo })]);
+      if (resumo && !aberto) {
+        cab.appendChild(el("button", { type: "button", "class": "ag-troca", texto: resumo + " · trocar",
+          onclick: function () { voltarPara(n); } }));
+      }
+      return el("div", { "class": "ag-passo" + (aberto ? " ag-aberto" : "") }, [cab, aberto ? corpo : null]);
+    }
+
+    function voltarPara(n) {
+      if (n <= 1) { sel.servico = null; }
+      if (n <= 2) { sel.dia = null; }
+      if (n <= 3) { sel.hora = null; }
+      if (n <= 4) { sel.profissional = null; sel.escolheuProf = false; }
+      desenhar(true);
+    }
+
+    function cartaoServico(s) {
+      return el("button", { type: "button", "class": "ag-serv", "aria-pressed": String(sel.servico === s),
+        onclick: function () { sel.servico = s; sel.dia = null; sel.hora = null; desenhar(true); } }, [
+        el("span", { "class": "ag-serv-nome", texto: s.nome }),
+        el("span", { "class": "ag-serv-info", texto: duracaoTxt(s.duracao) + " · " + preco(s) })]);
+    }
+
+    function blocoServicos() {
+      var corpo = el("div", {});
+      if (categorias.length > 1) {
+        var abas = el("div", { "class": "ag-abas", role: "tablist" });
+        categorias.forEach(function (cat) {
+          abas.appendChild(el("button", { type: "button", role: "tab", "class": "ag-aba", "aria-selected": String(cat === catAtual),
+            texto: cat, onclick: function () { catAtual = cat; desenhar(); } }));
+        });
+        corpo.appendChild(abas);
+      }
+      var grade = el("div", { "class": "ag-grade-serv" });
+      servicos.filter(function (s) { return categorias.length < 2 || s.categoria === catAtual; }).forEach(function (s) {
+        grade.appendChild(cartaoServico(s));
+      });
+      corpo.appendChild(grade);
+      if (servicos.some(function (s) { return s.exemplo; })) {
+        corpo.appendChild(el("p", { "class": "ag-nota", texto: "exemplo — ajustamos com as suas informações" }));
+      }
+      return corpo;
+    }
+
+    function blocoDias() {
+      var faixa = el("div", { "class": "ag-dias", role: "listbox", "aria-label": "Escolha o dia" });
+      dias.forEach(function (d) {
+        var fechado = !faixas(abre, d).length;
+        faixa.appendChild(el("button", { type: "button", "class": "ag-dia", "aria-pressed": String(sel.dia && +sel.dia === +d),
+          disabled: fechado ? "disabled" : null, "aria-label": DIA_LONGO[d.getDay()] + " " + d.getDate() + (fechado ? ", fechado" : ""),
+          onclick: function () { sel.dia = d; sel.hora = null; desenhar(true); } }, [
+          el("span", { "class": "ag-dia-sem", texto: NOME_DIA[d.getDay()] }),
+          el("span", { "class": "ag-dia-num", texto: String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") })]));
+      });
+      return faixa;
+    }
+
+    function blocoHoras() {
+      var corpo = el("div", {});
+      var lista = horarios({ abre: abre, dia: sel.dia, duracao: sel.servico.duracao, semente: semente + "|" + sel.servico.nome });
+      if (!lista.length) {
+        corpo.appendChild(el("p", { "class": "ag-vazio", texto: "Agenda cheia nesse dia. Que tal outra data?" }));
+        return corpo;
+      }
+      ["Manhã", "Tarde", "Noite"].forEach(function (p) {
+        var doPeriodo = lista.filter(function (t) { return periodo(t) === p; });
+        if (!doPeriodo.length) return;
+        var grade = el("div", { "class": "ag-horas" });
+        doPeriodo.forEach(function (t) {
+          grade.appendChild(el("button", { type: "button", "class": "ag-hora", "aria-pressed": String(sel.hora === t), texto: hhmm(t),
+            onclick: function () { sel.hora = t; sel.profissional = null; sel.escolheuProf = !equipe.length; desenhar(true); } }));
+        });
+        corpo.appendChild(el("p", { "class": "ag-periodo", texto: p }));
+        corpo.appendChild(grade);
+      });
+      return corpo;
+    }
+
+    function blocoEquipe() {
+      var grade = el("div", { "class": "ag-grade-serv" });
+      var quem = livres(equipe, semente, sel.dia, sel.hora);
+      if (!quem.length) quem = equipe.slice(0, 1);
+      [{ nome: "Sem preferência", funcao: "quem estiver livre" }].concat(quem).forEach(function (p) {
+        grade.appendChild(el("button", { type: "button", "class": "ag-serv", onclick: function () {
+          sel.profissional = p.nome === "Sem preferência" ? null : p; sel.escolheuProf = true; desenhar(true); } }, [
+          el("span", { "class": "ag-serv-nome", texto: p.nome }),
+          el("span", { "class": "ag-serv-info", texto: p.funcao || "" })]));
+      });
+      return grade;
+    }
+
+    function blocoFim() {
+      var corpo = el("div", { "class": "ag-fim" });
+      var nome = el("input", { type: "text", "class": "ag-campo", autocomplete: "given-name", placeholder: "Seu nome", "aria-label": "Seu nome" });
+      var extra = dados.campo_extra ? el("input", { type: "text", "class": "ag-campo", placeholder: String(dados.campo_extra), "aria-label": String(dados.campo_extra) }) : null;
+      var tel = String(dados.whatsapp || "").replace(/\D/g, "");
+      var botao = el("a", { "class": "ag-enviar", target: "_blank", rel: "noopener", href: "#",
+        texto: tel ? "Enviar pedido pelo WhatsApp" : (dados.telefone ? "Ligar para agendar" : "Pedir agendamento") });
+      function atualizar() {
+        var txt = mensagem({ servico: sel.servico, dia: sel.dia, hora: sel.hora, profissional: sel.profissional,
+          nome: nome.value.trim(), extra: extra ? extra.value.trim() : "", extraRotulo: dados.campo_extra });
+        previa.textContent = "“" + txt + "”";
+        botao.href = tel ? "https://wa.me/" + tel + "?text=" + encodeURIComponent(txt)
+                         : (dados.telefone ? "tel:" + String(dados.telefone).replace(/[^\d+]/g, "") : "#contato");
+      }
+      var previa = el("p", { "class": "ag-previa" });
+      nome.addEventListener("input", atualizar);
+      if (extra) extra.addEventListener("input", atualizar);
+      corpo.appendChild(nome); if (extra) corpo.appendChild(extra);
+      corpo.appendChild(previa); corpo.appendChild(botao);
+      corpo.appendChild(el("p", { "class": "ag-nota", texto: "Demonstração: os horários ocupados são simulados. A confirmação chega pelo WhatsApp." }));
+      atualizar();
+      return corpo;
+    }
+
+    function desenhar(rolar) {
+      alvo.innerHTML = "";
+      var etapa = !sel.servico ? 1 : !sel.dia ? 2 : sel.hora == null ? 3 : !sel.escolheuProf ? 4 : 5;
+      var dataTxt = sel.dia ? NOME_DIA[sel.dia.getDay()] + " " + String(sel.dia.getDate()).padStart(2, "0") + "/" + String(sel.dia.getMonth() + 1).padStart(2, "0") : "";
+      alvo.appendChild(passo(1, "Serviço", etapa === 1 ? blocoServicos() : null, sel.servico && sel.servico.nome, etapa === 1));
+      if (etapa >= 2) alvo.appendChild(passo(2, "Dia", etapa === 2 ? blocoDias() : null, dataTxt, etapa === 2));
+      if (etapa >= 3) alvo.appendChild(passo(3, "Horário", etapa === 3 ? blocoHoras() : null, sel.hora != null ? hhmm(sel.hora) : "", etapa === 3));
+      var n = 4;
+      if (equipe.length && etapa >= 4) { alvo.appendChild(passo(4, "Profissional", etapa === 4 ? blocoEquipe() : null, sel.profissional ? sel.profissional.nome : "Sem preferência", etapa === 4)); n = 5; }
+      if (etapa === 5) alvo.appendChild(passo(n, "Confirmar", blocoFim(), "", true));
+      if (rolar) {
+        var aberto = alvo.querySelector(".ag-aberto");
+        var r = aberto && aberto.getBoundingClientRect();
+        if (r && (r.top < 60 || r.top > innerHeight * 0.6)) aberto.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (aberto) { aberto.setAttribute("tabindex", "-1"); aberto.focus({ preventScroll: true }); }
+      }
+    }
+    desenhar(false);
+  }
+
+  function iniciar() {
+    var fonte = document.getElementById("agenda-dados"), alvo = document.querySelector("[data-agendar]");
+    if (!fonte || !alvo) return;
+    try { montar(alvo, JSON.parse(fonte.textContent)); } catch (e) { /* dado quebrado: o site segue sem o bloco */ }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script><!--agendar:fim--></body>
+</html>
