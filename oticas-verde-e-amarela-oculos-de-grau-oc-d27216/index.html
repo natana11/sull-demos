@@ -4,513 +4,574 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Óticas Verde e Amarela | Óculos de grau, solar e lentes em Tubarão/SC</title>
-<meta name="description" content="Óticas Verde e Amarela, na Av. Patrício Lima, 1700, em Tubarão/SC. Óculos de grau, solar, 2 em 1, lentes e linha kids. Chame no WhatsApp.">
-<meta name="theme-color" content="#EDEAE0">
+<meta name="description" content="Óticas Verde e Amarela, Av. Patrício Lima, 1700, Tubarão/SC. Óculos de grau, solar, 2 em 1, lentes e armações. Chame no WhatsApp (48) 99603-8604.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#EDEAE0;
-  --ink:#0C3A20;
-  --mute:#3F5B48;
-  --green:#2E7D3E;
-  --yellow:#F7D640;
-  --black:#111111;
-  --line:rgba(12,58,32,.28);
-  --pad:clamp(20px,5vw,64px);
+  --verde:#0F4D2A;
+  --bandeira:#2E7D3E;
+  --amarelo:#F7D640;
+  --papel:#F4F2EA;
+  --tinta:#10281A;
+  --pad:clamp(20px,4vw,56px);
 }
 *{box-sizing:border-box}
-html{background:var(--paper);scroll-behavior:smooth}
-body{margin:0;font-family:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:18px;line-height:1.5;color:var(--ink);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img{display:block;max-width:100%}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  margin:0;
+  font-family:'Archivo',system-ui,sans-serif;
+  font-stretch:100%;
+  font-size:18px;
+  line-height:1.5;
+  background:var(--papel);
+  color:var(--verde);
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--yellow)}
-h1,h2,h3,p,ul,dl,dd,figure,blockquote{margin:0}
-h1,h2,h3{font-weight:800;font-stretch:62%;letter-spacing:-.005em}
-main{position:relative;overflow-x:clip;background:var(--paper)}
-section,footer{position:relative}
-.col{position:relative;z-index:2;width:100%;max-width:620px;margin-inline:auto;text-align:left}
-.lbl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+h1,h2,p,ul,dl,dd,figure,blockquote{margin:0}
+ul{padding:0;list-style:none}
+:focus-visible{outline:3px solid currentColor;outline-offset:4px}
 
 /* ---------- topo ---------- */
-.top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px var(--pad);transition:transform .35s ease,background .25s ease}
-.top.solid{background:rgba(237,234,224,.95);box-shadow:0 1px 0 var(--line)}
-.top.hide{transform:translateY(-115%)}
-.mark{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap;min-width:0}
-.tools{display:flex;align-items:center;gap:8px}
-.cta-s{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);font-weight:700;font-size:15px;text-decoration:none;box-shadow:3px 3px 0 var(--ink);transition:transform .15s ease,box-shadow .15s ease,background .2s}
-.cta-s svg{width:20px;height:20px;flex:none}
-.cta-s:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink);background:#FFE35E}
-.cta-s:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.menu{position:relative}
-.menu summary{list-style:none;cursor:pointer;min-height:44px;min-width:48px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--green)}
-.menu summary::-webkit-details-marker{display:none}
-.menu:not([open]) nav{display:none}
-.menu ul{list-style:none;padding:10px 0;margin:0;position:absolute;right:0;top:50px;min-width:230px;background:var(--ink);color:var(--paper)}
-.menu li a{display:flex;align-items:center;min-height:46px;padding:0 20px;text-decoration:none;font-size:18px;font-weight:600;transition:background .2s,color .2s}
-.menu li a:hover,.menu li a:focus-visible{background:var(--yellow);color:var(--ink)}
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:12px var(--pad);
+  pointer-events:none;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.topbar.off{transform:translateY(-130%)}
+.chip{
+  pointer-events:auto;
+  background:var(--papel);color:var(--verde);
+  border:1px solid rgba(15,77,42,.3);
+  border-radius:3px;
+  display:flex;align-items:center;
+  min-height:44px;
+}
+.logo{gap:10px;padding:0 14px;text-decoration:none;font-size:15px;font-weight:800;font-stretch:72%;text-transform:uppercase;letter-spacing:.03em}
+.logo svg{flex:none}
+.chip nav{display:flex}
+.chip nav a{
+  display:flex;align-items:center;min-height:44px;padding:0 14px;
+  font-size:15px;font-weight:600;text-decoration:none;position:relative;
+}
+.chip nav a::after{
+  content:"";position:absolute;left:14px;right:14px;bottom:9px;height:2px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s;
+}
+.chip nav a:hover::after,.chip nav a:focus-visible::after{transform:scaleX(1)}
+.chip nav a.zap{background:var(--amarelo);color:var(--tinta);font-weight:800}
+.chip nav a.zap::after{display:none}
+.chip nav a.zap:hover{background:var(--verde);color:var(--amarelo)}
+@media (max-width:559px){.chip nav .oculta{display:none}.logo{font-size:14px;padding:0 10px}}
+@media (max-width:420px){.logo span{display:none}}
 
-/* ---------- botões ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);font-weight:700;font-size:18px;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .15s ease,box-shadow .15s ease,background .2s,color .2s}
-.btn svg{width:22px;height:22px;flex:none}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:#FFE35E}
-.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
-.btn.dk{background:var(--ink);color:var(--yellow);box-shadow:4px 4px 0 var(--paper)}
-.btn.dk:hover{background:var(--green);color:#fff;box-shadow:6px 6px 0 var(--paper)}
-.btn.dk:active{box-shadow:1px 1px 0 var(--paper)}
+.dots{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column}
+.dots a{width:26px;height:26px;display:grid;place-items:center;text-decoration:none}
+.dots a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--papel);border:1.5px solid var(--verde);transition:transform .25s,background .25s}
+.dots a.on::before{background:var(--amarelo);transform:scale(1.5)}
+@media (min-width:760px){.dots{display:flex}}
 
-/* ---------- o objeto: a armação (sempre atrás do texto) ---------- */
-.ob{position:relative;z-index:1;width:var(--w);aspect-ratio:2.312;view-timeline-name:--ob;pointer-events:none}
-.crop{position:absolute;inset:0;overflow:hidden}
-.fr{position:absolute;left:-15%;top:-24.2%;width:125%;height:auto;max-width:none;filter:url(#cut)}
-.sh{position:absolute;left:22%;top:93%;width:54%;height:7%;border-radius:50%;background:rgba(12,58,32,.32);filter:blur(10px);z-index:-1}
-.lens{position:absolute;overflow:hidden;border-radius:50% / 46%}
-.lL{left:8.1%;top:25.8%;width:18.1%;height:54%}
-.lR{left:35.25%;top:29.8%;width:25%;height:59.7%}
-.lens img{width:100%;height:100%;object-fit:cover;transform:scale(1.3)}
-.refl{position:absolute;inset:0;background:rgba(214,230,255,.34)}
-.refl::before,.refl::after{content:"";position:absolute;background:rgba(17,17,17,.75)}
-.refl::before{left:calc(50% - 3px);top:0;bottom:0;width:6px}
-.refl::after{top:calc(42% - 3px);left:0;right:0;height:6px}
+.fab{
+  position:fixed;right:16px;bottom:16px;z-index:50;
+  min-height:52px;padding:0 22px;display:flex;align-items:center;
+  background:var(--amarelo);color:var(--tinta);
+  border:2px solid var(--verde);border-radius:3px;
+  font-weight:800;font-size:16px;text-decoration:none;
+  transition:transform .3s,opacity .3s,background .2s;
+}
+.fab:hover{background:#fff}
+.fab:active{transform:scale(.96)}
+.js .fab{opacity:0;transform:translateY(90px);pointer-events:none}
+.js .fab.on{opacity:1;transform:none;pointer-events:auto}
 
-/* ---------- 1 abertura ---------- */
-.s1{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:84px var(--pad) 40px;overflow:clip}
-.s1 .lbl,.s1 .ob,.s1 h1,.s1 .lead,.s1 .cta-row{position:relative}
-.s1 .lbl,.s1 h1,.s1 .lead,.s1 .cta-row{z-index:3}
-.s1 .ob{--w:min(100vw,80svh);z-index:1;margin:10px auto 18px}
-.s1 h1{display:flex;flex-direction:column;align-items:center;max-width:100%;font-size:21vw;line-height:.86;font-weight:900;font-stretch:62%;text-transform:uppercase;color:var(--ink)}
-.s1 h1 .v{color:var(--green)}
-.s1 h1 i{font-style:normal;font-size:.3em;font-weight:800;margin-left:.12em}
-.s1 h1 .a{background:var(--yellow);color:var(--ink);padding:0 .07em}
-.ln{display:block;max-width:100%;overflow:hidden;padding:.1em 0 .06em;margin:-.1em 0 -.06em}
-.ln>span{display:block;white-space:nowrap}
-.s1 .lead{margin-top:16px;font-size:clamp(26px,4vw,40px);line-height:1;font-weight:800;font-stretch:62%;max-width:15em}
-.cta-row{margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:18px}
-.cta-row .btn{width:min(100%,360px)}
-.rate{font-size:16px;line-height:1.25;text-align:center;color:var(--ink)}
-.rate b{font-size:30px;line-height:1;font-weight:800;font-stretch:62%;margin-right:6px;vertical-align:-3px}
+/* ---------- dobras ---------- */
+.s{
+  position:relative;z-index:1;
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;
+  padding:96px var(--pad) 40px;
+}
+.s1{color:#0F4D2A}
+.s2{color:#10281A}
+.s3,.s4,.s6{color:#fff}
+.s5{color:#0F4D2A}
+.s7{color:#F4F2EA}
+
+.cap{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+h2{font-weight:800;letter-spacing:-.045em;line-height:.92;text-wrap:balance}
+
+/* botões */
+.btn{
+  --bg:var(--verde);--fg:var(--amarelo);--hv:var(--amarelo);--hf:var(--verde);--bd:var(--verde);
+  position:relative;overflow:hidden;isolation:isolate;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:54px;padding:0 28px;border-radius:999px;
+  background:var(--bg);color:var(--fg);border:2px solid var(--bd);
+  font:inherit;font-size:17px;font-weight:700;letter-spacing:-.01em;text-decoration:none;
+  transition:color .25s,transform .15s;
+}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--hv);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.btn:hover,.btn:focus-visible{color:var(--hf)}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1)}
+.btn:active{transform:scale(.97)}
+.btn.am{--bg:var(--amarelo);--fg:var(--tinta);--hv:#fff;--hf:var(--tinta);--bd:var(--amarelo)}
+.lnk{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;transition:text-decoration-thickness .15s}
+.lnk:hover{text-decoration-thickness:5px}
+
+/* 1 abertura: espaço do objeto no alto, nome nítido embaixo dele, frase e botão */
+.s1{align-items:stretch;text-align:center;padding-bottom:28px;justify-content:flex-end}
+.hero-mid{flex:1;min-height:clamp(200px,40svh,420px)}
+.s1 h1{
+  position:relative;z-index:5;opacity:1;
+  font-weight:900;font-stretch:62%;text-transform:uppercase;
+  font-size:min(23vw,13svh);line-height:.86;letter-spacing:-.005em;color:#0F4D2A;
+  text-wrap:balance;margin-bottom:18px;
+}
+.s1 h1 .pre{display:block;font-stretch:100%;font-size:12px;font-weight:700;letter-spacing:.24em;line-height:1;margin-bottom:12px;color:#0F4D2A}
+.s1 h1 .mb{display:inline}
+.hero-phrase{
+  position:relative;z-index:5;
+  margin:0 auto;
+  font-size:clamp(22px,3vw,40px);font-weight:700;line-height:1.1;letter-spacing:-.03em;
+  max-width:min(100%,620px);text-wrap:balance;color:#0F4D2A;
+}
+.hero-bar{position:relative;z-index:5;width:100%;display:flex;align-items:center;justify-content:center;gap:20px;text-align:left;margin-top:22px}
+.addr{display:none;font-size:16px;font-weight:500;line-height:1.3}
+.cta-row{display:flex;align-items:center;gap:18px;justify-content:center;width:100%}
+.cta-row .btn{width:100%;max-width:420px}
+.cta-row .line{display:none;height:1px;background:currentColor;flex:1;max-width:14vw}
+.acuity{display:none;font-size:clamp(90px,10vw,150px);font-weight:200;line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--verde);user-select:none}
 @media (min-width:760px){
-  .s1 h1{flex-direction:row;align-items:baseline;justify-content:center;gap:.14em;font-size:min(12.5vw,24svh)}
-  .cta-row{flex-direction:row;justify-content:center;gap:26px}
+  .s1 h1{font-size:min(11vw,19svh)}
+  .s1 h1 .mb{display:none}
+  .hero-bar{justify-content:space-between}
+  .addr{display:block}
+  .cta-row{width:auto;flex:1}
   .cta-row .btn{width:auto}
-  .rate{text-align:left;max-width:190px}
+  .cta-row .line{display:block}
+  .acuity{display:block;margin-right:28px}
 }
 
-/* ---------- 2 seu rosto, seu óculos ---------- */
-.s2{padding:clamp(48px,9vw,110px) var(--pad) clamp(56px,8vw,96px);text-align:center}
-.s2 h2{position:relative;z-index:3;font-size:clamp(40px,8vw,88px);line-height:.95}
-.s2 .obbox{--w:min(150vw,1200px);position:relative;z-index:1;height:calc(var(--w) * .4325);margin:clamp(40px,6vw,80px) 0 clamp(6px,2vw,24px)}
-.s2 .ob{position:absolute;left:50%;top:0;margin-left:calc(var(--w) / -2);transform:perspective(1500px) rotateY(-14deg)}
-.idx{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
-.idx a{display:grid;grid-template-columns:1fr auto;gap:0 16px;align-items:center;min-height:60px;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s,padding .2s}
-.idx .nm{font-weight:800;font-stretch:62%;font-size:28px;line-height:1.05}
-.idx .ds{grid-column:1;font-size:16px;line-height:1.3;color:var(--mute)}
-.idx .go{grid-row:1 / 3;grid-column:2;font-size:15px;font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--green)}
-.idx a:hover,.idx a:focus-visible{background:var(--yellow);padding-inline:12px}
-.idx a:hover .ds,.idx a:focus-visible .ds{color:var(--ink)}
+/* 2 armações */
+.s2 .top h2{font-size:clamp(44px,11.5vw,150px);max-width:9em}
+.s2 .bot{margin-top:auto;display:grid;gap:28px;padding-top:40px}
+.tipos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 22px}
+.tipos li{border-top:1.5px solid currentColor;padding-top:12px}
+.tipos strong{display:block;font-size:22px;line-height:1.1;letter-spacing:-.025em;margin-bottom:6px}
+.tipos span{display:block;font-size:16px;line-height:1.35}
+.s2 .frase{font-size:18px;max-width:30em}
 @media (min-width:900px){
-  .idx a{grid-template-columns:210px 1fr auto}
-  .idx .ds{grid-column:2}
-  .idx .go{grid-row:1;grid-column:3}
-  .idx .nm{font-size:30px}
+  .s2 .bot{grid-template-columns:2.2fr 1fr;align-items:end;gap:48px}
+  .tipos{grid-template-columns:repeat(4,1fr)}
 }
 
-/* ---------- 3 divisor / promoções ---------- */
-.s3{--w:min(120vw,1100px);background:var(--yellow);overflow:clip;padding:calc(var(--w) * .2 + 28px) var(--pad) clamp(56px,8vw,96px)}
-.s3 .ob{position:absolute;left:50%;top:0;margin-left:calc(var(--w) / -2);transform:translateY(-55%)}
-.s3 .sh{display:none}
-.s3 h2{position:relative;z-index:3;font-size:clamp(68px,22vw,210px);line-height:.88;font-weight:900;text-align:center}
-.s3 h2 span{display:block}
-.s3 .col{margin-top:clamp(28px,4vw,48px)}
-.s3 .lbl{color:var(--ink)}
-.s3 .col p{margin:10px 0 22px}
+/* 3 teste */
+.s3{padding-top:max(36vh,140px);justify-content:flex-end}
+.panel{
+  background:rgba(4,22,13,.9);
+  padding:clamp(22px,3vw,44px);
+  width:min(100%,1000px);margin-left:auto;
+  display:grid;gap:32px;
+}
+.panel h2{font-size:clamp(40px,6.4vw,92px);margin-bottom:20px}
+.panel p+p{margin-top:12px}
+.panel .corpo{max-width:30em}
+.panel .btn{margin-top:22px}
+.chart{
+  background:#fff;color:#000;padding:22px 16px;
+  display:grid;justify-items:center;gap:14px;line-height:1;font-weight:800;letter-spacing:.3em;text-indent:.3em;
+}
+.chart .r1{font-size:72px}.chart .r2{font-size:52px}.chart .r3{font-size:38px}.chart .r4{font-size:28px}.chart .r5{font-size:20px}
+.chart-wrap small{display:block;margin-top:10px;font-size:16px;line-height:1.35}
+@media (min-width:900px){.panel{grid-template-columns:1.15fr .85fr;align-items:end}}
 
-/* ---------- 4 close extremo ---------- */
-.s4{padding:clamp(40px,7vw,96px) var(--pad) clamp(56px,8vw,100px)}
-.f4{view-timeline:--f4 block;position:relative;overflow:hidden;max-width:1300px;margin:0 auto;height:clamp(460px,62vw,700px);background:#0A2A18;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(28px,5vw,64px) 20px 0}
-.f4 img{position:absolute;left:0;top:-15%;width:100%;height:130%;max-width:none;object-fit:cover;z-index:0;transform:scale(1.1)}
-.f4::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,28,16,.72),rgba(6,28,16,.22) 62%,rgba(6,28,16,0))}
-.f4 .t{position:relative;z-index:2}
-.f4 .lbl{color:#F3EFD8;display:block;margin-bottom:12px}
-.s4 h2{font-size:clamp(46px,10.5vw,150px);line-height:.92;color:var(--yellow)}
-.cards{position:relative;z-index:3;max-width:620px;margin:calc(-1 * clamp(90px,14vw,150px)) auto 0}
-.card{background:#fff;color:var(--ink);padding:18px 22px 20px;border-left:6px solid var(--yellow);border-top:1px solid var(--line);margin-bottom:12px}
-.card h3{font-size:28px;line-height:1;margin-bottom:6px}
-.card p{font-size:18px;line-height:1.4}
-.card .lbl{display:block;margin-bottom:8px}
+/* 4 lentes */
+.s4{align-items:center;text-align:center}
+.s4 .centro{margin:auto 0;display:flex;flex-direction:column;align-items:center;gap:22px;padding:24px 0}
+.s4 h2{font-size:clamp(64px,17vw,250px);font-weight:900;line-height:.84;letter-spacing:-.055em;text-shadow:0 2px 40px rgba(0,0,0,.25)}
+.deal{font-size:clamp(34px,6vw,86px);font-weight:800;letter-spacing:-.035em;line-height:1;color:var(--amarelo);text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.trat{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;max-width:640px}
+.trat li{font-size:16px;font-weight:600;border-top:1.5px solid rgba(255,255,255,.8);padding-top:8px}
+.s4 .nota{max-width:32em;font-size:18px}
 
-/* ---------- 5 clímax ---------- */
-.s5{background:var(--black);color:var(--yellow);text-align:center;overflow:clip;padding:clamp(48px,9vw,120px) 0 clamp(40px,7vw,90px)}
-.s5 .ob{--w:min(92vw,960px);margin:0 auto}
-.s5 .sh{display:none}
-.s5 .fr{filter:url(#cut) brightness(1.8) saturate(1.2) drop-shadow(0 0 24px rgba(247,214,64,.28))}
-.climax{position:relative;z-index:3;font-size:clamp(64px,18.5vw,230px);line-height:.9;font-weight:900;font-stretch:62%;color:var(--yellow);margin-top:clamp(20px,4vw,48px);padding-bottom:.08em;letter-spacing:-.01em}
+/* 5 pausa */
+.s5{text-align:center;align-items:center}
+.s5 h2{margin-top:auto;font-size:min(26vw,34vh);font-stretch:62%;font-weight:900;line-height:.8;letter-spacing:-.01em;text-transform:uppercase;text-wrap:nowrap}
+.s5 .sub{margin:18px 0 8px;font-size:18px;font-weight:600}
 
-/* ---------- 6 quem já provou ---------- */
-.s6{padding:clamp(56px,9vw,120px) var(--pad) clamp(56px,8vw,100px);text-align:center;overflow:clip}
-.s6 .big{position:absolute;left:0;right:0;top:clamp(40px,6vw,90px);z-index:0;text-align:center;font-size:clamp(150px,38vw,460px);line-height:.8;font-weight:900;font-stretch:62%;color:transparent;-webkit-text-stroke:2px rgba(46,125,62,.55);pointer-events:none;user-select:none}
-.s6 .obbox{--w:min(104vw,1040px);position:relative;z-index:1;height:calc(var(--w) * .4325)}
-.s6 .ob{position:absolute;left:50%;top:0;margin-left:calc(var(--w) / -2)}
-.s6 .col{margin-top:clamp(36px,5vw,64px);text-align:left}
-.s6 .rate2{font-size:17px;font-weight:600}
-.s6 h2{font-size:clamp(36px,4.4vw,56px);line-height:.95;margin:6px 0 14px}
-.s6 figure{border-top:1px solid var(--line);padding:14px 0 12px}
-.s6 blockquote{font-size:20px;font-weight:500;line-height:1.3}
-.s6 figcaption{margin-top:6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600}
+/* 6 avaliações */
+.s6{justify-content:space-between;gap:36px}
+.s6 .cab{background:rgba(4,22,13,.9);padding:clamp(20px,3vw,40px);width:min(100%,720px);display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 36px}
+.s6 h2{font-size:clamp(38px,5.4vw,76px)}
+.rate{font-size:clamp(70px,10vw,140px);font-weight:900;line-height:.82;letter-spacing:-.06em;color:var(--amarelo)}
+.rate-t{font-size:16px;line-height:1.3;font-weight:600}
+.quotes{display:grid;gap:14px}
+.quotes figure{background:var(--amarelo);color:var(--tinta);padding:22px 24px;border-left:8px solid var(--verde)}
+.quotes blockquote{font-size:20px;line-height:1.25;font-weight:600;letter-spacing:-.015em}
+.quotes figcaption{margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.quotes figure:nth-child(2){margin-left:18px}
+.quotes figure:nth-child(3){margin-left:36px}
+@media (min-width:900px){
+  .quotes{grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+  .quotes figure:nth-child(n){margin-left:0}
+  .quotes figure:nth-child(2){margin-top:34px}
+  .quotes figure:nth-child(3){margin-top:68px}
+}
 
-/* ---------- 7 rodapé ---------- */
-.s7{padding:0 var(--pad) 72px;overflow:clip}
-.strip{view-timeline:--f7 block;margin:0 calc(var(--pad) * -1);padding-top:clamp(28px,5vw,64px);--t:200px}
-.prow{height:calc(var(--t) * .34);margin-bottom:8px;background:url(img/flow-2.jpg) repeat-x 0 calc(var(--t) * -.095) / var(--t) auto;filter:url(#cut);opacity:.5}
-.prow.b{background-position-x:calc(var(--t) * -.5)}
-@media (min-width:700px){.strip{--t:260px}}
-.seal{display:flex;justify-content:center;align-items:center;gap:16px;margin:clamp(28px,5vw,56px) 0 22px}
-.seal .ob{--w:150px}
-.seal .sh{display:none}
-.flag{width:46px;height:32px;transform-origin:0 50%;flex:none}
-.logo{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .12em;line-height:.86;text-transform:uppercase;font-weight:900;font-stretch:62%;font-size:clamp(64px,15vw,136px);margin-bottom:26px}
-.logo small{flex-basis:100%;font-size:.22em;letter-spacing:.14em;font-weight:800;margin-bottom:.2em}
-.logo .v{color:var(--green)}
-.logo i{font-style:normal;font-size:.3em}
-.logo .a{background:var(--yellow);padding:0 .08em}
-address{font-style:normal;font-size:18px;line-height:1.45}
-.hours{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:17px}
-.hours dt{font-weight:600}
-.hours dd{margin:0}
-.status{margin-top:16px;font-weight:600;min-height:1.5em}
-.pay{margin-top:10px;font-size:16px;color:var(--mute)}
-.acts{list-style:none;padding:0;margin:28px 0 0;border-top:2px solid var(--ink)}
-.acts a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:clamp(22px,4vw,30px);font-weight:800;font-stretch:62%;line-height:1.05;transition:background .2s,color .2s,padding .2s}
-.acts .s{display:block;font-size:16px;font-weight:400;font-stretch:100%;color:var(--mute);margin-top:3px}
-.acts .ar{width:28px;height:14px;flex:none;transition:transform .2s}
-.acts a:hover,.acts a:focus-visible{background:var(--ink);color:var(--yellow);padding-inline:14px}
-.acts a:hover .s,.acts a:focus-visible .s{color:var(--paper)}
-.acts a:hover .ar{transform:translateX(6px)}
-.more{margin-top:26px;font-size:16px;color:var(--mute)}
-.faq{margin-top:30px}
-.faq h3{font-size:12px;font-weight:700;font-stretch:100%;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
-.faq details{border-top:1px solid var(--line)}
-.faq details:last-of-type{border-bottom:1px solid var(--line)}
-.faq summary{cursor:pointer;min-height:52px;display:flex;align-items:center;font-weight:700;font-size:19px;list-style:none}
+/* 7 contato */
+.s7{padding-bottom:clamp(170px,30vh,280px);gap:56px}
+.c7{display:grid;gap:48px;width:100%}
+.s7 h2{font-size:clamp(42px,8.4vw,128px);margin-bottom:14px}
+.s7 .loc{font-size:20px;font-weight:500}
+.horarios dl{border-bottom:1px solid rgba(244,242,234,.4)}
+.horarios .l{display:grid;grid-template-columns:8.5em 1fr;gap:12px;padding:12px 0;border-top:1px solid rgba(244,242,234,.4);font-size:18px}
+.horarios dt{font-weight:700}
+.horarios .hoje{color:var(--amarelo)}
+.horarios .hoje dt::after{content:"  hoje";font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.status{margin-top:16px;font-weight:700;font-size:18px;color:var(--amarelo)}
+.status:empty{display:none}
+.horarios .outras{margin-top:18px;font-size:16px;max-width:30em}
+.mapa{border:3px solid var(--amarelo);border-radius:48px;overflow:hidden;height:clamp(280px,70vw,440px);background:#0b3a20}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+.acoes{border-bottom:1px solid rgba(244,242,234,.5)}
+.acoes a{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  min-height:72px;padding:12px 6px;
+  font-size:clamp(24px,3.6vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.05;text-decoration:none;
+  border-top:1px solid rgba(244,242,234,.5);
+  transition:background .25s,color .25s,padding .25s;
+}
+.acoes a svg{flex:none;transition:transform .25s}
+.acoes a:hover,.acoes a:focus-visible{background:var(--amarelo);color:var(--tinta);padding-left:22px;padding-right:22px}
+.acoes a:hover svg,.acoes a:focus-visible svg{transform:translateX(8px)}
+.acoes a:focus-visible{outline-color:#fff;outline-offset:-3px}
+.faq h3{font-size:24px;font-weight:800;letter-spacing:-.03em;margin:0 0 6px}
+.faq .et{font-size:16px;opacity:.9;margin-bottom:14px}
+.faq details{border-top:1px solid rgba(244,242,234,.4)}
+.faq details:last-of-type{border-bottom:1px solid rgba(244,242,234,.4)}
+.faq summary{
+  list-style:none;cursor:pointer;min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:20px;font-weight:600;letter-spacing:-.015em;
+}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";margin-left:auto;font-size:26px;font-weight:300;transition:transform .2s}
+.faq summary::after{content:"+";font-size:30px;font-weight:300;line-height:1;transition:transform .25s}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{padding:0 0 14px;font-size:17px;color:var(--mute)}
-
-/* ---------- movimento ---------- */
-@keyframes up{from{transform:translateY(70%)}to{transform:none}}
-@keyframes land{from{transform:scale(.88);opacity:.2}to{transform:none;opacity:1}}
-@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
-@media (prefers-reduced-motion:no-preference){
-  .s1 .ln>span{animation:up 1s cubic-bezier(.2,.7,.2,1) both}
-  .s1 .ln:nth-child(2)>span{animation-delay:.1s}
-  .s1 .crop{animation:land 1.1s .05s cubic-bezier(.2,.7,.2,1) both}
-  .s1 .lbl,.s1 .lead,.s1 .cta-row{animation:rise .8s .3s cubic-bezier(.2,.7,.2,1) both}
+.faq summary:hover{color:var(--amarelo)}
+.faq details p{padding:0 0 18px;max-width:34em}
+.rodape{font-size:16px;opacity:.9;max-width:40em}
+@media (min-width:900px){
+  .c7{grid-template-columns:repeat(12,1fr);column-gap:32px;row-gap:64px}
+  .c7 .titulo,.c7 .acoes{grid-column:1/-1}
+  .c7 .horarios{grid-column:1/6}
+  .c7 .mapa{grid-column:7/-1;height:420px}
+  .c7 .faq{grid-column:4/-1}
 }
-@keyframes ob-hero{from{transform:perspective(1500px) rotateY(-8deg) translateY(0) scale(1)}to{transform:perspective(1500px) rotateY(-32deg) translateY(-6%) scale(1.14)}}
-@keyframes name-par{from{transform:translateY(0)}to{transform:translateY(8%)}}
-@keyframes ob-rot{0%{transform:perspective(1500px) rotateY(-40deg) translateY(5%) scale(.84)}50%{transform:perspective(1500px) rotateY(-12deg) translateY(0) scale(1)}100%{transform:perspective(1500px) rotateY(10deg) translateY(-3%) scale(1.05)}}
-@keyframes ob-top{from{transform:translateY(-60%) rotate(-3deg) scale(1)}to{transform:translateY(-50%) rotate(2deg) scale(1.06)}}
-@keyframes ob-s5{from{transform:scale(.88) translateY(5%)}to{transform:scale(1.03) translateY(-5%)}}
-@keyframes ob-soft{from{transform:translateY(6%) rotate(-2deg) scale(.94)}to{transform:translateY(-4%) rotate(1deg) scale(1.02)}}
-@keyframes ph-zoom{from{transform:translateY(-6%) scale(1.04)}to{transform:translateY(6%) scale(1.2)}}
-@keyframes lens-par{from{transform:translateY(-6%) scale(1.3)}to{transform:translateY(6%) scale(1.3)}}
-@keyframes big-par{from{transform:translateY(9%)}to{transform:translateY(-9%)}}
-@keyframes from-l{from{transform:translateX(-7%)}to{transform:translateX(0)}}
-@keyframes from-r{from{transform:translateX(7%)}to{transform:translateX(0)}}
-@keyframes tight{from{letter-spacing:.04em}to{letter-spacing:-.01em}}
-@keyframes row-a{from{background-position-x:0}to{background-position-x:calc(var(--t) * -1)}}
-@keyframes row-b{from{background-position-x:calc(var(--t) * -.5)}to{background-position-x:calc(var(--t) * .5)}}
-@keyframes wave{from{transform:rotate(-12deg)}to{transform:rotate(6deg)}}
-@supports (animation-timeline:view()){
-  @media (prefers-reduced-motion:no-preference){
-    .s1{view-timeline:--hero block}
-    .s1 .ob{animation:ob-hero linear both;animation-timeline:--hero;animation-range:exit 0% exit 100%}
-    .s1 h1{animation:name-par linear both;animation-timeline:--hero;animation-range:exit 0% exit 100%}
-    .s2 .ob{animation:ob-rot linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
-    .s3 .ob{animation:ob-top linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
-    .s3 h2 span:first-child{animation:from-l linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
-    .s3 h2 span:last-child{animation:from-r linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
-    .f4 img{animation:ph-zoom linear both;animation-timeline:--f4;animation-range:cover 0% cover 100%}
-    .s5 .ob{animation:ob-s5 linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
-    .climax{animation:tight linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
-    .s6 .big{animation:big-par linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
-    .s6 .ob{animation:ob-soft linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
-    .s6 .lens img{animation:lens-par linear both;animation-timeline:--ob;animation-range:cover 0% cover 100%}
-    .prow{animation:row-a linear both;animation-timeline:--f7;animation-range:cover 0% cover 100%}
-    .prow.b{animation-name:row-b}
-    .flag{animation:wave linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+
+/* movimento: surgimento simples; nome e frase da abertura nunca ficam translúcidos */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes sobe{from{transform:translateY(20px)}to{transform:none}}
+  @keyframes surge{from{opacity:.8;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .in{animation:sobe .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+  @supports (animation-timeline:view()){
+    .rv{animation:surge linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
   }
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *{transition:none !important;animation:none !important}
+  *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
 <body><style>#faixa-demo{position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.35 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518}#faixa-demo .so-pc{display:none}@media(min-width:700px){#faixa-demo .so-pc{display:inline}}</style><div id="faixa-demo">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a><span class="so-pc"> para Òticas Verde e Amarela | Óculos de grau…</span>. Ainda não é o site oficial.</div><script>(function(){var f=document.getElementById("faixa-demo");function p(){var h=f.offsetHeight;document.documentElement.style.setProperty("--faixa-demo",h+"px");document.body.style.paddingTop=h+"px";document.querySelectorAll("body *").forEach(function(e){if(e===f||f.contains(e))return;var s=getComputedStyle(e),t=parseFloat(s.top);if((s.position==="fixed"||s.position==="sticky")&&t<h){if(e.dataset.topo===undefined)e.dataset.topo=t||0;e.style.top=(parseFloat(e.dataset.topo)+h)+"px";}if(!e.dataset.tela&&Math.abs(e.getBoundingClientRect().height-innerHeight)<2&&e.children.length){e.dataset.tela="1";e.style.height="calc(100vh - "+h+"px)";e.style.minHeight="0";}});}if(document.readyState==="loading")addEventListener("DOMContentLoaded",p);else p();addEventListener("resize",p);})()</script>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <filter id="cut" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
-      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1.2 -2.35 -0.45 0 3.25"/>
-    </filter>
-  </defs>
-</svg>
-
-<header class="top" id="top">
-  <a class="mark" href="#inicio">Verde e Amarela</a>
-  <div class="tools">
-    <a class="cta-s" href="https://wa.me/5548996038604" aria-label="Chamar a Óticas Verde e Amarela no WhatsApp">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.5 21.5l4.7-1.3A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.6 7.8c.4 3.5 3.2 6.4 6.8 7.4l1.3-1.6-2.3-1.2-1 .8c-1-.4-2-1.4-2.5-2.5l.9-.9-1-2.3Z" fill="currentColor"/></svg>
-      <span>WhatsApp</span>
-    </a>
-    <details class="menu">
-      <summary>Menu</summary>
-      <nav aria-label="Seções da página">
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#grau">Armações</a></li>
-          <li><a href="#promo">Promoções</a></li>
-          <li><a href="#lentes">Lentes</a></li>
-          <li><a href="#avaliacoes">Avaliações</a></li>
-          <li><a href="#loja">Loja e horários</a></li>
-        </ul>
-      </nav>
-    </details>
+<header class="topbar" id="topo">
+  <a class="chip logo" href="#inicio" aria-label="Óticas Verde e Amarela, início">
+    <svg width="30" height="14" viewBox="0 0 30 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="7" cy="7" r="5.5"/><circle cx="23" cy="7" r="5.5"/><path d="M12.5 6.5h5"/></svg>
+    <span>Verde e Amarela</span>
+  </a>
+  <div class="chip">
+    <nav aria-label="Principal">
+      <a class="oculta" href="#armacoes">Armações</a>
+      <a href="#lentes">Lentes</a>
+      <a class="oculta" href="#contato">Loja</a>
+      <a class="zap" href="https://wa.me/5548996038604">WhatsApp</a>
+    </nav>
   </div>
 </header>
 
+<nav class="dots" aria-label="Dobras da página">
+  <a href="#inicio" class="on" title="Início" aria-label="Início"></a>
+  <a href="#armacoes" title="Armações" aria-label="Armações"></a>
+  <a href="#teste" title="Teste de visão" aria-label="Teste de visão"></a>
+  <a href="#lentes" title="Lentes" aria-label="Lentes"></a>
+  <a href="#orgulho" title="Orgulho" aria-label="Orgulho"></a>
+  <a href="#avaliacoes" title="Avaliações" aria-label="Avaliações"></a>
+  <a href="#contato" title="Loja e contato" aria-label="Loja e contato"></a>
+</nav>
+
+<a class="fab" href="https://wa.me/5548996038604" aria-label="Chamar no WhatsApp">WhatsApp</a>
+
 <main>
 
-  <!-- 1 ABERTURA -->
-  <section class="s1" id="inicio" aria-label="Abertura">
-    <p class="lbl">Óculos, solar e lentes em Tubarão/SC</p>
-    <div class="ob">
-      <div class="crop">
-        <img class="fr" src="img/flow-2.jpg" alt="Óculos de grau em acetato verde com hastes douradas, flutuando sobre fundo claro" width="2752" height="1536" decoding="async" fetchpriority="high">
-      </div>
-      <i class="sh"></i>
-    </div>
-    <h1>
-      <span class="ln"><span><span class="v">Verde</span><i>e</i></span></span>
-      <span class="ln"><span><span class="a">Amarela</span></span></span>
-    </h1>
-    <p class="lead">Mais que ótica, orgulho de ser brasileiro.</p>
+<!-- 1 -->
+<section class="s s1 palco-dobra palco-dobra-1" id="inicio">
+  <div class="hero-mid" aria-hidden="true"></div>
+  <h1 class="in"><span class="pre">Óticas</span>Verde e <br class="mb">Amarela</h1>
+  <p class="hero-phrase in" style="--d:.2s">Mais que Ótica, entregamos orgulho de ser Brasileiro.</p>
+  <div class="hero-bar in" style="--d:.35s">
+    <p class="addr">Av. Patrício Lima, 1700<br>Tubarão/SC</p>
     <div class="cta-row">
-      <a class="btn" href="https://wa.me/5548996038604">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.5 21.5l4.7-1.3A9.5 9.5 0 1 0 12 2.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.6 7.8c.4 3.5 3.2 6.4 6.8 7.4l1.3-1.6-2.3-1.2-1 .8c-1-.4-2-1.4-2.5-2.5l.9-.9-1-2.3Z" fill="currentColor"/></svg>
-        Chamar no WhatsApp
-      </a>
-      <p class="rate"><b>4,9</b>no Google, mais de 150 avaliações</p>
+      <a class="btn" href="https://wa.me/5548996038604">Chamar no WhatsApp</a>
+      <span class="line" aria-hidden="true"></span>
     </div>
-  </section>
+    <span class="acuity" aria-hidden="true">20/20</span>
+  </div>
+</section>
 
-  <!-- 2 SEU ROSTO, SEU ÓCULOS -->
-  <section class="s2" id="grau" aria-labelledby="t2">
-    <h2 id="t2">Seu rosto, seu óculos.</h2>
-    <div class="obbox">
-      <div class="ob">
-        <div class="crop">
-          <img class="fr" src="img/flow-2.jpg" alt="Armação de óculos de grau verde com hastes douradas, vista de lado e em perspectiva" width="2752" height="1536" loading="lazy" decoding="async">
-        </div>
-        <i class="sh"></i>
-      </div>
+<!-- 2 -->
+<section class="s s2 palco-dobra palco-dobra-2" id="armacoes">
+  <div class="top rv">
+    <p class="cap">Armações</p>
+    <h2>Seu rosto,<br>seu óculos</h2>
+  </div>
+  <div class="bot rv">
+    <ul class="tipos">
+      <li><strong>Óculos de grau</strong><span>Com antirreflexo premium e filtro azul.</span></li>
+      <li><strong>Óculos solar</strong><span>Com proteção máxima.</span></li>
+      <li><strong>2 em 1</strong><span>Grau e sol no mesmo óculos, o clip-on.</span></li>
+      <li><strong>Linha kids</strong><span>Armações para os pequenos.</span></li>
+    </ul>
+    <div>
+      <p class="frase">“Quero uma armação que transmita seriedade. Mas que seja moderna.” Diga isso no WhatsApp e a gente separa opções.</p>
+      <a class="lnk" href="https://wa.me/5548996038604?text=Oi!%20Quero%20ver%20as%20arma%C3%A7%C3%B5es.">Quero ver as armações</a>
     </div>
-    <div class="col">
-      <ul class="idx">
-        <li><a href="https://wa.me/5548996038604?text=Oi!%20Quero%20ver%20%C3%B3culos%20de%20grau"><span class="nm">Óculos de grau</span><span class="ds">Com antirreflexo premium ou filtro azul.</span><span class="go">Quero ver</span></a></li>
-        <li><a href="https://wa.me/5548996038604?text=Oi!%20Quero%20ver%20%C3%B3culos%20solar"><span class="nm">Óculos solar</span><span class="ds">Com proteção máxima.</span><span class="go">Quero ver</span></a></li>
-        <li><a href="https://wa.me/5548996038604?text=Oi!%20Quero%20ver%20%C3%B3culos%202%20em%201"><span class="nm">Óculos 2 em 1</span><span class="ds">Clip-on: grau e solar na mesma armação.</span><span class="go">Quero ver</span></a></li>
-        <li><a href="https://wa.me/5548996038604?text=Oi!%20Quero%20ver%20lentes"><span class="nm">Lentes</span><span class="ds">Lentes cosméticas e a campanha Lentes Dobro.</span><span class="go">Quero ver</span></a></li>
-        <li><a href="https://wa.me/5548996038604?text=Oi!%20Quero%20ver%20a%20linha%20kids"><span class="nm">Linha kids</span><span class="ds">Armações para os pequenos.</span><span class="go">Quero ver</span></a></li>
-      </ul>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 3 DIVISOR / PROMOÇÕES -->
-  <section class="s3" id="promo" aria-labelledby="t3">
-    <div class="ob">
-      <div class="crop">
-        <img class="fr" src="img/flow-2.jpg" alt="Parte de baixo das lentes e a ponte de uma armação verde, entrando pelo topo da seção" width="2752" height="1536" loading="lazy" decoding="async">
+<!-- 3 -->
+<section class="s s3 palco-dobra palco-dobra-3" id="teste">
+  <div class="panel rv">
+    <div>
+      <p class="cap">Visão</p>
+      <h2>Faça esse teste comigo</h2>
+      <p class="corpo">Enxerga bem de longe? E de perto? Suas lentes ainda atendem a sua rotina?</p>
+      <p class="corpo">Se a resposta foi “mais ou menos”, chame a loja e conte o que está difícil de ler.</p>
+      <a class="btn am" href="https://wa.me/5548996038604?text=Oi!%20Vi%20o%20site%20e%20quero%20falar%20com%20a%20loja."><span>Falar com a loja</span></a>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart" aria-hidden="true">
+        <span class="r1">E</span><span class="r2">F P</span><span class="r3">T O Z</span><span class="r4">L P E D</span><span class="r5">P E C F D</span>
       </div>
-      <i class="sh"></i>
+      <small>Tabela ilustrativa. Não substitui o exame de vista.</small>
     </div>
-    <h2 id="t3"><span>Pague 1</span><span>Leve 2</span></h2>
-    <div class="col">
-      <p class="lbl">Promoções</p>
-      <p>Pague 1 Leve 2 e Lentes Dobro são campanhas que a loja já fez no Instagram. Regra e data mudam a cada rodada: pergunte qual está valendo.</p>
-      <a class="btn dk" href="https://wa.me/5548996038604?text=Oi!%20Qual%20%C3%A9%20a%20promo%C3%A7%C3%A3o%20em%20vigor%3F">Perguntar a promoção em vigor</a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 4 CLOSE EXTREMO -->
-  <section class="s4" id="lentes" aria-labelledby="t4">
-    <div class="f4">
-      <img src="img/flow-1.jpg" alt="Ilustração em close da lente com reflexo azulado do antirreflexo" width="2752" height="1536" loading="lazy">
-      <div class="t">
-        <span class="lbl">Lentes</span>
-        <h2 id="t4">Tudo que<br>você precisa</h2>
-      </div>
-    </div>
-    <div class="cards">
-      <article class="card">
-        <span class="lbl">Óculos de grau</span>
-        <h3>Antirreflexo premium</h3>
-        <p>O reflexo azulado na lente é o tratamento antirreflexo trabalhando.</p>
-      </article>
-      <article class="card">
-        <span class="lbl">Óculos receituário</span>
-        <h3>Filtro azul</h3>
-        <p>Para quem passa o dia olhando tela.</p>
-      </article>
-      <article class="card">
-        <span class="lbl">Óculos solar</span>
-        <h3>Proteção máxima</h3>
-        <p>E tem lentes cosméticas para quem quer mudar o visual.</p>
-      </article>
-    </div>
-  </section>
+<!-- 4 -->
+<section class="s s4 palco-dobra palco-dobra-4" id="lentes">
+  <p class="cap rv">Lentes</p>
+  <div class="centro">
+    <h2 class="rv">Lentes<br>Dobro</h2>
+    <p class="deal rv">Pague 1 Leve 2</p>
+    <ul class="trat rv">
+      <li>Antirreflexo premium</li>
+      <li>Filtro azul</li>
+      <li>Lentes cosméticas</li>
+    </ul>
+    <p class="nota rv">Regra e validade das promoções mudam. Pergunte no WhatsApp antes de vir.</p>
+    <a class="btn am rv" href="https://wa.me/5548996038604?text=Oi!%20Quero%20saber%20da%20promo%C3%A7%C3%A3o%20Lentes%20Dobro%20e%20Pague%201%20Leve%202."><span>Perguntar da promoção</span></a>
+  </div>
+</section>
 
-  <!-- 5 CLÍMAX -->
-  <section class="s5" id="enxergue" aria-labelledby="t5">
-    <div class="ob">
-      <div class="crop">
-        <div class="lens lL"><span class="refl"></span></div>
-        <div class="lens lR"><span class="refl"></span></div>
-        <img class="fr" src="img/flow-2.jpg" alt="Armação verde de frente sobre fundo preto, com reflexo de janela nas lentes" width="2752" height="1536" loading="lazy" decoding="async">
-      </div>
-    </div>
-    <h2 class="climax" id="t5">Enxergue.</h2>
-  </section>
+<!-- 5 -->
+<section class="s s5 palco-dobra palco-dobra-5" id="orgulho">
+  <p class="cap rv">Verde e amarela</p>
+  <h2 class="rv">Orgulho</h2>
+  <p class="sub rv">Mais que ótica, orgulho de ser brasileiro.</p>
+</section>
 
-  <!-- 6 QUEM JÁ PROVOU -->
-  <section class="s6" id="avaliacoes" aria-labelledby="t6">
-    <div class="big" aria-hidden="true">4,9</div>
-    <div class="obbox">
-      <div class="ob">
-        <div class="crop">
-          <div class="lens lL"><img src="img/flow-3.jpg" alt="Ilustração de ambiente de ótica com parede verde e prateleiras de armações" width="2752" height="1536" loading="lazy"></div>
-          <div class="lens lR"><img src="img/flow-1.jpg" alt="Ilustração em close da lente com reflexo azulado" width="2752" height="1536" loading="lazy"></div>
-          <img class="fr" src="img/flow-2.jpg" alt="Armação verde com hastes douradas; cada lente mostra uma ilustração" width="2752" height="1536" loading="lazy" decoding="async">
-        </div>
-        <i class="sh"></i>
-      </div>
+<!-- 6 -->
+<section class="s s6 palco-dobra palco-dobra-6" id="avaliacoes">
+  <div class="cab rv">
+    <div>
+      <p class="cap">Clientes</p>
+      <h2>Quem já passou por aqui</h2>
     </div>
-    <div class="col">
-      <p class="rate2">Nota 4,9 no Google, mais de 150 avaliações</p>
-      <h2 id="t6">Quem já provou</h2>
-      <figure>
-        <blockquote>“Atendimento sem comparação, recepção calorosa, produtos excelentes.”</blockquote>
-        <figcaption>avaliação no Google</figcaption>
-      </figure>
-      <figure>
-        <blockquote>“Super recomendo. Entrega rápida do óculos, preços ótimos e várias opções.”</blockquote>
-        <figcaption>avaliação no Google</figcaption>
-      </figure>
-      <figure>
-        <blockquote>“Ótimo atendimento e ótimo qualidade em todo o processo”</blockquote>
-        <figcaption>avaliação no Google</figcaption>
-      </figure>
+    <div>
+      <p class="rate">4,9</p>
+      <p class="rate-t">nota no Google,<br>158 avaliações</p>
     </div>
-  </section>
+  </div>
+  <div class="quotes rv">
+    <figure>
+      <blockquote><p>Atendimento sem comparação, recepção calorosa, produtos excelentes.</p></blockquote>
+      <figcaption>Avaliação no Google</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>Super recomendo. Entrega rápida do óculos, preços ótimos e várias opções.</p></blockquote>
+      <figcaption>Avaliação no Google</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>Ótimo atendimento e ótimo qualidade em todo o processo</p></blockquote>
+      <figcaption>Avaliação no Google</figcaption>
+    </figure>
+  </div>
+</section>
 
-  <!-- 7 RODAPÉ -->
-  <footer class="s7" id="loja" aria-labelledby="t7">
-    <div class="strip" aria-hidden="true">
-      <div class="prow"></div>
-      <div class="prow b"></div>
-      <div class="prow"></div>
+<!-- 7 -->
+<section class="s s7 palco-dobra palco-dobra-7" id="contato">
+  <div class="c7">
+    <div class="titulo rv">
+      <p class="cap">Loja de Tubarão</p>
+      <h2>Av. Patrício<br>Lima, 1700</h2>
+      <p class="loc">Humaitá de Cima, Tubarão/SC</p>
     </div>
-    <div class="seal">
-      <div class="ob">
-        <div class="crop">
-          <img class="fr" src="img/flow-2.jpg" alt="Armação verde pequena, no lugar do selo da marca" width="2752" height="1536" loading="lazy" decoding="async">
-        </div>
-        <i class="sh"></i>
-      </div>
-      <svg class="flag" viewBox="0 0 40 28" role="img" aria-label="Bandeira do Brasil"><rect width="40" height="28" fill="#2E7D3E"/><path d="M20 3 37 14 20 25 3 14Z" fill="#F7D640"/><circle cx="20" cy="14" r="6" fill="#1F4E9E"/><path d="M14.5 13c4-1.4 8-.6 11 1.6" stroke="#fff" stroke-width="1.2" fill="none"/></svg>
-    </div>
-    <div class="col">
-      <h2 class="logo" id="t7"><small>Óticas</small><span class="v">Verde</span><i>e</i><span class="a">Amarela</span></h2>
-      <address>Av. Patrício Lima, 1700<br>Humaitá de Cima, Tubarão/SC, 88708-200</address>
-      <dl class="hours">
-        <dt>Segunda a sexta</dt><dd>09:00 às 12:00 e 13:30 às 18:30</dd>
-        <dt>Sábado</dt><dd>08:30 às 12:30</dd>
-        <dt>Domingo</dt><dd>Fechado</dd>
+
+    <div class="horarios rv">
+      <dl>
+        <div class="l" data-d="1,2,3,4,5"><dt>Segunda a sexta</dt><dd>09:00 às 12:00 e 13:30 às 18:30</dd></div>
+        <div class="l" data-d="6"><dt>Sábado</dt><dd>08:30 às 12:30</dd></div>
+        <div class="l" data-d="0"><dt>Domingo</dt><dd>Fechado</dd></div>
       </dl>
       <p class="status" id="status" aria-live="polite"></p>
-      <p class="pay">Cartão de crédito, débito e pagamento por aproximação (NFC).</p>
-
-      <ul class="acts">
-        <li><a href="https://wa.me/5548996038604"><span>Chamar no WhatsApp<span class="s">(48) 99603-8604</span></span><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></li>
-        <li><a href="https://wa.me/5548996038604?text=Oi!%20Qual%20%C3%A9%20o%20hor%C3%A1rio%20e%20onde%20fica%3F"><span>Pedir horário e endereço<span class="s">Abre o WhatsApp com a pergunta pronta</span></span><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></li>
-        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Patr%C3%ADcio+Lima+1700+Humait%C3%A1+de+Cima+Tubar%C3%A3o+SC"><span>Como chegar<span class="s">Abre no Google Maps</span></span><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></li>
-        <li><a href="tel:+5548996038604"><span>Ligar<span class="s">(48) 99603-8604</span></span><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></li>
-        <li><a href="https://www.instagram.com/oticasverdeeamarela/" rel="noopener"><span>Instagram<span class="s">@oticasverdeeamarela</span></span><svg class="ar" viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></li>
-      </ul>
-
-      <p class="more">No Instagram a rede também lista Criciúma e Braço do Norte. Endereço e horário dessas lojas: pergunte no WhatsApp.</p>
-
-      <div class="faq">
-        <h3>Perguntas</h3>
-        <details open>
-          <summary>Quanto custam as armações?</summary>
-          <p>Depende do modelo e da lente. Chame no WhatsApp que a loja passa os valores.</p>
-        </details>
-        <details open>
-          <summary>Aceitam cartão?</summary>
-          <p>Sim: crédito, débito e pagamento por aproximação, segundo o perfil da loja no Google.</p>
-        </details>
-        <details open>
-          <summary>Fazem envio?</summary>
-          <p>O Instagram da loja tem um destaque chamado Envios. Cidades e prazo: pergunte no WhatsApp.</p>
-        </details>
-      </div>
+      <p class="outras">Criciúma e Braço do Norte também aparecem na bio do Instagram da rede. Endereço e horário dessas lojas: pergunte no WhatsApp.</p>
     </div>
-  </footer>
+
+    <div class="mapa rv">
+      <iframe title="Mapa da Óticas Verde e Amarela, Av. Patrício Lima, 1700, Tubarão" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Patr%C3%ADcio+Lima,+1700,+Humait%C3%A1+de+Cima,+Tubar%C3%A3o+-+SC&amp;output=embed"></iframe>
+    </div>
+
+    <div class="acoes rv">
+      <a href="https://wa.me/5548996038604">Chamar no WhatsApp
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Patr%C3%ADcio+Lima,+1700,+Tubar%C3%A3o+SC">Como chegar
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+5548996038604">Ligar (48) 99603-8604
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <a href="https://www.instagram.com/oticasverdeeamarela/">@oticasverdeeamarela
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="faq rv">
+      <h3>Perguntas rápidas</h3>
+      <p class="et">exemplo — ajustamos com as suas informações</p>
+      <details>
+        <summary>Quanto custam as armações?</summary>
+        <p>Depende da armação e das lentes. Mande no WhatsApp o que você procura e a loja responde com valores.</p>
+      </details>
+      <details>
+        <summary>Aceitam cartão?</summary>
+        <p>Sim: cartão de crédito, de débito e pagamento por aproximação no celular (NFC).</p>
+      </details>
+      <details>
+        <summary>Fazem envio?</summary>
+        <p>A loja tem um destaque “Envios” no Instagram. Pergunte no WhatsApp como funciona para a sua cidade.</p>
+      </details>
+    </div>
+
+    <p class="rodape rv">A.G.A. Rede de Óticas Ltda, CNPJ 53.858.518/0001-27. Comércio varejista de artigos de óptica.</p>
+  </div>
+</section>
+
 </main>
+
+
 
 <script>
 (function(){
-  var d=document,w=window;
-  var bar=d.getElementById('top'),menu=d.querySelector('.menu'),last=0,tick=0;
-  function onScroll(){
-    tick=0;
-    var y=w.pageYOffset||0;
-    bar.classList.toggle('solid',y>24);
-    if(y>last+4&&y>120&&!menu.open) bar.classList.add('hide');
-    else if(y<last-4||y<120) bar.classList.remove('hide');
-    last=y;
-  }
-  w.addEventListener('scroll',function(){if(!tick) tick=w.requestAnimationFrame(onScroll);},{passive:true});
-  menu.addEventListener('click',function(e){if(e.target.closest('a')) menu.open=false;});
-  onScroll();
+  var d=document;
+  d.documentElement.classList.add('js');
 
-  /* horário: status calculado no navegador */
-  var st=d.getElementById('status');
-  var names=['dom','seg','ter','qua','qui','sex','sáb'];
-  var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
-  var sched={0:[],1:[[540,720],[810,1110]],2:[[540,720],[810,1110]],3:[[540,720],[810,1110]],4:[[540,720],[810,1110]],5:[[540,720],[810,1110]],6:[[510,750]]};
-  function hm(m){var h=Math.floor(m/60),mm=m%60;return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm;}
+  var bar=d.getElementById('topo'),fab=d.querySelector('.fab'),y=0,ultimo=0;
+  addEventListener('scroll',function(){
+    var c=window.scrollY;
+    bar.classList.toggle('off',c>y&&c>120);
+    y=c;
+    fab.classList.toggle('on',c>innerHeight*.6&&ultimo!==6);
+  },{passive:true});
+
+  var secs=[].slice.call(d.querySelectorAll('main > section'));
+  var dots=[].slice.call(d.querySelectorAll('.dots a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          ultimo=secs.indexOf(e.target);
+          dots.forEach(function(a,k){a.classList.toggle('on',k===ultimo)});
+          fab.classList.toggle('on',window.scrollY>innerHeight*.6&&ultimo!==6);
+        }
+      });
+    },{rootMargin:'-50% 0px -50% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+
+  /* horário: aberto/fechado calculado no navegador */
+  var H={0:[],1:[[540,720],[810,1110]],2:[[540,720],[810,1110]],3:[[540,720],[810,1110]],4:[[540,720],[810,1110]],5:[[540,720],[810,1110]],6:[[510,750]]};
+  var nomes=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+  function hm(m){var h=Math.floor(m/60),n=m%60;return (h<10?'0':'')+h+':'+(n<10?'0':'')+n}
   try{
-    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
-    var wd=0,h=0,m=0,i;
-    p.forEach(function(x){if(x.type==='weekday')wd=map[x.value];if(x.type==='hour')h=parseInt(x.value,10)%24;if(x.type==='minute')m=parseInt(x.value,10);});
-    var now=h*60+m,today=sched[wd];
-    for(i=0;i<today.length;i++){
-      if(now>=today[i][0]&&now<today[i][1]){st.textContent='Aberto agora. Fecha às '+hm(today[i][1])+'.';return;}
+    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    var wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6},dia=0,hr=0,mi=0;
+    p.forEach(function(x){
+      if(x.type==='weekday')dia=wd[x.value];
+      if(x.type==='hour')hr=parseInt(x.value,10)%24;
+      if(x.type==='minute')mi=parseInt(x.value,10);
+    });
+    var m=hr*60+mi,txt='',i,j,sl;
+    sl=H[dia];
+    for(j=0;j<sl.length;j++){if(m>=sl[j][0]&&m<sl[j][1]){txt='Aberta agora, atende até as '+hm(sl[j][1]);}}
+    if(!txt){
+      outer:for(i=0;i<8;i++){
+        var dd=(dia+i)%7,s=H[dd];
+        for(j=0;j<s.length;j++){
+          if(i>0||s[j][0]>m){
+            txt='Fechada no momento, abre '+(i===0?'hoje':i===1?'amanhã':nomes[dd])+' às '+hm(s[j][0]);
+            break outer;
+          }
+        }
+      }
     }
-    for(i=0;i<today.length;i++){
-      if(now<today[i][0]){st.textContent='Fechado agora. Abre hoje às '+hm(today[i][0])+'.';return;}
-    }
-    for(var k=1;k<=7;k++){
-      var dd=(wd+k)%7;
-      if(sched[dd].length){st.textContent='Fechado agora. Abre '+(k===1?'amanhã':names[dd])+' às '+hm(sched[dd][0][0])+'.';return;}
-    }
+    var st=d.getElementById('status');if(st)st.textContent=txt;
+    [].slice.call(d.querySelectorAll('.horarios .l')).forEach(function(l){
+      if(l.getAttribute('data-d').split(',').indexOf(String(dia))>-1)l.classList.add('hoje');
+    });
   }catch(e){}
 })();
 </script>
-</body>
+<!--palco:inicio--><style>/* O palco do fio condutor. Parte fixa; as curvas por dobra são geradas em app/palco.py.
+   Ordem do Natan, 13/11/2026: "o mesmo óculos tem que ir caindo, fechando, abrindo, ou dentro dele
+   vai tendo as visões de outros lugares" / "pega sempre um elemento principal daquele setor e faz
+   com que esse elemento fique rolando junto com a cena. É só isso que eu quero."
+   Mecânica aprovada por ele em 13/11/2026: a lente do objeto fica ancorada no mesmo ponto da tela
+   do site inteiro, a cena seguinte aparece dentro dela, e na rolagem a lente cresce até a gente
+   passar para dentro daquela cena. O objeto gira e muda de tamanho em volta da própria lente;
+   ele nunca anda pela tela (quando anda, a janela desgruda e vira um ponto solto). */
+
+#palco { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: clip; display: none }
+#palco .cena { position: absolute; inset: 0 }
+#palco .fundo { position: absolute; inset: 0; background-size: cover; background-position: center }
+#palco .cena.janela .fundo { will-change: transform }
+#objeto { position: absolute; display: block; max-width: none; will-change: transform, opacity }
+/* Sobra de rolagem para a última travessia fechar; só existe com o palco de pé. */
+.palco-fim { display: none }
+
+/* Sem animação presa à rolagem (navegador antigo, ou quem pediu menos movimento):
+   o palco não entra e os fundos de reserva de cada dobra continuam valendo. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body { isolation: isolate }
+    #palco { display: block }
+    .palco-dobra { background: none !important; background-color: transparent !important }
+    .palco-reserva { display: none }
+  }
+}
+:root{--palco-cx:76%;--palco-cy:50%;--palco-ow:50vw;--palco-lx:50.0%;--palco-ly:50.0%;--palco-r0:calc(var(--palco-ow) * 0.12)}@property --s1{syntax:'<number>';inherits:true;initial-value:0}@property --z1{syntax:'<number>';inherits:true;initial-value:0}@property --f1{syntax:'<number>';inherits:true;initial-value:0}@property --s2{syntax:'<number>';inherits:true;initial-value:0}@property --z2{syntax:'<number>';inherits:true;initial-value:0}@property --f2{syntax:'<number>';inherits:true;initial-value:0}@property --s3{syntax:'<number>';inherits:true;initial-value:0}@property --z3{syntax:'<number>';inherits:true;initial-value:0}@property --f3{syntax:'<number>';inherits:true;initial-value:0}@property --s4{syntax:'<number>';inherits:true;initial-value:0}@property --z4{syntax:'<number>';inherits:true;initial-value:0}@property --f4{syntax:'<number>';inherits:true;initial-value:0}@property --s5{syntax:'<number>';inherits:true;initial-value:0}@property --z5{syntax:'<number>';inherits:true;initial-value:0}@property --f5{syntax:'<number>';inherits:true;initial-value:0}@property --s6{syntax:'<number>';inherits:true;initial-value:0}@property --z6{syntax:'<number>';inherits:true;initial-value:0}@property --f6{syntax:'<number>';inherits:true;initial-value:0}@keyframes passo1{0%{--s1:0}62%{--s1:1}100%{--s1:1}}@keyframes mergulho1{0%{--z1:0}48%{--z1:.01}56%{--z1:.1}62%{--z1:1}63%{--z1:0}100%{--z1:0}}@keyframes some1{0%{--f1:0}40%{--f1:0}48%{--f1:1}62%{--f1:1}69%{--f1:0}100%{--f1:0}}@keyframes passo2{0%{--s2:0}62%{--s2:1}100%{--s2:1}}@keyframes mergulho2{0%{--z2:0}48%{--z2:.01}56%{--z2:.1}62%{--z2:1}63%{--z2:0}100%{--z2:0}}@keyframes some2{0%{--f2:0}40%{--f2:0}48%{--f2:1}62%{--f2:1}69%{--f2:0}100%{--f2:0}}@keyframes passo3{0%{--s3:0}62%{--s3:1}100%{--s3:1}}@keyframes mergulho3{0%{--z3:0}48%{--z3:.01}56%{--z3:.1}62%{--z3:1}63%{--z3:0}100%{--z3:0}}@keyframes some3{0%{--f3:0}40%{--f3:0}48%{--f3:1}62%{--f3:1}69%{--f3:0}100%{--f3:0}}@keyframes passo4{0%{--s4:0}62%{--s4:1}100%{--s4:1}}@keyframes mergulho4{0%{--z4:0}48%{--z4:.01}56%{--z4:.1}62%{--z4:1}63%{--z4:0}100%{--z4:0}}@keyframes some4{0%{--f4:0}40%{--f4:0}48%{--f4:1}62%{--f4:1}69%{--f4:0}100%{--f4:0}}@keyframes passo5{0%{--s5:0}62%{--s5:1}100%{--s5:1}}@keyframes mergulho5{0%{--z5:0}48%{--z5:.01}56%{--z5:.1}62%{--z5:1}63%{--z5:0}100%{--z5:0}}@keyframes some5{0%{--f5:0}40%{--f5:0}48%{--f5:1}62%{--f5:1}69%{--f5:0}100%{--f5:0}}@keyframes passo6{0%{--s6:0}62%{--s6:1}100%{--s6:1}}@keyframes mergulho6{0%{--z6:0}48%{--z6:.01}56%{--z6:.1}62%{--z6:1}63%{--z6:0}100%{--z6:0}}@keyframes some6{0%{--f6:0}40%{--f6:0}48%{--f6:1}62%{--f6:1}69%{--f6:0}100%{--f6:0}}#palco{--a:0;--v:1}#palco .cena.janela{clip-path:circle(calc(var(--palco-r0) * var(--v) * (1 + 16 * var(--a))) at var(--palco-cx) var(--palco-cy))}#palco .cena.janela .fundo{transform:scale(calc(1.08 - .08 * var(--a)));transform-origin:var(--palco-cx) var(--palco-cy)}#objeto{left:var(--palco-cx);top:var(--palco-cy);width:var(--palco-ow);transform-origin:var(--palco-lx) var(--palco-ly);--giro:calc(-6deg + var(--s1) * 9deg + var(--s2) * -14deg + var(--s3) * 11deg + var(--s4) * 4deg + var(--s5) * -8deg + var(--s6) * 6deg);--porte:calc(1 + var(--s1) * -0.06 + var(--s2) * 0.08 + var(--s3) * -0.05 + var(--s4) * 0.04 + var(--s5) * -0.03 + var(--s6) * 0.05);--mergulho:calc(var(--z1) + var(--z2) + var(--z3) + var(--z4) + var(--z5) + var(--z6));transform:translate(calc(-1 * var(--palco-lx)),calc(-1 * var(--palco-ly))) rotate(var(--giro)) scale(calc(var(--porte) * (1 + 16 * var(--mergulho))));opacity:calc(1 - var(--f1) - var(--f2) - var(--f3) - var(--f4) - var(--f5) - var(--f6))}@media (max-width:860px){:root{--palco-cx:50%;--palco-cy:15%;--palco-ow:78vw}}@supports (animation-timeline: view()){@media (prefers-reduced-motion: no-preference){.palco-fim{display:block;height:85svh;pointer-events:none}html{timeline-scope:--t2,--t3,--t4,--t5,--t6,--t7}.palco-dobra-2{view-timeline:--t2 block}.palco-dobra-3{view-timeline:--t3 block}.palco-dobra-4{view-timeline:--t4 block}.palco-dobra-5{view-timeline:--t5 block}.palco-dobra-6{view-timeline:--t6 block}.palco-dobra-7{view-timeline:--t7 block}body{animation:passo1 linear both,mergulho1 linear both,some1 linear both,passo2 linear both,mergulho2 linear both,some2 linear both,passo3 linear both,mergulho3 linear both,some3 linear both,passo4 linear both,mergulho4 linear both,some4 linear both,passo5 linear both,mergulho5 linear both,some5 linear both,passo6 linear both,mergulho6 linear both,some6 linear both;animation-timeline:--t2,--t2,--t2,--t3,--t3,--t3,--t4,--t4,--t4,--t5,--t5,--t5,--t6,--t6,--t6,--t7,--t7,--t7;animation-range:cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%}.palco-cena-2{--a:var(--s1)}.palco-cena-3{--a:var(--s2);--v:calc(var(--s1) * (1 - var(--f1)))}.palco-cena-4{--a:var(--s3);--v:calc(var(--s2) * (1 - var(--f2)))}.palco-cena-5{--a:var(--s4);--v:calc(var(--s3) * (1 - var(--f3)))}.palco-cena-6{--a:var(--s5);--v:calc(var(--s4) * (1 - var(--f4)))}.palco-cena-7{--a:var(--s6);--v:calc(var(--s5) * (1 - var(--f5)))}@keyframes palco-passagem{0%{opacity:0;transform:translateY(26px)}16%{opacity:1;transform:none}64%{opacity:1;transform:none}92%{opacity:0;transform:translateY(-20px)}100%{opacity:0;transform:translateY(-20px)}}.palco-dobra > *{animation:palco-passagem linear both;animation-timeline:view();animation-range:entry 20% exit 60%}@media (max-width:860px){.palco-dobra > *{animation-range:entry 20% exit 2%}}.palco-dobra-1,.palco-dobra-1 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#0F4D2A}.palco-dobra-2,.palco-dobra-2 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#10281A}.palco-dobra-3,.palco-dobra-3 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#FFFFFF}.palco-dobra-4,.palco-dobra-4 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#FFFFFF}.palco-dobra-5,.palco-dobra-5 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#0F4D2A}.palco-dobra-6,.palco-dobra-6 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#FFFFFF}.palco-dobra-7,.palco-dobra-7 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption){color:#F4F2EA}}}</style><div class="palco-fim" aria-hidden="true"></div><div id="palco" aria-hidden="true"><div class="cena"><div class="fundo" style="background-color:#F4F2EA"></div></div><div class="cena janela palco-cena-2"><div class="fundo" style="background-color:#F7D640"></div></div><div class="cena janela palco-cena-3"><div class="fundo" style="background-image:url('img/flow-1.jpg')"></div></div><div class="cena janela palco-cena-4"><div class="fundo" style="background-color:#2E7D3E"></div></div><div class="cena janela palco-cena-5"><div class="fundo" style="background-color:#F7D640"></div></div><div class="cena janela palco-cena-6"><div class="fundo" style="background-image:url('img/flow-3.jpg')"></div></div><div class="cena janela palco-cena-7"><div class="fundo" style="background-color:#0F4D2A"></div></div><img id="objeto" src="img/objeto.png" alt=""></div><script type="application/json" id="coreografia">{"objeto": "img/objeto.png", "dobras": [{"cena": "#F4F2EA", "texto": "#0F4D2A"}, {"cena": "#F7D640", "texto": "#10281A"}, {"cena": "img/flow-1.jpg", "texto": "#FFFFFF"}, {"cena": "#2E7D3E", "texto": "#FFFFFF"}, {"cena": "#F7D640", "texto": "#0F4D2A"}, {"cena": "img/flow-3.jpg", "texto": "#FFFFFF"}, {"cena": "#0F4D2A", "texto": "#F4F2EA"}], "lente": {"x": 50.0, "y": 50.0, "raio": 0.12}}</script><!--palco:fim--></body>
 </html>
