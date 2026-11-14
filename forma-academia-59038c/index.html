@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forma Academia | Musculação no Praça Shopping, Tubarão/SC</title>
+<meta name="description" content="Forma Academia, musculação, avaliação física e Pilates em Tubarão/SC. Desde 2004 no Praça Shopping. Aberta de domingo a domingo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A0F1E;
+  --osso:#F2F1EC;
+  --azul:#2E50FF;
+  --cinza:#B4BAD0;
+  --linha:rgba(242,241,236,.3);
+  --g:clamp(16px,3.2vw,40px);
+  --disp:'Bebas Neue','Arial Narrow',Impact,sans-serif;
+  --txt:'Instrument Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--navy);color:var(--osso);font:400 17px/1.55 var(--txt);overflow-x:clip}
+img,svg{max-width:100%}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:2px}
+:focus-visible{outline:3px solid #9DB0FF;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+main{position:relative}
+
+/* tipografia de cartaz */
+.tit{font:400 clamp(72px,15vw,250px)/.88 var(--disp);letter-spacing:-.02em;text-transform:uppercase}
+.tag{background:var(--navy);color:var(--osso);padding:.02em .12em .0em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* botão */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;background:var(--osso);color:var(--navy);border:2px solid var(--osso);border-radius:10px;font:700 17px/1 var(--txt);letter-spacing:.02em;text-decoration:none;text-transform:uppercase;cursor:pointer;transition:color .25s,transform .15s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--navy);transform:translateY(101%);transition:transform .3s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover,.btn:focus-visible{color:var(--osso)}
+.btn:hover::before,.btn:focus-visible::before{transform:none}
+.btn:active{transform:scale(.97)}
+
+/* topo e barra */
+.topo{position:fixed;top:12px;right:var(--g);z-index:60;display:flex;background:var(--navy);border:1px solid var(--linha);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.topo.hide{transform:translateY(-130%)}
+.topo a{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;font:600 16px/1 var(--txt);text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.topo a:hover{background:var(--osso);color:var(--navy)}
+.barra{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:60;width:min(calc(100% - 24px),520px);display:flex;align-items:center;gap:12px;background:var(--navy);border:1px solid var(--linha);padding:8px 8px 8px 16px;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.barra.off{transform:translate(-50%,170%)}
+.barra .nm{font:400 32px/1 var(--disp);transform:skewX(-8deg);letter-spacing:.01em}
+.barra .btn{flex:1;min-height:48px;padding:0 16px;font-size:16px}
+
+/* 1 abertura */
+.hero{min-height:100svh;display:grid;grid-template-rows:1fr auto auto;padding:84px var(--g) 0;overflow:clip;position:relative;color:#fff}
+.info{grid-row:2;background:var(--navy);padding:22px 22px 24px;max-width:480px;border-top:1px solid var(--linha);display:grid;gap:12px}
+.info .lead{font:600 20px/1.35 var(--txt)}
+.info .acoes-h{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin-top:6px}
+.info .wa{min-height:48px;display:inline-flex;align-items:center;font-weight:600}
+.info .st{color:var(--cinza);font-size:16px}
+.nome{grid-row:3;margin-top:20px;line-height:0}
+.nome svg{display:block;width:100%;height:auto;fill:var(--azul)}
+@media (min-width:900px){.info{padding:26px 30px 28px}}
+
+/* 2 treinos */
+.treinos{padding:clamp(72px,12vw,160px) var(--g) 0;color:#fff}
+.indice{list-style:none;padding:0;margin:clamp(40px,6vw,88px) calc(var(--g)*-1) 0;border-top:1px solid #fff}
+.indice li{border-bottom:1px solid rgba(255,255,255,.55)}
+.lin{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;padding:20px var(--g);transition:background .25s,color .25s}
+.lin .n{font:400 28px/1 var(--disp);padding-top:8px}
+.lin h3{font:400 clamp(48px,8.5vw,136px)/.9 var(--disp);letter-spacing:-.01em;text-transform:uppercase}
+.lin p{grid-column:2}
+.lin .ir{grid-column:2;min-height:48px;display:inline-flex;align-items:center;font-weight:700;width:fit-content}
+.lin:hover,.lin:focus-within{background:var(--osso);color:var(--navy)}
+@media (min-width:900px){
+  .lin{grid-template-columns:80px minmax(0,1.5fr) minmax(0,1fr) 170px;align-items:center;gap:0 24px;padding-top:14px;padding-bottom:14px}
+  .lin .n{padding:0}
+  .lin p,.lin .ir{grid-column:auto}
+  .lin .ir{justify-self:end}
+}
+.cursor-tag{position:fixed;top:0;left:0;z-index:70;pointer-events:none;background:var(--navy);color:var(--osso);border:1px solid var(--osso);padding:6px 14px;font:400 28px/1 var(--disp);transform:translate(-200px,-200px) skewX(-8deg);opacity:0;transition:opacity .2s}
+.cursor-tag.on{opacity:1}
+.box{margin:clamp(56px,8vw,120px) auto 0;max-width:920px;border:1px solid #fff}
+.box h3{font:400 30px/1 var(--disp);padding:16px;text-align:center;border-bottom:1px solid #fff;letter-spacing:.03em}
+.box ul{list-style:none;padding:18px 0;display:grid;grid-template-columns:1fr}
+.box li{padding:12px 16px;text-align:center;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;line-height:1.3;border-top:1px solid rgba(255,255,255,.5)}
+.box li:first-child{border-top:0}
+@media (min-width:900px){
+  .box ul{grid-template-columns:repeat(5,1fr)}
+  .box li{border-top:0;border-left:1px solid #fff;display:flex;align-items:center;justify-content:center}
+  .box li:first-child{border-left:0}
+}
+.foto{position:relative;margin:clamp(56px,8vw,120px) calc(var(--g)*-1) 0;overflow:clip}
+.foto img{display:block;width:100%;height:clamp(340px,62vw,860px);object-fit:cover}
+.foto figcaption{position:absolute;left:var(--g);bottom:0;background:var(--navy);color:var(--osso);padding:10px 16px;font-size:16px}
+
+/* 3 como começar */
+.comecar{padding:clamp(72px,12vw,180px) var(--g);display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--g);color:#fff}
+.comecar .tit{grid-column:1/-1}
+.etapas{grid-column:1/-1;list-style:none;padding:0;margin-top:clamp(32px,5vw,64px);background:var(--navy);border-top:1px solid var(--linha)}
+.etapa{display:grid;grid-template-columns:auto 44px 1fr;gap:0 16px;padding:28px 20px;align-items:start;border-bottom:1px solid var(--linha)}
+.etapa:last-child{border-bottom:0}
+.etapa .n{font:400 clamp(64px,9vw,128px)/.8 var(--disp);min-width:1.1em}
+.etapa .ic{align-self:stretch;position:relative;display:flex;justify-content:center}
+.etapa .ic svg{width:44px;height:44px;fill:none;stroke:var(--osso);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.etapa:not(:last-child) .ic::after{content:"";position:absolute;left:50%;top:54px;bottom:-56px;width:1px;background:var(--osso)}
+.etapa h3{font:400 clamp(36px,4.4vw,60px)/.95 var(--disp);margin-bottom:8px}
+.etapa p{max-width:46ch;color:var(--cinza)}
+.etapa a{display:inline-flex;align-items:center;min-height:48px;font-weight:700}
+@media (min-width:900px){
+  .etapas{grid-column:5/-1;margin-top:-40px;position:relative}
+  .etapa{grid-template-columns:150px 56px 1fr;gap:0 28px;padding:34px 36px}
+  .etapa .ic svg{width:52px;height:52px}
+}
+
+/* 4 planos */
+.planos{padding:clamp(72px,12vw,180px) var(--g);color:var(--navy)}
+.planos .cab{display:grid;grid-template-columns:repeat(12,1fr);gap:24px var(--g);align-items:end}
+.planos .tit{grid-column:1/-1;color:var(--navy)}
+.planos .nota{grid-column:1/-1;max-width:46ch;font-weight:500}
+@media (min-width:900px){.planos .tit{grid-column:1/8}.planos .nota{grid-column:9/-1;padding-bottom:12px}}
+.cards{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--g);align-items:end;margin-top:clamp(40px,6vw,88px)}
+.card{grid-column:1/-1;background:var(--azul);color:#fff;border-radius:28px;padding:28px 28px 30px;display:flex;flex-direction:column;gap:14px}
+.card:nth-child(2){margin-left:4vw}
+.card:nth-child(3){margin-left:8vw}
+.card .m{font:400 44px/1 var(--disp)}
+.card .p{display:flex;align-items:baseline;gap:8px}
+.card .rs{font:400 52px/1 var(--disp)}
+.card .valor{font:400 clamp(120px,32vw,200px)/.8 var(--disp);letter-spacing:-.02em}
+.card .de{font-weight:600;text-decoration:line-through;text-decoration-thickness:3px;width:fit-content}
+.card .conta{font-weight:700;font-size:18px}
+.card .barras{display:grid;gap:12px;margin-top:6px}
+.card .b{display:grid;gap:5px;font-size:16px}
+.card .b i{display:block;height:14px;border-radius:3px;background:#fff;width:var(--w);transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.card .b.cheio i{background:rgba(255,255,255,.38)}
+.card.pre .b i{width:0}
+.card .btn{margin-top:auto;background:#fff;border-color:#fff}
+@media (min-width:900px){
+  .card{grid-column:span 4;margin-left:0!important}
+  .card:nth-child(1){min-height:560px}
+  .card:nth-child(2){min-height:660px}
+  .card:nth-child(3){min-height:760px}
+  .card .valor{font-size:clamp(120px,13vw,200px)}
+}
+.rodape-planos{margin-top:32px;max-width:70ch;font-weight:500}
+
+/* 5 alunos */
+.alunos{padding:clamp(80px,12vw,180px) var(--g);color:var(--osso)}
+.manifesto{font:400 clamp(44px,8vw,128px)/.95 var(--disp);letter-spacing:-.015em;text-transform:uppercase}
+.manifesto .w{transition:opacity .15s linear}
+.fonte{margin-top:20px;color:var(--cinza);font-size:16px}
+.reputacao{margin-top:clamp(80px,12vw,180px);display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--g);align-items:end}
+.reputacao .gd{grid-column:1/-1;font:400 clamp(160px,42vw,380px)/.78 var(--disp);letter-spacing:-.03em}
+.reputacao h2{grid-column:1/-1;font:400 clamp(48px,7vw,110px)/.92 var(--disp);margin-top:16px}
+.reputacao p{grid-column:1/-1;margin-top:12px;max-width:40ch;color:var(--cinza)}
+@media (min-width:900px){
+  .reputacao .gd{grid-column:1/6}
+  .reputacao h2{grid-column:6/-1;margin:0}
+  .reputacao p{grid-column:6/-1}
+}
+.falas{margin-top:clamp(40px,6vw,80px);display:grid;grid-template-columns:repeat(12,1fr);gap:0 var(--g);border-top:1px solid var(--linha)}
+.falas blockquote{grid-column:1/-1;padding:30px 0 32px;border-bottom:1px solid var(--linha)}
+.falas p{font:500 22px/1.42 var(--txt)}
+.falas cite{display:block;margin-top:14px;font-style:normal;font-size:16px;color:var(--cinza);text-transform:uppercase;letter-spacing:.06em}
+@media (min-width:900px){
+  .falas blockquote:nth-child(odd){grid-column:1/8}
+  .falas blockquote:nth-child(even){grid-column:6/13}
+  .falas p{font-size:26px}
+}
+.faq{margin-top:clamp(80px,12vw,180px);display:grid;grid-template-columns:repeat(12,1fr);gap:24px var(--g)}
+.faq h2{grid-column:1/-1;font:400 clamp(56px,8vw,128px)/.9 var(--disp)}
+.faq .lista{grid-column:1/-1}
+@media (min-width:900px){.faq h2{grid-column:1/5}.faq .lista{grid-column:5/-1}}
+details{border-top:1px solid var(--linha)}
+details:last-child{border-bottom:1px solid var(--linha)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:72px;padding:12px 0;font:400 clamp(32px,4.4vw,56px)/1 var(--disp)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.1em}
+details[open] summary::after{content:"\2013"}
+summary:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.15em}
+details p{padding:0 0 26px;max-width:60ch;color:var(--cinza)}
+
+/* 6 agendar */
+.agendar{padding:clamp(72px,12vw,180px) var(--g);display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,4vw,56px) var(--g);color:#fff}
+.agendar .tit{grid-column:1/-1}
+.painel{background:var(--navy);border:1px solid var(--linha);padding:clamp(20px,3vw,36px);color:var(--osso)}
+.hor{grid-column:1/-1}
+.agenda-box{grid-column:1/-1}
+@media (min-width:900px){.hor{grid-column:1/6}.agenda-box{grid-column:6/-1}}
+.hor dl{display:grid;margin-top:8px}
+.hor .r{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:8px;padding:14px 12px;border-top:1px solid var(--linha);transition:background .2s,color .2s}
+.hor .r:last-of-type{border-bottom:1px solid var(--linha)}
+.hor dt{font-weight:600}
+.hor dd{font:400 clamp(36px,4vw,52px)/1 var(--disp);letter-spacing:.01em}
+.hor .r.hoje{background:var(--osso);color:var(--navy)}
+.hor .feriado{margin-top:18px;font-weight:600}
+.hor .st{margin-top:6px;color:var(--cinza)}
+.agenda-box h3,.hor h3{font:400 36px/1 var(--disp);margin-bottom:12px}
+
+/* 7 automação */
+.automacao{padding:clamp(72px,12vw,180px) var(--g);color:#fff;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,4vw,56px) var(--g)}
+.automacao h2{grid-column:1/-1;font:400 clamp(60px,11vw,180px)/.88 var(--disp);letter-spacing:-.02em;text-transform:uppercase}
+.automacao .ap{grid-column:1/-1;max-width:46ch;font-weight:500;font-size:18px}
+.automacao .painel{grid-column:1/-1;border-radius:24px}
+@media (min-width:900px){.automacao .ap{grid-column:1/6}.automacao .painel{grid-column:6/-1;margin-top:-90px}}
+
+/* fecho */
+.fecho{background:var(--navy);padding:clamp(72px,10vw,140px) var(--g) clamp(96px,10vw,120px);position:relative}
+.fecho h2{line-height:0}
+.fecho h2 svg{display:block;width:100%;height:auto;fill:var(--osso)}
+.fecho .so-mob{display:block}
+.fecho .so-desk{display:none}
+@media (min-width:900px){.fecho .so-mob{display:none}.fecho .so-desk{display:block}}
+.fecho-grid{margin-top:clamp(40px,6vw,80px);display:grid;grid-template-columns:repeat(12,1fr);gap:40px var(--g)}
+.acoes{grid-column:1/-1;list-style:none;padding:0;border-bottom:1px solid var(--linha)}
+.acoes a{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;min-height:88px;padding:14px 0;border-top:1px solid var(--linha);text-decoration:none;transition:background .25s,color .25s,padding .25s}
+.acoes b{display:block;font:400 clamp(40px,5vw,68px)/1 var(--disp);font-weight:400}
+.acoes small{display:block;font-size:16px;color:var(--cinza);transition:color .25s}
+.acoes svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.acoes a:hover,.acoes a:focus-visible{background:var(--osso);color:var(--navy);padding-inline:18px}
+.acoes a:hover small,.acoes a:focus-visible small{color:var(--navy)}
+.mapa{grid-column:1/-1;position:relative;border:1px solid var(--linha);border-radius:28px 28px 28px 0;overflow:clip;aspect-ratio:4/3;background:#141B33}
+.mapa iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9)}
+.mapa span{position:absolute;left:0;bottom:0;background:var(--navy);padding:10px 16px;font-size:16px;font-weight:600}
+@media (min-width:900px){.acoes{grid-column:1/8}.mapa{grid-column:8/-1;aspect-ratio:auto;min-height:520px}}
+.assina{margin-top:48px;display:flex;flex-wrap:wrap;gap:8px 32px;align-items:baseline;color:var(--cinza);font-size:16px}
+.assina strong{font:400 32px/1 var(--disp);color:var(--osso);transform:skewX(-8deg)}
+
+/* surgimento simples */
+@keyframes surge{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  .s0{animation:surge .9s cubic-bezier(.2,.7,.2,1) .1s both}
+  @supports (animation-timeline:view()){
+    .s{animation:surge linear both;animation-timeline:view();animation-range:entry 5% entry 40%}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body><style>#faixa-demo{position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.35 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518}#faixa-demo .so-pc{display:none}@media(min-width:700px){#faixa-demo .so-pc{display:inline}}</style><div id="faixa-demo">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a><span class="so-pc"> para Forma Academia</span>. Ainda não é o site oficial.</div><script>(function(){var f=document.getElementById("faixa-demo");function p(){var h=f.offsetHeight;document.documentElement.style.setProperty("--faixa-demo",h+"px");document.body.style.paddingTop=h+"px";document.querySelectorAll("body *").forEach(function(e){if(e===f||f.contains(e))return;var s=getComputedStyle(e),t=parseFloat(s.top);if((s.position==="fixed"||s.position==="sticky")&&t<h){if(e.dataset.topo===undefined)e.dataset.topo=t||0;e.style.top=(parseFloat(e.dataset.topo)+h)+"px";}if(!e.dataset.tela&&Math.abs(e.getBoundingClientRect().height-innerHeight)<2&&e.children.length){e.dataset.tela="1";e.style.height="calc(100vh - "+h+"px)";e.style.minHeight="0";}});}if(document.readyState==="loading")addEventListener("DOMContentLoaded",p);else p();addEventListener("resize",p);})()</script>
+
+<header>
+  <nav class="topo" aria-label="Atalhos">
+    <a href="#planos">Planos</a>
+    <a href="#agendar">Horários</a>
+    <a href="#agendar">Agendar</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="abertura" class="hero palco-dobra palco-dobra-1" aria-label="Abertura">
+  <div class="info s0">
+    <p class="lead">Academia de musculação no Praça Shopping, em Tubarão. Desde 2004.</p>
+    <p>Te ajudamos a ter qualidade de vida. Nota 4,5 no Google, em 44 avaliações.</p>
+    <div class="acoes-h">
+      <a class="btn" href="#agendar">Agendar avaliação física</a>
+      <a class="wa" href="https://wa.me/5548991750977">Chamar no WhatsApp</a>
+    </div>
+    <p class="st" data-status>De domingo a domingo, inclusive nos feriados.</p>
+  </div>
+  <h1 class="nome s0" aria-label="Forma Academia">
+    <svg viewBox="0 0 1000 320" aria-hidden="true" focusable="false"><text x="0" y="336" textLength="1000" lengthAdjust="spacingAndGlyphs" font-family="'Bebas Neue',Impact,sans-serif" font-size="480">FORMA</text></svg>
+    <span class="sr">Forma Academia</span>
+  </h1>
+</section>
+
+<section id="treinos" class="treinos palco-dobra palco-dobra-2" aria-label="O que se treina na Forma">
+  <h2 class="tit s">O que se<br>treina aqui</h2>
+  <ol class="indice">
+    <li><div class="lin"><span class="n">01</span><h3>Musculação</h3><p>Com orientação dos professores: ajuste do aparelho e execução do movimento.</p><a class="ir" href="#planos">Ver planos</a></div></li>
+    <li><div class="lin"><span class="n">02</span><h3>Avaliação física</h3><p>Descubra seu potencial e defina seus objetivos.</p><a class="ir" href="#agendar">Agendar</a></div></li>
+    <li><div class="lin"><span class="n">03</span><h3>Mat Pilates</h3><p>Pilates em colchonete, além da musculação.</p><a class="ir" href="https://wa.me/5548991750977">Consultar</a></div></li>
+    <li><div class="lin"><span class="n">04</span><h3>Pilates SOLO</h3><p>Turmas e horários: pergunte no WhatsApp.</p><a class="ir" href="https://wa.me/5548991750977">Consultar</a></div></li>
+    <li><div class="lin"><span class="n">05</span><h3>Suplementos</h3><p>Linha EXX Nutrition.</p><a class="ir" href="https://wa.me/5548991750977">Consultar</a></div></li>
+    <li><div class="lin"><span class="n">06</span><h3>Hammer puxada alta</h3><p>Equipamento novo na sala de musculação.</p><a class="ir" href="#agendar">Conhecer</a></div></li>
+  </ol>
+
+  <div class="box s">
+    <h3>O que tem na Forma</h3>
+    <ul>
+      <li>Ambiente climatizado</li>
+      <li>Estacionamento coberto gratuito</li>
+      <li>Banheiro e estacionamento acessíveis</li>
+      <li>Cartão e pagamento por aproximação</li>
+      <li>Cantinho do café</li>
+    </ul>
+  </div>
+
+  <figure class="foto">
+    <img src="img/flow-1.jpg" alt="Salão de musculação com aparelhos e halteres, sem pessoas, em tons escuros" width="2752" height="1536" loading="lazy">
+    <figcaption>Imagem ilustrativa do salão de musculação.</figcaption>
+  </figure>
+</section>
+
+<section id="comecar" class="comecar palco-dobra palco-dobra-3" aria-label="Como começar">
+  <h2 class="tit s"><span class="tag">Como</span><br><span class="tag">começar</span></h2>
+  <ol class="etapas s">
+    <li class="etapa">
+      <span class="n">01</span>
+      <span class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 9h34v24H23l-9 8v-8H7z"/><circle cx="16" cy="21" r="1.2" fill="#F2F1EC"/><circle cx="24" cy="21" r="1.2" fill="#F2F1EC"/><circle cx="32" cy="21" r="1.2" fill="#F2F1EC"/></svg></span>
+      <div><h3>Chame no WhatsApp</h3><p>Marque a avaliação física. Venha descobrir seu potencial e alcançar seus objetivos.</p><a href="#agendar">Escolher um horário</a></div>
+    </li>
+    <li class="etapa">
+      <span class="n">02</span>
+      <span class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 7h22v7H13zM13 17h22v7H13zM13 27h22v7H13z"/><path d="M5 20.5h31"/><circle cx="40" cy="20.5" r="3"/><path d="M13 40h22"/></svg></span>
+      <div><h3>Peça orientação</h3><p>Os professores ajustam o aparelho com você e explicam o movimento. Seu treino começa na execução.</p></div>
+    </li>
+    <li class="etapa">
+      <span class="n">03</span>
+      <span class="ic"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 11h34v30H7zM7 20h34M16 6v9M32 6v9M16 31l5 5 11-12"/></svg></span>
+      <div><h3>Encaixe na rotina</h3><p>Aberta de domingo a domingo, inclusive nos feriados. Seu treino tem espaço na sua rotina.</p></div>
+    </li>
+  </ol>
+</section>
+
+<section id="planos" class="planos palco-dobra palco-dobra-4" aria-label="Planos">
+  <div class="cab">
+    <h2 class="tit s">Planos</h2>
+    <p class="nota s">Black November. Valores totais à vista no PIX, para as 20 primeiras pessoas. Confirme na recepção se a promoção ainda está valendo.</p>
+  </div>
+  <div class="cards">
+    <article class="card s">
+      <p class="m">Trimestral, 3 meses</p>
+      <p class="p"><span class="rs">R$</span><span class="valor" data-to="297">297</span></p>
+      <p class="de">de R$ 360</p>
+      <p class="conta">R$ 297 ÷ 3 meses = R$ 99,00 por mês</p>
+      <div class="barras">
+        <div class="b cheio" style="--w:100%"><span>Preço de tabela: R$ 120,00 por mês</span><i></i></div>
+        <div class="b" style="--w:82.5%"><span>Com a promoção: R$ 99,00 por mês</span><i></i></div>
+      </div>
+      <a class="btn" href="https://wa.me/5548991750977?text=Oi!%20Quero%20saber%20do%20plano%20Trimestral%20da%20Forma.">Quero este plano</a>
+    </article>
+    <article class="card s">
+      <p class="m">Semestral, 6 meses</p>
+      <p class="p"><span class="rs">R$</span><span class="valor" data-to="534">534</span></p>
+      <p class="de">de R$ 600</p>
+      <p class="conta">R$ 534 ÷ 6 meses = R$ 89,00 por mês</p>
+      <div class="barras">
+        <div class="b cheio" style="--w:100%"><span>Preço de tabela: R$ 100,00 por mês</span><i></i></div>
+        <div class="b" style="--w:89%"><span>Com a promoção: R$ 89,00 por mês</span><i></i></div>
+      </div>
+      <a class="btn" href="https://wa.me/5548991750977?text=Oi!%20Quero%20saber%20do%20plano%20Semestral%20da%20Forma.">Quero este plano</a>
+    </article>
+    <article class="card s">
+      <p class="m">Anual, 12 meses</p>
+      <p class="p"><span class="rs">R$</span><span class="valor" data-to="948">948</span></p>
+      <p class="de">de R$ 1.080</p>
+      <p class="conta">R$ 948 ÷ 12 meses = R$ 79,00 por mês</p>
+      <div class="barras">
+        <div class="b cheio" style="--w:100%"><span>Preço de tabela: R$ 90,00 por mês</span><i></i></div>
+        <div class="b" style="--w:87.8%"><span>Com a promoção: R$ 79,00 por mês</span><i></i></div>
+      </div>
+      <a class="btn" href="https://wa.me/5548991750977?text=Oi!%20Quero%20saber%20do%20plano%20Anual%20da%20Forma.">Quero este plano</a>
+    </article>
+  </div>
+  <p class="rodape-planos s">Para parcelar no cartão, fale com a recepção ou chame no direct.</p>
+</section>
+
+<section id="alunos" class="alunos palco-dobra palco-dobra-5" aria-label="Quem treina aqui">
+  <p class="manifesto" data-acende>Não importa quantos kg você levanta ou quantos km você corre, você sempre estará vencendo a sua versão que ficou em casa.</p>
+  <p class="fonte">Do Instagram da Forma, @academiaformatb</p>
+
+  <div class="reputacao">
+    <p class="gd s" aria-label="Nota 4,5">4,5</p>
+    <h2 class="s">Quem treina aqui recomenda</h2>
+    <p class="s">Nota no Google, em 44 avaliações. Abaixo, trechos de avaliações de alunos.</p>
+  </div>
+
+  <div class="falas">
+    <blockquote class="s"><p>“Todos os professores sabem como ajudar os alunos, desde o mais iniciante até o que possui um nível de treino mais elevado.”</p><cite>Rafael, avaliação no Google</cite></blockquote>
+    <blockquote class="s"><p>“…realmente uma das melhores da região, instrutores preparados, acessíveis e atenciosos, bons equipamentos, esteiras em ótimo estado…”</p><cite>Vitor, avaliação no Google</cite></blockquote>
+    <blockquote class="s"><p>“Treino ali a mais ou menos 4 anos. Sempre com ótimos profissionais apoiando e com uma ótima estrutura.”</p><cite>Jose, avaliação no Google</cite></blockquote>
+    <blockquote class="s"><p>“Um dos motivos que me fez escolher a Forma foi a qualidade da climatização.”</p><cite>Maria, avaliação no Google</cite></blockquote>
+  </div>
+
+  <div class="faq">
+    <h2 class="s">Perguntas</h2>
+    <div class="lista s">
+      <details><summary>Como parcelar no cartão?</summary><p>Fale com a recepção ou chame no direct. Os valores da promoção são à vista no PIX.</p></details>
+      <details><summary>A academia abre nos feriados?</summary><p>Sim, abre também nos feriados. Consulte o horário especial.</p></details>
+      <details><summary>Como faço a avaliação física?</summary><p>Pelo WhatsApp, pelo telefone (48) 99175-0977 ou escolhendo um horário na agenda aqui no site.</p></details>
+      <details><summary>Que estrutura a Forma tem?</summary><p>Ambiente climatizado, estacionamento coberto gratuito, banheiro e estacionamento com acessibilidade para cadeira de rodas. Aceita cartão de crédito, débito e pagamento por aproximação (NFC).</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="agendar" class="agendar palco-dobra palco-dobra-6" aria-label="Horários e agenda">
+  <h2 class="tit s"><span class="tag">Agende sua</span><br><span class="tag">avaliação</span><br><span class="tag">física</span></h2>
+  <div class="painel hor s">
+    <h3>Horários</h3>
+    <dl>
+      <div class="r" data-d="1234"><dt>Segunda a quinta</dt><dd>06:00 – 23:30</dd></div>
+      <div class="r" data-d="5"><dt>Sexta</dt><dd>06:00 – 23:00</dd></div>
+      <div class="r" data-d="6"><dt>Sábado</dt><dd>10:00 – 16:00</dd></div>
+      <div class="r" data-d="0"><dt>Domingo</dt><dd>09:00 – 12:00</dd></div>
+    </dl>
+    <p class="feriado">De domingo a domingo! Aberta também nos feriados. Consulte o horário especial.</p>
+    <p class="st" data-status>Mais comodidade. Mais praticidade.</p>
+  </div>
+  <div class="painel agenda-box s">
+    <h3>Escolha seu horário</h3>
+    <div data-agendar></div>
+  </div>
+</section>
+
+<section id="automacao" class="automacao palco-dobra palco-dobra-7" aria-label="Atendimento no WhatsApp">
+  <h2 class="s">A resposta<br>chega na hora</h2>
+  <p class="ap s">Pergunte sobre horários, valores dos planos e como parcelar. Quando o assunto for a avaliação física, a recepção assume a conversa.</p>
+  <div class="painel s"><div data-automacao></div></div>
+</section>
+
+</main>
+
+<footer id="contato" class="fecho">
+  <h2 aria-label="Vem pra Forma!">
+    <svg class="so-desk" viewBox="0 0 1000 120" aria-hidden="true" focusable="false"><text x="0" y="120" textLength="1000" lengthAdjust="spacingAndGlyphs" font-family="'Bebas Neue',Impact,sans-serif" font-size="172">VEM PRA FORMA!</text></svg>
+    <svg class="so-mob" viewBox="0 0 1000 560" aria-hidden="true" focusable="false"><text x="0" y="259" textLength="1000" lengthAdjust="spacingAndGlyphs" font-family="'Bebas Neue',Impact,sans-serif" font-size="370">VEM PRA</text><text x="0" y="559" textLength="1000" lengthAdjust="spacingAndGlyphs" font-family="'Bebas Neue',Impact,sans-serif" font-size="370">FORMA!</text></svg>
+  </h2>
+  <div class="fecho-grid">
+    <ul class="acoes">
+      <li><a href="https://wa.me/5548991750977"><span><b>Chamar no WhatsApp</b><small>Avaliação física, planos e dúvidas</small></span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h23M18 7l9 9-9 9"/></svg></a></li>
+      <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Marcolino+Martins+Cabral+1315+Tubar%C3%A3o+SC"><span><b>Como chegar</b><small>Av. Marcolino Martins Cabral, 1315, Centro, Tubarão/SC</small></span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h23M18 7l9 9-9 9"/></svg></a></li>
+      <li><a href="tel:+5548991750977"><span><b>Ligar</b><small>(48) 99175-0977</small></span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h23M18 7l9 9-9 9"/></svg></a></li>
+      <li><a href="https://www.instagram.com/academiaformatb/"><span><b>Instagram</b><small>@academiaformatb</small></span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h23M18 7l9 9-9 9"/></svg></a></li>
+    </ul>
+    <div class="mapa">
+      <iframe title="Mapa: Forma Academia, Av. Marcolino Martins Cabral, 1315, Tubarão" src="https://www.google.com/maps?q=Av.+Marcolino+Martins+Cabral,+1315,+Tubar%C3%A3o+-+SC,+88701-105&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <span>Praça Shopping, Centro</span>
+    </div>
+  </div>
+  <div class="assina">
+    <strong>FORMA academia</strong>
+    <span>Desde 2004 no Praça Shopping.</span>
+    <span>Av. Marcolino Martins Cabral, 1315, Tubarão/SC, 88701-105</span>
+  </div>
+</footer>
+
+<div class="barra" role="region" aria-label="Agendar avaliação">
+  <span class="nm" aria-hidden="true">FORMA</span>
+  <a class="btn" href="#agendar">Agendar avaliação</a>
+</div>
+<div class="cursor-tag" aria-hidden="true">Vem pra Forma!</div>
+
+
+
+
+
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* menu do topo: some ao descer, volta ao subir */
+  var nav=document.querySelector('.topo'),ly=scrollY;
+  addEventListener('scroll',function(){var y=scrollY;nav.classList.toggle('hide',y>ly&&y>120);ly=y},{passive:true});
+
+  /* barra de ação: some na abertura, no agendamento e no fecho */
+  var bar=document.querySelector('.barra');
+  if('IntersectionObserver' in window){
+    var vis=new Set();
+    var bio=new IntersectionObserver(function(es){
+      es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});
+      bar.classList.toggle('off',vis.size>0);
+    },{threshold:.35});
+    ['abertura','agendar','contato'].forEach(function(id){var el=document.getElementById(id);if(el)bio.observe(el)});
+  }
+
+  /* status calculado dos horários */
+  function stat(){
+    var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+    var d=n.getDay(),m=n.getHours()*60+n.getMinutes();
+    var H=[[540,720],[360,1410],[360,1410],[360,1410],[360,1410],[360,1380],[600,960]];
+    var f=function(x){var h=Math.floor(x/60),mm=x%60;return h+'h'+(mm?String(mm).padStart(2,'0'):'')};
+    var a=H[d][0],b=H[d][1],t;
+    if(m>=a&&m<b)t='Aberta agora, até '+f(b)+'.';
+    else if(m<a)t='Fechada agora. Abre hoje às '+f(a)+'.';
+    else t='Fechada agora. Abre amanhã às '+f(H[(d+1)%7][0])+'.';
+    t+=' Feriado tem horário especial.';
+    document.querySelectorAll('[data-status]').forEach(function(e){e.textContent=t});
+    document.querySelectorAll('.hor .r').forEach(function(r){r.classList.toggle('hoje',r.dataset.d.indexOf(d)>-1)});
+  }
+  stat();
+
+  /* texto que acende */
+  var el=document.querySelector('[data-acende]');
+  if(el&&!rm){
+    var txt=el.textContent.trim();
+    el.setAttribute('aria-label',txt);
+    el.innerHTML=txt.split(/\s+/).map(function(w){return '<span class="w" aria-hidden="true">'+w+'</span>'}).join(' ');
+    var sp=[].slice.call(el.querySelectorAll('.w'));
+    var acende=function(){
+      var r=el.getBoundingClientRect(),h=innerHeight;
+      var p=Math.min(1,Math.max(0,(h*.9-r.top)/(h*.65)));
+      sp.forEach(function(s,i){
+        var t=(i+1)/sp.length;
+        var k=Math.min(1,Math.max(0,(p-(t-.12))/.12));
+        s.style.opacity=(.22+.78*k).toFixed(2);
+      });
+    };
+    addEventListener('scroll',acende,{passive:true});addEventListener('resize',acende);acende();
+  }
+
+  /* planos: número conta até o valor, barra cresce */
+  var cards=document.querySelectorAll('.card');
+  if('IntersectionObserver' in window&&!rm){
+    cards.forEach(function(c){c.classList.add('pre');c.querySelector('.valor').textContent='0'});
+    var cio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        cio.unobserve(e.target);
+        var c=e.target,v=c.querySelector('.valor'),to=+v.dataset.to,t0=performance.now();
+        c.classList.remove('pre');
+        (function s(t){
+          var p=Math.min(1,(t-t0)/1100);
+          v.textContent=Math.round(to*(1-Math.pow(1-p,3)));
+          if(p<1)requestAnimationFrame(s);
+        })(t0);
+      });
+    },{threshold:.25});
+    cards.forEach(function(c){cio.observe(c)});
+  }
+
+  /* detalhe da marca acompanha o cursor no índice */
+  var idx=document.querySelector('.indice'),tag=document.querySelector('.cursor-tag');
+  if(idx&&tag&&matchMedia('(hover:hover)').matches){
+    idx.addEventListener('pointermove',function(e){
+      tag.style.transform='translate('+(e.clientX+18)+'px,'+(e.clientY+18)+'px) skewX(-8deg)';
+      tag.classList.add('on');
+    });
+    idx.addEventListener('pointerleave',function(){tag.classList.remove('on')});
+  }
+})();
+</script>
+<!--agendar:inicio--><style>.ag{--ag-fundo:transparent;--ag-texto:currentColor;--ag-destaque:currentColor;--ag-linha:rgba(127,127,127,.35);--ag-suave:rgba(127,127,127,.1);
+  color:var(--ag-texto);background:var(--ag-fundo);font:inherit;max-width:880px;margin:0 auto;text-align:left}
+.ag *{box-sizing:border-box}
+.ag button,.ag input,.ag a{font:inherit;color:inherit}
+.ag-passo{border-top:1px solid var(--ag-linha);padding:18px 0}
+
+.ag-passo:last-child{border-bottom:1px solid var(--ag-linha)}
+.ag-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:28px}
+.ag-n{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.08em;opacity:.6}
+.ag-n::before{content:"0"}
+.ag-tit{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ag-troca{margin-left:auto;background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.85;text-align:right}
+.ag-aberto>div:last-child{margin-top:14px}
+.ag-abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.ag-abas::-webkit-scrollbar{display:none}
+.ag-aba{flex:none;border:1px solid var(--ag-linha);background:none;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ag-aba[aria-selected=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-grade-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ag-serv{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--ag-linha);background:var(--ag-suave);border-radius:10px;padding:14px 16px;min-height:64px;cursor:pointer;transition:border-color .2s,transform .2s}
+.ag-serv:hover,.ag-serv:focus-visible{border-color:var(--ag-destaque);transform:translateY(-1px)}
+.ag-serv[aria-pressed=true]{border-color:var(--ag-destaque);box-shadow:inset 0 0 0 1px var(--ag-destaque)}
+.ag-serv-nome{font-weight:600;font-size:1rem;line-height:1.3}
+.ag-serv-info{font-size:.9rem;opacity:.75}
+.ag-dias{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin}
+.ag-dia{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;width:62px;min-height:60px;border:1px solid var(--ag-linha);background:none;border-radius:10px;padding:8px 0;cursor:pointer}
+.ag-dia-sem{font-size:.72rem;letter-spacing:.08em;opacity:.7}
+.ag-dia-num{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ag-dia:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.ag-dia[aria-pressed=true],.ag-hora[aria-pressed=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-periodo{margin:14px 0 8px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ag-periodo:first-child{margin-top:0}
+.ag-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.ag-hora{border:1px solid var(--ag-linha);background:none;border-radius:8px;min-height:44px;cursor:pointer;font-variant-numeric:tabular-nums}
+.ag-hora:hover,.ag-hora:focus-visible,.ag-dia:not(:disabled):hover{border-color:var(--ag-destaque)}
+.ag-vazio{opacity:.75;margin:0}
+.ag-fim{display:grid;gap:10px;max-width:520px}
+.ag-campo{width:100%;min-height:48px;border:1px solid var(--ag-linha);border-radius:8px;background:var(--ag-suave);padding:12px 14px;font-size:16px}
+.ag-campo:focus{outline:2px solid var(--ag-destaque);outline-offset:1px}
+.ag-previa{margin:4px 0;font-size:.95rem;line-height:1.5;opacity:.85}
+.ag-enviar{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)!important;text-decoration:none;font-weight:600}
+.ag-enviar:hover{filter:brightness(1.08)}
+.ag-nota{margin:12px 0 0;font-size:.78rem;opacity:.6;letter-spacing:.02em}
+.ag :focus-visible{outline:2px solid var(--ag-destaque);outline-offset:2px}
+@media (max-width:600px){.ag-grade-serv{grid-template-columns:1fr}.ag-horas{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.ag-serv{transition:none}}
+.ag .ag-passo:focus,.ag .ag-passo:focus-visible{outline:none}
+</style><script type="application/json" id="agenda-dados">{"servicos": [{"nome": "Avaliação física", "duracao": 40, "exemplo": false}, {"nome": "Visita para conhecer a academia", "duracao": 20, "exemplo": true}, {"nome": "Mat Pilates", "categoria": "Pilates", "duracao": 50, "exemplo": true}], "equipe": [], "abre": {"dom": ["09:00", "12:00"], "seg": ["06:00", "23:30"], "ter": ["06:00", "23:30"], "qua": ["06:00", "23:30"], "qui": ["06:00", "23:30"], "sex": ["06:00", "23:00"], "sab": ["10:00", "16:00"]}, "cores": {"fundo": "#0A0F1E", "texto": "#F2F1EC", "destaque": "#F2F1EC", "botao": "#0A0F1E", "linha": "#2A3350", "suave": "#141B33"}, "whatsapp": "5548991750977", "semente": "Forma Academia"}</script><script>/* Agendar — bloco de agendamento dos sites demonstrativos (Sull Produções).
+ * Fluxo inspirado no que funciona no Trinks: serviço → dia → horário (15 em 15 min, por período,
+ * só o que cabe a duração) → profissional → nome → WhatsApp da empresa com a mensagem pronta.
+ * Não grava nada em servidor: a demonstração simula os horários ocupados e avisa isso na tela.
+ * Dados: o bloco JSON de id agenda-dados no próprio site. Alvo: [data-agendar].
+ */
+(function () {
+  "use strict";
+  var DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  var NOME_DIA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"];
+  var DIA_LONGO = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var PADRAO = { dom: null, seg: ["09:00", "18:00"], ter: ["09:00", "18:00"], qua: ["09:00", "18:00"],
+                 qui: ["09:00", "18:00"], sex: ["09:00", "18:00"], sab: ["09:00", "13:00"] };
+
+  function min(hhmm) { var p = String(hhmm).split(":"); return (+p[0]) * 60 + (+p[1] || 0); }
+  function hhmm(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function chaveDia(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+
+  /* Hash estável: o mesmo dia e horário sempre aparecem ocupados (ou livres) para quem abre o site. */
+  function hash(txt) {
+    var h = 2166136261;
+    for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) / 4294967296;
+  }
+  function ocupado(semente, dia, inicio, taxa) { return hash(semente + "|" + chaveDia(dia) + "|" + inicio) < taxa; }
+
+  /* Faixas de funcionamento do dia: ["08:30","12:00","13:30","19:00"] vira [[510,720],[810,1140]]. */
+  function faixas(abre, dia) {
+    var f = abre ? abre[DIAS[dia.getDay()]] : null;
+    if (!f || !f.length) return [];
+    var r = [];
+    for (var i = 0; i + 1 < f.length; i += 2) r.push([min(f[i]), min(f[i + 1])]);
+    return r;
+  }
+
+  /* Horários livres de um dia para um serviço de `duracao` minutos.
+   * Só entra o horário em que o serviço termina dentro da faixa; hoje, só depois de agora + antecedência. */
+  function horarios(opc) {
+    var dia = opc.dia, agora = opc.agora || new Date(), passo = opc.intervalo || 15;
+    var antecedencia = opc.antecedencia == null ? 60 : opc.antecedencia;
+    var mesmoDia = chaveDia(dia) === chaveDia(agora);
+    var limite = mesmoDia ? agora.getHours() * 60 + agora.getMinutes() + antecedencia : -1;
+    var lista = [];
+    faixas(opc.abre, dia).forEach(function (fx) {
+      for (var t = fx[0]; t + opc.duracao <= fx[1]; t += passo) {
+        if (t < limite) continue;
+        if (ocupado(opc.semente || "", dia, t, opc.taxa == null ? 0.35 : opc.taxa)) continue;
+        lista.push(t);
+      }
+    });
+    return lista;
+  }
+
+  function periodo(t) { return t < 720 ? "Manhã" : t < 1080 ? "Tarde" : "Noite"; }
+
+  /* Profissionais livres naquele horário (simulado): cada um tem a própria agenda falsa. */
+  function livres(equipe, semente, dia, t) {
+    return equipe.filter(function (p) { return !ocupado(semente + "|" + p.nome, dia, t, 0.3); });
+  }
+
+  function mensagem(sel) {
+    var d = sel.dia, partes = ["Olá! Quero agendar " + sel.servico.nome,
+      (d.getDay() % 6 === 0 ? "no " : "na ") + DIA_LONGO[d.getDay()] + ", " + String(d.getDate()).padStart(2, "0") + "/" +
+      String(d.getMonth() + 1).padStart(2, "0") + ", às " + hhmm(sel.hora)];
+    if (sel.profissional) partes.push("com " + sel.profissional.nome);
+    var txt = partes.join(" ") + ".";
+    if (sel.extra) txt += " " + sel.extraRotulo + ": " + sel.extra + ".";
+    if (sel.nome) txt += " Meu nome é " + sel.nome + ".";
+    return txt;
+  }
+
+  function preco(s) {
+    if (s.preco == null || s.preco === "") return "a combinar";
+    if (typeof s.preco === "number") return s.preco === 0 ? "Grátis" : "R$ " + s.preco.toFixed(2).replace(".", ",");
+    return String(s.preco);
+  }
+  function duracaoTxt(m) { return m >= 60 ? Math.floor(m / 60) + "h" + (m % 60 ? " " + (m % 60) + "min" : "") : m + "min"; }
+
+  var API = { horarios: horarios, livres: livres, mensagem: mensagem, periodo: periodo, faixas: faixas,
+              preco: preco, duracaoTxt: duracaoTxt, hhmm: hhmm, PADRAO: PADRAO };
+  if (typeof module !== "undefined" && module.exports) { module.exports = API; return; }
+
+  /* ---------------------------------------------------------------- tela */
+  function el(tag, attrs, filhos) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (attrs[k] == null) return;
+      if (k === "texto") e.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    (filhos || []).forEach(function (f) { if (f) e.appendChild(f); });
+    return e;
+  }
+
+  function montar(alvo, dados) {
+    var servicos = (dados.servicos || []).filter(function (s) { return s && s.nome; }).map(function (s) {
+      return { nome: String(s.nome), categoria: s.categoria ? String(s.categoria) : "", preco: s.preco,
+               duracao: Math.max(15, Math.min(480, parseInt(s.duracao, 10) || 60)), exemplo: !!s.exemplo };
+    });
+    if (!servicos.length) return;
+    var equipe = (dados.equipe || []).filter(function (p) { return p && p.nome; });
+    var abreValido = dados.abre && DIAS.some(function (d) { return dados.abre[d] && dados.abre[d].length; });
+    var abre = abreValido ? dados.abre : PADRAO;
+    var semente = dados.semente || location.pathname;
+    var c = dados.cores || {};
+    ["fundo", "texto", "destaque", "linha", "suave"].forEach(function (k) {
+      if (c[k]) alvo.style.setProperty("--ag-" + k, c[k]);
+    });
+    if (c.botao) alvo.style.setProperty("--ag-fundo-botao", c.botao);
+    alvo.classList.add("ag");
+    var sel = { servico: null, dia: null, hora: null, profissional: null };
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var dias = [];
+    for (var i = 0; i < 30; i++) { var d = new Date(hoje); d.setDate(hoje.getDate() + i); dias.push(d); }
+    var categorias = servicos.reduce(function (a, s) { if (s.categoria && a.indexOf(s.categoria) < 0) a.push(s.categoria); return a; }, []);
+    var catAtual = categorias[0] || "";
+
+    function passo(n, titulo, corpo, resumo, aberto) {
+      var cab = el("div", { "class": "ag-cab" }, [el("span", { "class": "ag-n", texto: String(n) }),
+        el("span", { "class": "ag-tit", texto: titulo })]);
+      if (resumo && !aberto) {
+        cab.appendChild(el("button", { type: "button", "class": "ag-troca", texto: resumo + " · trocar",
+          onclick: function () { voltarPara(n); } }));
+      }
+      return el("div", { "class": "ag-passo" + (aberto ? " ag-aberto" : "") }, [cab, aberto ? corpo : null]);
+    }
+
+    function voltarPara(n) {
+      if (n <= 1) { sel.servico = null; }
+      if (n <= 2) { sel.dia = null; }
+      if (n <= 3) { sel.hora = null; }
+      if (n <= 4) { sel.profissional = null; sel.escolheuProf = false; }
+      desenhar(true);
+    }
+
+    function cartaoServico(s) {
+      return el("button", { type: "button", "class": "ag-serv", "aria-pressed": String(sel.servico === s),
+        onclick: function () { sel.servico = s; sel.dia = null; sel.hora = null; desenhar(true); } }, [
+        el("span", { "class": "ag-serv-nome", texto: s.nome }),
+        el("span", { "class": "ag-serv-info", texto: duracaoTxt(s.duracao) + " · " + preco(s) })]);
+    }
+
+    function blocoServicos() {
+      var corpo = el("div", {});
+      if (categorias.length > 1) {
+        var abas = el("div", { "class": "ag-abas", role: "tablist" });
+        categorias.forEach(function (cat) {
+          abas.appendChild(el("button", { type: "button", role: "tab", "class": "ag-aba", "aria-selected": String(cat === catAtual),
+            texto: cat, onclick: function () { catAtual = cat; desenhar(); } }));
+        });
+        corpo.appendChild(abas);
+      }
+      var grade = el("div", { "class": "ag-grade-serv" });
+      servicos.filter(function (s) { return categorias.length < 2 || s.categoria === catAtual; }).forEach(function (s) {
+        grade.appendChild(cartaoServico(s));
+      });
+      corpo.appendChild(grade);
+      if (servicos.some(function (s) { return s.exemplo; })) {
+        corpo.appendChild(el("p", { "class": "ag-nota", texto: "exemplo — ajustamos com as suas informações" }));
+      }
+      return corpo;
+    }
+
+    function blocoDias() {
+      var faixa = el("div", { "class": "ag-dias", role: "listbox", "aria-label": "Escolha o dia" });
+      dias.forEach(function (d) {
+        var fechado = !faixas(abre, d).length;
+        faixa.appendChild(el("button", { type: "button", "class": "ag-dia", "aria-pressed": String(sel.dia && +sel.dia === +d),
+          disabled: fechado ? "disabled" : null, "aria-label": DIA_LONGO[d.getDay()] + " " + d.getDate() + (fechado ? ", fechado" : ""),
+          onclick: function () { sel.dia = d; sel.hora = null; desenhar(true); } }, [
+          el("span", { "class": "ag-dia-sem", texto: NOME_DIA[d.getDay()] }),
+          el("span", { "class": "ag-dia-num", texto: String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") })]));
+      });
+      return faixa;
+    }
+
+    function blocoHoras() {
+      var corpo = el("div", {});
+      var lista = horarios({ abre: abre, dia: sel.dia, duracao: sel.servico.duracao, semente: semente + "|" + sel.servico.nome });
+      if (!lista.length) {
+        corpo.appendChild(el("p", { "class": "ag-vazio", texto: "Agenda cheia nesse dia. Que tal outra data?" }));
+        return corpo;
+      }
+      ["Manhã", "Tarde", "Noite"].forEach(function (p) {
+        var doPeriodo = lista.filter(function (t) { return periodo(t) === p; });
+        if (!doPeriodo.length) return;
+        var grade = el("div", { "class": "ag-horas" });
+        doPeriodo.forEach(function (t) {
+          grade.appendChild(el("button", { type: "button", "class": "ag-hora", "aria-pressed": String(sel.hora === t), texto: hhmm(t),
+            onclick: function () { sel.hora = t; sel.profissional = null; sel.escolheuProf = !equipe.length; desenhar(true); } }));
+        });
+        corpo.appendChild(el("p", { "class": "ag-periodo", texto: p }));
+        corpo.appendChild(grade);
+      });
+      return corpo;
+    }
+
+    function blocoEquipe() {
+      var grade = el("div", { "class": "ag-grade-serv" });
+      var quem = livres(equipe, semente, sel.dia, sel.hora);
+      if (!quem.length) quem = equipe.slice(0, 1);
+      [{ nome: "Sem preferência", funcao: "quem estiver livre" }].concat(quem).forEach(function (p) {
+        grade.appendChild(el("button", { type: "button", "class": "ag-serv", onclick: function () {
+          sel.profissional = p.nome === "Sem preferência" ? null : p; sel.escolheuProf = true; desenhar(true); } }, [
+          el("span", { "class": "ag-serv-nome", texto: p.nome }),
+          el("span", { "class": "ag-serv-info", texto: p.funcao || "" })]));
+      });
+      return grade;
+    }
+
+    function blocoFim() {
+      var corpo = el("div", { "class": "ag-fim" });
+      var nome = el("input", { type: "text", "class": "ag-campo", autocomplete: "given-name", placeholder: "Seu nome", "aria-label": "Seu nome" });
+      var extra = dados.campo_extra ? el("input", { type: "text", "class": "ag-campo", placeholder: String(dados.campo_extra), "aria-label": String(dados.campo_extra) }) : null;
+      var tel = String(dados.whatsapp || "").replace(/\D/g, "");
+      var botao = el("a", { "class": "ag-enviar", target: "_blank", rel: "noopener", href: "#",
+        texto: tel ? "Enviar pedido pelo WhatsApp" : (dados.telefone ? "Ligar para agendar" : "Pedir agendamento") });
+      function atualizar() {
+        var txt = mensagem({ servico: sel.servico, dia: sel.dia, hora: sel.hora, profissional: sel.profissional,
+          nome: nome.value.trim(), extra: extra ? extra.value.trim() : "", extraRotulo: dados.campo_extra });
+        previa.textContent = "“" + txt + "”";
+        botao.href = tel ? "https://wa.me/" + tel + "?text=" + encodeURIComponent(txt)
+                         : (dados.telefone ? "tel:" + String(dados.telefone).replace(/[^\d+]/g, "") : "#contato");
+      }
+      var previa = el("p", { "class": "ag-previa" });
+      nome.addEventListener("input", atualizar);
+      if (extra) extra.addEventListener("input", atualizar);
+      corpo.appendChild(nome); if (extra) corpo.appendChild(extra);
+      corpo.appendChild(previa); corpo.appendChild(botao);
+      corpo.appendChild(el("p", { "class": "ag-nota", texto: "Demonstração: os horários ocupados são simulados. A confirmação chega pelo WhatsApp." }));
+      atualizar();
+      return corpo;
+    }
+
+    function desenhar(rolar) {
+      alvo.innerHTML = "";
+      var etapa = !sel.servico ? 1 : !sel.dia ? 2 : sel.hora == null ? 3 : !sel.escolheuProf ? 4 : 5;
+      var dataTxt = sel.dia ? NOME_DIA[sel.dia.getDay()] + " " + String(sel.dia.getDate()).padStart(2, "0") + "/" + String(sel.dia.getMonth() + 1).padStart(2, "0") : "";
+      alvo.appendChild(passo(1, "Serviço", etapa === 1 ? blocoServicos() : null, sel.servico && sel.servico.nome, etapa === 1));
+      if (etapa >= 2) alvo.appendChild(passo(2, "Dia", etapa === 2 ? blocoDias() : null, dataTxt, etapa === 2));
+      if (etapa >= 3) alvo.appendChild(passo(3, "Horário", etapa === 3 ? blocoHoras() : null, sel.hora != null ? hhmm(sel.hora) : "", etapa === 3));
+      var n = 4;
+      if (equipe.length && etapa >= 4) { alvo.appendChild(passo(4, "Profissional", etapa === 4 ? blocoEquipe() : null, sel.profissional ? sel.profissional.nome : "Sem preferência", etapa === 4)); n = 5; }
+      if (etapa === 5) alvo.appendChild(passo(n, "Confirmar", blocoFim(), "", true));
+      if (rolar) {
+        var aberto = alvo.querySelector(".ag-aberto");
+        var r = aberto && aberto.getBoundingClientRect();
+        if (r && (r.top < 60 || r.top > innerHeight * 0.6)) aberto.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (aberto) { aberto.setAttribute("tabindex", "-1"); aberto.focus({ preventScroll: true }); }
+      }
+    }
+    desenhar(false);
+  }
+
+  function iniciar() {
+    var fonte = document.getElementById("agenda-dados"), alvo = document.querySelector("[data-agendar]");
+    if (!fonte || !alvo) return;
+    try { montar(alvo, JSON.parse(fonte.textContent)); } catch (e) { /* dado quebrado: o site segue sem o bloco */ }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script><!--agendar:fim--><!--automacao:inicio--><style>[data-automacao]{background:#0A0F1E;color:#F2F1EC;--au-forte:#F2F1EC;--au-fundo-num:#0A0F1E;--au-fundo-tela:#0A0F1E;border-radius:clamp(14px,2vw,22px);padding:clamp(20px,3vw,34px)}/* Bloco "a automação trabalhando" — celular com a conversa + esquema do caminho.
+ * Herda cor e fonte do site (currentColor): não existe paleta própria, para não brigar com o estilo
+ * de cada cliente. Alvo: [data-automacao]. */
+.au{--au-linha:rgba(127,127,127,.3);--au-suave:rgba(127,127,127,.09);
+  font:inherit;color:inherit;max-width:1000px;margin:0 auto;text-align:left;
+  display:grid;grid-template-columns:minmax(260px,320px) 1fr;gap:clamp(24px,5vw,56px);align-items:start}
+.au *{box-sizing:border-box}
+
+/* --- o celular --- */
+.au-fone{border:1px solid var(--au-linha);border-radius:26px;padding:10px;background:var(--au-suave);
+  position:sticky;top:24px}
+.au-tela{border:1px solid var(--au-linha);border-radius:18px;overflow:hidden;background:var(--au-fundo-tela,transparent)}
+.au-topo{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--au-linha)}
+.au-bolha{width:30px;height:30px;border-radius:50%;background:var(--au-forte);opacity:.15;flex:none}
+.au-topo b{display:block;font-size:.92rem;line-height:1.2}
+.au-topo small{font-size:.72rem;opacity:.65;letter-spacing:.04em}
+.au-conversa{display:flex;flex-direction:column;gap:8px;padding:14px;min-height:300px;
+  max-height:min(62vh,440px);overflow:hidden;justify-content:flex-end}
+.au-b{max-width:84%;padding:9px 12px;border-radius:14px;font-size:.88rem;line-height:1.4;
+  border:1px solid var(--au-linha);opacity:0;transform:translateY(8px);animation:au-entra .36s ease forwards}
+.au-b.cliente{align-self:flex-start;border-bottom-left-radius:4px}
+.au-b.robo{align-self:flex-end;background:var(--au-suave);border-bottom-right-radius:4px}
+.au-b.dono{align-self:stretch;max-width:100%;text-align:center;font-size:.8rem;opacity:0;
+  border-style:dashed;background:none}
+.au-b.dono::before{content:"no seu celular · ";opacity:.6;letter-spacing:.04em}
+.au-op{align-self:flex-end;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:90%;
+  opacity:0;animation:au-entra .36s ease forwards}
+.au-op span{border:1px solid var(--au-forte);border-radius:999px;padding:6px 11px;font-size:.78rem}
+.au-digita{align-self:flex-end;display:flex;gap:4px;padding:11px 13px;border:1px solid var(--au-linha);
+  border-radius:14px;background:var(--au-suave)}
+.au-digita i{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.4;
+  animation:au-pisca 1.1s infinite}
+.au-digita i:nth-child(2){animation-delay:.18s}
+.au-digita i:nth-child(3){animation-delay:.36s}
+.au-nota{grid-column:1/-1;font-size:.76rem;opacity:.6;margin:6px 0 0}
+
+/* --- as etapas --- */
+.au-etapas{list-style:none;margin:0;padding:0;counter-reset:au}
+.au-etapa{position:relative;padding:0 0 26px 46px;counter-increment:au}
+.au-etapa::before{content:counter(au);position:absolute;left:0;top:0;width:30px;height:30px;
+  border:1px solid var(--au-linha);border-radius:50%;display:grid;place-items:center;
+  font-size:.82rem;font-variant-numeric:tabular-nums;transition:background .3s,color .3s,border-color .3s}
+.au-etapa::after{content:"";position:absolute;left:15px;top:34px;bottom:4px;width:1px;background:var(--au-linha)}
+.au-etapa:last-child::after{display:none}
+.au-etapa b{display:block;font-size:clamp(1rem,2.2vw,1.22rem);line-height:1.25;margin:3px 0 4px}
+.au-etapa span{display:block;font-size:.9rem;opacity:.72;max-width:46ch}
+.au-etapa[data-viva="1"]::before{background:var(--au-forte);border-color:var(--au-forte);
+  color:var(--au-fundo-num,#fff);font-weight:600}
+.au-etapa[data-feita="1"]::before{border-color:var(--au-forte)}
+
+@keyframes au-entra{to{opacity:1;transform:none}}
+@keyframes au-pisca{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:.9;transform:translateY(-3px)}}
+
+@media (max-width:760px){
+  .au{grid-template-columns:1fr;gap:28px}
+  .au-fone{position:static;max-width:360px}
+  .au-conversa{max-height:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .au-b,.au-op{animation:none;opacity:1;transform:none}
+  .au-digita i{animation:none}
+}
+</style><script type="application/json" id="automacao-dados">{"empresa": "Forma Academia", "falas": [{"de": "cliente", "txt": "Oi! Vocês têm horário pra avaliação física essa semana?", "passo": 1}, {"de": "robo", "txt": "Oi, tudo bem! Aqui é o atendimento da Forma Academia. Tenho esses horários:", "passo": 2}, {"de": "opcoes", "txt": "Quinta 14:00 · Quinta 16:30 · Sexta 09:00", "passo": 2}, {"de": "cliente", "txt": "Quinta 16:30", "passo": 2}, {"de": "robo", "txt": "Marcado: avaliação física, quinta às 16:30. Vou te lembrar um dia antes.", "passo": 3}, {"de": "dono", "txt": "Agenda da quinta: 16:30 — avaliação física. Já confirmado, você não precisou parar.", "passo": 4}], "passos": [{"titulo": "O cliente chama no WhatsApp", "detalhe": "A qualquer hora — de madrugada, no domingo, no meio do seu atendimento."}, {"titulo": "O atendimento responde na hora", "detalhe": "Com o nome da empresa, o que vocês fazem e o que está disponível."}, {"titulo": "Fecha sozinho", "detalhe": "Marca o horário, registra o pedido e manda a confirmação."}, {"titulo": "Você só confirma", "detalhe": "Chega pronto no seu celular. Nenhum cliente fica sem resposta."}], "cores": {"fundo": "#0A0F1E", "texto": "#F2F1EC", "destaque": "#F2F1EC", "botao": "#0A0F1E", "linha": "#2A3350", "suave": "#141B33"}}</script><script>/* Automação — a conversa rodando sozinha dentro do site demonstrativo (Sull Produções).
+ *
+ * Por que animado e não um print: o dono não compra "automação", ele compra ver o cliente sendo
+ * atendido sem ele. A conversa roda balão a balão e cada etapa do esquema ao lado acende no momento
+ * em que aquilo acontece — é o que liga as duas coisas na cabeça de quem está olhando.
+ *
+ * Regras da casa que o código respeita:
+ * - só começa quando o bloco entra na tela (IntersectionObserver), e reinicia a cada entrada;
+ * - prefers-reduced-motion: mostra tudo de uma vez, sem digitação nem espera;
+ * - nada de servidor: o roteiro vem do JSON de id automacao-dados, montado com dados do banco;
+ * - a tela diz que é demonstração — conversa de mentira nunca se disfarça de conversa real.
+ */
+(function () {
+  "use strict";
+  var alvo = document.querySelector("[data-automacao]");
+  var fonte = document.getElementById("automacao-dados");
+  if (!alvo || !fonte) return;
+  var dados;
+  try { dados = JSON.parse(fonte.textContent); } catch (e) { return; }
+  if (!dados || !dados.falas || !dados.falas.length) return;
+
+  var parado = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ESPERA = { cliente: 900, robo: 1300, opcoes: 500, dono: 1500 };
+  var DIGITA = { robo: 900, dono: 700 };
+
+  function el(tag, classe, texto) {
+    var n = document.createElement(tag);
+    if (classe) n.className = classe;
+    if (texto != null) n.textContent = texto;
+    return n;
+  }
+
+  /* --- a tela ---------------------------------------------------------- */
+  var raiz = el("div", "au");
+  var fone = el("div", "au-fone");
+  var tela = el("div", "au-tela");
+  var topo = el("div", "au-topo");
+  topo.appendChild(el("span", "au-bolha"));
+  var quem = el("div");
+  quem.appendChild(el("b", null, dados.empresa || "Atendimento"));
+  quem.appendChild(el("small", null, "atendimento automático · online"));
+  topo.appendChild(quem);
+  var conversa = el("div", "au-conversa");
+  tela.appendChild(topo); tela.appendChild(conversa); fone.appendChild(tela);
+
+  var etapas = el("ol", "au-etapas");
+  (dados.passos || []).forEach(function (p) {
+    var li = el("li", "au-etapa");
+    li.appendChild(el("b", null, p.titulo));
+    li.appendChild(el("span", null, p.detalhe));
+    etapas.appendChild(li);
+  });
+
+  var nota = el("p", "au-nota",
+    "Conversa de demonstração, montada com os dados públicos de " + (dados.empresa || "sua empresa") + ".");
+  raiz.appendChild(fone); raiz.appendChild(etapas); raiz.appendChild(nota);
+  alvo.appendChild(raiz);
+
+  /* --- o roteiro ------------------------------------------------------- */
+  var relogios = [];
+  function limpar() { relogios.forEach(clearTimeout); relogios = []; }
+  function depois(ms, fn) { relogios.push(setTimeout(fn, ms)); }
+
+  function acender(passo) {
+    [].forEach.call(etapas.children, function (li, i) {
+      li.dataset.viva = i + 1 === passo ? "1" : "0";
+      li.dataset.feita = i + 1 < passo ? "1" : "0";
+    });
+  }
+
+  function balao(fala) {
+    if (fala.de === "opcoes") {
+      var caixa = el("div", "au-op");
+      fala.txt.split("·").forEach(function (t) { caixa.appendChild(el("span", null, t.trim())); });
+      return caixa;
+    }
+    return el("div", "au-b " + fala.de, fala.txt);
+  }
+
+  function tocar(i) {
+    if (i >= dados.falas.length) {                 // fim: espera e recomeça, para quem chegou tarde
+      depois(5200, function () { conversa.innerHTML = ""; acender(0); depois(600, function () { tocar(0); }); });
+      return;
+    }
+    var fala = dados.falas[i];
+    var escreve = DIGITA[fala.de];
+    function solta() {
+      conversa.appendChild(balao(fala));
+      acender(fala.passo);
+      depois(ESPERA[fala.de] || 900, function () { tocar(i + 1); });
+    }
+    if (!escreve) return solta();
+    var pontos = el("div", "au-digita");
+    pontos.appendChild(el("i")); pontos.appendChild(el("i")); pontos.appendChild(el("i"));
+    conversa.appendChild(pontos);
+    depois(escreve, function () { pontos.remove(); solta(); });
+  }
+
+  function tudoDeUmaVez() {
+    conversa.innerHTML = "";
+    dados.falas.forEach(function (f) {
+      var b = balao(f);
+      b.style.animation = "none"; b.style.opacity = "1"; b.style.transform = "none";
+      conversa.appendChild(b);
+    });
+    acender(dados.falas[dados.falas.length - 1].passo);
+  }
+
+  if (parado) { tudoDeUmaVez(); return; }
+  if (!("IntersectionObserver" in window)) { tocar(0); return; }
+
+  var rodando = false;
+  new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting && !rodando) { rodando = true; conversa.innerHTML = ""; acender(0); tocar(0); }
+      else if (!e.isIntersecting && rodando) { rodando = false; limpar(); }
+    });
+  }, { threshold: 0.3 }).observe(raiz);
+})();
+</script><!--automacao:fim--><!--palco:inicio--><style>/* O palco do fio condutor. Parte fixa; as curvas por dobra são geradas em app/palco.py.
+   Ordem do Natan, 13/11/2026: "o mesmo óculos tem que ir caindo, fechando, abrindo, ou dentro dele
+   vai tendo as visões de outros lugares" / "pega sempre um elemento principal daquele setor e faz
+   com que esse elemento fique rolando junto com a cena. É só isso que eu quero."
+   Mecânica aprovada por ele em 13/11/2026: a lente do objeto fica ancorada no mesmo ponto da tela
+   do site inteiro, a cena seguinte aparece dentro dela, e na rolagem a lente cresce até a gente
+   passar para dentro daquela cena. O objeto gira e muda de tamanho em volta da própria lente;
+   ele nunca anda pela tela (quando anda, a janela desgruda e vira um ponto solto). */
+
+#palco { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: clip; display: none }
+#palco .cena { position: absolute; inset: 0 }
+#palco .fundo { position: absolute; inset: 0; background-size: cover; background-position: center }
+#palco .cena.janela .fundo { will-change: transform }
+#objeto { position: absolute; display: block; max-width: none; will-change: transform, opacity }
+/* Sobra de rolagem para a última travessia fechar; só existe com o palco de pé. */
+.palco-fim { display: none }
+
+/* Sem animação presa à rolagem (navegador antigo, ou quem pediu menos movimento):
+   o palco não entra e os fundos de reserva de cada dobra continuam valendo. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body { isolation: isolate }
+    #palco { display: block }
+    .palco-dobra { background: none !important; background-color: transparent !important }
+    .palco-reserva { display: none }
+  }
+}
+:root{--palco-cx:76%;--palco-cy:50%;--palco-ow:50vw;--palco-lx:50.0%;--palco-ly:50.0%;--palco-r0:calc(var(--palco-ow) * 0.12)}@property --s1{syntax:'<number>';inherits:true;initial-value:0}@property --z1{syntax:'<number>';inherits:true;initial-value:0}@property --f1{syntax:'<number>';inherits:true;initial-value:0}@property --s2{syntax:'<number>';inherits:true;initial-value:0}@property --z2{syntax:'<number>';inherits:true;initial-value:0}@property --f2{syntax:'<number>';inherits:true;initial-value:0}@property --s3{syntax:'<number>';inherits:true;initial-value:0}@property --z3{syntax:'<number>';inherits:true;initial-value:0}@property --f3{syntax:'<number>';inherits:true;initial-value:0}@property --s4{syntax:'<number>';inherits:true;initial-value:0}@property --z4{syntax:'<number>';inherits:true;initial-value:0}@property --f4{syntax:'<number>';inherits:true;initial-value:0}@property --s5{syntax:'<number>';inherits:true;initial-value:0}@property --z5{syntax:'<number>';inherits:true;initial-value:0}@property --f5{syntax:'<number>';inherits:true;initial-value:0}@property --s6{syntax:'<number>';inherits:true;initial-value:0}@property --z6{syntax:'<number>';inherits:true;initial-value:0}@property --f6{syntax:'<number>';inherits:true;initial-value:0}@keyframes passo1{0%{--s1:0}62%{--s1:1}100%{--s1:1}}@keyframes mergulho1{0%{--z1:0}48%{--z1:.01}56%{--z1:.1}62%{--z1:1}63%{--z1:0}100%{--z1:0}}@keyframes some1{0%{--f1:0}40%{--f1:0}48%{--f1:1}62%{--f1:1}69%{--f1:0}100%{--f1:0}}@keyframes passo2{0%{--s2:0}62%{--s2:1}100%{--s2:1}}@keyframes mergulho2{0%{--z2:0}48%{--z2:.01}56%{--z2:.1}62%{--z2:1}63%{--z2:0}100%{--z2:0}}@keyframes some2{0%{--f2:0}40%{--f2:0}48%{--f2:1}62%{--f2:1}69%{--f2:0}100%{--f2:0}}@keyframes passo3{0%{--s3:0}62%{--s3:1}100%{--s3:1}}@keyframes mergulho3{0%{--z3:0}48%{--z3:.01}56%{--z3:.1}62%{--z3:1}63%{--z3:0}100%{--z3:0}}@keyframes some3{0%{--f3:0}40%{--f3:0}48%{--f3:1}62%{--f3:1}69%{--f3:0}100%{--f3:0}}@keyframes passo4{0%{--s4:0}62%{--s4:1}100%{--s4:1}}@keyframes mergulho4{0%{--z4:0}48%{--z4:.01}56%{--z4:.1}62%{--z4:1}63%{--z4:0}100%{--z4:0}}@keyframes some4{0%{--f4:0}40%{--f4:0}48%{--f4:1}62%{--f4:1}69%{--f4:0}100%{--f4:0}}@keyframes passo5{0%{--s5:0}62%{--s5:1}100%{--s5:1}}@keyframes mergulho5{0%{--z5:0}48%{--z5:.01}56%{--z5:.1}62%{--z5:1}63%{--z5:0}100%{--z5:0}}@keyframes some5{0%{--f5:0}40%{--f5:0}48%{--f5:1}62%{--f5:1}69%{--f5:0}100%{--f5:0}}@keyframes passo6{0%{--s6:0}62%{--s6:1}100%{--s6:1}}@keyframes mergulho6{0%{--z6:0}48%{--z6:.01}56%{--z6:.1}62%{--z6:1}63%{--z6:0}100%{--z6:0}}@keyframes some6{0%{--f6:0}40%{--f6:0}48%{--f6:1}62%{--f6:1}69%{--f6:0}100%{--f6:0}}#palco{--a:0;--v:1}#palco .cena.janela{clip-path:circle(calc(var(--palco-r0) * var(--v) * (1 + 16 * var(--a))) at var(--palco-cx) var(--palco-cy))}#palco .cena.janela .fundo{transform:scale(calc(1.08 - .08 * var(--a)));transform-origin:var(--palco-cx) var(--palco-cy)}#objeto{left:var(--palco-cx);top:var(--palco-cy);width:var(--palco-ow);transform-origin:var(--palco-lx) var(--palco-ly);--giro:calc(-6deg + var(--s1) * 9deg + var(--s2) * -14deg + var(--s3) * 11deg + var(--s4) * 4deg + var(--s5) * -8deg + var(--s6) * 6deg);--porte:calc(1 + var(--s1) * -0.06 + var(--s2) * 0.08 + var(--s3) * -0.05 + var(--s4) * 0.04 + var(--s5) * -0.03 + var(--s6) * 0.05);--mergulho:calc(var(--z1) + var(--z2) + var(--z3) + var(--z4) + var(--z5) + var(--z6));transform:translate(calc(-1 * var(--palco-lx)),calc(-1 * var(--palco-ly))) rotate(var(--giro)) scale(calc(var(--porte) * (1 + 16 * var(--mergulho))));opacity:calc(1 - var(--f1) - var(--f2) - var(--f3) - var(--f4) - var(--f5) - var(--f6))}@media (max-width:860px){:root{--palco-cx:50%;--palco-cy:15%;--palco-ow:78vw}}@supports (animation-timeline: view()){@media (prefers-reduced-motion: no-preference){.palco-fim{display:block;height:85svh;pointer-events:none}html{timeline-scope:--t2,--t3,--t4,--t5,--t6,--t7}.palco-dobra-2{view-timeline:--t2 block}.palco-dobra-3{view-timeline:--t3 block}.palco-dobra-4{view-timeline:--t4 block}.palco-dobra-5{view-timeline:--t5 block}.palco-dobra-6{view-timeline:--t6 block}.palco-dobra-7{view-timeline:--t7 block}body{animation:passo1 linear both,mergulho1 linear both,some1 linear both,passo2 linear both,mergulho2 linear both,some2 linear both,passo3 linear both,mergulho3 linear both,some3 linear both,passo4 linear both,mergulho4 linear both,some4 linear both,passo5 linear both,mergulho5 linear both,some5 linear both,passo6 linear both,mergulho6 linear both,some6 linear both;animation-timeline:--t2,--t2,--t2,--t3,--t3,--t3,--t4,--t4,--t4,--t5,--t5,--t5,--t6,--t6,--t6,--t7,--t7,--t7;animation-range:cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%}.palco-cena-2{--a:var(--s1)}.palco-cena-3{--a:var(--s2);--v:calc(var(--s1) * (1 - var(--f1)))}.palco-cena-4{--a:var(--s3);--v:calc(var(--s2) * (1 - var(--f2)))}.palco-cena-5{--a:var(--s4);--v:calc(var(--s3) * (1 - var(--f3)))}.palco-cena-6{--a:var(--s5);--v:calc(var(--s4) * (1 - var(--f4)))}.palco-cena-7{--a:var(--s6);--v:calc(var(--s5) * (1 - var(--f5)))}@keyframes palco-passagem{0%{opacity:0;transform:translateY(26px)}16%{opacity:1;transform:none}64%{opacity:1;transform:none}92%{opacity:0;transform:translateY(-20px)}100%{opacity:0;transform:translateY(-20px)}}.palco-dobra > *{animation:palco-passagem linear both;animation-timeline:view();animation-range:entry 20% exit 60%}@media (max-width:860px){.palco-dobra > *{animation-range:entry 20% exit 2%}}.palco-dobra-1,.palco-dobra-1 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#ffffff}.palco-dobra-2,.palco-dobra-2 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#ffffff}.palco-dobra-3,.palco-dobra-3 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#ffffff}.palco-dobra-4,.palco-dobra-4 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#0A0F1E}.palco-dobra-5,.palco-dobra-5 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#F2F1EC}.palco-dobra-6,.palco-dobra-6 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#ffffff}.palco-dobra-7,.palco-dobra-7 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho)):not(:is(.tag,.btn,.topo,.barra,.info,.lin,.cursor-tag,.foto,.etapas,.etapa,.card,.painel,.hor,.fecho) *){color:#ffffff}}}</style><div class="palco-fim" aria-hidden="true"></div><div id="palco" aria-hidden="true"><div class="cena"><div class="fundo" style="background-image:url('img/flow-1.jpg')"></div></div><div class="cena janela palco-cena-2"><div class="fundo" style="background-color:#2E50FF"></div></div><div class="cena janela palco-cena-3"><div class="fundo" style="background-image:url('img/flow-2.jpg')"></div></div><div class="cena janela palco-cena-4"><div class="fundo" style="background-color:#F2F1EC"></div></div><div class="cena janela palco-cena-5"><div class="fundo" style="background-color:#0A0F1E"></div></div><div class="cena janela palco-cena-6"><div class="fundo" style="background-image:url('img/flow-2.jpg')"></div></div><div class="cena janela palco-cena-7"><div class="fundo" style="background-color:#2E50FF"></div></div><img id="objeto" src="img/objeto.png" alt=""></div><script type="application/json" id="coreografia">{"objeto": "img/objeto.png", "dobras": [{"cena": "img/flow-1.jpg", "texto": "#ffffff"}, {"cena": "#2E50FF", "texto": "#ffffff"}, {"cena": "img/flow-2.jpg", "texto": "#ffffff"}, {"cena": "#F2F1EC", "texto": "#0A0F1E"}, {"cena": "#0A0F1E", "texto": "#F2F1EC"}, {"cena": "img/flow-2.jpg", "texto": "#ffffff"}, {"cena": "#2E50FF", "texto": "#ffffff"}], "lente": {"x": 50.0, "y": 50.0, "raio": 0.12}}</script><!--palco:fim--></body>
+</html>
