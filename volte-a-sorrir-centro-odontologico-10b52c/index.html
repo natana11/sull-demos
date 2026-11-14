@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volte a Sorrir Centro Odontológico | Tubarão - SC</title>
+    <meta name="description" content="Especialistas em Prótese Protocolo Fixa e Reabilitação Total em Tubarão. Mais de 15 anos devolvendo a autoestima dos tubaronenses.">
+    
+    <!-- Fontes: Ultralight (para o título gigante) + Inter (para leitura técnica) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Ultralight&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Paleta da Marca */
+            --azul-marinho: #000A3C;
+            --azul-medio: #2F8FD8;
+            --azul-claro: #8CCBF2;
+            --branco: #FFFFFF;
+            
+            /* Tipografia */
+            --font-display: 'Ultralight', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Medidas */
+            --max-w: 1440px;
+            --pad: clamp(24px, 5vw, 80px);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--azul-marinho);
+            color: var(--branco);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Utilitários */
+        .mono { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; }
+        .text-lead { line-height: 1.2; font-weight: 800; }
+        
+        /* Layout Base */
+        section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--pad);
+            z-index: 10;
+        }
+
+        /* HERO */
+        .hero {
+            flex-direction: column;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, #0d1b5e 0%, var(--azul-marinho) 70%);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 12vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: 2rem;
+            color: var(--branco);
+        }
+
+        h1 span {
+            display: block;
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--azul-claro);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+        
+        .stat-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--azul-claro);
+            display: block;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--azul-medio);
+            color: var(--branco);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 10px 30px rgba(47, 143, 216, 0.3);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--azul-claro);
+            transform: translateY(-2px);
+            color: var(--azul-marinho);
+        }
+
+        /* SEÇÃO PROTOCOLO */
+        .protocolo {
+            flex-direction: column;
+            background-color: var(--branco);
+            color: var(--azul-marinho);
+            align-items: flex-start;
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+
+        .protocolo h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 3rem;
+            color: var(--azul-marinho);
+            border-left: 5px solid var(--azul-medio);
+            padding-left: 1rem;
+        }
+
+        .step-list {
+            width: 100%;
+            max-width: var(--max-w);
+            display: grid;
+            gap: 2rem;
+        }
+
+        .step-item {
+            border-bottom: 1px solid rgba(0, 10, 60, 0.1);
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--azul-medio);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .step-title {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* SEÇÃO LENTE CERAMICA */
+        .lente {
+            background-color: var(--azul-claro);
+            color: var(--azul-marinho);
+            flex-direction: row-reverse;
+            gap: 4rem;
+        }
+
+        .lente-content {
+            max-width: 600px;
+        }
+
+        .lente h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .lente p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #001f4d; /* Azul quase preto para contraste no claro */
+        }
+
+        /* SEÇÃO DEPOIMENTOS (Sem Marquee) */
+        .depoimentos {
+            flex-direction: column;
+            background-color: var(--azul-medio);
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .review-card {
+            display: block;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .review-author {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 700;
+            color: var(--branco);
+        }
+
+        /* SEÇÃO CONTATO */
+        .contato {
+            flex-direction: column;
+            background-color: var(--azul-marinho);
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--branco);
+            margin-bottom: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: var(--max-w);
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: left;
+            transition: background 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .contact-label {
+            font-family: var(--font-mono);
+            color: var(--azul-claro);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .contact-val {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--branco);
+            display: block;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-stats { flex-direction: column; gap: 1rem; align-items: center; }
+            .lente { flex-direction: column; text-align: center; }
+            .lente-content { margin-top: 2rem; }
+        }
+
+        /* Elemento Assinatura (Círculo Flutuante) */
+        .signature-circle {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(140, 203, 242, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body><style>#faixa-demo{position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.35 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518}#faixa-demo .so-pc{display:none}@media(min-width:700px){#faixa-demo .so-pc{display:inline}}</style><div id="faixa-demo">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a><span class="so-pc"> para Volte a Sorrir Centro Odontológico</span>. Ainda não é o site oficial.</div><script>(function(){var f=document.getElementById("faixa-demo");function p(){var h=f.offsetHeight;document.documentElement.style.setProperty("--faixa-demo",h+"px");document.body.style.paddingTop=h+"px";document.querySelectorAll("body *").forEach(function(e){if(e===f||f.contains(e))return;var s=getComputedStyle(e),t=parseFloat(s.top);if((s.position==="fixed"||s.position==="sticky")&&t<h){if(e.dataset.topo===undefined)e.dataset.topo=t||0;e.style.top=(parseFloat(e.dataset.topo)+h)+"px";}if(!e.dataset.tela&&Math.abs(e.getBoundingClientRect().height-innerHeight)<2&&e.children.length){e.dataset.tela="1";e.style.height="calc(100vh - "+h+"px)";e.style.minHeight="0";}});}if(document.readyState==="loading")addEventListener("DOMContentLoaded",p);else p();addEventListener("resize",p);})()</script>
+
+    <!-- Objeto Fio Condutor (Espelhinho) -->
+    <!-- O sistema controla a animação baseada no JSON abaixo -->
+    
+    <section class="hero palco-dobra palco-dobra-1">
+        <div class="hero-stats mono">
+            <div class="stat-item">
+                <span class="stat-num">+8402</span>
+                <span style="font-size: 0.9rem;">sorrisos devolvidos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">4,8★</span>
+                <span style="font-size: 0.9rem;">no Google</span>
+            </div>
+        </div>
+
+        <h1>Volte a<br>Sorrir<span>Tubarão - SC</span></h1>
+
+        <a href="#agendar" class="cta-btn">Agendar minha avaliação</a>
+
+        <div style="margin-top: 5rem; opacity: 0.6;">
+            <span class="mono" style="font-size: 0.8rem;">Dr. Matheus | Especialista em Reabilitação Total</span>
+        </div>
+    </section>
+
+    <section class="protocolo palco-dobra palco-dobra-2">
+        <h2>Como funciona o<br>Protocolo Fixo</h2>
+        
+        <div class="step-list">
+            <div class="step-item">
+                <span class="step-num">01 / AVALIAÇÃO</span>
+                <div class="step-title">Entendemos seu sorriso e seu medo.</div>
+            </div>
+            
+            <div class="step-item">
+                <span class="step-num">02 / IMPLANTE</span>
+                <div class="step-title">O pino de titânio se funde ao osso. Sem dor, com conforto.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-num">03 / PROTOCOLO</span>
+                <div class="step-title">Parafusamos o arco de porcelana. Fixo desde o primeiro dia.</div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-num">04 / VIDA NOVA</span>
+                <div class="step-title">Mastigue, sorria e fale sem vergonha. Seu sorriso está de volta.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lente palco-dobra palco-dobra-3">
+        <div class="lente-content">
+            <h2>Lente cerâmica.<br>Realismo<br>absoluto.</h2>
+            <p>Não é um dente postiço. É uma lâmina fina de porcelana que imita a luz natural dos seus dentes originais. Para quem quer estética sem perder a identidade.</p>
+        </div>
+    </section>
+
+    <section class="depoimentos palco-dobra palco-dobra-4">
+        <h2 class="mono" style="color: var(--azul-marinho); font-size: 1rem; margin-bottom: 2rem;">O QUE DIZEM NOSSOS PACIENTES</h2>
+        
+        <div class="review-card">
+            "Incrível, eu que tinha medo saí de lá encantada. Super recomendo."
+            <span class="review-author">— Carla</span>
+        </div>
+        <div class="review-card">
+            "Fiz os dois protocolos, facilidade de pagamento. Atendimento nota 10."
+            <span class="review-author">— Ana</span>
+        </div>
+        <div class="review-card">
+            "Só entrar a gente se sente alegre. Profissionais incríveis."
+            <span class="review-author">— Margarete</span>
+        </div>
+    </section>
+
+    <section id="agendar" class="contato palco-dobra palco-dobra-5">
+        <h2>Chegou a hora<br>de ser feliz.</h2>
+        
+        <!-- Div reservada para o sistema injetar o widget de agenda -->
+        <div data-agendar style="width: 100%; max-width: 800px; margin-bottom: 4rem;"></div>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-label">Endereço</span>
+                <span class="contact-val" style="font-size: 1.2rem;">Rua Coronel Colaço, 32<br>Centro, Tubarão - SC</span>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-label">Horário de Atendimento</span>
+                <span class="contact-val" style="font-size: 1.2rem;">Seg à Sex<br>08:00 – 12:00 / 14:00 – 19:00</span>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-label">Fale com a equipe</span>
+                <a href="https://wa.me/5548991211163" class="contact-val" style="color: var(--azul-claro);">
+                    (48) 99121-1163
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloco de Automação -->
+    <section id="automacao" style="background: var(--azul-medio); padding: 4rem; text-align: center;">
+        <h3 class="mono" style="margin-bottom: 2rem;">ATENDIMENTO AUTOMÁTICO</h3>
+        <div data-automacao></div>
+    </section>
+
+    
+
+    
+
+    <div class="signature-circle">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="#000A3C" stroke-width="2"/>
+            <path d="M8 12L11 15L16 9" stroke="#000A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+<!--agendar:inicio--><style>.ag{--ag-fundo:transparent;--ag-texto:currentColor;--ag-destaque:currentColor;--ag-linha:rgba(127,127,127,.35);--ag-suave:rgba(127,127,127,.1);
+  color:var(--ag-texto);background:var(--ag-fundo);font:inherit;max-width:880px;margin:0 auto;text-align:left}
+.ag *{box-sizing:border-box}
+.ag button,.ag input,.ag a{font:inherit;color:inherit}
+.ag-passo{border-top:1px solid var(--ag-linha);padding:18px 0}
+
+.ag-passo:last-child{border-bottom:1px solid var(--ag-linha)}
+.ag-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:28px}
+.ag-n{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.08em;opacity:.6}
+.ag-n::before{content:"0"}
+.ag-tit{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ag-troca{margin-left:auto;background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.85;text-align:right}
+.ag-aberto>div:last-child{margin-top:14px}
+.ag-abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.ag-abas::-webkit-scrollbar{display:none}
+.ag-aba{flex:none;border:1px solid var(--ag-linha);background:none;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ag-aba[aria-selected=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-grade-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ag-serv{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--ag-linha);background:var(--ag-suave);border-radius:10px;padding:14px 16px;min-height:64px;cursor:pointer;transition:border-color .2s,transform .2s}
+.ag-serv:hover,.ag-serv:focus-visible{border-color:var(--ag-destaque);transform:translateY(-1px)}
+.ag-serv[aria-pressed=true]{border-color:var(--ag-destaque);box-shadow:inset 0 0 0 1px var(--ag-destaque)}
+.ag-serv-nome{font-weight:600;font-size:1rem;line-height:1.3}
+.ag-serv-info{font-size:.9rem;opacity:.75}
+.ag-dias{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin}
+.ag-dia{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;width:62px;min-height:60px;border:1px solid var(--ag-linha);background:none;border-radius:10px;padding:8px 0;cursor:pointer}
+.ag-dia-sem{font-size:.72rem;letter-spacing:.08em;opacity:.7}
+.ag-dia-num{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ag-dia:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.ag-dia[aria-pressed=true],.ag-hora[aria-pressed=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-periodo{margin:14px 0 8px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ag-periodo:first-child{margin-top:0}
+.ag-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.ag-hora{border:1px solid var(--ag-linha);background:none;border-radius:8px;min-height:44px;cursor:pointer;font-variant-numeric:tabular-nums}
+.ag-hora:hover,.ag-hora:focus-visible,.ag-dia:not(:disabled):hover{border-color:var(--ag-destaque)}
+.ag-vazio{opacity:.75;margin:0}
+.ag-fim{display:grid;gap:10px;max-width:520px}
+.ag-campo{width:100%;min-height:48px;border:1px solid var(--ag-linha);border-radius:8px;background:var(--ag-suave);padding:12px 14px;font-size:16px}
+.ag-campo:focus{outline:2px solid var(--ag-destaque);outline-offset:1px}
+.ag-previa{margin:4px 0;font-size:.95rem;line-height:1.5;opacity:.85}
+.ag-enviar{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)!important;text-decoration:none;font-weight:600}
+.ag-enviar:hover{filter:brightness(1.08)}
+.ag-nota{margin:12px 0 0;font-size:.78rem;opacity:.6;letter-spacing:.02em}
+.ag :focus-visible{outline:2px solid var(--ag-destaque);outline-offset:2px}
+@media (max-width:600px){.ag-grade-serv{grid-template-columns:1fr}.ag-horas{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.ag-serv{transition:none}}
+.ag .ag-passo:focus,.ag .ag-passo:focus-visible{outline:none}
+</style><script type="application/json" id="agenda-dados">{"servicos": [{"nome": "Avaliação Inicial", "duracao": 30, "preco": "a combinar"}, {"nome": "Prótese Protocolo Fixa", "categoria": "Reabilitação", "duracao": 120, "exemplo": true}, {"nome": "Lente de Cerâmica", "categoria": "Estética", "duracao": 60, "exemplo": true}], "equipe": [{"nome": "Dr. Matheus", "funcao": "Especialista em Reabilitação"}], "abre": {"dom": null, "seg": ["08:00", "12:00", "14:00", "19:00"], "ter": ["08:00", "12:00", "14:00", "19:00"], "qua": ["08:00", "12:00", "14:00", "19:00"], "qui": ["08:00", "12:00", "14:00", "19:00"], "sex": ["08:00", "12:00", "14:00", "19:00"], "sab": null}, "cores": {"fundo": "#000A3C", "texto": "#FFFFFF", "destaque": "#8CCBF2", "botao": "#000A3C", "linha": "rgba(255,255,255,0.2)", "suave": "#1a2b6e"}, "whatsapp": "5548991211163", "semente": "Volte a Sorrir Centro Odontológico"}</script><script>/* Agendar — bloco de agendamento dos sites demonstrativos (Sull Produções).
+ * Fluxo inspirado no que funciona no Trinks: serviço → dia → horário (15 em 15 min, por período,
+ * só o que cabe a duração) → profissional → nome → WhatsApp da empresa com a mensagem pronta.
+ * Não grava nada em servidor: a demonstração simula os horários ocupados e avisa isso na tela.
+ * Dados: o bloco JSON de id agenda-dados no próprio site. Alvo: [data-agendar].
+ */
+(function () {
+  "use strict";
+  var DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  var NOME_DIA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"];
+  var DIA_LONGO = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var PADRAO = { dom: null, seg: ["09:00", "18:00"], ter: ["09:00", "18:00"], qua: ["09:00", "18:00"],
+                 qui: ["09:00", "18:00"], sex: ["09:00", "18:00"], sab: ["09:00", "13:00"] };
+
+  function min(hhmm) { var p = String(hhmm).split(":"); return (+p[0]) * 60 + (+p[1] || 0); }
+  function hhmm(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function chaveDia(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+
+  /* Hash estável: o mesmo dia e horário sempre aparecem ocupados (ou livres) para quem abre o site. */
+  function hash(txt) {
+    var h = 2166136261;
+    for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) / 4294967296;
+  }
+  function ocupado(semente, dia, inicio, taxa) { return hash(semente + "|" + chaveDia(dia) + "|" + inicio) < taxa; }
+
+  /* Faixas de funcionamento do dia: ["08:30","12:00","13:30","19:00"] vira [[510,720],[810,1140]]. */
+  function faixas(abre, dia) {
+    var f = abre ? abre[DIAS[dia.getDay()]] : null;
+    if (!f || !f.length) return [];
+    var r = [];
+    for (var i = 0; i + 1 < f.length; i += 2) r.push([min(f[i]), min(f[i + 1])]);
+    return r;
+  }
+
+  /* Horários livres de um dia para um serviço de `duracao` minutos.
+   * Só entra o horário em que o serviço termina dentro da faixa; hoje, só depois de agora + antecedência. */
+  function horarios(opc) {
+    var dia = opc.dia, agora = opc.agora || new Date(), passo = opc.intervalo || 15;
+    var antecedencia = opc.antecedencia == null ? 60 : opc.antecedencia;
+    var mesmoDia = chaveDia(dia) === chaveDia(agora);
+    var limite = mesmoDia ? agora.getHours() * 60 + agora.getMinutes() + antecedencia : -1;
+    var lista = [];
+    faixas(opc.abre, dia).forEach(function (fx) {
+      for (var t = fx[0]; t + opc.duracao <= fx[1]; t += passo) {
+        if (t < limite) continue;
+        if (ocupado(opc.semente || "", dia, t, opc.taxa == null ? 0.35 : opc.taxa)) continue;
+        lista.push(t);
+      }
+    });
+    return lista;
+  }
+
+  function periodo(t) { return t < 720 ? "Manhã" : t < 1080 ? "Tarde" : "Noite"; }
+
+  /* Profissionais livres naquele horário (simulado): cada um tem a própria agenda falsa. */
+  function livres(equipe, semente, dia, t) {
+    return equipe.filter(function (p) { return !ocupado(semente + "|" + p.nome, dia, t, 0.3); });
+  }
+
+  function mensagem(sel) {
+    var d = sel.dia, partes = ["Olá! Quero agendar " + sel.servico.nome,
+      (d.getDay() % 6 === 0 ? "no " : "na ") + DIA_LONGO[d.getDay()] + ", " + String(d.getDate()).padStart(2, "0") + "/" +
+      String(d.getMonth() + 1).padStart(2, "0") + ", às " + hhmm(sel.hora)];
+    if (sel.profissional) partes.push("com " + sel.profissional.nome);
+    var txt = partes.join(" ") + ".";
+    if (sel.extra) txt += " " + sel.extraRotulo + ": " + sel.extra + ".";
+    if (sel.nome) txt += " Meu nome é " + sel.nome + ".";
+    return txt;
+  }
+
+  function preco(s) {
+    if (s.preco == null || s.preco === "") return "a combinar";
+    if (typeof s.preco === "number") return s.preco === 0 ? "Grátis" : "R$ " + s.preco.toFixed(2).replace(".", ",");
+    return String(s.preco);
+  }
+  function duracaoTxt(m) { return m >= 60 ? Math.floor(m / 60) + "h" + (m % 60 ? " " + (m % 60) + "min" : "") : m + "min"; }
+
+  var API = { horarios: horarios, livres: livres, mensagem: mensagem, periodo: periodo, faixas: faixas,
+              preco: preco, duracaoTxt: duracaoTxt, hhmm: hhmm, PADRAO: PADRAO };
+  if (typeof module !== "undefined" && module.exports) { module.exports = API; return; }
+
+  /* ---------------------------------------------------------------- tela */
+  function el(tag, attrs, filhos) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (attrs[k] == null) return;
+      if (k === "texto") e.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    (filhos || []).forEach(function (f) { if (f) e.appendChild(f); });
+    return e;
+  }
+
+  function montar(alvo, dados) {
+    var servicos = (dados.servicos || []).filter(function (s) { return s && s.nome; }).map(function (s) {
+      return { nome: String(s.nome), categoria: s.categoria ? String(s.categoria) : "", preco: s.preco,
+               duracao: Math.max(15, Math.min(480, parseInt(s.duracao, 10) || 60)), exemplo: !!s.exemplo };
+    });
+    if (!servicos.length) return;
+    var equipe = (dados.equipe || []).filter(function (p) { return p && p.nome; });
+    var abreValido = dados.abre && DIAS.some(function (d) { return dados.abre[d] && dados.abre[d].length; });
+    var abre = abreValido ? dados.abre : PADRAO;
+    var semente = dados.semente || location.pathname;
+    var c = dados.cores || {};
+    ["fundo", "texto", "destaque", "linha", "suave"].forEach(function (k) {
+      if (c[k]) alvo.style.setProperty("--ag-" + k, c[k]);
+    });
+    if (c.botao) alvo.style.setProperty("--ag-fundo-botao", c.botao);
+    alvo.classList.add("ag");
+    var sel = { servico: null, dia: null, hora: null, profissional: null };
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var dias = [];
+    for (var i = 0; i < 30; i++) { var d = new Date(hoje); d.setDate(hoje.getDate() + i); dias.push(d); }
+    var categorias = servicos.reduce(function (a, s) { if (s.categoria && a.indexOf(s.categoria) < 0) a.push(s.categoria); return a; }, []);
+    var catAtual = categorias[0] || "";
+
+    function passo(n, titulo, corpo, resumo, aberto) {
+      var cab = el("div", { "class": "ag-cab" }, [el("span", { "class": "ag-n", texto: String(n) }),
+        el("span", { "class": "ag-tit", texto: titulo })]);
+      if (resumo && !aberto) {
+        cab.appendChild(el("button", { type: "button", "class": "ag-troca", texto: resumo + " · trocar",
+          onclick: function () { voltarPara(n); } }));
+      }
+      return el("div", { "class": "ag-passo" + (aberto ? " ag-aberto" : "") }, [cab, aberto ? corpo : null]);
+    }
+
+    function voltarPara(n) {
+      if (n <= 1) { sel.servico = null; }
+      if (n <= 2) { sel.dia = null; }
+      if (n <= 3) { sel.hora = null; }
+      if (n <= 4) { sel.profissional = null; sel.escolheuProf = false; }
+      desenhar(true);
+    }
+
+    function cartaoServico(s) {
+      return el("button", { type: "button", "class": "ag-serv", "aria-pressed": String(sel.servico === s),
+        onclick: function () { sel.servico = s; sel.dia = null; sel.hora = null; desenhar(true); } }, [
+        el("span", { "class": "ag-serv-nome", texto: s.nome }),
+        el("span", { "class": "ag-serv-info", texto: duracaoTxt(s.duracao) + " · " + preco(s) })]);
+    }
+
+    function blocoServicos() {
+      var corpo = el("div", {});
+      if (categorias.length > 1) {
+        var abas = el("div", { "class": "ag-abas", role: "tablist" });
+        categorias.forEach(function (cat) {
+          abas.appendChild(el("button", { type: "button", role: "tab", "class": "ag-aba", "aria-selected": String(cat === catAtual),
+            texto: cat, onclick: function () { catAtual = cat; desenhar(); } }));
+        });
+        corpo.appendChild(abas);
+      }
+      var grade = el("div", { "class": "ag-grade-serv" });
+      servicos.filter(function (s) { return categorias.length < 2 || s.categoria === catAtual; }).forEach(function (s) {
+        grade.appendChild(cartaoServico(s));
+      });
+      corpo.appendChild(grade);
+      if (servicos.some(function (s) { return s.exemplo; })) {
+        corpo.appendChild(el("p", { "class": "ag-nota", texto: "exemplo — ajustamos com as suas informações" }));
+      }
+      return corpo;
+    }
+
+    function blocoDias() {
+      var faixa = el("div", { "class": "ag-dias", role: "listbox", "aria-label": "Escolha o dia" });
+      dias.forEach(function (d) {
+        var fechado = !faixas(abre, d).length;
+        faixa.appendChild(el("button", { type: "button", "class": "ag-dia", "aria-pressed": String(sel.dia && +sel.dia === +d),
+          disabled: fechado ? "disabled" : null, "aria-label": DIA_LONGO[d.getDay()] + " " + d.getDate() + (fechado ? ", fechado" : ""),
+          onclick: function () { sel.dia = d; sel.hora = null; desenhar(true); } }, [
+          el("span", { "class": "ag-dia-sem", texto: NOME_DIA[d.getDay()] }),
+          el("span", { "class": "ag-dia-num", texto: String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") })]));
+      });
+      return faixa;
+    }
+
+    function blocoHoras() {
+      var corpo = el("div", {});
+      var lista = horarios({ abre: abre, dia: sel.dia, duracao: sel.servico.duracao, semente: semente + "|" + sel.servico.nome });
+      if (!lista.length) {
+        corpo.appendChild(el("p", { "class": "ag-vazio", texto: "Agenda cheia nesse dia. Que tal outra data?" }));
+        return corpo;
+      }
+      ["Manhã", "Tarde", "Noite"].forEach(function (p) {
+        var doPeriodo = lista.filter(function (t) { return periodo(t) === p; });
+        if (!doPeriodo.length) return;
+        var grade = el("div", { "class": "ag-horas" });
+        doPeriodo.forEach(function (t) {
+          grade.appendChild(el("button", { type: "button", "class": "ag-hora", "aria-pressed": String(sel.hora === t), texto: hhmm(t),
+            onclick: function () { sel.hora = t; sel.profissional = null; sel.escolheuProf = !equipe.length; desenhar(true); } }));
+        });
+        corpo.appendChild(el("p", { "class": "ag-periodo", texto: p }));
+        corpo.appendChild(grade);
+      });
+      return corpo;
+    }
+
+    function blocoEquipe() {
+      var grade = el("div", { "class": "ag-grade-serv" });
+      var quem = livres(equipe, semente, sel.dia, sel.hora);
+      if (!quem.length) quem = equipe.slice(0, 1);
+      [{ nome: "Sem preferência", funcao: "quem estiver livre" }].concat(quem).forEach(function (p) {
+        grade.appendChild(el("button", { type: "button", "class": "ag-serv", onclick: function () {
+          sel.profissional = p.nome === "Sem preferência" ? null : p; sel.escolheuProf = true; desenhar(true); } }, [
+          el("span", { "class": "ag-serv-nome", texto: p.nome }),
+          el("span", { "class": "ag-serv-info", texto: p.funcao || "" })]));
+      });
+      return grade;
+    }
+
+    function blocoFim() {
+      var corpo = el("div", { "class": "ag-fim" });
+      var nome = el("input", { type: "text", "class": "ag-campo", autocomplete: "given-name", placeholder: "Seu nome", "aria-label": "Seu nome" });
+      var extra = dados.campo_extra ? el("input", { type: "text", "class": "ag-campo", placeholder: String(dados.campo_extra), "aria-label": String(dados.campo_extra) }) : null;
+      var tel = String(dados.whatsapp || "").replace(/\D/g, "");
+      var botao = el("a", { "class": "ag-enviar", target: "_blank", rel: "noopener", href: "#",
+        texto: tel ? "Enviar pedido pelo WhatsApp" : (dados.telefone ? "Ligar para agendar" : "Pedir agendamento") });
+      function atualizar() {
+        var txt = mensagem({ servico: sel.servico, dia: sel.dia, hora: sel.hora, profissional: sel.profissional,
+          nome: nome.value.trim(), extra: extra ? extra.value.trim() : "", extraRotulo: dados.campo_extra });
+        previa.textContent = "“" + txt + "”";
+        botao.href = tel ? "https://wa.me/" + tel + "?text=" + encodeURIComponent(txt)
+                         : (dados.telefone ? "tel:" + String(dados.telefone).replace(/[^\d+]/g, "") : "#contato");
+      }
+      var previa = el("p", { "class": "ag-previa" });
+      nome.addEventListener("input", atualizar);
+      if (extra) extra.addEventListener("input", atualizar);
+      corpo.appendChild(nome); if (extra) corpo.appendChild(extra);
+      corpo.appendChild(previa); corpo.appendChild(botao);
+      corpo.appendChild(el("p", { "class": "ag-nota", texto: "Demonstração: os horários ocupados são simulados. A confirmação chega pelo WhatsApp." }));
+      atualizar();
+      return corpo;
+    }
+
+    function desenhar(rolar) {
+      alvo.innerHTML = "";
+      var etapa = !sel.servico ? 1 : !sel.dia ? 2 : sel.hora == null ? 3 : !sel.escolheuProf ? 4 : 5;
+      var dataTxt = sel.dia ? NOME_DIA[sel.dia.getDay()] + " " + String(sel.dia.getDate()).padStart(2, "0") + "/" + String(sel.dia.getMonth() + 1).padStart(2, "0") : "";
+      alvo.appendChild(passo(1, "Serviço", etapa === 1 ? blocoServicos() : null, sel.servico && sel.servico.nome, etapa === 1));
+      if (etapa >= 2) alvo.appendChild(passo(2, "Dia", etapa === 2 ? blocoDias() : null, dataTxt, etapa === 2));
+      if (etapa >= 3) alvo.appendChild(passo(3, "Horário", etapa === 3 ? blocoHoras() : null, sel.hora != null ? hhmm(sel.hora) : "", etapa === 3));
+      var n = 4;
+      if (equipe.length && etapa >= 4) { alvo.appendChild(passo(4, "Profissional", etapa === 4 ? blocoEquipe() : null, sel.profissional ? sel.profissional.nome : "Sem preferência", etapa === 4)); n = 5; }
+      if (etapa === 5) alvo.appendChild(passo(n, "Confirmar", blocoFim(), "", true));
+      if (rolar) {
+        var aberto = alvo.querySelector(".ag-aberto");
+        var r = aberto && aberto.getBoundingClientRect();
+        if (r && (r.top < 60 || r.top > innerHeight * 0.6)) aberto.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (aberto) { aberto.setAttribute("tabindex", "-1"); aberto.focus({ preventScroll: true }); }
+      }
+    }
+    desenhar(false);
+  }
+
+  function iniciar() {
+    var fonte = document.getElementById("agenda-dados"), alvo = document.querySelector("[data-agendar]");
+    if (!fonte || !alvo) return;
+    try { montar(alvo, JSON.parse(fonte.textContent)); } catch (e) { /* dado quebrado: o site segue sem o bloco */ }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script><!--agendar:fim--><!--automacao:inicio--><style>[data-automacao]{background:#000A3C;color:#FFFFFF;--au-forte:#FFFFFF;--au-fundo-num:#000A3C;--au-fundo-tela:#000A3C;border-radius:clamp(14px,2vw,22px);padding:clamp(20px,3vw,34px)}/* Bloco "a automação trabalhando" — celular com a conversa + esquema do caminho.
+ * Herda cor e fonte do site (currentColor): não existe paleta própria, para não brigar com o estilo
+ * de cada cliente. Alvo: [data-automacao]. */
+.au{--au-linha:rgba(127,127,127,.3);--au-suave:rgba(127,127,127,.09);
+  font:inherit;color:inherit;max-width:1000px;margin:0 auto;text-align:left;
+  display:grid;grid-template-columns:minmax(260px,320px) 1fr;gap:clamp(24px,5vw,56px);align-items:start}
+.au *{box-sizing:border-box}
+
+/* --- o celular --- */
+.au-fone{border:1px solid var(--au-linha);border-radius:26px;padding:10px;background:var(--au-suave);
+  position:sticky;top:24px}
+.au-tela{border:1px solid var(--au-linha);border-radius:18px;overflow:hidden;background:var(--au-fundo-tela,transparent)}
+.au-topo{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--au-linha)}
+.au-bolha{width:30px;height:30px;border-radius:50%;background:var(--au-forte);opacity:.15;flex:none}
+.au-topo b{display:block;font-size:.92rem;line-height:1.2}
+.au-topo small{font-size:.72rem;opacity:.65;letter-spacing:.04em}
+.au-conversa{display:flex;flex-direction:column;gap:8px;padding:14px;min-height:300px;
+  max-height:min(62vh,440px);overflow:hidden;justify-content:flex-end}
+.au-b{max-width:84%;padding:9px 12px;border-radius:14px;font-size:.88rem;line-height:1.4;
+  border:1px solid var(--au-linha);opacity:0;transform:translateY(8px);animation:au-entra .36s ease forwards}
+.au-b.cliente{align-self:flex-start;border-bottom-left-radius:4px}
+.au-b.robo{align-self:flex-end;background:var(--au-suave);border-bottom-right-radius:4px}
+.au-b.dono{align-self:stretch;max-width:100%;text-align:center;font-size:.8rem;opacity:0;
+  border-style:dashed;background:none}
+.au-b.dono::before{content:"no seu celular · ";opacity:.6;letter-spacing:.04em}
+.au-op{align-self:flex-end;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:90%;
+  opacity:0;animation:au-entra .36s ease forwards}
+.au-op span{border:1px solid var(--au-forte);border-radius:999px;padding:6px 11px;font-size:.78rem}
+.au-digita{align-self:flex-end;display:flex;gap:4px;padding:11px 13px;border:1px solid var(--au-linha);
+  border-radius:14px;background:var(--au-suave)}
+.au-digita i{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.4;
+  animation:au-pisca 1.1s infinite}
+.au-digita i:nth-child(2){animation-delay:.18s}
+.au-digita i:nth-child(3){animation-delay:.36s}
+.au-nota{grid-column:1/-1;font-size:.76rem;opacity:.6;margin:6px 0 0}
+
+/* --- as etapas --- */
+.au-etapas{list-style:none;margin:0;padding:0;counter-reset:au}
+.au-etapa{position:relative;padding:0 0 26px 46px;counter-increment:au}
+.au-etapa::before{content:counter(au);position:absolute;left:0;top:0;width:30px;height:30px;
+  border:1px solid var(--au-linha);border-radius:50%;display:grid;place-items:center;
+  font-size:.82rem;font-variant-numeric:tabular-nums;transition:background .3s,color .3s,border-color .3s}
+.au-etapa::after{content:"";position:absolute;left:15px;top:34px;bottom:4px;width:1px;background:var(--au-linha)}
+.au-etapa:last-child::after{display:none}
+.au-etapa b{display:block;font-size:clamp(1rem,2.2vw,1.22rem);line-height:1.25;margin:3px 0 4px}
+.au-etapa span{display:block;font-size:.9rem;opacity:.72;max-width:46ch}
+.au-etapa[data-viva="1"]::before{background:var(--au-forte);border-color:var(--au-forte);
+  color:var(--au-fundo-num,#fff);font-weight:600}
+.au-etapa[data-feita="1"]::before{border-color:var(--au-forte)}
+
+@keyframes au-entra{to{opacity:1;transform:none}}
+@keyframes au-pisca{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:.9;transform:translateY(-3px)}}
+
+@media (max-width:760px){
+  .au{grid-template-columns:1fr;gap:28px}
+  .au-fone{position:static;max-width:360px}
+  .au-conversa{max-height:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .au-b,.au-op{animation:none;opacity:1;transform:none}
+  .au-digita i{animation:none}
+}
+</style><script type="application/json" id="automacao-dados">{"empresa": "Volte a Sorrir Centro Odontológico", "falas": [{"de": "cliente", "txt": "Oi! Vocês têm horário pra reabilitação Total essa semana?", "passo": 1}, {"de": "robo", "txt": "Oi, tudo bem! Aqui é o atendimento da Volte a Sorrir Centro Odontológico. Tenho esses horários:", "passo": 2}, {"de": "opcoes", "txt": "Quinta 14:00 · Quinta 16:30 · Sexta 09:00", "passo": 2}, {"de": "cliente", "txt": "Quinta 16:30", "passo": 2}, {"de": "robo", "txt": "Marcado: reabilitação Total, quinta às 16:30. Vou te lembrar um dia antes.", "passo": 3}, {"de": "dono", "txt": "Agenda da quinta: 16:30 — reabilitação Total. Já confirmado, você não precisou parar.", "passo": 4}], "passos": [{"titulo": "O cliente chama no WhatsApp", "detalhe": "A qualquer hora — de madrugada, no domingo, no meio do seu atendimento."}, {"titulo": "O atendimento responde na hora", "detalhe": "Com o nome da empresa, o que vocês fazem e o que está disponível."}, {"titulo": "Fecha sozinho", "detalhe": "Marca o horário, registra o pedido e manda a confirmação."}, {"titulo": "Você só confirma", "detalhe": "Chega pronto no seu celular. Nenhum cliente fica sem resposta."}], "cores": {"fundo": "#000A3C", "texto": "#FFFFFF", "destaque": "#8CCBF2", "botao": "#000A3C", "linha": "rgba(255,255,255,0.2)", "suave": "#1a2b6e"}}</script><script>/* Automação — a conversa rodando sozinha dentro do site demonstrativo (Sull Produções).
+ *
+ * Por que animado e não um print: o dono não compra "automação", ele compra ver o cliente sendo
+ * atendido sem ele. A conversa roda balão a balão e cada etapa do esquema ao lado acende no momento
+ * em que aquilo acontece — é o que liga as duas coisas na cabeça de quem está olhando.
+ *
+ * Regras da casa que o código respeita:
+ * - só começa quando o bloco entra na tela (IntersectionObserver), e reinicia a cada entrada;
+ * - prefers-reduced-motion: mostra tudo de uma vez, sem digitação nem espera;
+ * - nada de servidor: o roteiro vem do JSON de id automacao-dados, montado com dados do banco;
+ * - a tela diz que é demonstração — conversa de mentira nunca se disfarça de conversa real.
+ */
+(function () {
+  "use strict";
+  var alvo = document.querySelector("[data-automacao]");
+  var fonte = document.getElementById("automacao-dados");
+  if (!alvo || !fonte) return;
+  var dados;
+  try { dados = JSON.parse(fonte.textContent); } catch (e) { return; }
+  if (!dados || !dados.falas || !dados.falas.length) return;
+
+  var parado = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ESPERA = { cliente: 900, robo: 1300, opcoes: 500, dono: 1500 };
+  var DIGITA = { robo: 900, dono: 700 };
+
+  function el(tag, classe, texto) {
+    var n = document.createElement(tag);
+    if (classe) n.className = classe;
+    if (texto != null) n.textContent = texto;
+    return n;
+  }
+
+  /* --- a tela ---------------------------------------------------------- */
+  var raiz = el("div", "au");
+  var fone = el("div", "au-fone");
+  var tela = el("div", "au-tela");
+  var topo = el("div", "au-topo");
+  topo.appendChild(el("span", "au-bolha"));
+  var quem = el("div");
+  quem.appendChild(el("b", null, dados.empresa || "Atendimento"));
+  quem.appendChild(el("small", null, "atendimento automático · online"));
+  topo.appendChild(quem);
+  var conversa = el("div", "au-conversa");
+  tela.appendChild(topo); tela.appendChild(conversa); fone.appendChild(tela);
+
+  var etapas = el("ol", "au-etapas");
+  (dados.passos || []).forEach(function (p) {
+    var li = el("li", "au-etapa");
+    li.appendChild(el("b", null, p.titulo));
+    li.appendChild(el("span", null, p.detalhe));
+    etapas.appendChild(li);
+  });
+
+  var nota = el("p", "au-nota",
+    "Conversa de demonstração, montada com os dados públicos de " + (dados.empresa || "sua empresa") + ".");
+  raiz.appendChild(fone); raiz.appendChild(etapas); raiz.appendChild(nota);
+  alvo.appendChild(raiz);
+
+  /* --- o roteiro ------------------------------------------------------- */
+  var relogios = [];
+  function limpar() { relogios.forEach(clearTimeout); relogios = []; }
+  function depois(ms, fn) { relogios.push(setTimeout(fn, ms)); }
+
+  function acender(passo) {
+    [].forEach.call(etapas.children, function (li, i) {
+      li.dataset.viva = i + 1 === passo ? "1" : "0";
+      li.dataset.feita = i + 1 < passo ? "1" : "0";
+    });
+  }
+
+  function balao(fala) {
+    if (fala.de === "opcoes") {
+      var caixa = el("div", "au-op");
+      fala.txt.split("·").forEach(function (t) { caixa.appendChild(el("span", null, t.trim())); });
+      return caixa;
+    }
+    return el("div", "au-b " + fala.de, fala.txt);
+  }
+
+  function tocar(i) {
+    if (i >= dados.falas.length) {                 // fim: espera e recomeça, para quem chegou tarde
+      depois(5200, function () { conversa.innerHTML = ""; acender(0); depois(600, function () { tocar(0); }); });
+      return;
+    }
+    var fala = dados.falas[i];
+    var escreve = DIGITA[fala.de];
+    function solta() {
+      conversa.appendChild(balao(fala));
+      acender(fala.passo);
+      depois(ESPERA[fala.de] || 900, function () { tocar(i + 1); });
+    }
+    if (!escreve) return solta();
+    var pontos = el("div", "au-digita");
+    pontos.appendChild(el("i")); pontos.appendChild(el("i")); pontos.appendChild(el("i"));
+    conversa.appendChild(pontos);
+    depois(escreve, function () { pontos.remove(); solta(); });
+  }
+
+  function tudoDeUmaVez() {
+    conversa.innerHTML = "";
+    dados.falas.forEach(function (f) {
+      var b = balao(f);
+      b.style.animation = "none"; b.style.opacity = "1"; b.style.transform = "none";
+      conversa.appendChild(b);
+    });
+    acender(dados.falas[dados.falas.length - 1].passo);
+  }
+
+  if (parado) { tudoDeUmaVez(); return; }
+  if (!("IntersectionObserver" in window)) { tocar(0); return; }
+
+  var rodando = false;
+  new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting && !rodando) { rodando = true; conversa.innerHTML = ""; acender(0); tocar(0); }
+      else if (!e.isIntersecting && rodando) { rodando = false; limpar(); }
+    });
+  }, { threshold: 0.3 }).observe(raiz);
+})();
+</script><!--automacao:fim--><!--palco:inicio--><style>/* O palco do fio condutor. Parte fixa; as curvas por dobra são geradas em app/palco.py.
+   Ordem do Natan, 13/11/2026: "o mesmo óculos tem que ir caindo, fechando, abrindo, ou dentro dele
+   vai tendo as visões de outros lugares" / "pega sempre um elemento principal daquele setor e faz
+   com que esse elemento fique rolando junto com a cena. É só isso que eu quero."
+   Mecânica aprovada por ele em 13/11/2026: a lente do objeto fica ancorada no mesmo ponto da tela
+   do site inteiro, a cena seguinte aparece dentro dela, e na rolagem a lente cresce até a gente
+   passar para dentro daquela cena. O objeto gira e muda de tamanho em volta da própria lente;
+   ele nunca anda pela tela (quando anda, a janela desgruda e vira um ponto solto). */
+
+#palco { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: clip; display: none }
+#palco .cena { position: absolute; inset: 0 }
+#palco .fundo { position: absolute; inset: 0; background-size: cover; background-position: center }
+#palco .cena.janela .fundo { will-change: transform }
+#objeto { position: absolute; display: block; max-width: none; will-change: transform, opacity }
+/* Sobra de rolagem para a última travessia fechar; só existe com o palco de pé. */
+.palco-fim { display: none }
+
+/* Sem animação presa à rolagem (navegador antigo, ou quem pediu menos movimento):
+   o palco não entra e os fundos de reserva de cada dobra continuam valendo. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body { isolation: isolate }
+    #palco { display: block }
+    .palco-dobra { background: none !important; background-color: transparent !important }
+    .palco-reserva { display: none }
+  }
+}
+:root{--palco-cx:76%;--palco-cy:50%;--palco-ow:50vw;--palco-lx:50.0%;--palco-ly:40.0%;--palco-r0:calc(var(--palco-ow) * 0.15)}@property --s1{syntax:'<number>';inherits:true;initial-value:0}@property --z1{syntax:'<number>';inherits:true;initial-value:0}@property --f1{syntax:'<number>';inherits:true;initial-value:0}@property --s2{syntax:'<number>';inherits:true;initial-value:0}@property --z2{syntax:'<number>';inherits:true;initial-value:0}@property --f2{syntax:'<number>';inherits:true;initial-value:0}@property --s3{syntax:'<number>';inherits:true;initial-value:0}@property --z3{syntax:'<number>';inherits:true;initial-value:0}@property --f3{syntax:'<number>';inherits:true;initial-value:0}@property --s4{syntax:'<number>';inherits:true;initial-value:0}@property --z4{syntax:'<number>';inherits:true;initial-value:0}@property --f4{syntax:'<number>';inherits:true;initial-value:0}@keyframes passo1{0%{--s1:0}62%{--s1:1}100%{--s1:1}}@keyframes mergulho1{0%{--z1:0}48%{--z1:.01}56%{--z1:.1}62%{--z1:1}63%{--z1:0}100%{--z1:0}}@keyframes some1{0%{--f1:0}40%{--f1:0}48%{--f1:1}62%{--f1:1}69%{--f1:0}100%{--f1:0}}@keyframes passo2{0%{--s2:0}62%{--s2:1}100%{--s2:1}}@keyframes mergulho2{0%{--z2:0}48%{--z2:.01}56%{--z2:.1}62%{--z2:1}63%{--z2:0}100%{--z2:0}}@keyframes some2{0%{--f2:0}40%{--f2:0}48%{--f2:1}62%{--f2:1}69%{--f2:0}100%{--f2:0}}@keyframes passo3{0%{--s3:0}62%{--s3:1}100%{--s3:1}}@keyframes mergulho3{0%{--z3:0}48%{--z3:.01}56%{--z3:.1}62%{--z3:1}63%{--z3:0}100%{--z3:0}}@keyframes some3{0%{--f3:0}40%{--f3:0}48%{--f3:1}62%{--f3:1}69%{--f3:0}100%{--f3:0}}@keyframes passo4{0%{--s4:0}62%{--s4:1}100%{--s4:1}}@keyframes mergulho4{0%{--z4:0}48%{--z4:.01}56%{--z4:.1}62%{--z4:1}63%{--z4:0}100%{--z4:0}}@keyframes some4{0%{--f4:0}40%{--f4:0}48%{--f4:1}62%{--f4:1}69%{--f4:0}100%{--f4:0}}#palco{--a:0;--v:1}#palco .cena.janela{clip-path:circle(calc(var(--palco-r0) * var(--v) * (1 + 16 * var(--a))) at var(--palco-cx) var(--palco-cy))}#palco .cena.janela .fundo{transform:scale(calc(1.08 - .08 * var(--a)));transform-origin:var(--palco-cx) var(--palco-cy)}#objeto{left:var(--palco-cx);top:var(--palco-cy);width:var(--palco-ow);transform-origin:var(--palco-lx) var(--palco-ly);--giro:calc(-6deg + var(--s1) * 9deg + var(--s2) * -14deg + var(--s3) * 11deg + var(--s4) * 4deg);--porte:calc(1 + var(--s1) * -0.06 + var(--s2) * 0.08 + var(--s3) * -0.05 + var(--s4) * 0.04);--mergulho:calc(var(--z1) + var(--z2) + var(--z3) + var(--z4));transform:translate(calc(-1 * var(--palco-lx)),calc(-1 * var(--palco-ly))) rotate(var(--giro)) scale(calc(var(--porte) * (1 + 16 * var(--mergulho))));opacity:calc(1 - var(--f1) - var(--f2) - var(--f3) - var(--f4))}@media (max-width:860px){:root{--palco-cx:50%;--palco-cy:15%;--palco-ow:78vw}}@supports (animation-timeline: view()){@media (prefers-reduced-motion: no-preference){.palco-fim{display:block;height:85svh;pointer-events:none}html{timeline-scope:--t2,--t3,--t4,--t5}.palco-dobra-2{view-timeline:--t2 block}.palco-dobra-3{view-timeline:--t3 block}.palco-dobra-4{view-timeline:--t4 block}.palco-dobra-5{view-timeline:--t5 block}body{animation:passo1 linear both,mergulho1 linear both,some1 linear both,passo2 linear both,mergulho2 linear both,some2 linear both,passo3 linear both,mergulho3 linear both,some3 linear both,passo4 linear both,mergulho4 linear both,some4 linear both;animation-timeline:--t2,--t2,--t2,--t3,--t3,--t3,--t4,--t4,--t4,--t5,--t5,--t5;animation-range:cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%,cover 6% cover 50%}.palco-cena-2{--a:var(--s1)}.palco-cena-3{--a:var(--s2);--v:calc(var(--s1) * (1 - var(--f1)))}.palco-cena-4{--a:var(--s3);--v:calc(var(--s2) * (1 - var(--f2)))}.palco-cena-5{--a:var(--s4);--v:calc(var(--s3) * (1 - var(--f3)))}@keyframes palco-passagem{0%{opacity:0;transform:translateY(26px)}16%{opacity:1;transform:none}64%{opacity:1;transform:none}92%{opacity:0;transform:translateY(-20px)}100%{opacity:0;transform:translateY(-20px)}}.palco-dobra > *{animation:palco-passagem linear both;animation-timeline:view();animation-range:entry 20% exit 60%}@media (max-width:860px){.palco-dobra > *{animation-range:entry 20% exit 2%}}.palco-dobra-1,.palco-dobra-1 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo)):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo) *){color:#FFFFFF}.palco-dobra-2,.palco-dobra-2 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo)):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo) *){color:#000A3C}.palco-dobra-3,.palco-dobra-3 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo)):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo) *){color:#000A3C}.palco-dobra-4,.palco-dobra-4 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo)):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo) *){color:#FFFFFF}.palco-dobra-5,.palco-dobra-5 :is(h1,h2,h3,h4,p,li,span,em,strong,small,dt,dd,blockquote,figcaption):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo)):not(:is(.hero,.cta-btn,.protocolo,.lente,.depoimentos,.review-card,.contato,.contact-item,.signature-circle,.w3,.ag-aba,.ag-serv,.ag-dia,.ag-campo) *){color:#FFFFFF}}}</style><div class="palco-fim" aria-hidden="true"></div><div id="palco" aria-hidden="true"><div class="cena"><div class="fundo" style="background-color:#000A3C"></div></div><div class="cena janela palco-cena-2"><div class="fundo" style="background-color:#FFFFFF"></div></div><div class="cena janela palco-cena-3"><div class="fundo" style="background-color:#8CCBF2"></div></div><div class="cena janela palco-cena-4"><div class="fundo" style="background-color:#2F8FD8"></div></div><div class="cena janela palco-cena-5"><div class="fundo" style="background-color:#000A3C"></div></div><img id="objeto" src="img/objeto.png" alt=""></div><script type="application/json" id="coreografia">{"objeto": "img/objeto.png", "dobras": [{"cena": "#000A3C", "texto": "#FFFFFF"}, {"cena": "#FFFFFF", "texto": "#000A3C"}, {"cena": "#8CCBF2", "texto": "#000A3C"}, {"cena": "#2F8FD8", "texto": "#FFFFFF"}, {"cena": "#000A3C", "texto": "#FFFFFF"}], "lente": {"x": 50.0, "y": 40.0, "raio": 0.15}}</script><!--palco:fim--></body>
+</html>
