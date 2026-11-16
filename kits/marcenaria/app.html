@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<title>Orçamentos · Demonstração</title>
+<meta property="og:title" content="Nenhum orçamento esquecido">
+<meta property="og:description" content="Demonstração: todo orçamento vira um cartão e o cliente é chamado no WhatsApp no dia 2, 5 e 10.">
+<link rel="icon" href="assets/logo-sull.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Sull v2 — tokens */
+:root{
+  --bg:#0A0A0A; --sf:#161616; --sf2:#1c1c1c; --ln:#242424; --ln2:#303030;
+  --tx:#FFFFFF; --tx2:#9A9A9A; --tx3:#6f6f6f;
+  --y:#F4A800; --on-y:#0A0A0A;
+  --f-t:'Oswald',Impact,sans-serif; --f-b:'Inter',system-ui,-apple-system,sans-serif; --f-m:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--f-b); color:var(--tx); font-size:16px; line-height:1.4;
+  background:
+    radial-gradient(1200px 700px at 72% -12%, rgba(244,168,0,.09), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(255,255,255,.035), transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+body::after{ /* grão */
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.07; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+svg{display:block}
+.mono{font-family:var(--f-m)}
+
+/* ---------- palco ---------- */
+.stage{height:100%;display:flex;justify-content:center}
+.side{display:none}
+.phone{position:relative;width:100%;height:100%;max-width:520px}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;background:
+  radial-gradient(420px 260px at 50% -40px, rgba(244,168,0,.10), transparent 70%),
+  linear-gradient(180deg,#0f0f0f 0%, #0a0a0a 40%);
+  display:flex;flex-direction:column}
+.status{display:none}
+@media (min-width:560px) and (max-width:979.98px), (min-width:980px) and (max-height:639.98px){.phone{border-left:1px solid var(--ln);border-right:1px solid var(--ln)}}
+
+/* desktop: celular ao centro, frases ao lado */
+@media (min-width:980px) and (min-height:640px){
+  .stage{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:56px;padding:0 56px;max-width:1440px;margin:0 auto}
+  .side{display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .phone-holder{width:calc(414px * var(--s,1));height:calc(868px * var(--s,1));position:relative}
+  .phone{position:absolute;top:0;left:0;width:414px;height:868px;max-width:none;transform:scale(var(--s,1));transform-origin:top left;
+    padding:12px;border-radius:58px;background:linear-gradient(160deg,#1e1e1e,#060606 40%,#111);
+    box-shadow:0 0 0 1px #2c2c2c, inset 0 0 0 1px #000, 0 40px 90px -20px rgba(0,0,0,.9), 0 30px 120px -40px rgba(244,168,0,.28)}
+  .screen{border-radius:46px}
+  .status{display:flex;flex:0 0 40px;align-items:center;justify-content:space-between;padding:6px 30px 0;font:600 15px var(--f-b)}
+  .status .isl{width:110px;height:30px;border-radius:20px;background:#000}
+  .status .ic{display:flex;gap:6px;align-items:center}
+}
+
+/* ---------- faixa demo ---------- */
+.demo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;height:26px;
+  font:500 12.5px/1 var(--f-m);letter-spacing:.06em;text-transform:uppercase;color:var(--tx2);
+  border-bottom:1px solid var(--ln);background:rgba(255,255,255,.02)}
+.demo i{width:6px;height:6px;border-radius:50%;background:var(--tx3);display:block}
+
+/* ---------- topo ---------- */
+.top{flex:0 0 auto;display:flex;align-items:center;gap:12px;min-height:68px;padding:10px 16px 10px 16px}
+.mark{flex:0 0 44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--sf2);
+  border:1px solid var(--ln2);font:700 17px var(--f-t);letter-spacing:.02em}
+.top .t{min-width:0;flex:1}
+.top h1{font:700 22px/1.1 var(--f-t);text-transform:uppercase;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top h1.m{font-size:19px}.top h1.s{font-size:17px;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.top p{font-size:15px;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.back{flex:0 0 44px;height:44px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--ln2);background:var(--sf)}
+.back:active{background:var(--sf2)}
+.top h2{font:700 20px/1.1 var(--f-t);text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- área ---------- */
+.view{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.view::-webkit-scrollbar{display:none}
+.view.v-in{animation:vin .24s var(--ease)}
+@keyframes vin{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.view.v-back{animation:vback .24s var(--ease)}
+@keyframes vback{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+.pad{padding:4px 16px 28px}
+
+/* ---------- painel ---------- */
+.hero{padding:10px 2px 18px}
+.eyebrow{font:500 15px/1.2 var(--f-m);letter-spacing:.04em;text-transform:uppercase;color:var(--tx2)}
+.big{display:flex;align-items:baseline;gap:8px;margin-top:6px;font-family:var(--f-m);font-weight:700;letter-spacing:-.02em}
+.big small{font-size:22px;color:var(--tx2);font-weight:500}
+.big b{font-size:46px;line-height:1}
+.hero .sub{margin-top:8px;color:var(--tx2);font-size:15px}
+.hero .sub strong{color:var(--tx);font-weight:600}
+
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.kpi{min-height:78px;text-align:left;padding:12px 12px 10px;border-radius:14px;background:var(--sf);border:1px solid var(--ln);
+  display:flex;flex-direction:column;justify-content:space-between;transition:border-color .2s,background .2s}
+.kpi b{font:700 26px/1 var(--f-m)}
+.kpi span{font-size:15px;color:var(--tx2);line-height:1.2;margin-top:6px;display:flex;align-items:center;gap:6px}
+.kpi.on{border-color:#555;background:var(--sf2)}
+.kpi.hot b{color:var(--y)}
+.dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px;display:inline-block}
+
+.lh{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
+.lh h3{font:700 17px var(--f-t);text-transform:uppercase;letter-spacing:.04em}
+.lh button{min-height:44px;padding:0 4px;color:var(--tx2);font-size:15px}
+.list{display:flex;flex-direction:column;gap:8px}
+.card{width:100%;text-align:left;padding:14px 14px 12px;border-radius:16px;background:var(--sf);border:1px solid var(--ln);
+  display:grid;grid-template-columns:1fr auto;gap:4px 12px;transition:border-color .2s, background .2s, transform .15s}
+.card:active{transform:scale(.99);background:var(--sf2)}
+.card .n{font-weight:600;font-size:16.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .v{font:600 16.5px var(--f-m);text-align:right;white-space:nowrap}
+.card .a{grid-column:1/-1;font-size:15px;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .nx{font-size:15px;color:var(--tx3);text-align:right;white-space:nowrap;align-self:center}
+.card .row{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}
+.card.fx{border-color:var(--y);box-shadow:0 0 0 3px rgba(244,168,0,.22)}
+@keyframes flash{0%{border-color:var(--y);box-shadow:0 0 0 3px rgba(244,168,0,.25)}100%{border-color:var(--ln);box-shadow:0 0 0 0 rgba(244,168,0,0)}}
+.card.entra{animation:entra .3s var(--ease), flash 1.8s .2s ease-out}
+@keyframes entra{from{opacity:0;transform:translateY(-10px) scale(.98)}to{opacity:1;transform:none}}
+.card.done{opacity:.62}
+.empty{padding:28px 8px;text-align:center;color:var(--tx2);font-size:15px}
+
+/* selos */
+.badge{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 11px;border-radius:999px;font:500 15px/1 var(--f-b);white-space:nowrap;border:1px solid transparent}
+.b-novo{border-color:#4a4a4a;color:var(--tx)}
+.b-novo .dot{background:#fff}
+.b-chamado{background:#222;color:#cfcfcf}
+.b-chamado .dot{background:#8a8a8a}
+.b-esfriando{border-color:rgba(244,168,0,.55);color:var(--y);background:rgba(244,168,0,.07)}
+.b-esfriando .dot{background:var(--y)}
+.b-respondeu{background:#f2f2f2;color:#0a0a0a;font-weight:600}
+.b-respondeu .dot{background:#0a0a0a}
+.b-fechado{background:#1e1e1e;color:var(--tx2);border-color:#2e2e2e}
+.b-pausado{background:transparent;color:var(--tx2);border:1px dashed #555}
+
+/* botão flutuante */
+.tab.novo{color:var(--tx)}
+.tab.novo .pill{height:48px;padding:0 16px 0 12px;border-radius:999px;background:var(--y);color:var(--on-y);display:flex;align-items:center;gap:6px;font-weight:700;font-size:16px;
+  box-shadow:0 8px 24px -8px rgba(244,168,0,.6), inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s}
+.tab.novo:active .pill{transform:scale(.96)}
+.tab.novo.on .pill{box-shadow:0 0 0 3px rgba(244,168,0,.25)}
+
+/* abas */
+.tabs{flex:0 0 auto;display:grid;grid-template-columns:1fr 1.15fr 1fr 1fr;border-top:1px solid var(--ln);background:rgba(10,10,10,.92);
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
+.tab{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--tx3);font-size:15px;font-weight:500;border-radius:12px}
+.tab.on{color:var(--tx)}
+.tab.on svg{color:var(--y)}
+.tab.novo.on svg{color:var(--on-y)}
+.tab:disabled{opacity:.35}
+
+/* ---------- cartão ---------- */
+.det{padding:6px 16px 40px}
+.det .who{font:700 30px/1.05 var(--f-t);text-transform:uppercase;letter-spacing:.01em;word-break:break-word}
+.det .meta{margin-top:6px;color:var(--tx2);font-size:15px}
+.det .vrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding:14px;border-radius:16px;background:var(--sf);border:1px solid var(--ln)}
+.det .vrow b{font:700 28px var(--f-m);letter-spacing:-.02em}
+.det .nxt{margin-top:10px;font-size:15px;color:var(--tx2)}
+.det .nxt strong{color:var(--tx);font-weight:600}
+.sec{font:700 17px var(--f-t);text-transform:uppercase;letter-spacing:.04em;margin:24px 0 12px}
+
+.tl{position:relative}
+.st{position:relative;display:grid;grid-template-columns:26px 1fr;gap:12px;padding-bottom:18px}
+.st::before{content:"";position:absolute;left:12px;top:24px;bottom:-2px;width:2px;background:var(--ln)}
+.st:last-child::before{display:none}
+.st .pt{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;border:2px solid #444;background:var(--bg);margin-top:-1px;position:relative;z-index:1}
+.st.ok .pt{background:#fff;border-color:#fff;color:#0a0a0a}
+.st.prox .pt{border-color:var(--y);box-shadow:0 0 0 4px rgba(244,168,0,.14)}
+.st.prox .pt::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--y)}
+.st.fim .pt{background:var(--y);border-color:var(--y);color:var(--on-y)}
+.st.cli .pt{border-color:#fff;background:#0a0a0a}
+.st.off{opacity:.55}
+.st h4{font-size:16px;font-weight:600;line-height:1.3}
+.st .when{font-size:15px;color:var(--tx2);margin-top:1px}
+.bub{margin-top:8px;padding:11px 13px;border-radius:4px 16px 16px 16px;background:#1a1a1a;border:1px solid #2a2a2a;font-size:15px;line-height:1.45;color:#e9e9e9}
+.st.fut .bub,.st.prox .bub{color:#bdbdbd;border-style:dashed}
+.bub.c{border-radius:16px 4px 16px 16px;background:#f2f2f2;color:#111;border-color:#f2f2f2;margin-left:24px}
+.bub .tag{display:block;font:600 15px var(--f-b);color:var(--tx2);margin-bottom:4px}
+.bub.c .tag{color:#666}
+
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.btn{min-height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:16px;padding:0 16px;transition:background .15s, transform .15s;text-decoration:none;color:var(--tx)}
+.btn:active{transform:scale(.985)}
+.btn.pri{background:var(--y);color:var(--on-y)}
+.btn.sec2{background:var(--sf);border:1px solid var(--ln2)}
+.btn.sec2:active{background:var(--sf2)}
+.btn.lnk{min-height:44px;color:var(--tx2);font-weight:500;font-size:15px}
+
+/* ---------- formulário ---------- */
+.form{padding:6px 16px 40px;display:flex;flex-direction:column;gap:16px}
+.fl label,.fl .lb{display:block;font-size:15px;font-weight:600;margin-bottom:7px}
+.fl .opt{color:var(--tx3);font-weight:400}
+.in{width:100%;min-height:52px;border-radius:14px;background:var(--sf);border:1px solid var(--ln2);padding:0 14px;font-size:17px;outline:none;transition:border-color .15s}
+.in:focus{border-color:#777}
+.in.money{font-family:var(--f-m);font-weight:500}
+.fl.err .in{border-color:#a97a00}
+.fl .e{display:none;margin-top:6px;font-size:15px;color:var(--y)}
+.fl.err .e{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--ln2);background:var(--sf);font-size:15px;font-weight:500}
+.chip[aria-checked="true"]{background:#f2f2f2;color:#0a0a0a;border-color:#f2f2f2}
+.fl label.file{display:flex;margin:0;font-weight:400;align-items:center;gap:12px;min-height:56px;border-radius:14px;border:1px dashed #444;padding:0 14px;color:var(--tx2);font-size:15px;cursor:pointer}
+.file input{position:absolute;width:1px;height:1px;opacity:0}
+.file span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.note{font-size:15px;color:var(--tx2);display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--ln)}
+.note svg{flex:0 0 auto;margin-top:2px}
+
+/* ---------- simulação ---------- */
+.simi{padding:8px 16px 40px}
+.simi h3{font:700 32px/1.05 var(--f-t);text-transform:uppercase;letter-spacing:.01em}
+.simi p{margin-top:12px;color:var(--tx2);font-size:16px}
+.steps3{margin:22px 0;display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--ln)}
+.steps3 div{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--ln);font-size:16px}
+.steps3 b{font:700 15px var(--f-m);color:var(--tx3);padding-top:2px}
+.simbar{flex:0 0 auto;margin:0 16px 8px;padding:12px 14px;border-radius:16px;background:#121212;border:1px solid #2c2c2c}
+.simbar .r1{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.simbar .day{font:700 15px var(--f-m);letter-spacing:.04em;text-transform:uppercase}
+.simbar .day em{font-style:normal;color:var(--y)}
+.simbar .stop{min-height:44px;min-width:44px;padding:0 12px;border-radius:10px;border:1px solid var(--ln2);font-size:15px;color:var(--tx2)}
+.prog{height:4px;border-radius:4px;background:#262626;margin:8px 0 10px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--y);border-radius:4px}
+.simbar .r2{display:flex;align-items:center;gap:12px}
+.ev{flex:1;min-width:0;font-size:15px;color:#cfcfcf;min-height:42px;line-height:1.4}
+.ev strong{color:#fff;font-weight:600}
+.ev .mono{color:var(--tx2);font-size:15px}
+.cnt{flex:0 0 auto;text-align:right;font-size:15px;line-height:1.15;color:var(--tx2)}
+.cnt b{display:block;font:700 22px var(--f-m);color:var(--tx)}
+.ev.new{animation:evin .25s var(--ease)}
+@keyframes evin{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* folha de resultado */
+.sheet-bg{position:absolute;inset:0;z-index:20;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet{width:100%;max-height:92%;overflow:auto;background:#121212;border-top:1px solid #333;border-radius:24px 24px 0 0;padding:10px 18px calc(18px + env(safe-area-inset-bottom));animation:up .28s var(--ease)}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+.grab{width:40px;height:4px;border-radius:4px;background:#3a3a3a;margin:0 auto 16px}
+.sheet .res{font:700 44px/1 var(--f-m);letter-spacing:-.02em;color:var(--y);margin:8px 0 6px}
+.sheet h3{font:700 22px/1.1 var(--f-t);text-transform:uppercase;letter-spacing:.02em}
+.sheet ul{list-style:none;margin:16px 0;border-top:1px solid var(--ln)}
+.sheet li{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--ln);font-size:15px}
+.sheet li span:last-child{font-family:var(--f-m);white-space:nowrap}
+.sheet .fine{font-size:15px;color:var(--tx2);margin-bottom:16px}
+
+/* ---------- mensagens ---------- */
+.msgs{padding:6px 16px 40px}
+.msgs > p{color:var(--tx2);font-size:15px}
+.keys{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0 4px;font-size:15px;color:var(--tx2)}
+.keys code{font:500 15px var(--f-m);color:var(--tx)}
+.mg{margin-top:20px}
+.mg .lb{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-weight:600;font-size:16px;margin-bottom:8px}
+.mg .lb span{font:500 15px var(--f-m);color:var(--tx3)}
+textarea.in{min-height:118px;padding:12px 14px;line-height:1.45;resize:vertical;font-size:16px}
+.prev{margin-top:8px}
+.prev .bub{margin-top:0}
+
+/* ---------- aviso ---------- */
+.toast{position:absolute;left:16px;right:16px;bottom:88px;z-index:30;display:flex;align-items:center;gap:12px;min-height:54px;padding:10px 10px 10px 16px;border-radius:14px;
+  background:#f2f2f2;color:#0a0a0a;font-size:15px;font-weight:500;box-shadow:0 18px 40px -12px rgba(0,0,0,.8);animation:tin .22s var(--ease)}
+.toast.out{opacity:0;transform:translateY(8px);transition:.2s}
+@keyframes tin{from{opacity:0;transform:translateY(10px)}}
+.toast span{flex:1}
+.toast button{min-height:44px;padding:0 12px;border-radius:10px;font-weight:700;font-size:15px;background:#0a0a0a;color:#fff}
+
+/* ---------- lateral (desktop) ---------- */
+.brand{display:flex;align-items:center;gap:10px;color:var(--tx2);font-size:15px;margin-bottom:40px}
+.brand img{width:34px;height:34px}
+.side .pre{font:500 14px var(--f-m);letter-spacing:.06em;text-transform:uppercase;color:var(--tx2)}
+.side .emp{font:700 26px/1.1 var(--f-t);text-transform:uppercase;margin-top:6px;letter-spacing:.01em;word-break:break-word}
+.side h2{font:700 clamp(40px,4.2vw,62px)/.98 var(--f-t);text-transform:uppercase;letter-spacing:.005em;margin-top:26px}
+.side .lead{margin-top:20px;color:var(--tx2);font-size:17px;line-height:1.5;max-width:30em}
+.side .cta{margin-top:40px;padding-top:20px;border-top:1px solid var(--ln);color:var(--tx2);font-size:15px;line-height:1.5}
+.side .cta a{color:var(--tx);text-decoration:none;border-bottom:1px solid #555}
+.side .cta a:hover{border-color:var(--y)}
+.story{display:flex;flex-direction:column;gap:6px;max-width:400px}
+.story button{text-align:left;display:grid;grid-template-columns:44px 1fr;gap:6px;padding:18px 0 18px 18px;border-left:2px solid var(--ln);color:var(--tx3);transition:color .25s, border-color .25s}
+.story button b{font:700 15px var(--f-m);padding-top:3px}
+.story button strong{display:block;font:700 21px/1.15 var(--f-t);text-transform:uppercase;letter-spacing:.02em}
+.story button span{display:block;margin-top:6px;font-size:16px;line-height:1.45}
+.story button.on{color:var(--tx);border-left-color:var(--y)}
+.story button.on b{color:var(--y)}
+.story button.on span{color:#cfcfcf}
+.story button:hover:not(.on){color:#9a9a9a}
+.story .lbl{font:500 14px var(--f-m);letter-spacing:.06em;text-transform:uppercase;color:var(--tx2);margin-bottom:10px}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-delay:0s !important;transition-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <aside class="side side-l">
+    <div class="brand"><img src="assets/logo-sull.png" alt=""><span>Sull Produções</span></div>
+    <div class="pre">Demonstração para</div>
+    <div class="emp" id="sEmp"></div>
+    <h2>Nenhum orçamento esquecido</h2>
+    <p class="lead">O cliente pede orçamento do móvel planejado, recebe e some. Ninguém volta a chamar. Aqui o sistema chama por você, com o texto da sua marcenaria.</p>
+    <div class="cta">Piloto de 7 dias com os seus orçamentos de verdade.<br>Conversa de 15 minutos com o Natan: <a href="https://wa.me/5548999522152" target="_blank" rel="noopener">(48) 99952-2152</a></div>
+  </aside>
+
+  <div class="phone-holder">
+    <div class="phone" id="phone">
+      <div class="screen" id="screen">
+        <div class="status" aria-hidden="true"><span id="clock">9:41</span><span class="isl"></span><span class="ic">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x=".5" y=".5" width="22" height="11" rx="3" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="17" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".5"/></svg>
+        </span></div>
+        <div class="demo"><i></i>Demonstração · dados de exemplo</div>
+        <header class="top" id="top"></header>
+        <div id="simslot"></div>
+        <main class="view" id="view"></main>
+        <nav class="tabs" id="tabs">
+          <button class="tab" data-go="painel" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>Painel</button>
+          <button class="tab novo" data-go="novo" type="button" aria-label="Novo orçamento"><span class="pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Novo</span></button>
+          <button class="tab" data-go="sim" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5"/></svg>Simular</button>
+          <button class="tab" data-go="msgs" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 8h7M8.5 11.5h4" stroke-linecap="round"/></svg>Mensagens</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <aside class="side side-r">
+    <div class="story" id="story">
+      <div class="lbl">O que você está vendo</div>
+      <button type="button" data-go="painel"><b>01</b><div><strong>Todo orçamento vira um cartão</strong><span>Você abre o painel e vê quanto tem em orçamento aberto e quem esfriou.</span></div></button>
+      <button type="button" data-go="cartao"><b>02</b><div><strong>Ele chama o cliente sozinho</strong><span>No dia 2, 5 e 10 sai uma mensagem no WhatsApp, com o texto da sua marcenaria.</span></div></button>
+      <button type="button" data-go="novo"><b>03</b><div><strong>Mandou orçamento, cadastrou</strong><span>Nome, telefone, ambiente e valor. Os lembretes já ficam agendados.</span></div></button>
+      <button type="button" data-go="sim"><b>04</b><div><strong>Cliente respondeu, os lembretes param</strong><span>Ninguém precisa lembrar de chamar. Você só assume a conversa de quem voltou.</span></div></button>
+    </div>
+  </aside>
+</div>
+
+<script>
+'use strict';
+/* =========================================================
+   Demonstração "Nenhum orçamento esquecido" — Sull Produções
+   ATENÇÃO: todos os clientes, telefones, valores e respostas
+   abaixo são INVENTADOS para demonstração. Não são clientes reais.
+   ========================================================= */
+
+/* ---------- nome da empresa pela URL ---------- */
+const P = new URLSearchParams(location.search);
+const limpa = s => (s || '').replace(/[\u0000-\u001f<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 48);
+const EMPRESA = limpa(P.get('empresa')) || 'Sua Marcenaria';
+const CIDADE = limpa(P.get('cidade'));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+document.title = EMPRESA + ' · Orçamentos';
+
+/* ---------- ícones ---------- */
+const I = {
+  back:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  check:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  checkB:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  pause:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg>',
+  play:'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>',
+  chat:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg>',
+  clip:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5l-8.2 8.2a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.4 8.4a1.7 1.7 0 0 1-2.4-2.4l7.7-7.7"/></svg>',
+  clock:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+  send:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>',
+  user:'<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.5"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg>'
+};
+
+/* ---------- textos e regras ---------- */
+const AMB = {
+  'Cozinha planejada':'da cozinha planejada',
+  'Dormitório casal':'do dormitório de casal',
+  'Home office':'do home office',
+  'Banheiro':'do banheiro',
+  'Closet':'do closet'
+};
+const LEMBRETES = [2, 5, 10];
+const MSG_PADRAO = {
+  d2: 'Oi, {nome}! Aqui é da {empresa}. Conseguiu olhar o orçamento {ambiente}? Se quiser mudar alguma medida ou acabamento, me fala que eu ajusto.',
+  d5: 'Oi, {nome}, tudo bem? Passando para saber se ficou alguma dúvida no projeto {ambiente}. Se ajudar, a gente marca uma visita para conferir as medidas.',
+  d10: 'Oi, {nome}! Essa é minha última mensagem sobre o orçamento {ambiente}, para não ficar te incomodando. Ainda faz sentido para você ou posso encerrar por aqui? Qualquer resposta já me ajuda.'
+};
+const CHAVE = 'sull-marcenaria-mensagens-v1';
+function carregaMsgs(){
+  try { const j = JSON.parse(localStorage.getItem(CHAVE) || 'null'); if (j && j.d2 && j.d5 && j.d10) return j; } catch(e) {}
+  return {...MSG_PADRAO};
+}
+
+/* Dados de exemplo — INVENTADOS para a demonstração.
+   idade = dias desde que o orçamento foi enviado; resp = dia em que o cliente respondeu; fech = dia em que fechou. */
+function exemplos(){
+  return [
+    {id:1, cliente:'Carla Mendonça',  tel:'(48) 9••••-••21', amb:'Cozinha planejada', valor:18400, idade:1},
+    {id:2, cliente:'Marcos Pereira',  tel:'(48) 9••••-••07', amb:'Dormitório casal',  valor:9800,  idade:3},
+    {id:3, cliente:'Juliana Souza',   tel:'(48) 9••••-••58', amb:'Closet',            valor:12600, idade:4},
+    {id:4, cliente:'Roberto Almeida', tel:'(48) 9••••-••33', amb:'Cozinha planejada', valor:24900, idade:8},
+    {id:5, cliente:'Fernanda Lima',   tel:'(48) 9••••-••90', amb:'Home office',       valor:6300,  idade:6},
+    {id:6, cliente:'André Costa',     tel:'(48) 9••••-••14', amb:'Banheiro',          valor:4700,  idade:3, resp:2, respTxt:'Oi! Vi sim. Dá para trocar o puxador por um embutido?'},
+    {id:7, cliente:'Patrícia Rocha',  tel:'(48) 9••••-••62', amb:'Dormitório casal',  valor:11200, idade:12},
+    {id:8, cliente:'Lucas Martins',   tel:'(48) 9••••-••45', amb:'Home office',       valor:5900,  idade:0},
+    {id:9, cliente:'Simone Ribeiro',  tel:'(48) 9••••-••76', amb:'Cozinha planejada', valor:21500, idade:16, resp:5, fech:9, respTxt:'Oi! Pode vir medir sábado de manhã?'},
+    {id:10,cliente:'Eduardo Santos',  tel:'(48) 9••••-••29', amb:'Closet',            valor:8900,  idade:22, resp:2, fech:7, respTxt:'Gostei do projeto. Como fica o pagamento?'}
+  ].map(o => ({resp:null, fech:null, pausa:false, anexo:null, respTxt:'', ...o}));
+}
+
+const S = { tela:'painel', pilha:[], filtro:null, orc:exemplos(), sel:null, sim:null, msgs:carregaMsgs(), ultTotal:null, scrollPainel:0, flash:new Set(), entra:null, form:null };
+let proxId = 100;
+
+/* ---------- utilidades ---------- */
+const $ = s => document.querySelector(s);
+const brl = n => n.toLocaleString('pt-BR');
+const primeiro = n => String(n).trim().split(/\s+/)[0];
+function iniciais(n){
+  const p = n.replace(/[^\p{L}\p{N} ]/gu,'').trim().split(/\s+/).filter(Boolean);
+  if (!p.length) return 'S';
+  return (p[0][0] + (p[1] ? p[1][0] : '')).toUpperCase();
+}
+const DIA = 86400000;
+function dataEm(diasAtras){ const d = new Date(Date.now() - diasAtras*DIA); return String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0'); }
+const ha = d => d <= 0 ? 'hoje' : d === 1 ? 'há 1 dia' : 'há ' + d + ' dias';
+const em = d => d <= 0 ? 'hoje' : d === 1 ? 'amanhã' : 'em ' + d + ' dias';
+function preenche(tpl, o){
+  return tpl.split('{nome}').join(primeiro(o.cliente)).split('{empresa}').join(EMPRESA).split('{ambiente}').join(AMB[o.amb] || ('do ' + o.amb.toLowerCase()));
+}
+function estado(o){
+  if (o.fech != null) return 'fechado';
+  if (o.resp != null) return 'respondeu';
+  if (o.pausa) return 'pausado';
+  if (o.idade >= 5) return 'esfriando';
+  if (o.idade >= 2) return 'chamado';
+  return 'novo';
+}
+const ROTULO = {novo:'Novo', chamado:'Chamado no dia 2', esfriando:'Esfriando', respondeu:'Respondeu', fechado:'Fechado', pausado:'Pausado'};
+const selo = e => `<span class="badge b-${e}"><i class="dot"></i>${ROTULO[e]}</span>`;
+function proximo(o){
+  const e = estado(o);
+  if (e === 'fechado' || e === 'respondeu' || e === 'pausado') return null;
+  const t = LEMBRETES.find(t => t > o.idade);
+  return t ? {t, falta:t - o.idade} : null;
+}
+const abertos = () => S.orc.filter(o => o.fech == null);
+const total = () => abertos().reduce((s,o) => s + o.valor, 0);
+
+/* ---------- aviso ---------- */
+let toastT;
+function tiraAviso(){ const t = document.querySelector('.toast'); if (t) t.remove(); clearTimeout(toastT); }
+function aviso(msg, desfazer){
+  const old = document.querySelector('.toast'); if (old) old.remove();
+  clearTimeout(toastT);
+  const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role','status');
+  t.innerHTML = `<span>${msg}</span>` + (desfazer ? '<button type="button">Desfazer</button>' : '');
+  if (desfazer) t.querySelector('button').onclick = () => { desfazer(); t.remove(); };
+  $('#screen').appendChild(t);
+  toastT = setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 220); }, desfazer ? 4200 : 3000);
+}
+
+/* ---------- navegação ---------- */
+const PASSO = {painel:0, cartao:1, msgs:1, novo:2, sim:3};
+function vai(tela, opt = {}){
+  if (S.sim && S.sim.rodando) return;
+  if (S.tela === 'painel') S.scrollPainel = $('#view').scrollTop;
+  tiraAviso();
+  if (opt.raiz) S.pilha = []; else if (tela !== S.tela) S.pilha.push(S.tela);
+  S.tela = tela; desenha(opt.volta ? 'v-back' : 'v-in');
+}
+function volta(){ const t = S.pilha.pop() || 'painel'; S.tela = t; desenha('v-back'); }
+
+/* ---------- desenho ---------- */
+function topo(){
+  const top = $('#top');
+  if (S.tela === 'painel' || S.tela === 'sim' || S.tela === 'msgs'){
+    const tam = EMPRESA.length <= 16 ? '' : EMPRESA.length <= 22 ? 'm' : 's';
+    top.innerHTML = `<div class="mark" aria-hidden="true">${esc(iniciais(EMPRESA))}</div>
+      <div class="t"><h1 class="${tam}">${esc(EMPRESA)}</h1><p>${CIDADE ? esc(CIDADE) + ' · ' : ''}Orçamentos</p></div>`;
+  } else {
+    const tit = S.tela === 'novo' ? 'Novo orçamento' : 'Orçamento';
+    top.innerHTML = `<button class="back" type="button" aria-label="Voltar" id="bk">${I.back}</button><div class="t"><h2>${tit}</h2></div>`;
+    $('#bk').onclick = volta;
+  }
+}
+
+function desenha(anim){
+  topo();
+  const v = $('#view');
+  v.classList.remove('v-in','v-back');
+  if (S.tela === 'painel') v.innerHTML = telaPainel();
+  else if (S.tela === 'cartao') v.innerHTML = telaCartao();
+  else if (S.tela === 'novo') v.innerHTML = telaNovo();
+  else if (S.tela === 'sim') v.innerHTML = telaSim();
+  else if (S.tela === 'msgs') v.innerHTML = telaMsgs();
+  liga();
+  if (anim){ void v.offsetWidth; v.classList.add(anim); }
+  v.scrollTop = S.tela === 'painel' ? S.scrollPainel : 0;
+  document.querySelectorAll('.tab').forEach(b => {
+    const alvo = b.dataset.go;
+    b.classList.toggle('on', alvo === S.tela || (alvo === 'painel' && S.tela === 'cartao'));
+    b.disabled = !!(S.sim && S.sim.rodando);
+  });
+  const p = S.sim ? 3 : PASSO[S.tela];
+  document.querySelectorAll('#story button').forEach((b,i) => b.classList.toggle('on', i === p));
+}
+
+function telaPainel(){
+  const ab = abertos();
+  const esfr = S.orc.filter(o => estado(o) === 'esfriando');
+  const fechados = S.orc.filter(o => o.fech != null);
+  const nResp = ab.length;
+  let lista = S.orc.slice();
+  const ordem = {respondeu:0, esfriando:1, novo:2, chamado:3, pausado:4, fechado:5};
+  lista.sort((a,b) => (ordem[estado(a)] - ordem[estado(b)]) || (a.idade - b.idade));
+  if (S.entra != null){ const i = lista.findIndex(o => o.id === S.entra); if (i > 0){ const [x] = lista.splice(i,1); lista.unshift(x); } }
+  if (S.filtro === 'esfriando') lista = lista.filter(o => estado(o) === 'esfriando');
+  if (S.filtro === 'abertos') lista = lista.filter(o => o.fech == null);
+  if (S.filtro === 'fechados') lista = lista.filter(o => o.fech != null);
+  const tFiltro = {esfriando:'Esfriando', abertos:'Abertos', fechados:'Fechados no mês'}[S.filtro];
+  return `<div class="pad">
+    <section class="hero">
+      <div class="eyebrow">Em orçamentos abertos</div>
+      <div class="big"><small>R$</small><b id="tot">${brl(S.ultTotal ?? total())}</b></div>
+      <div class="sub"><strong>${nResp} ${nResp === 1 ? 'cliente' : 'clientes'}</strong> com orçamento na mão</div>
+    </section>
+    <div class="kpis">
+      <button class="kpi ${S.filtro==='abertos'?'on':''}" data-f="abertos" type="button"><b>${ab.length}</b><span>abertos</span></button>
+      <button class="kpi hot ${S.filtro==='esfriando'?'on':''}" data-f="esfriando" type="button"><b>${esfr.length}</b><span><i class="dot" style="background:var(--y)"></i>esfriando</span></button>
+      <button class="kpi ${S.filtro==='fechados'?'on':''}" data-f="fechados" type="button"><b>${fechados.length}</b><span>fechados no mês</span></button>
+    </div>
+    <div class="lh"><h3>${tFiltro ? esc(tFiltro) : 'Orçamentos'}</h3>${S.filtro ? '<button type="button" id="limpa">Ver todos</button>' : ''}</div>
+    <div class="list">${lista.length ? lista.map(cartaoLinha).join('') : '<div class="empty">Nenhum orçamento aqui.</div>'}</div>
+  </div>`;
+}
+function cartaoLinha(o){
+  const e = estado(o), nx = proximo(o);
+  let dir = '';
+  if (nx) dir = `próximo ${em(nx.falta)}`;
+  else if (e === 'esfriando') dir = 'lembretes enviados';
+  else if (e === 'respondeu') dir = 'sua vez de responder';
+  else if (e === 'pausado') dir = 'lembretes pausados';
+  else if (e === 'fechado') dir = `fechado ${ha(o.idade - o.fech)}`;
+  const cls = ['card']; if (e === 'fechado') cls.push('done'); if (S.flash.has(o.id)) cls.push('fx'); if (S.entra === o.id) cls.push('entra');
+  return `<button class="${cls.join(' ')}" data-id="${o.id}" type="button">
+    <span class="n">${esc(o.cliente)}</span><span class="v">R$ ${brl(o.valor)}</span>
+    <span class="a">${esc(o.amb)} · ${ha(o.idade)}</span>
+    <span class="row">${selo(e)}<span class="nx">${dir}</span></span>
+  </button>`;
+}
+
+function linhaTempo(o){
+  const e = estado(o);
+  const itens = [];
+  itens.push({d:0, cls:'ok', ico:I.check, h:'Orçamento enviado', w:dataEm(o.idade) + ' · ' + ha(o.idade),
+    corpo: o.anexo ? `<div class="bub"><span class="tag">Projeto anexado</span>${esc(o.anexo)}</div>` : ''});
+  const corte = Math.min(o.resp ?? Infinity, o.fech ?? Infinity);
+  let marcouProx = false;
+  LEMBRETES.forEach((t, k) => {
+    const tpl = S.msgs['d' + t];
+    const txt = esc(preenche(tpl, o));
+    const nome = k === 2 ? 'Último lembrete · dia 10' : `Lembrete · dia ${t}`;
+    if (t > corte){
+      itens.push({d:t, cls:'off', ico:'', h:nome, w:'Não precisou: o cliente já respondeu', corpo:''});
+    } else if (t <= o.idade){
+      itens.push({d:t, cls:'ok', ico:I.check, h:nome, w:dataEm(o.idade - t) + ' · enviado sozinho', corpo:`<div class="bub">${txt}</div>`});
+    } else if (o.pausa){
+      itens.push({d:t, cls:'fut off', ico:'', h:nome, w:'Pausado', corpo:`<div class="bub">${txt}</div>`});
+    } else if (!marcouProx){
+      marcouProx = true;
+      itens.push({d:t, cls:'prox', ico:'', h:nome, w:'Agendado para ' + dataEm(o.idade - t) + ' · ' + em(t - o.idade), corpo:`<div class="bub">${txt}</div>`});
+    } else {
+      itens.push({d:t, cls:'fut', ico:'', h:nome, w:'Agendado para ' + dataEm(o.idade - t), corpo:`<div class="bub">${txt}</div>`});
+    }
+  });
+  if (o.resp != null) itens.push({d:o.resp + .5, cls:'cli', ico:'', h:primeiro(o.cliente) + ' respondeu', w:dataEm(o.idade - o.resp) + ' · lembretes parados',
+    corpo:`<div class="bub c"><span class="tag">${esc(primeiro(o.cliente))}</span>${esc(o.respTxt || 'Oi! Ainda tenho interesse.')}</div>`});
+  if (o.fech != null) itens.push({d:o.fech + .6, cls:'fim', ico:I.check, h:'Fechado · R$ ' + brl(o.valor), w:dataEm(o.idade - o.fech), corpo:''});
+  itens.sort((a,b) => a.d - b.d);
+  return itens.map(x => `<div class="st ${x.cls}"><div class="pt">${x.ico}</div><div><h4>${x.h}</h4><div class="when">${x.w}</div>${x.corpo}</div></div>`).join('');
+}
+
+function telaCartao(){
+  const o = S.orc.find(x => x.id === S.sel);
+  if (!o) return '<div class="empty">Orçamento não encontrado.</div>';
+  const e = estado(o), nx = proximo(o);
+  let linhaNx = '';
+  if (nx) linhaNx = `Próximo lembrete: <strong>dia ${nx.t}</strong>, ${em(nx.falta)} (${dataEm(o.idade - nx.t)})`;
+  else if (e === 'esfriando') linhaNx = 'Os 3 lembretes já saíram. Vale uma ligação sua.';
+  else if (e === 'respondeu') linhaNx = '<strong>Cliente respondeu.</strong> Os lembretes pararam; a conversa é sua.';
+  else if (e === 'pausado') linhaNx = 'Lembretes pausados por você.';
+  else if (e === 'fechado') linhaNx = '<strong>Fechado.</strong> Nenhum lembrete vai sair.';
+  return `<div class="det">
+    <div class="who">${esc(o.cliente)}</div>
+    <div class="meta">${esc(o.amb)} · ${esc(o.tel)}</div>
+    <div class="vrow"><b>R$ ${brl(o.valor)}</b>${selo(e)}</div>
+    <div class="nxt">${linhaNx}</div>
+    <div class="sec">Linha do tempo</div>
+    <div class="tl">${linhaTempo(o)}</div>
+    <div class="acts">
+      ${e === 'fechado'
+        ? `<button class="btn sec2" type="button" data-a="reabre">Reabrir orçamento</button>`
+        : `<button class="btn pri" type="button" data-a="fecha">${I.checkB}Marcar como fechado</button>`}
+      ${e === 'fechado' || e === 'respondeu' ? '' : (o.pausa
+        ? `<button class="btn sec2" type="button" data-a="retoma">${I.play}Retomar lembretes</button>`
+        : `<button class="btn sec2" type="button" data-a="pausa">${I.pause}Pausar lembretes</button>`)}
+      <a class="btn sec2" href="#" data-a="wa">${I.chat}Abrir conversa no WhatsApp</a>
+      <button class="btn lnk" type="button" data-a="exclui">Excluir orçamento</button>
+    </div>
+  </div>`;
+}
+
+function telaNovo(){
+  const f = S.form || (S.form = {cliente:'', tel:'', amb:'Cozinha planejada', valor:'', anexo:null});
+  return `<form class="form" id="fNovo" novalidate autocomplete="off">
+    <div class="fl" id="flC"><label for="iC">Cliente</label><input class="in" id="iC" placeholder="Nome do cliente" value="${esc(f.cliente)}" maxlength="40"><div class="e">Coloque o nome do cliente.</div></div>
+    <div class="fl" id="flT"><label for="iT">WhatsApp do cliente</label><input class="in" id="iT" inputmode="tel" placeholder="(48) 9 0000-0000" value="${esc(f.tel)}" maxlength="16"><div class="e">Coloque o telefone com DDD.</div></div>
+    <div class="fl"><div class="lb">Ambiente</div><div class="chips" role="radiogroup" id="chips">
+      ${Object.keys(AMB).map(a => `<button type="button" class="chip" role="radio" aria-checked="${a===f.amb}" data-amb="${esc(a)}">${esc(a)}</button>`).join('')}
+    </div></div>
+    <div class="fl" id="flV"><label for="iV">Valor do orçamento</label><input class="in money" id="iV" inputmode="numeric" placeholder="R$ 0" value="${esc(f.valor)}" maxlength="14"><div class="e">Coloque o valor.</div></div>
+    <div class="fl"><div class="lb">Projeto <span class="opt">(foto ou PDF, opcional)</span></div>
+      <label class="file">${I.clip}<span id="fN">${f.anexo ? esc(f.anexo) : 'Anexar o projeto que foi enviado'}</span><input type="file" id="iF" accept="image/*,.pdf"></label></div>
+    <div class="note">${I.clock}<span>Ao salvar, os lembretes ficam agendados para o dia 2, 5 e 10.</span></div>
+    <button class="btn pri" type="submit">Salvar orçamento</button>
+  </form>`;
+}
+
+function telaSim(){
+  return `<div class="simi">
+    <div class="eyebrow">Simulação</div>
+    <h3 style="margin-top:8px">Um mês em 20 segundos</h3>
+    <p>O relógio anda 30 dias com os orçamentos de exemplo. Veja os lembretes saírem sozinhos e os cartões mudarem.</p>
+    <div class="steps3">
+      <div><b>01</b><span>Os lembretes saem no dia 2, 5 e 10 de cada orçamento.</span></div>
+      <div><b>02</b><span>Quando o cliente responde, os lembretes dele param.</span></div>
+      <div><b>03</b><span>No fim, você vê quanto voltou para a conversa.</span></div>
+    </div>
+    <button class="btn pri" type="button" id="rodar" style="width:100%">${I.play}Rodar a simulação</button>
+    <p style="font-size:15px">As respostas dos clientes nesta simulação são encenadas, só para mostrar o funcionamento.</p>
+  </div>`;
+}
+
+function telaMsgs(){
+  const ex = {cliente:'Carla Mendonça', amb:'Cozinha planejada'};
+  const bloco = (k, tit, quando) => `<div class="mg">
+    <div class="lb">${tit}<span>${quando}</span></div>
+    <textarea class="in" data-k="${k}" maxlength="400" aria-label="${tit}">${esc(S.msgs[k])}</textarea>
+    <div class="prev"><div class="bub" data-p="${k}"><span class="tag">Como chega para a Carla</span><span class="pt-txt">${esc(preenche(S.msgs[k], ex))}</span></div></div>
+  </div>`;
+  return `<div class="msgs">
+    <p>Os lembretes saem com o texto da ${esc(EMPRESA)}. Escreva do seu jeito.</p>
+    <div class="keys"><span><code>{nome}</code> primeiro nome</span><span><code>{ambiente}</code> da cozinha…</span><span><code>{empresa}</code> sua marcenaria</span></div>
+    ${bloco('d2','Primeiro lembrete','dia 2')}
+    ${bloco('d5','Segundo lembrete','dia 5')}
+    ${bloco('d10','Último: posso encerrar?','dia 10')}
+    <div class="acts" style="margin-top:20px">
+      <button class="btn pri" type="button" id="salvaM">Salvar mensagens</button>
+      <button class="btn lnk" type="button" id="padraoM">Voltar ao texto original</button>
+    </div>
+  </div>`;
+}
+
+/* ---------- eventos ---------- */
+function liga(){
+  const v = $('#view');
+  if (S.tela === 'painel'){
+    v.querySelectorAll('.card').forEach(c => c.onclick = () => { if (S.sim && S.sim.rodando) return; S.sel = +c.dataset.id; S.entra = null; vai('cartao'); });
+    v.querySelectorAll('.kpi').forEach(k => k.onclick = () => { if (S.sim && S.sim.rodando) return; S.filtro = S.filtro === k.dataset.f ? null : k.dataset.f; S.entra = null; S.scrollPainel = 0; desenha(); });
+    const l = $('#limpa'); if (l) l.onclick = () => { S.filtro = null; desenha(); };
+    contaTotal();
+  }
+  if (S.tela === 'cartao') v.querySelectorAll('[data-a]').forEach(b => b.onclick = ev => { ev.preventDefault(); acao(b.dataset.a); });
+  if (S.tela === 'novo') ligaForm();
+  if (S.tela === 'sim') $('#rodar').onclick = rodaSim;
+  if (S.tela === 'msgs') ligaMsgs();
+}
+
+let numAnim;
+function contaTotal(){
+  const el = $('#tot'); if (!el) return;
+  const alvo = total(), de = S.ultTotal ?? alvo;
+  S.ultTotal = alvo;
+  cancelAnimationFrame(numAnim);
+  if (de === alvo || matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent = brl(alvo); return; }
+  const t0 = performance.now(), dur = 600;
+  const passo = t => { const k = Math.min(1, (t - t0)/dur), e = 1 - Math.pow(1-k, 3); el.textContent = brl(Math.round(de + (alvo-de)*e)); if (k < 1) numAnim = requestAnimationFrame(passo); };
+  numAnim = requestAnimationFrame(passo);
+}
+
+function acao(a){
+  const o = S.orc.find(x => x.id === S.sel); if (!o) return;
+  const antes = {...o};
+  const restaura = () => { Object.assign(o, antes); desenha(); };
+  if (a === 'fecha'){ if (o.resp == null) o.resp = o.idade; o.fech = o.idade; desenha(); aviso(`Fechado: R$ ${brl(o.valor)}. Lembretes encerrados.`, restaura); }
+  if (a === 'reabre'){ o.fech = null; desenha(); aviso('Orçamento reaberto.', restaura); }
+  if (a === 'pausa'){ o.pausa = true; desenha(); aviso(`Lembretes de ${esc(primeiro(o.cliente))} pausados.`, restaura); }
+  if (a === 'retoma'){ o.pausa = false; desenha(); aviso('Lembretes retomados.', restaura); }
+  if (a === 'wa'){ aviso(`Na versão real abre a conversa com ${esc(primeiro(o.cliente))} no WhatsApp.`); }
+  if (a === 'exclui'){
+    const i = S.orc.indexOf(o); S.orc.splice(i,1);
+    S.tela = 'painel'; S.pilha = []; desenha('v-back');
+    aviso(`Orçamento de ${esc(primeiro(o.cliente))} excluído.`, () => { S.orc.splice(i,0,o); desenha(); });
+  }
+}
+
+function mascaraTel(v){
+  const d = v.replace(/\D/g,'').slice(0,11);
+  if (d.length <= 2) return d.length ? '(' + d : '';
+  if (d.length <= 7) return `(${d.slice(0,2)}) ${d.slice(2)}`;
+  return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+}
+function mascaraValor(v){ const d = v.replace(/\D/g,'').replace(/^0+/,'').slice(0,7); return d ? 'R$ ' + brl(+d) : ''; }
+
+function ligaForm(){
+  const f = S.form;
+  const iC = $('#iC'), iT = $('#iT'), iV = $('#iV'), iF = $('#iF');
+  iC.oninput = () => { f.cliente = iC.value; $('#flC').classList.remove('err'); };
+  iT.oninput = () => { iT.value = mascaraTel(iT.value); f.tel = iT.value; $('#flT').classList.remove('err'); };
+  iV.oninput = () => { iV.value = mascaraValor(iV.value); f.valor = iV.value; $('#flV').classList.remove('err'); };
+  iF.onchange = () => { const n = iF.files && iF.files[0] ? iF.files[0].name : null; f.anexo = n; $('#fN').textContent = n || 'Anexar o projeto que foi enviado'; };
+  document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+    f.amb = c.dataset.amb; document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-checked', String(x === c)));
+  });
+  $('#fNovo').onsubmit = ev => {
+    ev.preventDefault();
+    const nome = limpa(f.cliente), dig = f.tel.replace(/\D/g,''), val = +f.valor.replace(/\D/g,'');
+    let ok = true;
+    if (nome.length < 2){ $('#flC').classList.add('err'); ok = false; }
+    if (dig.length < 10){ $('#flT').classList.add('err'); ok = false; }
+    if (!val){ $('#flV').classList.add('err'); ok = false; }
+    if (!ok){ const e1 = document.querySelector('.fl.err .in'); if (e1) e1.focus(); return; }
+    const o = {id:++proxId, cliente:nome, tel:mascaraTel(dig), amb:f.amb, valor:val, idade:0, resp:null, fech:null, pausa:false, anexo:f.anexo, respTxt:''};
+    S.orc.unshift(o); S.form = null; S.filtro = null; S.entra = o.id; S.scrollPainel = 0;
+    S.tela = 'painel'; S.pilha = [];
+    desenha('v-back');
+    aviso(`Lembretes agendados: dia 2 (${dataEm(-2)}), dia 5 (${dataEm(-5)}) e dia 10 (${dataEm(-10)}).`);
+    setTimeout(() => { if (S.entra === o.id) S.entra = null; }, 2200);
+  };
+}
+
+function ligaMsgs(){
+  const ex = {cliente:'Carla Mendonça', amb:'Cozinha planejada'};
+  const cresce = t => { t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; };
+  document.querySelectorAll('textarea[data-k]').forEach(t => { cresce(t); t.addEventListener('input', () => cresce(t)); });
+  document.querySelectorAll('textarea[data-k]').forEach(t => t.oninput = () => {
+    document.querySelector(`[data-p="${t.dataset.k}"] .pt-txt`).textContent = preenche(t.value, ex);
+  });
+  $('#salvaM').onclick = () => {
+    const novo = {};
+    document.querySelectorAll('textarea[data-k]').forEach(t => novo[t.dataset.k] = t.value.trim() || MSG_PADRAO[t.dataset.k]);
+    S.msgs = novo;
+    let gravou = false;
+    try { localStorage.setItem(CHAVE, JSON.stringify(novo)); gravou = true; } catch(e) {}
+    aviso(gravou ? 'Mensagens salvas neste aparelho.' : 'Mensagens valem nesta visita (o navegador não deixou gravar).');
+  };
+  $('#padraoM').onclick = () => {
+    const antes = {...S.msgs};
+    S.msgs = {...MSG_PADRAO};
+    try { localStorage.removeItem(CHAVE); } catch(e) {}
+    desenha();
+    aviso('Texto original de volta.', () => { S.msgs = antes; try { localStorage.setItem(CHAVE, JSON.stringify(antes)); } catch(e) {} desenha(); });
+  };
+}
+
+/* ---------- simulação: um mês em 20 segundos ----------
+   Roda só com os orçamentos de exemplo. As respostas são encenadas. */
+const RESPOSTAS = {
+  4:'Oi! Desculpa a demora, ainda quero sim. Consegue passar aqui sábado?',
+  3:'Oi! Vou fechar. Só queria ver a forma de pagamento.'
+};
+function rodaSim(){
+  tiraAviso();
+  const base = S.orc.map(o => ({...o}));
+  const elegiveis = id => { const o = S.orc.find(x => x.id === id); return o && o.fech == null && o.resp == null; };
+  const pool = [4, 3, 5, 2, 7, 1, 8, ...S.orc.map(o => o.id)];
+  const escolhidos = [];
+  pool.forEach(id => { if (escolhidos.length < 2 && !escolhidos.includes(id) && elegiveis(id)) escolhidos.push(id); });
+  const roteiro = [];
+  if (escolhidos[0] != null) roteiro.push({dia:4, tipo:'resp', id:escolhidos[0]});
+  if (escolhidos[1] != null){ roteiro.push({dia:8, tipo:'resp', id:escolhidos[1]}); roteiro.push({dia:17, tipo:'fech', id:escolhidos[1]}); }
+  S.sim = {rodando:true, base, idade0:new Map(S.orc.map(o => [o.id, o.idade])), dia:0, roteiro, msgs:0, resp:[], fech:[], t0:performance.now(), raf:0};
+  S.filtro = null; S.entra = null; S.scrollPainel = 0;
+  S.tela = 'painel'; S.pilha = [];
+  $('#simslot').innerHTML = `<div class="simbar" role="status"><div class="r1"><span class="day">Simulação · <em id="sDia">Dia 0</em> de 30</span><button class="stop" type="button" id="sStop">Parar</button></div><div class="prog"><i id="sProg"></i></div><div class="r2"><div class="ev" id="sEv">O relógio começou a andar.</div><div class="cnt"><b id="sCnt">0</b>mensagens<br>enviadas</div></div></div>`;
+  $('#sStop').onclick = () => encerraSim(true);
+  desenha('v-in');
+  const DUR = 20000;
+  const tick = t => {
+    if (!S.sim || !S.sim.rodando) return;
+    const k = Math.min(1, (t - S.sim.t0) / DUR);
+    $('#sProg').style.width = (k*100).toFixed(1) + '%';
+    const dia = Math.floor(k * 30);
+    while (S.sim.dia < dia){ S.sim.dia++; avancaDia(S.sim.dia); }
+    if (k >= 1){ fimSim(); return; }
+    S.sim.raf = requestAnimationFrame(tick);
+  };
+  S.sim.raf = requestAnimationFrame(tick);
+}
+function avancaDia(d){
+  const sim = S.sim; const eventos = []; S.flash = new Set();
+  S.orc.forEach(o => {
+    const a0 = sim.idade0.has(o.id) ? sim.idade0.get(o.id) : o.idade;
+    const antes = o.idade; o.idade = a0 + d;
+    if (o.fech != null || o.resp != null || o.pausa) return;
+    LEMBRETES.forEach(t => { if (antes < t && o.idade >= t){ sim.msgs++; S.flash.add(o.id); eventos.push({lem:true, nome:primeiro(o.cliente), t}); } });
+  });
+  sim.roteiro.filter(r => r.dia === d).forEach(r => {
+    const o = S.orc.find(x => x.id === r.id); if (!o) return;
+    if (r.tipo === 'resp'){ o.resp = o.idade; o.respTxt = RESPOSTAS[o.id] || 'Oi! Ainda tenho interesse. Me liga amanhã?'; sim.resp.push(o); S.flash.add(o.id); eventos.unshift({txt:`<strong>${esc(primeiro(o.cliente))} respondeu.</strong> Os lembretes dele${/a$/i.test(primeiro(o.cliente)) ? 'a' : ''} pararam.`}); }
+    if (r.tipo === 'fech'){ o.fech = o.idade; sim.fech.push(o); S.flash.add(o.id); eventos.unshift({txt:`<strong>${esc(primeiro(o.cliente))} fechou:</strong> R$ ${brl(o.valor)}.`}); }
+  });
+  $('#sDia').textContent = 'Dia ' + d;
+  $('#sCnt').textContent = sim.msgs;
+  if (eventos.length){
+    const top = eventos[0]; let html;
+    if (top.txt) html = top.txt;
+    else { const outros = eventos.length - 1; html = `Lembrete do dia ${top.t} saiu para <strong>${esc(top.nome)}</strong>${outros ? ` e mais ${outros}` : ''}.`; }
+    const ev = $('#sEv'); ev.innerHTML = `<span class="mono">Dia ${d}</span> · ${html}`; ev.classList.remove('new'); void ev.offsetWidth; ev.classList.add('new');
+  }
+  const v = $('#view'); const st = v.scrollTop; v.innerHTML = telaPainel(); liga(); v.scrollTop = st;
+}
+function fimSim(){
+  const sim = S.sim; sim.rodando = false;
+  $('#sProg').style.width = '100%';
+  S.flash = new Set();
+  desenha();
+  const voltou = sim.resp.reduce((s,o) => s + o.valor, 0);
+  const bg = document.createElement('div'); bg.className = 'sheet-bg';
+  bg.innerHTML = `<div class="sheet" role="dialog" aria-label="Resultado da simulação"><div class="grab"></div>
+    <div class="eyebrow">Resultado da simulação · 30 dias</div>
+    <div class="res">R$ ${brl(voltou)}</div>
+    <h3>voltaram para a conversa</h3>
+    <ul>
+      <li><span>Mensagens que saíram sozinhas</span><span>${sim.msgs}</span></li>
+      ${sim.resp.map(o => `<li><span>${esc(o.cliente)} respondeu${sim.fech.includes(o) ? ' e fechou' : ''}</span><span>R$ ${brl(o.valor)}</span></li>`).join('')}
+    </ul>
+    <p class="fine">Simulação com os dados de exemplo. As respostas foram encenadas para mostrar o funcionamento; na vida real, quem responde depende de cada cliente.</p>
+    <div class="acts"><button class="btn pri" type="button" id="rVer">Ver o painel</button><button class="btn sec2" type="button" id="rRe">Recomeçar a demonstração</button></div>
+  </div>`;
+  $('#screen').appendChild(bg);
+  $('#rVer').onclick = () => { bg.remove(); $('#simslot').innerHTML = ''; S.sim = null; desenha(); };
+  $('#rRe').onclick = () => { bg.remove(); encerraSim(true); };
+}
+function encerraSim(restaurar){
+  if (!S.sim) return;
+  cancelAnimationFrame(S.sim.raf);
+  if (restaurar){ S.orc = S.sim.base; S.ultTotal = null; }
+  S.sim = null; S.flash = new Set();
+  $('#simslot').innerHTML = '';
+  S.tela = 'painel'; S.pilha = []; desenha('v-in');
+}
+
+/* ---------- abas, lateral e início ---------- */
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => b.dataset.go === 'novo' ? (S.tela !== 'novo' && vai('novo')) : vai(b.dataset.go, {raiz:true}));
+document.querySelectorAll('#story button').forEach(b => b.onclick = () => {
+  if (S.sim && S.sim.rodando) return;
+  const g = b.dataset.go;
+  if (g === 'cartao'){ const o = S.orc.find(x => estado(x) === 'esfriando') || S.orc[0]; if (!o) return; S.sel = o.id; S.pilha = ['painel']; S.tela = 'cartao'; desenha('v-in'); return; }
+  if (g === 'novo'){ S.pilha = ['painel']; S.tela = 'novo'; desenha('v-in'); return; }
+  vai(g, {raiz:true});
+});
+$('#sEmp').textContent = EMPRESA;
+function escala(){
+  const h = window.innerHeight, w = window.innerWidth;
+  const s = Math.min(1, (h - 40) / 868, (w * .36) / 414);
+  document.documentElement.style.setProperty('--s', Math.max(.6, s).toFixed(4));
+}
+function relogio(){ const d = new Date(); $('#clock').textContent = d.getHours() + ':' + String(d.getMinutes()).padStart(2,'0'); }
+window.addEventListener('resize', escala);
+escala(); relogio(); setInterval(relogio, 30000);
+desenha();
+</script>
+</body>
+</html>

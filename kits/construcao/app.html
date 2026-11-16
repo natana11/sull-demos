@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<title>Lista vira orçamento · demo</title>
+<meta property="og:title" content="A lista do cliente vira orçamento em 2 minutos">
+<meta property="og:description" content="Demonstração clicável para loja de material de construção. Dados e preços de exemplo. Sull Produções.">
+<link rel="icon" href="assets/logo-sull.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<!--
+  DEMONSTRAÇÃO — Sull Produções, kit de nicho "construção".
+  Todos os clientes, conversas, produtos e PREÇOS deste arquivo são INVENTADOS para demonstração.
+  Na versão real a tabela vem da planilha ou do sistema (ERP) da própria loja.
+  Nome da loja: ?empresa=Nome%20da%20Loja  (opcional &cidade=Cidade)
+-->
+<style>
+:root{
+  --bg:#0A0A0A; --surf:#161616; --surf2:#1D1D1D; --line:#242424; --line2:#2E2E2E;
+  --tx:#FFFFFF; --tx2:#9A9A9A; --acc:#F4A800; --on:#0A0A0A;
+  --fT:'Oswald',Impact,sans-serif; --fB:'Inter',system-ui,-apple-system,sans-serif; --fM:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--tx); font:400 16px/1.45 var(--fB);
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+svg{display:block}
+.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.mono{font-family:var(--fM)}
+.ico.flip{transform:scaleX(-1)}
+
+/* ---------- palco (computador) ---------- */
+.stage{position:relative;height:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:56px;padding:16px 32px}
+.stage::before{content:"";position:fixed;inset:0;pointer-events:none;
+  background:
+   radial-gradient(900px 520px at 50% -10%, rgba(244,168,0,.10), transparent 60%),
+   radial-gradient(700px 600px at 85% 110%, rgba(255,255,255,.035), transparent 60%),
+   linear-gradient(180deg,#0d0d0d 0%,#080808 100%)}
+.stage::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.side{position:relative;z-index:1;display:none}
+.side-l{justify-self:end;max-width:360px}
+.side-r{justify-self:start;max-width:280px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--tx2);font:500 15px var(--fB);letter-spacing:.02em;margin-bottom:28px}
+.brand img{width:34px;height:34px}
+.side h1{font:700 38px/1.08 var(--fT);text-transform:uppercase;letter-spacing:.005em;margin-bottom:10px}
+.side h1 em{font-style:normal;color:var(--acc)}
+.para{color:var(--tx2);font-size:16px;margin-bottom:30px}
+.para b{color:var(--tx);font-weight:500}
+.steps{list-style:none;display:grid;gap:6px}
+.steps li{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:12px 14px 12px 10px;border-left:2px solid var(--line);color:#6f6f6f;font-size:16px;line-height:1.4;transition:color .25s,border-color .25s,background .25s}
+.steps li .n{font:500 15px var(--fM);padding-top:1px}
+.steps li.on{color:var(--tx);border-left-color:var(--acc);background:linear-gradient(90deg,rgba(244,168,0,.07),transparent 80%)}
+.steps li.on .n{color:var(--acc)}
+.side-note{margin-top:26px;color:#7a7a7a;font-size:15px;transition:color .25s}
+.side-note.on{color:var(--tx)}
+.side-r h2{font:700 22px/1.15 var(--fT);text-transform:uppercase;margin-bottom:10px}
+.side-r p{color:var(--tx2);font-size:16px;margin-bottom:18px}
+.side-r ol{list-style:none;display:grid;gap:10px;margin-bottom:22px}
+.side-r ol li{display:flex;gap:10px;font-size:16px;color:var(--tx)}
+.side-r ol li span{font:500 15px var(--fM);color:var(--tx2);min-width:22px}
+.wa{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border:1px solid var(--line2);border-radius:12px;color:var(--tx);text-decoration:none;font-weight:500;background:rgba(255,255,255,.02);transition:border-color .2s}
+.wa:hover{border-color:var(--tx2)}
+
+/* ---------- aparelho ---------- */
+.device{position:relative;z-index:1;width:414px;height:min(868px,calc(100vh - 32px));min-height:600px;padding:12px;border-radius:58px;
+  background:linear-gradient(145deg,#2a2a2a,#0c0c0c 40%,#151515);
+  box-shadow:0 0 0 1px #333,0 40px 90px rgba(0,0,0,.75),0 0 120px rgba(244,168,0,.06),inset 0 0 0 2px #050505}
+.app{position:relative;height:100%;width:100%;border-radius:46px;overflow:hidden;overflow:clip;display:flex;flex-direction:column;
+  background:radial-gradient(420px 260px at 50% -40px,rgba(244,168,0,.07),transparent 70%),linear-gradient(180deg,#0e0e0e,#0a0a0a 40%)}
+.sbar{flex:none;height:46px;display:flex;align-items:center;justify-content:space-between;padding:4px 30px 0 34px;font:600 16px var(--fB);position:relative}
+.sbar::after{content:"";position:absolute;left:50%;top:10px;width:116px;height:32px;margin-left:-58px;border-radius:20px;background:#000}
+.sbar .r{display:flex;gap:6px;align-items:center}
+
+/* celular de verdade: app em tela cheia */
+@media (max-width:599px){
+  .stage{display:block;padding:0}
+  .device{width:100%;height:100%;min-height:0;padding:0;border-radius:0;background:none;box-shadow:none}
+  .app{border-radius:0;height:100dvh}
+  .sbar{display:none}
+}
+@media (min-width:600px){ body{overflow:auto} }
+@media (min-width:1000px){ .side-l{display:block} }
+@media (min-width:1280px){ .side-r{display:block} }
+@media (min-width:600px) and (max-width:999px){ .stage{grid-template-columns:1fr} .device{justify-self:center} }
+
+/* ---------- barra de demonstração e cabeçalho ---------- */
+.demo{flex:none;display:flex;align-items:center;justify-content:center;gap:8px;height:30px;font:500 14px var(--fB);color:#8c8c8c;background:rgba(255,255,255,.025);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.demo i{width:6px;height:6px;border-radius:50%;background:#8c8c8c;display:block}
+.hdr{flex:none;display:flex;align-items:center;gap:12px;min-height:64px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.mark{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font:700 17px var(--fT);letter-spacing:.04em;color:var(--tx);
+  background:linear-gradient(160deg,#2b2b2b,#171717);box-shadow:inset 0 0 0 1px #333}
+.hdr .t{min-width:0;flex:1}
+.hdr .store{font:700 19px/1.15 var(--fT);text-transform:uppercase;letter-spacing:.01em;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hdr .sub{font-size:15px;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.back{flex:none;width:44px;height:44px;margin-left:-8px;border-radius:12px;display:grid;place-items:center}
+.back:active{background:var(--surf)}
+.hdr .who{font:600 17px/1.2 var(--fB)}
+.hdr .who + .sub{margin-top:1px}
+
+/* ---------- conteúdo ---------- */
+.main{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior:contain}
+.main::-webkit-scrollbar{width:0}
+.scr{animation:enter .26s var(--ease) both}
+@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pad{padding:16px}
+.lbl{font:500 15px var(--fB);color:var(--tx2);margin:22px 0 10px}
+.lbl:first-child{margin-top:4px}
+.h2{font:700 24px/1.1 var(--fT);text-transform:uppercase;letter-spacing:.01em}
+
+/* caixa de entrada */
+.alert{display:flex;align-items:center;gap:12px;margin:14px 16px 6px;padding:12px 14px;border-radius:14px;background:var(--surf);border:1px solid var(--line)}
+.alert .big{font:700 30px/1 var(--fT);color:var(--tx)}
+.alert .txt{font-size:15px;color:var(--tx2);line-height:1.35}
+.alert .txt b{color:var(--tx);font-weight:500}
+.conv{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);min-height:80px;transition:background .15s}
+.conv:active{background:var(--surf)}
+.av{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font:600 17px var(--fB);color:#cfcfcf;background:#222;box-shadow:inset 0 0 0 1px #2e2e2e}
+.conv .nm{font:600 17px/1.25 var(--fB);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.conv .pv{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.conv .pv .ico{width:18px;height:18px}
+.conv .pv span{overflow:hidden;text-overflow:ellipsis}
+.wait{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.wait .w{font:500 15px var(--fM);color:var(--tx);display:flex;align-items:center;gap:5px}
+.wait .w .ico{width:16px;height:16px;color:var(--tx2)}
+.wait .k{font-size:15px;color:var(--tx2)}
+.conv.top .wait .w{color:var(--acc)}
+.conv.top .wait .w .ico{color:var(--acc)}
+.conv.done{opacity:.62}
+.tag{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 9px;border-radius:8px;font:500 15px var(--fB);background:#222;color:#d6d6d6;white-space:nowrap}
+.tag.ok{background:rgba(255,255,255,.07);color:#e9e9e9}
+.tag.y{background:var(--acc);color:var(--on)}
+
+/* conversa */
+.chat{padding:16px 14px 24px;display:flex;flex-direction:column;gap:10px;min-height:100%;
+  background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.02),transparent 40%)}
+.day{align-self:center;font-size:15px;color:var(--tx2);background:var(--surf);padding:4px 12px;border-radius:10px;margin-bottom:4px}
+.bub{max-width:88%;background:var(--surf2);border:1px solid #262626;border-radius:6px 18px 18px 18px;padding:8px;align-self:flex-start}
+.bub .msg{padding:4px 6px 0;font-size:16px}
+.bub .tm{font:400 15px var(--fM);color:var(--tx2);text-align:right;padding:2px 4px 0}
+.bub.out{align-self:flex-end;border-radius:18px 6px 18px 18px;background:#1f1f1f;border-color:#2c2c2c}
+.audio{display:flex;align-items:center;gap:10px;padding:6px 6px 8px}
+.audio .pl{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#2a2a2a;flex:none}
+.wave{flex:1;display:flex;align-items:center;gap:2px;height:30px}
+.wave i{display:block;width:3px;border-radius:2px;background:#6a6a6a}
+.transc{border-top:1px solid #2a2a2a;margin-top:2px;padding:10px 6px 2px;font-size:16px;color:#dcdcdc}
+.transc .k{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--tx2);margin-bottom:4px}
+.transc .k .ico{width:16px;height:16px}
+
+/* papel manuscrito (desenhado em CSS, não é foto) */
+.paper{--fs:25px;--lh:34px;position:relative;border-radius:3px;color:#1d2b4f;font:600 var(--fs)/var(--lh) 'Caveat',cursive;
+  padding:calc(var(--lh)*.5) 16px calc(var(--lh)*.5) 46px;
+  background-color:#efe9d8;
+  background-image:
+    linear-gradient(90deg,transparent 35px,rgba(80,100,140,.35) 35px,rgba(80,100,140,.35) 36px,transparent 36px),
+    repeating-linear-gradient(180deg,transparent 0,transparent calc(var(--lh) - 1px),rgba(70,105,170,.30) calc(var(--lh) - 1px),rgba(70,105,170,.30) var(--lh));
+  background-position:0 0,0 calc(var(--lh)*.5 + 6px);
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 14px 30px rgba(0,0,0,.45)}
+.paper::after{content:"";position:absolute;inset:0;border-radius:3px;pointer-events:none;
+  background:radial-gradient(120% 90% at 30% 15%,rgba(255,255,255,.18),transparent 55%),linear-gradient(180deg,transparent 60%,rgba(60,40,10,.10))}
+.paper .ttl{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.paper .ln{display:block;white-space:nowrap;position:relative;z-index:1}
+.paper .ln span,.src-t .seg{background-image:linear-gradient(180deg,transparent 52%,rgba(244,168,0,.62) 52%,rgba(244,168,0,.62) 88%,transparent 88%);
+  background-repeat:no-repeat;background-size:0% 100%;transition:background-size .24s var(--ease)}
+.paper .ln.lit span,.src-t .seg.lit{background-size:100% 100%}
+.paper.past .ln span,.src-t.past .seg{background-image:linear-gradient(180deg,transparent 52%,rgba(244,168,0,.22) 52%,rgba(244,168,0,.22) 88%,transparent 88%)}
+.photo{border-radius:12px;overflow:hidden;padding:10px;background:#2a2620}
+.scan{position:absolute;left:0;right:0;height:46px;top:-46px;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(244,168,0,.20) 70%,rgba(244,168,0,.55) 100%);border-bottom:1px solid rgba(244,168,0,.9)}
+.reading .scan{animation:scan var(--scan,2.2s) linear forwards}
+@keyframes scan{to{top:100%}}
+
+/* leitura */
+.src{position:sticky;top:0;z-index:3;padding:12px 16px 8px;background:#0c0c0c;margin-bottom:12px}
+.src::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;background:linear-gradient(180deg,#0c0c0c,rgba(12,12,12,0));pointer-events:none}
+.src .paper{--fs:21px;--lh:27px}
+.src-t{position:relative;background:var(--surf2);border:1px solid #262626;border-radius:14px;padding:12px 14px;font-size:16px;color:#dcdcdc;overflow:hidden}
+.src-t .k{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--tx2);margin-bottom:6px}
+.src-t .k .ico{width:16px;height:16px}
+.srcbar{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:48px;padding:0 14px;border-radius:12px;background:var(--surf);border:1px solid var(--line);font-size:15px;color:var(--tx2)}
+.srcbar b{color:var(--tx);font-weight:500}
+.status{display:block;padding:10px 2px 2px;font-size:15px;color:var(--tx2)}
+.status .dots{margin-right:8px;vertical-align:middle}
+.status b{color:var(--tx);font-weight:500}
+.dots{display:inline-flex;gap:4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--acc);display:block;animation:blink 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.items{padding:0 16px 24px;display:grid;gap:8px}
+.it{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:start;padding:12px;border-radius:14px;background:var(--surf);border:1px solid var(--line);animation:pop .28s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.it-q{font-family:var(--fM);line-height:1.15}
+.it-q b{display:block;font-weight:500;font-size:19px}
+.it-q span{font-size:15px;color:var(--tx2)}
+.it-n{font:500 16px/1.3 var(--fB)}
+.it-m{font-size:15px;color:var(--tx2);margin-top:3px}
+.it-m .mono{font-size:15px}
+.raw{font:600 19px/1 'Caveat',cursive;color:#b9b1a0}
+.raw.t{font:italic 400 15px var(--fB);color:#8f8f8f}
+.it-s{font:500 16px var(--fM);text-align:right;white-space:nowrap;padding-top:1px}
+.it .chosen{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:15px;color:#cfcfcf}
+.it .chosen .ico{width:16px;height:16px}
+.it.duv{border-color:rgba(244,168,0,.75);background:linear-gradient(180deg,rgba(244,168,0,.10),rgba(244,168,0,.04));grid-template-columns:58px 1fr}
+.it.duv .ask{display:flex;align-items:center;gap:6px;font:600 16px/1.3 var(--fB);color:var(--acc)}
+.it.duv .ask .ico{width:18px;height:18px}
+.it .note{font-size:15px;color:#cfc3a6;margin-top:4px}
+.opts{grid-column:1 / -1;display:grid;gap:8px;margin-top:2px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:52px;padding:8px 12px;border-radius:12px;text-align:left;background:#121212;border:1px solid #3a3320;font-size:16px;transition:border-color .15s,background .15s}
+.opt:active{background:#1b1708}
+.opt .p{font:500 15px var(--fM);color:var(--tx2);white-space:nowrap}
+.it.sem{border-style:dashed;border-color:#3a3a3a;grid-template-columns:58px 1fr}
+.it.sem .ask{display:flex;align-items:center;gap:6px;font:600 16px var(--fB);color:#e6e6e6}
+.it.sem .ask .ico{width:18px;height:18px}
+.strike{text-decoration:line-through;color:var(--tx2)}
+.sug{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sug .s-t{grid-column:1 / -1;font-size:15px;color:var(--tx2)}
+.sug .s-t b{color:var(--tx);font-weight:500}
+.btn2{min-height:48px;padding:0 12px;border-radius:12px;border:1px solid var(--line2);background:#121212;font:500 16px var(--fB)}
+.btn2:active{background:var(--surf2)}
+.btn2.solid{background:#efefef;color:#0a0a0a;border-color:#efefef}
+
+/* conferência */
+.rv{padding:12px;border-radius:14px;background:var(--surf);border:1px solid var(--line);display:grid;gap:10px}
+.rv + .rv{margin-top:8px}
+.rv-top{display:flex;align-items:flex-start;gap:8px}
+.rv-n{flex:1;display:flex;align-items:flex-start;gap:8px;text-align:left;min-height:44px;padding:2px 0;font:500 16px/1.3 var(--fB)}
+.rv-n .ico{width:18px;height:18px;color:var(--tx2);margin-top:2px}
+.rv-n small{display:block;font-size:15px;color:var(--tx2);font-weight:400;margin-top:2px}
+.ib{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--tx2)}
+.ib:active{background:var(--surf2)}
+.rv-bot{display:flex;align-items:center;gap:10px}
+.step{display:flex;align-items:center;border:1px solid var(--line2);border-radius:12px;overflow:hidden;flex:none}
+.step button{width:44px;height:44px;display:grid;place-items:center}
+.step button:active{background:var(--surf2)}
+.step input{width:62px;height:44px;border:0;border-left:1px solid var(--line2);border-right:1px solid var(--line2);background:#101010;text-align:center;font:500 17px var(--fM);-moz-appearance:textfield}
+.step input::-webkit-outer-spin-button,.step input::-webkit-inner-spin-button{-webkit-appearance:none}
+.step input:focus{outline:2px solid var(--acc);outline-offset:-2px}
+.rv-u{font-size:15px;color:var(--tx2);line-height:1.25;min-width:0}
+.rv-s{margin-left:auto;font:500 16px var(--fM);white-space:nowrap}
+.add{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;margin-top:10px;border-radius:14px;border:1px dashed #3a3a3a;color:#dcdcdc;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 14px;border-radius:12px;border:1px solid var(--line2);background:#121212;font:500 16px var(--fB);display:inline-flex;align-items:center;gap:6px;transition:background .15s,border-color .15s,color .15s}
+.chip small{font:400 15px var(--fM);color:var(--tx2)}
+.chip[aria-pressed="true"]{background:#f2f2f2;color:#0a0a0a;border-color:#f2f2f2}
+.chip[aria-pressed="true"] small{color:#444}
+.sum{margin-top:22px;padding:14px;border-radius:14px;background:var(--surf);border:1px solid var(--line);display:grid;gap:8px}
+.sum .r{display:flex;justify-content:space-between;gap:10px;font-size:16px;color:var(--tx2)}
+.sum .r .mono{color:var(--tx)}
+.sum .r.tot{border-top:1px solid var(--line2);padding-top:10px;margin-top:2px;color:var(--tx);font-weight:600;align-items:baseline}
+.sum .r.tot .mono{font-size:22px;font-weight:500}
+.human{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:15px;color:var(--tx2)}
+.human .ico{width:20px;height:20px;color:#d8d8d8;margin-top:1px}
+
+/* rodapé de ação */
+.foot{flex:none;border-top:1px solid var(--line);background:rgba(10,10,10,.96);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.foot .hint{font-size:15px;color:var(--tx2);margin-bottom:8px;text-align:center}
+.cta{width:100%;min-height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:10px;font:700 17px var(--fB);background:var(--acc);color:var(--on);transition:transform .12s,background .2s,color .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(244,168,0,.22)}
+.cta:active{transform:scale(.985)}
+.cta.off{background:#1c1c1c;color:#bdbdbd;box-shadow:none;border:1px solid var(--line2)}
+.cta.ghost{background:transparent;color:var(--tx);border:1px solid var(--line2);box-shadow:none}
+.cta .ico{width:20px;height:20px}
+.ft-row{display:flex;align-items:center;gap:12px}
+.ft-row .tt{flex:none}
+.ft-row .tt span{display:block;font-size:15px;color:var(--tx2)}
+.ft-row .tt b{font:500 20px var(--fM);white-space:nowrap}
+.ft-row .cta{flex:1}
+
+/* abas */
+.tabs{flex:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:rgba(10,10,10,.97);padding-bottom:env(safe-area-inset-bottom)}
+.tab{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#7d7d7d;font:500 15px var(--fB);position:relative}
+.tab[aria-current="page"]{color:var(--tx)}
+.tab[aria-current="page"]::before{content:"";position:absolute;top:-1px;left:30%;right:30%;height:2px;background:var(--tx);border-radius:2px}
+.tab .badge{position:absolute;top:7px;left:calc(50% + 8px);min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--acc);color:var(--on);font:700 14px/20px var(--fB);text-align:center}
+
+/* enviado */
+.done-h{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.done-h .ck{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f2f2f2;color:#0a0a0a;flex:none}
+.done-h .ck .ico{stroke-width:2.4}
+.done-h b{display:block;font:700 22px/1.1 var(--fT);text-transform:uppercase}
+.done-h span{font-size:15px;color:var(--tx2)}
+.timer{padding:16px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,#1a1a1a,#121212);position:relative;overflow:hidden}
+.timer::after{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06),transparent 70%)}
+.timer .k{font-size:15px;color:var(--tx2)}
+.timer .v{font:500 36px/1.1 var(--fM);margin:4px 0 6px;letter-spacing:-.01em}
+.timer .n{font-size:15px;color:#8a8a8a}
+.wapp{margin-top:8px;padding:14px 12px;border-radius:16px;background:#0f0f0f;border:1px solid var(--line)}
+.wapp .bub.out{max-width:100%}
+.wmsg{font-size:15px;line-height:1.5;padding:6px 6px 0;white-space:pre-wrap;overflow-wrap:anywhere;color:#e8e8e8}
+.wmsg b{color:#fff}
+.pdf{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px;background:#151515;border:1px solid #2a2a2a}
+.pdf .pg{width:60px;height:80px;flex:none;border-radius:3px;background:#f4f4f2;padding:6px 5px;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+.pdf .pg .h{height:6px;width:70%;background:#1b1b1b;border-radius:1px}
+.pdf .pg .h2b{height:3px;width:45%;background:#c08a00;border-radius:1px;margin-bottom:3px}
+.pdf .pg i{display:block;height:2px;background:#c9c9c9;border-radius:1px}
+.pdf .pg i.s{width:60%}
+.pdf .pg .tl{margin-top:auto;height:4px;width:50%;align-self:flex-end;background:#1b1b1b;border-radius:1px}
+.pdf .fn{font:500 15px/1.3 var(--fB);overflow-wrap:anywhere}
+.pdf .fz{font-size:15px;color:var(--tx2)}
+.order{margin-top:16px;padding:14px;border-radius:16px;border:1px solid var(--line2);background:var(--surf);animation:pop .28s var(--ease) both}
+.order b{font:700 20px var(--fT);text-transform:uppercase;display:block;margin-bottom:8px}
+.order ul{list-style:none;display:grid;gap:8px}
+.order li{display:flex;gap:10px;font-size:16px;align-items:flex-start}
+.order li .ico{width:20px;height:20px;color:#dcdcdc;margin-top:1px}
+.order .n{font-size:15px;color:var(--tx2);margin-top:10px}
+
+/* tabela */
+.search{position:sticky;top:0;z-index:2;padding:12px 16px;background:linear-gradient(180deg,#0b0b0b 80%,rgba(11,11,11,0))}
+.sbox{display:flex;align-items:center;gap:8px;height:50px;padding:0 14px;border-radius:14px;background:var(--surf);border:1px solid var(--line2)}
+.sbox:focus-within{border-color:#6a6a6a}
+.sbox input{flex:1;min-width:0;height:100%;border:0;background:transparent;font-size:16px;outline:none}
+.sbox input::placeholder{color:#7b7b7b}
+.info{margin:0 16px 8px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);font-size:15px;color:var(--tx2);display:flex;gap:10px}
+.info .ico{width:20px;height:20px;color:#cfcfcf;margin-top:1px}
+.info b{color:var(--tx);font-weight:500}
+.cat{font:500 15px var(--fB);color:var(--tx2);padding:16px 16px 6px}
+.prod{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;min-height:58px;padding:10px 16px;border-bottom:1px solid #1b1b1b;width:100%;text-align:left}
+.prod .pn{font-size:16px;line-height:1.3}
+.prod .pu{font-size:15px;color:var(--tx2)}
+.prod .pp{font:500 16px var(--fM);text-align:right;white-space:nowrap}
+.prod .pp small{display:block;font:400 15px var(--fB);color:var(--tx2)}
+.prod.oos .pn{color:#a5a5a5}
+.empty{padding:40px 24px;text-align:center;color:var(--tx2);font-size:16px}
+
+/* orçamentos */
+.qrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;width:100%;text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);min-height:76px}
+.qrow .qn{font:600 17px var(--fB)}
+.qrow .qm{font-size:15px;color:var(--tx2)}
+.qrow .qv{text-align:right;display:grid;gap:5px;justify-items:end}
+.qrow .qv b{font:500 16px var(--fM)}
+
+/* folha (trocar / adicionar) */
+.veil{position:absolute;inset:0;z-index:20;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .22s}
+.veil.on{opacity:1;pointer-events:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:21;max-height:82%;display:flex;flex-direction:column;background:#141414;border-top:1px solid var(--line2);border-radius:22px 22px 0 0;transform:translateY(102%);visibility:hidden;transition:transform .26s var(--ease),visibility 0s linear .26s}
+.sheet.on{transform:none;visibility:visible;transition:transform .26s var(--ease)}
+.sheet .grab{width:40px;height:4px;border-radius:2px;background:#3a3a3a;margin:8px auto 2px}
+.sheet .sh{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 16px}
+.sheet .sh b{flex:1;font:700 20px var(--fT);text-transform:uppercase}
+.sheet .sl{overflow-y:auto;padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+.sheet .search{position:static;background:none;padding:4px 16px 8px}
+
+/* aviso */
+.toast{position:absolute;left:16px;right:16px;bottom:96px;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:4px 6px 4px 16px;border-radius:14px;background:#f2f2f2;color:#0a0a0a;font:500 16px var(--fB);box-shadow:0 12px 30px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.on{opacity:1;transform:none;pointer-events:auto}
+.toast button{min-height:44px;padding:0 12px;border-radius:10px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <aside class="side side-l" aria-label="Explicação">
+    <div class="brand"><img src="assets/logo-sull.png" alt="">Sull Produções</div>
+    <h1>A lista do cliente vira <em>orçamento</em> em 2 minutos</h1>
+    <p class="para" id="para">Demonstração para loja de material de construção.</p>
+    <ol class="steps" id="steps">
+      <li data-s="1"><span class="n">01</span><span>O cliente manda a lista do jeito dele: foto, áudio ou texto. Enquanto espera, pode estar pedindo preço no concorrente.</span></li>
+      <li data-s="2"><span class="n">02</span><span>O sistema lê a lista e casa cada item com a tabela da loja. Onde tem dúvida, ele pergunta em vez de chutar.</span></li>
+      <li data-s="3"><span class="n">03</span><span>O vendedor confere, ajusta quantidade, desconto e frete, e aprova. Nada sai sem ele.</span></li>
+      <li data-s="4"><span class="n">04</span><span>O orçamento sai com o nome da loja. Com o sim do cliente, vira pedido.</span></li>
+    </ol>
+    <p class="side-note" id="sidenote">Os preços vêm da planilha ou do sistema que a loja já usa. Aqui são de exemplo.</p>
+  </aside>
+
+  <div class="device">
+    <div class="app" id="app">
+      <div class="sbar" aria-hidden="true"><span>9:41</span><span class="r">
+        <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#fff"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff"/></svg>
+        <svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" stroke="#fff" fill="none" opacity=".5"/><rect x="2" y="2" width="16" height="8" rx="1.6" fill="#fff"/><rect x="23.5" y="4" width="1.8" height="4" rx=".8" fill="#fff" opacity=".5"/></svg>
+      </span></div>
+      <div class="demo"><i></i>Demonstração · dados e preços de exemplo</div>
+      <div id="hdr"></div>
+      <main class="main" id="main"></main>
+      <div id="foot"></div>
+      <div class="veil" id="veil" data-act="fecharSheet"></div>
+      <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Escolher produto"></div>
+      <div class="toast" id="toast" role="status"></div>
+    </div>
+  </div>
+
+  <aside class="side side-r" aria-label="Como seria na sua loja">
+    <h2>Como seria na sua loja</h2>
+    <p>Funciona em cima do WhatsApp e da tabela que a loja já tem. A equipe não precisa aprender programa novo.</p>
+    <ol>
+      <li><span>1</span>Conversa de 15 minutos</li>
+      <li><span>2</span>Piloto de 7 dias com os seus orçamentos</li>
+      <li><span>3</span>No ar, com suporte local</li>
+    </ol>
+    <a class="wa" href="https://wa.me/5548999522152" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 1.8 2.6 4.2 4.6 4.7l1.2-1.2 2 .9-.4 1.7c-3.4.4-8.4-4-8.3-7.5l1.6-.6 1 1.9z"/></svg>
+      Falar com o Natan
+    </a>
+  </aside>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= parâmetros ================= */
+const qs = new URLSearchParams(location.search);
+const clean = (s, n) => (s || '').replace(/\s+/g, ' ').trim().slice(0, n);
+const LOJA = clean(qs.get('empresa'), 60) || 'Sua Loja';
+const CIDADE = clean(qs.get('cidade'), 40);
+const TEM_LOJA = !!clean(qs.get('empresa'), 60);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const iniciais = nome => {
+  const w = nome.split(' ').filter(x => x && !/^(d[aeo]s?|e|&)$/i.test(x));
+  return ((w[0] || 'S')[0] + ((w[1] || w[0] || 'L')[w[1] ? 0 : 1] || '')).toUpperCase();
+};
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= tabela da loja (PREÇOS INVENTADOS PARA DEMONSTRAÇÃO) =================
+   Na versão real, esta lista vem da planilha ou do ERP da loja. */
+const UN = {sc:'sc', m3:'m³', un:'un', br:'barra', rl:'rolo', cx:'cx', bd:'balde', lt:'lata', kg:'kg'};
+const P = [
+  ['cim2','Cimento e cal','Cimento CP II-E 32 · 50 kg','sc',38.90],
+  ['cim4','Cimento e cal','Cimento CP IV 32 · 50 kg','sc',41.50],
+  ['cal','Cimento e cal','Cal hidratada CH-III · 20 kg','sc',16.90],
+  ['ac1','Argamassa e rejunte','Argamassa AC-I · 20 kg','sc',14.90],
+  ['ac2','Argamassa e rejunte','Argamassa AC-II · 20 kg','sc',24.90],
+  ['ac3','Argamassa e rejunte','Argamassa AC-III · 20 kg','sc',39.90],
+  ['rejc','Argamassa e rejunte','Rejunte flexível cinza · 1 kg','un',9.90],
+  ['rejb','Argamassa e rejunte','Rejunte flexível branco · 1 kg','un',9.90],
+  ['aream','Areia e pedra','Areia média','m3',145.00],
+  ['areaf','Areia e pedra','Areia fina','m3',155.00],
+  ['brita1','Areia e pedra','Brita 1','m3',165.00],
+  ['brita0','Areia e pedra','Pedrisco (brita 0)','m3',170.00],
+  ['tij9','Tijolo e bloco','Tijolo 6 furos 9×14×19','un',0.95,50],
+  ['tij11','Tijolo e bloco','Tijolo 6 furos 11,5×14×24','un',1.35,50],
+  ['bloco','Tijolo e bloco','Bloco de concreto 14×19×39','un',4.20,10],
+  ['fe38','Ferro e arame','Vergalhão CA-50 3/8" (10 mm) · 12 m','br',54.90],
+  ['fe516','Ferro e arame','Vergalhão CA-50 5/16" (8 mm) · 12 m','br',36.90],
+  ['fe14','Ferro e arame','Vergalhão CA-50 1/4" (6,3 mm) · 12 m','br',24.50],
+  ['fe42','Ferro e arame','Vergalhão CA-60 4,2 mm · 12 m','br',12.90],
+  ['arame','Ferro e arame','Arame recozido nº 18 · 1 kg','rl',22.00],
+  ['trel','Ferro e arame','Coluna armada 9×14 · 6 m','un',69.90],
+  ['pvc25','Hidráulica','Tubo PVC soldável 25 mm · 6 m','br',21.90],
+  ['pvc100','Hidráulica','Tubo PVC esgoto 100 mm · 6 m','br',79.90],
+  ['porc','Piso e louça','Porcelanato 60×60 acetinado · cx 1,44 m²','cx',89.90],
+  ['vaso','Piso e louça','Vaso sanitário com caixa acoplada','un',459.00],
+  ['impa','Impermeabilização','Impermeabilizante acrílico · 18 L','bd',289.00,1,false],
+  ['manta','Impermeabilização','Manta asfáltica líquida · 18 L','bd',239.00],
+  ['adit','Impermeabilização','Aditivo impermeabilizante · 18 L','bd',119.00],
+  ['tinta','Pintura','Tinta acrílica fosca branca · 18 L','lt',329.00],
+  ['massa','Pintura','Massa corrida PVA · 25 kg','bd',79.90],
+  ['telha','Cobertura','Telha fibrocimento 2,44×1,10 · 6 mm','un',72.90],
+  ['prego','Fixação','Prego 17×27 · 1 kg','kg',19.90]
+].map(([id,cat,nome,un,preco,passo,est]) => ({id,cat,nome:nome.replace(/ · /g,'\u00a0· ').replace(/(\d) (m²|m|mm|kg|L)\b/g,'$1\u00a0$2').replace(/cx (\d)/,'cx\u00a0$1'),un,preco,passo:passo||(un==='m3'?0.5:1),est:est!==false}));
+const PID = Object.fromEntries(P.map(p => [p.id, p]));
+
+const FRETE = {
+  retira:{n:'Retira na loja',v:0}, centro:{n:'Centro',v:30}, z5:{n:'Até 5 km',v:45}, z10:{n:'5 a 10 km',v:70}, z20:{n:'10 a 20 km',v:110}
+};
+const PAG = {pix:'Pix', cartao:'Cartão até 3x', boleto:'Boleto 28 dias'};
+const DESC = [0,3,5,8];
+
+/* ================= conversas de exemplo (clientes fictícios) ================= */
+const CONVS = [
+  {id:'marcos', nome:'Marcos Ribeiro', tipo:'foto', espera:192, hora:'14:07', frete:'centro',
+   msg:'boa tarde! orça essa lista pra mim? entrega aqui no Centro',
+   titulo:'Obra — Marcos',
+   itens:[
+    {raw:'20 sc cimento', q:20, pid:'cim2'},
+    {raw:'3 m areia', q:3, opts:['aream','areaf'], ask:'Areia média ou fina?'},
+    {raw:'500 tijolo 6 furos', q:500, opts:['tij9','tij11'], ask:'Tijolo 6 furos: 9×14×19 ou 11,5×14×24?'},
+    {raw:'10 barra ferro 3/8', q:10, pid:'fe38'},
+    {raw:'2 m brita 1', q:2, pid:'brita1'},
+    {raw:'1 rolo arame', q:1, pid:'arame'},
+    {raw:'4 sc cal', q:4, pid:'cal'},
+    {raw:'1 impermeabilizante', q:1, pid:'impa', sug:'manta'}
+   ]},
+  {id:'edson', nome:'Edson Pereira', tipo:'texto', espera:105, hora:'14:09', frete:'z5',
+   partes:['bom dia, preciso pra obra: ',0,', ',1,', ',2,', ',3,' e ',4,'. entrega aqui perto, uns 4 km da loja'],
+   itens:[
+    {raw:'15 sc cimento', q:15, pid:'cim2'},
+    {raw:'2 m brita 1', q:2, pid:'brita1'},
+    {raw:'4 m areia media', q:4, pid:'aream'},
+    {raw:'6 barra ferro 5/16', q:6, pid:'fe516'},
+    {raw:'1 rolo de arame', q:1, pid:'arame'}
+   ]},
+  {id:'celia', nome:'Célia Andrade', tipo:'audio', espera:38, hora:'14:10', dur:'0:38', frete:'retira',
+   partes:['Oi, boa tarde! É pra reforma do banheiro. Preciso de ',0,', ',1,', ',2,' e ',3,'. Quanto fica? Eu passo aí pra retirar.'],
+   itens:[
+    {raw:'8 caixas de piso 60 por 60', q:8, pid:'porc'},
+    {raw:'3 sacos de argamassa AC2', q:3, opts:['ac2','ac3'], ask:'Argamassa AC-II ou AC-III?', note:'Para porcelanato, muitos fabricantes indicam AC-III. Confirme com a cliente.'},
+    {raw:'2 rejunte cinza de 1 quilo', q:2, pid:'rejc'},
+    {raw:'um vaso com caixa acoplada', q:1, pid:'vaso'}
+   ]},
+];
+CONVS.forEach(c => { c.conv = c; c.feito = false; });
+const CID = Object.fromEntries(CONVS.map(c => [c.id, c]));
+
+/* ================= estado ================= */
+const S = {
+  tab:'conversas', tela:'inbox', conv:null, q:null, prox:142, lidos:{}, busca:'', sheet:null,
+  quotes:[{num:141, cliente:'Rosana Lima', n:6, total:1284.50, status:'enviado', quando:'ontem', exemplo:true}]
+};
+
+/* ================= utilidades ================= */
+const BRL = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+const R = v => BRL.format(v);
+const num = v => (Math.round(v*100)/100).toLocaleString('pt-BR');
+const mmss = s => Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
+const $ = id => document.getElementById(id);
+const I = {
+  back:'<path d="M15 5l-7 7 7 7"/>',
+  cam:'<rect x="3" y="6.5" width="18" height="13" rx="2.5"/><path d="M8.5 6.5l1.4-2.5h4.2l1.4 2.5"/><circle cx="12" cy="13" r="3.6"/>',
+  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/>',
+  txt:'<path d="M4 6h16M4 11h16M4 16h10"/>',
+  clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+  chat:'<path d="M4 19.5l1.4-4A8 8 0 1 1 8.5 19z"/>',
+  table:'<rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M3.5 15h17M9.5 9.5V20"/>',
+  doc:'<path d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20z"/><path d="M14 3.5V8h4M9 12.5h6M9 16h6"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  alert:'<path d="M12 4l9 15.5H3z"/><path d="M12 10v4M12 17v.01"/>',
+  box:'<path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/>',
+  swap:'<path d="M7 4L3.5 7.5 7 11M3.5 7.5H16M17 13l3.5 3.5L17 20M20.5 16.5H8"/>',
+  trash:'<path d="M4.5 7h15M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13"/>',
+  minus:'<path d="M6 12h12"/>', plus:'<path d="M12 6v12M6 12h12"/>',
+  send:'<path d="M4 12l16-8-6 16-2.5-6.5z"/><path d="M11.5 13.5L20 4"/>',
+  search:'<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/>',
+  x:'<path d="M6 6l12 12M18 6L6 18"/>',
+  user:'<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.3 7.5-5.3s6.3 1.7 7.5 5.3"/>',
+  truck:'<path d="M3 6.5h11v10H3zM14 10h4l3 3v3.5h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/>',
+  play:'<path d="M9 6.5v11l9-5.5z"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  info:'<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/>',
+  ticks:'<path d="M2.5 12.5l3.5 3.5 7-8M10 15.5l.6.5 7-8"/>'
+};
+const ic = (n, cls) => `<svg class="ico${cls?' '+cls:''}" viewBox="0 0 24 24" aria-hidden="true">${I[n]}</svg>`;
+const hoje = new Date();
+const validade = (() => { const d = new Date(hoje); d.setDate(d.getDate()+3); return d.toLocaleDateString('pt-BR'); })();
+
+/* ================= cálculos ================= */
+function totais(q){
+  const vivos = q.itens.filter(i => i.status === 'ok');
+  const sub = vivos.reduce((s,i) => s + i.q * PID[i.pid].preco, 0);
+  const desc = Math.round(sub * q.desconto) / 100;
+  const fr = FRETE[q.frete].v;
+  return {sub, desc, fr, tot: sub - desc + fr, n: vivos.length};
+}
+const pendentes = q => q.itens.filter(i => i.status === 'duvida' || i.status === 'sem').length;
+
+function novoOrc(c){
+  return {num:S.prox++, convId:c.id, cliente:c.nome, desconto:0, frete:c.frete, pag:'pix', status:'rascunho',
+    itens:c.itens.map(it => ({...it,
+      pid: it.pid || null,
+      status: it.opts ? 'duvida' : (PID[it.pid] && !PID[it.pid].est ? 'sem' : 'ok'),
+      marca:''}))};
+}
+
+/* ================= cabeçalhos ================= */
+function hdrLoja(){
+  const sub = (CIDADE ? esc(CIDADE) + ' · ' : '') + 'Orçamentos pelo WhatsApp';
+  return `<header class="hdr"><div class="mark" aria-hidden="true">${esc(iniciais(LOJA))}</div>
+    <div class="t"><div class="store">${esc(LOJA)}</div><div class="sub">${sub}</div></div></header>`;
+}
+function hdrFluxo(titulo, sub, voltar){
+  return `<header class="hdr"><button class="back" data-act="${voltar}" aria-label="Voltar">${ic('back')}</button>
+    <div class="t"><div class="who">${titulo}</div><div class="sub">${sub}</div></div></header>`;
+}
+function abas(){
+  const n = CONVS.filter(c => !c.feito).length;
+  const t = (id, icon, nome, badge) => `<button class="tab" data-act="tab" data-tab="${id}" ${S.tab===id?'aria-current="page"':''}>${ic(icon)}${nome}${badge?`<span class="badge">${badge}</span>`:''}</button>`;
+  return `<nav class="tabs" aria-label="Seções">${t('conversas','chat','Conversas',n)}${t('orcamentos','doc','Orçamentos')}${t('tabela','table','Tabela')}</nav>`;
+}
+
+/* ================= telas ================= */
+function telaInbox(){
+  const abertas = CONVS.filter(c => !c.feito).sort((a,b) => b.espera - a.espera);
+  const feitas = CONVS.filter(c => c.feito);
+  const mais = abertas[0];
+  const pv = c => c.tipo==='foto' ? `${ic('cam')}<span>Foto da lista · ${esc(c.msg)}</span>`
+    : c.tipo==='audio' ? `${ic('mic')}<span>Áudio ${c.dur} · ${esc(txtPartes(c).slice(0,60))}</span>`
+    : `${ic('txt')}<span>${esc(txtPartes(c))}</span>`;
+  let h = '';
+  if (mais) {
+    h += `<div class="alert"><div class="big">${abertas.length}</div><div class="txt"><b>${abertas.length===1?'cliente esperando':'clientes esperando'} orçamento</b><br>o mais antigo há <span class="mono" data-wait="${mais.id}">${mmss(mais.espera)}</span></div></div>`;
+  } else {
+    h += `<div class="alert"><div class="big">0</div><div class="txt"><b>Ninguém esperando</b><br>todas as listas viraram orçamento</div></div>`;
+  }
+  h += `<div class="lbl" style="padding:0 16px">Mais antigo primeiro</div>`;
+  abertas.forEach((c,i) => {
+    h += `<button class="conv${i===0?' top':''}" data-act="abrir" data-id="${c.id}">
+      <div class="av">${esc(iniciais(c.nome))}</div>
+      <div style="min-width:0"><div class="nm">${esc(c.nome)}</div><div class="pv">${pv(c)}</div></div>
+      <div class="wait"><span class="w">${ic('clock')}<span data-wait="${c.id}">${mmss(c.espera)}</span></span><span class="k">esperando</span></div>
+    </button>`;
+  });
+  feitas.forEach(c => {
+    const q = S.quotes.find(x => x.convId === c.id);
+    h += `<button class="conv done" data-act="verOrc" data-num="${q?q.num:''}">
+      <div class="av">${esc(iniciais(c.nome))}</div>
+      <div style="min-width:0"><div class="nm">${esc(c.nome)}</div><div class="pv">${ic('check')}<span>Orçamento nº ${q?String(q.num).padStart(4,'0'):''} enviado</span></div></div>
+      <div class="wait"><span class="tag ok">${q && q.status==='pedido'?'Pedido':'Enviado'}</span></div>
+    </button>`;
+  });
+  h += `<button class="conv done" data-act="tab" data-tab="orcamentos">
+      <div class="av">RL</div>
+      <div style="min-width:0"><div class="nm">Rosana Lima</div><div class="pv">${ic('check')}<span>Orçamento nº 0141 enviado ontem</span></div></div>
+      <div class="wait"><span class="tag ok">Enviado</span></div>
+    </button>`;
+  return {hdr:hdrLoja(), main:`<div class="scr">${h}</div>`, foot:abas()};
+}
+
+function txtPartes(c){ return c.partes.map(p => typeof p === 'number' ? c.itens[p].raw : p).join(''); }
+
+function papel(c, cls){
+  return `<div class="paper ${cls||''}" data-paper><div class="ln ttl"><span>${esc(c.titulo)}</span></div>${
+    c.itens.map((it,i) => `<div class="ln" data-l="${i}"><span>${esc(it.raw)}</span></div>`).join('')}</div>`;
+}
+function fonteTexto(c, cls){
+  const corpo = c.partes.map(p => typeof p === 'number' ? `<span class="seg" data-l="${p}">${esc(c.itens[p].raw)}</span>` : esc(p)).join('');
+  const k = c.tipo==='audio' ? `${ic('mic')}Áudio ${c.dur} · transcrito automaticamente` : `${ic('txt')}Mensagem de texto`;
+  return `<div class="src-t ${cls||''}"><div class="k">${k}</div>${corpo}</div>`;
+}
+function onda(){
+  let h='', s=7;
+  for (let i=0;i<34;i++){ s = (s*9301+49297)%233280; const v = 6 + Math.round((s/233280)*22); h += `<i style="height:${v}px"></i>`; }
+  return `<div class="wave" aria-hidden="true">${h}</div>`;
+}
+
+function telaChat(){
+  const c = S.conv;
+  let b = `<div class="chat scr"><div class="day">Hoje</div>`;
+  if (c.tipo === 'foto'){
+    b += `<div class="bub"><div class="photo" role="img" aria-label="Foto de lista escrita à mão">${papel(c)}</div><div class="tm">${c.hora}</div></div>
+          <div class="bub"><div class="msg">${esc(c.msg)}</div><div class="tm">${c.hora}</div></div>`;
+  } else if (c.tipo === 'audio'){
+    b += `<div class="bub"><div class="audio"><span class="pl">${ic('play')}</span>${onda()}<span class="mono" style="font-size:15px;color:var(--tx2)">${c.dur}</span></div>
+          <div class="transc"><div class="k">${ic('txt')}Transcrição automática</div>${esc(txtPartes(c))}</div><div class="tm">${c.hora}</div></div>`;
+  } else {
+    b += `<div class="bub"><div class="msg">${esc(txtPartes(c))}</div><div class="tm">${c.hora}</div></div>`;
+  }
+  b += `</div>`;
+  const tipo = c.tipo==='foto'?'Mandou foto da lista':c.tipo==='audio'?'Mandou áudio':'Mandou a lista por texto';
+  return {
+    hdr: hdrFluxo(esc(c.nome), `${tipo} · esperando <span class="mono" data-wait="${c.id}">${mmss(c.espera)}</span>`, 'inbox'),
+    main: b,
+    foot: `<div class="foot"><div class="hint">O sistema lê a lista e casa com a tabela da loja</div><button class="cta" data-act="montar">${ic('list')}Montar orçamento</button></div>`
+  };
+}
+
+function cardItem(it, i, tipo){
+  const p = it.pid ? PID[it.pid] : null;
+  const raw = `<span class="raw${tipo==='foto'?'':' t'}">${tipo==='foto'?'':'“'}${esc(it.raw)}${tipo==='foto'?'':'”'}</span>`;
+  const qtd = un => `<div class="it-q"><b>${num(it.q)}</b><span>${UN[un]||''}</span></div>`;
+  if (it.status === 'duvida'){
+    const un = PID[it.opts[0]].un;
+    return `<div class="it duv" data-i="${i}">${qtd(un)}<div>
+      <div class="ask">${ic('alert')}${esc(it.ask)}</div>
+      <div class="it-m">Lido: ${raw}</div>${it.note?`<div class="note">${esc(it.note)}</div>`:''}</div>
+      <div class="opts">${it.opts.map(id => `<button class="opt" data-act="opt" data-i="${i}" data-pid="${id}"><span>${esc(PID[id].nome)}</span><span class="p">${R(PID[id].preco)}/${UN[PID[id].un]}</span></button>`).join('')}</div></div>`;
+  }
+  if (it.status === 'sem'){
+    const s = PID[it.sug];
+    return `<div class="it sem" data-i="${i}">${qtd(p.un)}<div>
+      <div class="ask">${ic('box')}Sem estoque · sugerir similar</div>
+      <div class="it-m"><span class="strike">${esc(p.nome)}</span></div><div class="it-m">Lido: ${raw}</div></div>
+      <div class="sug"><div class="s-t">Similar em estoque: <b>${esc(s.nome)}</b> · <span class="mono">${R(s.preco)}</span></div>
+      <button class="btn2 solid" data-act="usarSug" data-i="${i}">Usar similar</button><button class="btn2" data-act="tirar" data-i="${i}">Tirar da lista</button></div></div>`;
+  }
+  if (it.status === 'removido'){
+    return `<div class="it" data-i="${i}" style="opacity:.55">${qtd(p?p.un:'un')}<div><div class="it-n strike">${esc(p?p.nome:it.raw)}</div><div class="it-m">Tirado do orçamento · Lido: ${raw}</div></div><div class="it-s">—</div></div>`;
+  }
+  return `<div class="it" data-i="${i}">${qtd(p.un)}<div><div class="it-n">${esc(p.nome)}</div>
+    <div class="it-m"><span class="mono">${R(p.preco)}</span>/${UN[p.un]}</div><div class="it-m">Lido: ${raw}</div>
+    ${it.marca?`<div class="chosen">${ic('check')}${it.marca}</div>`:''}</div>
+    <div class="it-s">${R(it.q*p.preco)}</div></div>`;
+}
+
+function telaLeitura(){
+  const c = S.conv, q = S.q, lido = S.lidos[c.id];
+  const src = lido
+    ? `<button class="srcbar" data-act="verFonte"><span>${ic(c.tipo==='foto'?'cam':c.tipo==='audio'?'mic':'txt')}</span><span style="flex:1;text-align:left">${c.tipo==='foto'?'Foto':c.tipo==='audio'?'Áudio':'Texto'} · <b>${c.itens.length} itens lidos</b></span><span>${S.fonteAberta?'ocultar':'ver original'}</span></button>${S.fonteAberta?`<div style="margin-top:10px">${c.tipo==='foto'?papel(c,'past'):fonteTexto(c,'past')}</div>`:''}`
+    : `<div style="position:relative;overflow:hidden;border-radius:4px" id="scanbox">${c.tipo==='foto'?papel(c):fonteTexto(c)}<div class="scan"></div></div>`;
+  const pend = pendentes(q);
+  const st = lido
+    ? (pend ? `<b>${pend} ${pend===1?'item':'itens'} para você decidir</b> · o resto já casou com a tabela` : `<b>Tudo casado com a tabela.</b> Confira e envie.`)
+    : `<span class="dots"><i></i><i></i><i></i></span><b>Lendo a lista</b> e procurando na tabela da loja`;
+  const itens = q.itens.map((it,i) => (lido || i < S.revelados) ? cardItem(it,i,c.tipo) : '').join('');
+  const foot = !lido ? `<div class="foot"><button class="cta off" disabled>Lendo…</button></div>`
+    : pend ? `<div class="foot"><button class="cta off" data-act="irPendente">Falta decidir ${pend} ${pend===1?'item':'itens'}</button></div>`
+    : `<div class="foot"><button class="cta" data-act="conferir">Conferir orçamento ${ic('back','flip')}</button></div>`;
+  return {
+    hdr: hdrFluxo('Orçamento · ' + esc(c.nome.split(' ')[0]), `Nº ${String(q.num).padStart(4,'0')} · rascunho`, 'voltarChat'),
+    main: `<div class="${lido?'':'reading'}" id="rd"><div class="src">${src}<div class="status" id="st">${st}</div></div><div class="items" id="items">${itens}</div></div>`,
+    foot
+  };
+}
+
+function telaConferencia(){
+  const q = S.q, c = S.conv, t = totais(q);
+  let h = `<div class="pad scr"><div class="lbl">Itens · toque no nome para trocar o produto</div>`;
+  q.itens.forEach((it,i) => {
+    if (it.status !== 'ok') return;
+    const p = PID[it.pid];
+    h += `<div class="rv" data-i="${i}">
+      <div class="rv-top"><button class="rv-n" data-act="trocar" data-i="${i}">${ic('swap')}<span>${esc(p.nome)}<small>${R(p.preco)} por ${UN[p.un]}</small></span></button>
+      <button class="ib" data-act="rm" data-i="${i}" aria-label="Remover ${esc(p.nome)}">${ic('trash')}</button></div>
+      <div class="rv-bot"><div class="step"><button data-act="menos" data-i="${i}" aria-label="Diminuir">${ic('minus')}</button>
+      <input inputmode="decimal" data-qtd="${i}" value="${num(it.q)}" aria-label="Quantidade de ${esc(p.nome)}">
+      <button data-act="mais" data-i="${i}" aria-label="Aumentar">${ic('plus')}</button></div>
+      <span class="rv-u">${UN[p.un]}</span><span class="rv-s" data-sub="${i}">${R(it.q*p.preco)}</span></div></div>`;
+  });
+  if (!t.n) h += `<div class="empty">Nenhum item no orçamento.</div>`;
+  h += `<button class="add" data-act="adicionar">${ic('plus')}Adicionar item da tabela</button>`;
+  h += `<div class="lbl">Desconto</div><div class="chips">${DESC.map(d => `<button class="chip" data-act="desc" data-v="${d}" aria-pressed="${q.desconto===d}">${d?d+'%':'Sem desconto'}</button>`).join('')}</div>`;
+  h += `<div class="lbl">Frete por bairro${c.frete===q.frete && c.frete!=='retira'?' · lido da conversa':''}</div><div class="chips">${Object.entries(FRETE).map(([k,f]) => `<button class="chip" data-act="frete" data-v="${k}" aria-pressed="${q.frete===k}">${f.n}<small>${f.v?R(f.v):'grátis'}</small></button>`).join('')}</div>`;
+  h += `<div class="lbl">Pagamento</div><div class="chips">${Object.entries(PAG).map(([k,n]) => `<button class="chip" data-act="pag" data-v="${k}" aria-pressed="${q.pag===k}">${n}</button>`).join('')}</div>`;
+  h += `<div class="sum" id="sum">${resumo(q)}</div>`;
+  h += `<div class="human">${ic('user')}<span>A IA sugere, o vendedor aprova. Nada é enviado ao cliente sem o seu toque em “Aprovar e enviar”.</span></div></div>`;
+  return {
+    hdr: hdrFluxo('Conferência · ' + esc(c.nome.split(' ')[0]), `Nº ${String(q.num).padStart(4,'0')} · válido até ${validade}`, 'voltarLeitura'),
+    main: h,
+    foot: `<div class="foot"><div class="ft-row"><div class="tt"><span>Total</span><b id="ftot">${R(t.tot)}</b></div><button class="cta" data-act="aprovar" ${t.n?'':'disabled'}>${ic('send')}Aprovar e enviar</button></div></div>`
+  };
+}
+function resumo(q){
+  const t = totais(q);
+  return `<div class="r"><span>Subtotal · ${t.n} ${t.n===1?'item':'itens'}</span><span class="mono">${R(t.sub)}</span></div>
+    ${q.desconto?`<div class="r"><span>Desconto ${q.desconto}%</span><span class="mono">− ${R(t.desc)}</span></div>`:''}
+    <div class="r"><span>Frete · ${FRETE[q.frete].n}</span><span class="mono">${t.fr?R(t.fr):'R$ 0,00'}</span></div>
+    <div class="r tot"><span>Total</span><span class="mono">${R(t.tot)}</span></div>`;
+}
+
+function mensagem(q){
+  const t = totais(q), nome = q.cliente.split(' ')[0];
+  const linhas = q.itens.filter(i => i.status==='ok').map(i => { const p = PID[i.pid]; return `${num(i.q)} ${UN[p.un]} · ${p.nome} — ${R(i.q*p.preco)}`; });
+  let m = `Olá, ${nome}! Aqui é da *${LOJA}*${CIDADE?' ('+CIDADE+')':''}.\nSegue o orçamento nº ${String(q.num).padStart(4,'0')}:\n\n${linhas.join('\n')}\n\nSubtotal: ${R(t.sub)}\n`;
+  if (q.desconto) m += `Desconto ${q.desconto}%: − ${R(t.desc)}\n`;
+  m += `Frete (${FRETE[q.frete].n}): ${t.fr?R(t.fr):'sem custo'}\n*Total: ${R(t.tot)}*\n\nPagamento: ${PAG[q.pag]}\nVálido até ${validade}.\nPara confirmar, é só responder *SIM*.`;
+  return m;
+}
+const zap = s => esc(s).replace(/\*([^*\n]+)\*/g, '<b>$1</b>');
+
+function telaEnviado(){
+  const q = S.q, t = totais(q);
+  const arq = `Orcamento-${String(q.num).padStart(4,'0')}-${LOJA.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'Loja'}.pdf`;
+  let h = `<div class="pad scr">
+    <div class="done-h"><span class="ck">${ic('check')}</span><div><b>${q.status==='pedido'?'Virou pedido':'Orçamento enviado'}</b><span>para ${esc(q.cliente)} pelo WhatsApp</span></div></div>
+    <div class="timer"><div class="k">Da mensagem ao orçamento</div><div class="v">1 min 40 s</div><div class="n">Tempo simulado nesta demonstração, não é medição.</div></div>
+    <div class="lbl">Mensagem enviada</div>
+    <div class="wapp"><div class="bub out" style="max-width:100%">
+      <div class="pdf" aria-label="PDF anexado"><div class="pg" aria-hidden="true"><div class="h"></div><div class="h2b"></div><i></i><i class="s"></i><i></i><i class="s"></i><i></i><i></i><div class="tl"></div></div>
+        <div style="min-width:0"><div class="fn">${esc(arq)}</div><div class="fz">PDF · 1 página · ${esc(LOJA)}</div></div></div>
+      <div class="wmsg">${zap(mensagem(q))}</div>
+      <div class="tm" style="display:flex;justify-content:flex-end;align-items:center;gap:4px">14:12 ${ic('ticks')}</div>
+    </div></div>`;
+  if (q.status === 'pedido'){
+    h += `<div class="order"><b>Pedido nº ${String(q.num).padStart(4,'0')} criado</b><ul>
+      <li>${ic('box')}<span>${t.n} itens para separar no depósito</span></li>
+      <li>${ic('truck')}<span>${q.frete==='retira'?'Cliente retira na loja':'Entrega: '+FRETE[q.frete].n}</span></li>
+      <li>${ic('doc')}<span>${PAG[q.pag]} · ${R(t.tot)}</span></li></ul>
+      <div class="n">Na versão real, o pedido entra no sistema que a loja já usa.</div></div>`;
+  }
+  h += `</div>`;
+  const foot = q.status === 'pedido'
+    ? `<div class="foot"><button class="cta ghost" data-act="inbox">Voltar às conversas</button></div>`
+    : `<div class="foot"><button class="cta" data-act="aceitou">${ic('check')}Cliente aceitou → virar pedido</button></div>`;
+  return {hdr: hdrFluxo('Enviado · ' + esc(q.cliente.split(' ')[0]), `Nº ${String(q.num).padStart(4,'0')} · ${R(t.tot)}`, 'inbox'), main:h, foot};
+}
+
+function listaProdutos(filtro, act, soCat){
+  const f = filtro.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
+  const lista = P.filter(p => (!soCat || p.cat === soCat) && (!f || (p.nome+' '+p.cat).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().includes(f)));
+  if (!lista.length) return `<div class="empty">Nada encontrado para “${esc(filtro)}”.</div>`;
+  let h = '', cat = '';
+  lista.forEach(p => {
+    if (p.cat !== cat){ cat = p.cat; h += `<div class="cat">${esc(cat)}</div>`; }
+    const tag = `${act?'button':'div'} class="prod${p.est?'':' oos'}"${act?` data-act="${act}" data-pid="${p.id}"`:''}`;
+    h += `<${tag}><div><div class="pn">${esc(p.nome)}</div><div class="pu">${p.est?'por '+UN[p.un]:'<span class="tag">sem estoque</span>'}</div></div>
+      <div class="pp">${R(p.preco)}</div></${act?'button':'div'}>`;
+  });
+  return h;
+}
+function telaTabela(){
+  return {hdr:hdrLoja(), main:`<div class="scr">
+    <div class="search"><label class="sbox">${ic('search')}<input type="search" id="busca" placeholder="Buscar produto" value="${esc(S.busca)}" autocomplete="off" aria-label="Buscar produto"></label></div>
+    <div class="info">${ic('info')}<span><b>${P.length} produtos de exemplo, preços inventados.</b> Na versão real, a tabela vem da planilha ou do sistema que a loja já usa.</span></div>
+    <div id="plist">${listaProdutos(S.busca)}</div></div>`, foot:abas()};
+}
+function telaOrcamentos(){
+  let h = `<div class="scr"><div class="pad" style="padding-bottom:4px"><div class="h2">Orçamentos</div></div>`;
+  [...S.quotes].sort((a,b) => b.num - a.num).forEach(q => {
+    const t = q.exemplo ? {tot:q.total, n:q.n} : totais(q);
+    h += `<button class="qrow" data-act="verOrc" data-num="${q.num}"><div><div class="qn">${esc(q.cliente)}</div><div class="qm">Nº ${String(q.num).padStart(4,'0')} · ${t.n} itens · ${q.quando||'hoje'}</div></div>
+      <div class="qv"><b>${R(t.tot)}</b><span class="tag ${q.status==='pedido'?'ok':''}">${q.status==='pedido'?'Pedido':'Aguardando cliente'}</span></div></button>`;
+  });
+  h += `<div class="info" style="margin-top:16px">${ic('info')}<span>Na versão real, o sistema lembra o vendedor de chamar quem não respondeu.</span></div></div>`;
+  return {hdr:hdrLoja(), main:h, foot:abas()};
+}
+
+/* ================= render ================= */
+const PASSO = {inbox:1, chat:1, leitura:2, conferencia:3, enviado:4, orcamentos:4, tabela:0};
+let ultimaTela = '';
+function render(manterScroll){
+  const fn = {inbox:telaInbox, chat:telaChat, leitura:telaLeitura, conferencia:telaConferencia, enviado:telaEnviado, tabela:telaTabela, orcamentos:telaOrcamentos}[S.tela];
+  const v = fn();
+  const main = $('main'), top = main.scrollTop;
+  $('hdr').innerHTML = v.hdr; main.innerHTML = v.main; $('foot').innerHTML = v.foot;
+  if (manterScroll && ultimaTela === S.tela){ main.style.scrollBehavior='auto'; main.scrollTop = top; main.style.scrollBehavior=''; }
+  else main.scrollTop = 0;
+  ultimaTela = S.tela;
+  const p = PASSO[S.tela];
+  document.querySelectorAll('#steps li').forEach(li => li.classList.toggle('on', +li.dataset.s === p));
+  $('sidenote').classList.toggle('on', S.tela === 'tabela');
+  const b = $('busca'); if (b) b.addEventListener('input', e => { S.busca = e.target.value; $('plist').innerHTML = listaProdutos(S.busca); });
+}
+function ir(tela, extra){ Object.assign(S, extra||{}); if (tela !== S.tela){ $('toast').classList.remove('on'); S.desfazer = null; } S.tela = tela; render(); }
+
+/* leitura animada: linhas do papel acendem e viram itens */
+let token = 0;
+function lerLista(){
+  const c = S.conv, my = ++token, n = c.itens.length;
+  S.revelados = 0; S.fonteAberta = false;
+  render();
+  if (reduz){ S.lidos[c.id] = true; render(); return; }
+  const passo = 260, inicio = 380;
+  const box = $('scanbox'); if (box) box.style.setProperty('--scan', (inicio + n*passo + 200) + 'ms');
+  for (let i = 0; i < n; i++){
+    setTimeout(() => {
+      if (my !== token) return;
+      const l = document.querySelector(`[data-l="${i}"]`); if (l) l.classList.add('lit');
+      S.revelados = i + 1;
+      const wrap = $('items'); if (!wrap) return;
+      wrap.insertAdjacentHTML('beforeend', cardItem(S.q.itens[i], i, c.tipo));
+      const main = $('main'), last = wrap.lastElementChild;
+      if (last && last.offsetTop + last.offsetHeight > main.scrollTop + main.clientHeight - 20) main.scrollTop = last.offsetTop + last.offsetHeight - main.clientHeight + 30;
+    }, inicio + i*passo);
+  }
+  setTimeout(() => { if (my !== token) return; S.lidos[c.id] = true; render(); }, inicio + n*passo + 450);
+}
+
+/* ================= folha de produtos ================= */
+function abrirSheet(modo, i){
+  S.sheet = {modo, i, busca:''};
+  const it = modo === 'trocar' ? S.q.itens[i] : null;
+  const cat = it ? PID[it.pid].cat : '';
+  S.sheet.cat = cat;
+  $('sheet').innerHTML = `<div class="grab"></div><div class="sh"><b>${modo==='trocar'?'Trocar produto':'Adicionar item'}</b><button class="ib" data-act="fecharSheet" aria-label="Fechar">${ic('x')}</button></div>
+    <div class="search"><label class="sbox">${ic('search')}<input type="search" id="sbusca" placeholder="Buscar na tabela" value="" autocomplete="off" aria-label="Buscar na tabela"></label></div>
+    <div class="sl" id="slist">${sheetLista('')}</div>`;
+  $('veil').classList.add('on'); $('sheet').classList.add('on');
+  $('sbusca').addEventListener('input', e => { $('slist').innerHTML = sheetLista(e.target.value); });
+}
+function sheetLista(b){
+  const cat = S.sheet && S.sheet.cat;
+  if (!b.trim() && cat) return listaProdutos('', 'escolher', cat) + `<div class="empty" style="padding:18px 24px">Digite para buscar na tabela toda.</div>`;
+  return listaProdutos(b, 'escolher');
+}
+function fecharSheet(){ $('veil').classList.remove('on'); $('sheet').classList.remove('on'); S.sheet = null; }
+
+/* ================= aviso com desfazer ================= */
+let toastT;
+function toast(txt, desfazer){
+  const t = $('toast');
+  t.innerHTML = `<span>${txt}</span>${desfazer?'<button data-act="desfazer">Desfazer</button>':''}`;
+  S.desfazer = desfazer || null;
+  t.classList.add('on'); clearTimeout(toastT);
+  toastT = setTimeout(() => { t.classList.remove('on'); S.desfazer = null; }, 4500);
+}
+
+/* atualiza total sem redesenhar a tela (mantém foco no campo) */
+function atualizarTotais(){
+  const q = S.q, t = totais(q);
+  q.itens.forEach((it,i) => { const el = document.querySelector(`[data-sub="${i}"]`); if (el && it.status==='ok') el.textContent = R(it.q*PID[it.pid].preco); });
+  const s = $('sum'); if (s) s.innerHTML = resumo(q);
+  const f = $('ftot'); if (f) f.textContent = R(t.tot);
+}
+
+/* ================= ações ================= */
+const A = {
+  tab(el){ S.tab = el.dataset.tab; ir({conversas:'inbox', orcamentos:'orcamentos', tabela:'tabela'}[S.tab]); },
+  inbox(){ token++; S.tab='conversas'; ir('inbox'); },
+  abrir(el){ const c = CID[el.dataset.id]; ir('chat', {conv:c, q: S.q && S.q.convId===c.id && S.q.status==='rascunho' ? S.q : null}); },
+  montar(){ if (!S.q || S.q.convId !== S.conv.id) S.q = novoOrc(S.conv); S.tela='leitura'; if (S.lidos[S.conv.id]) render(); else lerLista(); },
+  voltarChat(){ token++; ir('chat'); },
+  voltarLeitura(){ ir('leitura'); },
+  verFonte(){ S.fonteAberta = !S.fonteAberta; render(true); },
+  opt(el){ const it = S.q.itens[+el.dataset.i]; it.pid = el.dataset.pid; it.status='ok'; it.marca='Escolhido por você'; render(true); },
+  usarSug(el){ const it = S.q.itens[+el.dataset.i]; it.pid = it.sug; it.status='ok'; it.marca='Similar sugerido, aprovado por você'; render(true); },
+  tirar(el){ const it = S.q.itens[+el.dataset.i]; it.status='removido'; render(true); },
+  irPendente(){ const el = document.querySelector('.it.duv, .it.sem'); if (el){ const m=$('main'); m.scrollTop = el.offsetTop - 120; el.animate && !reduz && el.animate([{transform:'translateX(0)'},{transform:'translateX(-5px)'},{transform:'translateX(5px)'},{transform:'none'}],{duration:260}); } },
+  conferir(){ ir('conferencia'); },
+  menos(el){ const it = S.q.itens[+el.dataset.i], p = PID[it.pid]; it.q = Math.max(p.passo, Math.round((it.q - p.passo)*100)/100); const inp = document.querySelector(`[data-qtd="${el.dataset.i}"]`); if (inp) inp.value = num(it.q); atualizarTotais(); },
+  mais(el){ const it = S.q.itens[+el.dataset.i], p = PID[it.pid]; it.q = Math.round((it.q + p.passo)*100)/100; const inp = document.querySelector(`[data-qtd="${el.dataset.i}"]`); if (inp) inp.value = num(it.q); atualizarTotais(); },
+  rm(el){ const i = +el.dataset.i, it = S.q.itens[i], antes = it.status; it.status = 'removido'; render(true);
+    toast('Item removido', () => { it.status = antes; render(true); }); },
+  desfazer(){ const f = S.desfazer; $('toast').classList.remove('on'); S.desfazer = null; if (f) f(); },
+  trocar(el){ abrirSheet('trocar', +el.dataset.i); },
+  adicionar(){ abrirSheet('adicionar'); },
+  fecharSheet(){ fecharSheet(); },
+  escolher(el){
+    const p = PID[el.dataset.pid]; if (!p.est){ toast('Sem estoque na tabela'); return; }
+    const sh = S.sheet; fecharSheet();
+    if (sh.modo === 'trocar'){ const it = S.q.itens[sh.i]; it.pid = p.id; it.marca = 'Trocado por você'; }
+    else { const ja = S.q.itens.find(i => i.status==='ok' && i.pid===p.id); if (ja) ja.q += p.passo; else S.q.itens.push({raw:'adicionado pelo vendedor', q:p.passo, pid:p.id, status:'ok', marca:'Adicionado por você'}); }
+    render(true); toast(sh.modo==='trocar' ? 'Produto trocado' : 'Item adicionado');
+  },
+  desc(el){ S.q.desconto = +el.dataset.v; render(true); },
+  frete(el){ S.q.frete = el.dataset.v; render(true); },
+  pag(el){ S.q.pag = el.dataset.v; render(true); },
+  aprovar(el){
+    if (!totais(S.q).n) return;
+    el.disabled = true; el.innerHTML = 'Enviando…';
+    setTimeout(() => {
+      S.q.status = 'enviado'; S.conv.feito = true;
+      if (!S.quotes.includes(S.q)) S.quotes.push(S.q);
+      ir('enviado');
+    }, reduz ? 0 : 450);
+  },
+  aceitou(){ S.q.status = 'pedido'; render(); },
+  verOrc(el){ const q = S.quotes.find(x => x.num === +el.dataset.num); if (!q) return; if (q.exemplo){ toast('Orçamento de exemplo de ontem'); return; } S.q = q; S.conv = CID[q.convId]; ir('enviado'); }
+};
+
+$('app').addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if (!el || el.disabled) return;
+  const f = A[el.dataset.act]; if (f) f(el);
+});
+$('app').addEventListener('change', e => {
+  const i = e.target.dataset && e.target.dataset.qtd; if (i === undefined) return;
+  const it = S.q.itens[+i], p = PID[it.pid];
+  let v = parseFloat(String(e.target.value).replace(',', '.'));
+  if (!isFinite(v) || v <= 0) v = p.passo;
+  it.q = Math.round(v*100)/100; e.target.value = num(it.q); atualizarTotais();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.sheet) fecharSheet(); });
+
+/* cronômetro de espera */
+setInterval(() => {
+  CONVS.forEach(c => { if (!c.feito) c.espera++; });
+  document.querySelectorAll('[data-wait]').forEach(el => { const c = CID[el.dataset.wait]; if (c) el.textContent = mmss(c.espera); });
+}, 1000);
+
+/* nome da loja */
+if (TEM_LOJA){
+  document.title = LOJA + ' · orçamento em 2 min';
+  $('para').innerHTML = 'Demonstração preparada para <b>' + esc(LOJA) + '</b>' + (CIDADE ? ', ' + esc(CIDADE) : '') + '.';
+}
+render();
+})();
+</script>
+</body>
+</html>
