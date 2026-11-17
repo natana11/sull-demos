@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; script-src 'unsafe-inline'; frame-src https://www.google.com https://maps.google.com; form-action 'none'; base-uri 'none'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Mecânica Fox | Oficina em Tubarão/SC</title>
+    <meta name="description" content="Mecânica para carros em Humaitá de Cima, Tubarão. Nota 5,0 no Google. Agende sua manutenção pela oficina que é referência na região.">
+
+    <!-- Fontes: Syne (Títulos com personalidade geométrica) + Manrope (Corpo técnico e limpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & VARIÁVEIS --- */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0B0B0C;
+            --text-light: #EAEAEA;
+            --accent-orange: #F96312; /* Laranja Raposa */
+            --gray-mid: #2A2A2D;
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Manrope', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden; /* Previne rolagem lateral indesejada */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILITÁRIOS --- */
+        .uppercase { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; font-weight: 400; color: #888; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 1rem; }
+
+        /* --- HERO (DOBRA 1) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* O objeto flutuando (simulado para CSS) */
+        .hero-object {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+            background: radial-gradient(circle at center, #2a2a2d 0%, #0B0B0C 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 3; /* Fica acima do objeto */
+            mix-blend-mode: difference; /* Garante contraste sobre o fundo */
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3.5rem, 9vw, 8rem); /* Título enorme */
+            line-height: 0.9;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 400px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            color: #ccc;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px; /* Pílula */
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover { 
+            border-color: var(--accent-orange); 
+            color: var(--accent-orange); 
+            background: rgba(249, 99, 18, 0.1);
+        }
+
+        /* Indicador de Scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.6;
+            z-index: 3;
+        }
+
+        .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, #fff, transparent); }
+
+        /* --- DOBRA 2: TIMELINE (Trilho de Etapas) --- */
+        .step-section {
+            min-height: 100vh;
+            display: grid;
+            align-items: center;
+            padding: 4rem 0;
+            background-color: #0f0f10; /* Variação sutil do preto */
+        }
+
+        .step-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 3rem; 
+            margin-left: -2rem; /* Alinhamento assimétrico */
+        }
+
+        .step-item {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+        }
+
+        .step-num { 
+            font-family: var(--font-display); 
+            font-size: clamp(2rem, 4vw, 3rem); 
+            color: var(--accent-orange); 
+            line-height: 1; 
+            margin-bottom: 0.5rem; 
+            display: block;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- DOBRA 3: SERVIÇOS (Lista Técnica) --- */
+        .services-section {
+            background-color: var(--bg-dark);
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Textura metálica sutil em CSS puro */
+        .metal-texture {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 2px);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .service-list { position: relative; z-index: 1; display: grid; gap: 1rem; max-width: 800px; margin: 0 auto; }
+
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .service-row:hover {
+            padding-left: 1rem;
+            background: linear-gradient(90deg, rgba(249,99,18,0.1) 0%, transparent 60%);
+            border-bottom: 1px solid var(--accent-orange);
+        }
+
+        .service-name { 
+            font-family: var(--font-display); 
+            font-size: clamp(1.25rem, 3vw, 2rem); 
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* --- DOBRA 4: AVALIAÇÃO (Prova Social) --- */
+        .review-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            background: radial-gradient(circle at top right, #2a2a2d 0%, var(--bg-dark) 60%);
+        }
+
+        .review-card {
+            border-left: 4px solid var(--accent-orange);
+            padding-left: 2rem;
+            max-width: 600px;
+        }
+
+        .stars { color: var(--accent-orange); font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 1rem; }
+
+        /* --- DOBRA 5: PAGAMENTO (Faixa Correndo - Estilo Referência) --- */
+        .payment-strip {
+            padding: 6rem 0;
+            background: var(--accent-orange);
+            color: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .payment-content {
+            display: flex;
+            gap: 4rem;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite; /* Faixa correndo permitida na referência */
+        }
+
+        .payment-item { 
+            font-family: var(--font-display); 
+            font-weight: 700; 
+            font-size: clamp(2rem, 4vw, 3.5rem); 
+            text-transform: uppercase;
+            display: flex; 
+            align-items: center; 
+            gap: 1rem;
+        }
+
+        .payment-item span { opacity: 0.5; font-size: 0.6em; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- DOBRA 6: HORÁRIOS E MAPA (Grid) --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 4rem;
+            padding: 8rem 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background: #222;
+            filter: grayscale(100%) invert(90%); /* Mapa estilizado */
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        /* --- DOBRA 7: FECHO (Lista de Ações) --- */
+        .footer-section {
+            padding: 6rem 0 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .action-list { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 4rem; }
+
+        .action-link {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .action-link:hover { 
+            color: var(--accent-orange); 
+            border-color: var(--accent-orange); 
+            padding-left: 1rem;
+        }
+
+        .action-arrow { font-size: 1.5em; transition: transform 0.3s; }
+        .action-link:hover .action-arrow { transform: translateX(10px); }
+
+        /* --- ANIMAÇÃO DE ENTRADA (Simples, sem JS pesado) --- */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal.active { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVO (Celular 390px) --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; line-height: 0.95; }
+            .step-list { margin-left: 0; gap: 2rem; }
+            .service-name { font-size: 1.25rem; }
+            .info-grid { gap: 2rem; padding: 4rem 0; }
+            .payment-item { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body><style>#faixa-demo{position:fixed;left:0;right:0;top:0;z-index:2147483647;background:#0b0b0b;color:#fff;font:500 13px/1.35 system-ui,-apple-system,Segoe UI,sans-serif;padding:9px 14px;text-align:center;border-bottom:2px solid #f5c518}#faixa-demo .so-pc{display:none}@media(min-width:700px){#faixa-demo .so-pc{display:inline}}</style><div id="faixa-demo">Demonstração criada pela <a href="http://www.sullproducoes.com.br" style="color:#f5c518;font-weight:700;text-decoration:none">Sull Produções</a><span class="so-pc"> para Auto Mecanica Fox</span>. Ainda não é o site oficial.</div><script>(function(){var f=document.getElementById("faixa-demo");function p(){var h=f.offsetHeight;document.documentElement.style.setProperty("--faixa-demo",h+"px");document.body.style.paddingTop=h+"px";document.querySelectorAll("body *").forEach(function(e){if(e===f||f.contains(e))return;var s=getComputedStyle(e),t=parseFloat(s.top);if((s.position==="fixed"||s.position==="sticky")&&t<h){if(e.dataset.topo===undefined)e.dataset.topo=t||0;e.style.top=(parseFloat(e.dataset.topo)+h)+"px";}if(!e.dataset.tela&&Math.abs(e.getBoundingClientRect().height-innerHeight)<2&&e.children.length){e.dataset.tela="1";e.style.height="calc(100vh - "+h+"px)";e.style.minHeight="0";}});}if(document.readyState==="loading")addEventListener("DOMContentLoaded",p);else p();addEventListener("resize",p);})()</script>
+
+    <!-- DOBRA 1: ABERTURA -->
+    <section class="hero">
+        <div class="hero-object"></div> <!-- Onde o objeto da chave ficaria no sistema -->
+        <div class="container hero-content">
+            <span class="uppercase" style="display:block; margin-bottom:1rem;">Mecânica para carros em Tubarão/SC</span>
+            <h1>Auto<br>Mecânica<br>Fox</h1>
+            <p class="hero-subtitle">Manutenção especializada com nota máxima no Google.</p>
+            <a href="https://wa.me/5548998350033" class="cta-button">Agendar manutenção</a>
+        </div>
+        <div class="scroll-indicator">
+            <span class="uppercase" style="font-size: 10px; letter-spacing: 2px;">Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- DOBRA 2: COMO FUNCIONA -->
+    <section class="step-section">
+        <div class="container step-list">
+            <div class="step-item reveal">
+                <span class="uppercase" style="display:block; margin-bottom:0.5rem;">Passo 01</span>
+                <h2 class="step-title reveal">Contato rápido</h2>
+                <p class="uppercase reveal" style="margin-top:0.5rem;">WhatsApp ou ligação</p>
+            </div>
+            <div class="step-item reveal">
+                <span class="uppercase" style="display:block; margin-bottom:0.5rem;">Passo 02</span>
+                <h2 class="step-title reveal">Agendamento</h2>
+                <p class="uppercase reveal" style="margin-top:0.5rem;">É recomendado marcar hora com antecedência</p>
+            </div>
+            <div class="step-item reveal">
+                <span class="uppercase" style="display:block; margin-bottom:0.5rem;">Passo 03</span>
+                <h2 class="step-title reveal">Entrega do veículo</h2>
+                <p class="uppercase reveal" style="margin-top:0.5rem;">Diagnóstico e orçamento na hora</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 3: SERVIÇOS -->
+    <section class="services-section">
+        <div class="metal-texture"></div>
+        <div class="container service-list">
+            <span class="uppercase" style="display:block; margin-bottom:2rem;">Especialidades</span>
+            
+            <div class="service-row reveal">
+                <span class="service-name">Mecânica Geral</span>
+                <span class="uppercase">Diagnóstico completo</span>
+            </div>
+            <div class="service-row reveal">
+                <span class="service-name">Troca de Óleo</span>
+                <span class="uppercase">Peças originais</span>
+            </div>
+            <div class="service-row reveal">
+                <span class="service-name">Freios e Suspensão</span>
+                <span class="uppercase">Segurança garantida</span>
+            </div>
+            <div class="service-row reveal">
+                <span class="service-name">Partes Elétricas</span>
+                <span class="uppercase">Tecnologia atualizada</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 4: AVALIAÇÃO -->
+    <section class="review-section">
+        <div class="container review-card reveal">
+            <div class="stars">★★★★★</div>
+            <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); line-height:1; margin-bottom: 1rem;">Nota 5,0<br>no Google</h2>
+            <p class="uppercase" style="margin-top:1rem; max-width: 400px;">Confiança comprovada por clientes locais.</p>
+            <a href="#" style="display:inline-block; margin-top: 2rem; border-bottom: 1px solid var(--accent-orange); padding-bottom: 4px;" class="reveal">Ver avaliações no Google</a>
+        </div>
+    </section>
+
+    <!-- DOBRA 5: PAGAMENTO (Faixa correndo da referência) -->
+    <section class="payment-strip">
+        <div class="container" style="overflow:hidden;">
+            <div class="payment-content">
+                <div class="payment-item">Cartão de Crédito <span>•</span></div>
+                <div class="payment-item">Cartão de Débito <span>•</span></div>
+                <div class="payment-item">Pagamento NFC (Celular) <span>•</span></div>
+                <div class="payment-item">Pix <span>•</span></div>
+                
+                <!-- Repetição para o efeito infinito -->
+                <div class="payment-item">Cartão de Crédito <span>•</span></div>
+                <div class="payment-item">Cartão de Débito <span>•</span></div>
+                <div class="payment-item">Pagamento NFC (Celular) <span>•</span></div>
+                <div class="payment-item">Pix <span>•</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 6: HORÁRIOS E LOCAL -->
+    <section class="info-grid container">
+        <div>
+            <span class="uppercase" style="display:block; margin-bottom:1rem;">Unidade Tubarão</span>
+            <h2 class="reveal" style="font-family: var(--font-display); font-size: 2.5rem; line-height:1; margin-bottom:2rem;">Humaitá de Cima</h2>
+            
+            <ul style="margin-bottom: 2rem;" class="reveal">
+                <li class="uppercase" style="margin-bottom: 0.5rem;"><strong style="color:#fff;">Seg a Sex</strong><br>08:00 – 12:00 / 13:30 – 18:30</li>
+                <li class="uppercase" style="margin-bottom: 0.5rem;"><strong style="color:#fff;">Sáb e Dom</strong><br>Fechado</li>
+            </ul>
+
+            <p class="uppercase reveal">Acessibilidade garantida<br>Entrada para cadeira de rodas e estacionamento.</p>
+        </div>
+        <div class="map-container reveal">
+            <iframe src="https://www.google.com/maps?q=R.+Augusto+Hulse,+163+-+Humait%C3%A1+de+Cima,+Tubar%C3%A3o+-+SC,+88708-100&output=embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- DOBRA 7: FECHO -->
+    <section id="agendar" style="padding:64px 20px"><h2 style="text-align:center">Agende seu horário</h2><div data-agendar></div></section><footer class="footer-section">
+        <div class="container">
+            <span class="uppercase" style="display:block; margin-bottom:2rem;">Fale conosco</span>
+            
+            <nav class="action-list">
+                <a href="https://wa.me/5548998350033" class="action-link reveal">
+                    Pedir orçamento via WhatsApp
+                    <span class="action-arrow">→</span>
+                </a>
+                <a href="tel:+5548998350033" class="action-link reveal">
+                    Ligar: (48) 99835-0033
+                    <span class="action-arrow">→</span>
+                </a>
+                <a href="https://maps.google.com/?q=R.+Augusto+Hulse,+163" class="action-link reveal">
+                    R. Augusto Hulse, 163 - Tubarão/SC
+                    <span class="action-arrow">→</span>
+                </a>
+            </nav>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between;" class="reveal">
+                <span class="uppercase" style="color: #666;">© Auto Mecânica Fox</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DADOS DO AGENDAMENTO (Para o sistema) -->
+    
+
+    <!-- COREOGRAFIA DO FIO CONDUTOR (Chave Combinada) -->
+    <script type="application/json" id="coreografia">
+    {
+      "objeto": "img/marca-chave-combinada.png",
+      "lente": {"x": 50, "y": 20, "raio": 0.15},
+      "dobras": [
+        {"cena": "#0B0B0C", "texto": "#ffffff"},
+        {"cena": "#000000", "texto": "#ffffff"},
+        {"cena": "#1a1a1c", "texto": "#EAEAEA"},
+        {"cena": "#2a2a2d", "texto": "#ffffff"},
+        {"cena": "#F96312", "texto": "#000000"},
+        {"cena": "#0B0B0C", "texto": "#ffffff"}
+      ]
+    }
+    </script>
+
+    <script>
+        // Animação simples de entrada (sem IntersectionObserver complexo para evitar bugs)
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(el => observer.observe(el));
+        });
+    </script>
+<!--agendar:inicio--><style>.ag{--ag-fundo:transparent;--ag-texto:currentColor;--ag-destaque:currentColor;--ag-linha:rgba(127,127,127,.35);--ag-suave:rgba(127,127,127,.1);
+  color:var(--ag-texto);background:var(--ag-fundo);font:inherit;max-width:880px;margin:0 auto;text-align:left}
+.ag *{box-sizing:border-box}
+.ag button,.ag input,.ag a{font:inherit;color:inherit}
+.ag-passo{border-top:1px solid var(--ag-linha);padding:18px 0}
+
+.ag-passo:last-child{border-bottom:1px solid var(--ag-linha)}
+.ag-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:28px}
+.ag-n{font-variant-numeric:tabular-nums;font-size:.8rem;letter-spacing:.08em;opacity:.6}
+.ag-n::before{content:"0"}
+.ag-tit{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ag-troca{margin-left:auto;background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.85;text-align:right}
+.ag-aberto>div:last-child{margin-top:14px}
+.ag-abas{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.ag-abas::-webkit-scrollbar{display:none}
+.ag-aba{flex:none;border:1px solid var(--ag-linha);background:none;border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer}
+.ag-aba[aria-selected=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-grade-serv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.ag-serv{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;border:1px solid var(--ag-linha);background:var(--ag-suave);border-radius:10px;padding:14px 16px;min-height:64px;cursor:pointer;transition:border-color .2s,transform .2s}
+.ag-serv:hover,.ag-serv:focus-visible{border-color:var(--ag-destaque);transform:translateY(-1px)}
+.ag-serv[aria-pressed=true]{border-color:var(--ag-destaque);box-shadow:inset 0 0 0 1px var(--ag-destaque)}
+.ag-serv-nome{font-weight:600;font-size:1rem;line-height:1.3}
+.ag-serv-info{font-size:.9rem;opacity:.75}
+.ag-dias{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:thin}
+.ag-dia{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;width:62px;min-height:60px;border:1px solid var(--ag-linha);background:none;border-radius:10px;padding:8px 0;cursor:pointer}
+.ag-dia-sem{font-size:.72rem;letter-spacing:.08em;opacity:.7}
+.ag-dia-num{font-weight:600;font-variant-numeric:tabular-nums;font-size:.95rem}
+.ag-dia:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.ag-dia[aria-pressed=true],.ag-hora[aria-pressed=true]{background:var(--ag-destaque);border-color:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)}
+.ag-periodo{margin:14px 0 8px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ag-periodo:first-child{margin-top:0}
+.ag-horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.ag-hora{border:1px solid var(--ag-linha);background:none;border-radius:8px;min-height:44px;cursor:pointer;font-variant-numeric:tabular-nums}
+.ag-hora:hover,.ag-hora:focus-visible,.ag-dia:not(:disabled):hover{border-color:var(--ag-destaque)}
+.ag-vazio{opacity:.75;margin:0}
+.ag-fim{display:grid;gap:10px;max-width:520px}
+.ag-campo{width:100%;min-height:48px;border:1px solid var(--ag-linha);border-radius:8px;background:var(--ag-suave);padding:12px 14px;font-size:16px}
+.ag-campo:focus{outline:2px solid var(--ag-destaque);outline-offset:1px}
+.ag-previa{margin:4px 0;font-size:.95rem;line-height:1.5;opacity:.85}
+.ag-enviar{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:999px;background:var(--ag-destaque);color:var(--ag-fundo-botao,#fff)!important;text-decoration:none;font-weight:600}
+.ag-enviar:hover{filter:brightness(1.08)}
+.ag-nota{margin:12px 0 0;font-size:.78rem;opacity:.6;letter-spacing:.02em}
+.ag :focus-visible{outline:2px solid var(--ag-destaque);outline-offset:2px}
+@media (max-width:600px){.ag-grade-serv{grid-template-columns:1fr}.ag-horas{grid-template-columns:repeat(4,1fr)}}
+@media (prefers-reduced-motion:reduce){.ag-serv{transition:none}}
+.ag .ag-passo:focus,.ag .ag-passo:focus-visible{outline:none}
+</style><script type="application/json" id="agenda-dados">{"servicos": [{"nome": "Mecânica Geral", "categoria": "Serviços", "duracao": 60, "exemplo": true}, {"nome": "Troca de Óleo", "categoria": "Serviços", "duracao": 45, "exemplo": true}, {"nome": "Freios e Suspensão", "categoria": "Serviços", "duracao": 90, "exemplo": true}, {"nome": "Diagnóstico Elétrico", "categoria": "Serviços", "duracao": 60, "exemplo": true}], "equipe": [], "abre": {"dom": null, "seg": ["08:00", "12:00", "13:30", "18:30"], "ter": ["08:00", "12:00", "13:30", "18:30"], "qua": ["08:00", "12:00", "13:30", "18:30"], "qui": ["08:00", "12:00", "13:30", "18:30"], "sex": ["08:00", "12:00", "13:30", "18:30"], "sab": null}, "cores": {"fundo": "#0B0B0C", "texto": "#EAEAEA", "destaque": "#F96312", "botao": "#000000", "linha": "#2A2A2D", "suave": "#888888"}, "whatsapp": "5548998350033", "campo_extra": "Modelo do carro", "semente": "Auto Mecanica Fox"}</script><script>/* Agendar — bloco de agendamento dos sites demonstrativos (Sull Produções).
+ * Fluxo inspirado no que funciona no Trinks: serviço → dia → horário (15 em 15 min, por período,
+ * só o que cabe a duração) → profissional → nome → WhatsApp da empresa com a mensagem pronta.
+ * Não grava nada em servidor: a demonstração simula os horários ocupados e avisa isso na tela.
+ * Dados: o bloco JSON de id agenda-dados no próprio site. Alvo: [data-agendar].
+ */
+(function () {
+  "use strict";
+  var DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  var NOME_DIA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"];
+  var DIA_LONGO = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  var PADRAO = { dom: null, seg: ["09:00", "18:00"], ter: ["09:00", "18:00"], qua: ["09:00", "18:00"],
+                 qui: ["09:00", "18:00"], sex: ["09:00", "18:00"], sab: ["09:00", "13:00"] };
+
+  function min(hhmm) { var p = String(hhmm).split(":"); return (+p[0]) * 60 + (+p[1] || 0); }
+  function hhmm(m) { return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); }
+  function chaveDia(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+
+  /* Hash estável: o mesmo dia e horário sempre aparecem ocupados (ou livres) para quem abre o site. */
+  function hash(txt) {
+    var h = 2166136261;
+    for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) / 4294967296;
+  }
+  function ocupado(semente, dia, inicio, taxa) { return hash(semente + "|" + chaveDia(dia) + "|" + inicio) < taxa; }
+
+  /* Faixas de funcionamento do dia: ["08:30","12:00","13:30","19:00"] vira [[510,720],[810,1140]]. */
+  function faixas(abre, dia) {
+    var f = abre ? abre[DIAS[dia.getDay()]] : null;
+    if (!f || !f.length) return [];
+    var r = [];
+    for (var i = 0; i + 1 < f.length; i += 2) r.push([min(f[i]), min(f[i + 1])]);
+    return r;
+  }
+
+  /* Horários livres de um dia para um serviço de `duracao` minutos.
+   * Só entra o horário em que o serviço termina dentro da faixa; hoje, só depois de agora + antecedência. */
+  function horarios(opc) {
+    var dia = opc.dia, agora = opc.agora || new Date(), passo = opc.intervalo || 15;
+    var antecedencia = opc.antecedencia == null ? 60 : opc.antecedencia;
+    var mesmoDia = chaveDia(dia) === chaveDia(agora);
+    var limite = mesmoDia ? agora.getHours() * 60 + agora.getMinutes() + antecedencia : -1;
+    var lista = [];
+    faixas(opc.abre, dia).forEach(function (fx) {
+      for (var t = fx[0]; t + opc.duracao <= fx[1]; t += passo) {
+        if (t < limite) continue;
+        if (ocupado(opc.semente || "", dia, t, opc.taxa == null ? 0.35 : opc.taxa)) continue;
+        lista.push(t);
+      }
+    });
+    return lista;
+  }
+
+  function periodo(t) { return t < 720 ? "Manhã" : t < 1080 ? "Tarde" : "Noite"; }
+
+  /* Profissionais livres naquele horário (simulado): cada um tem a própria agenda falsa. */
+  function livres(equipe, semente, dia, t) {
+    return equipe.filter(function (p) { return !ocupado(semente + "|" + p.nome, dia, t, 0.3); });
+  }
+
+  function mensagem(sel) {
+    var d = sel.dia, partes = ["Olá! Quero agendar " + sel.servico.nome,
+      (d.getDay() % 6 === 0 ? "no " : "na ") + DIA_LONGO[d.getDay()] + ", " + String(d.getDate()).padStart(2, "0") + "/" +
+      String(d.getMonth() + 1).padStart(2, "0") + ", às " + hhmm(sel.hora)];
+    if (sel.profissional) partes.push("com " + sel.profissional.nome);
+    var txt = partes.join(" ") + ".";
+    if (sel.extra) txt += " " + sel.extraRotulo + ": " + sel.extra + ".";
+    if (sel.nome) txt += " Meu nome é " + sel.nome + ".";
+    return txt;
+  }
+
+  function preco(s) {
+    if (s.preco == null || s.preco === "") return "a combinar";
+    if (typeof s.preco === "number") return s.preco === 0 ? "Grátis" : "R$ " + s.preco.toFixed(2).replace(".", ",");
+    return String(s.preco);
+  }
+  function duracaoTxt(m) { return m >= 60 ? Math.floor(m / 60) + "h" + (m % 60 ? " " + (m % 60) + "min" : "") : m + "min"; }
+
+  var API = { horarios: horarios, livres: livres, mensagem: mensagem, periodo: periodo, faixas: faixas,
+              preco: preco, duracaoTxt: duracaoTxt, hhmm: hhmm, PADRAO: PADRAO };
+  if (typeof module !== "undefined" && module.exports) { module.exports = API; return; }
+
+  /* ---------------------------------------------------------------- tela */
+  function el(tag, attrs, filhos) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) {
+      if (attrs[k] == null) return;
+      if (k === "texto") e.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    (filhos || []).forEach(function (f) { if (f) e.appendChild(f); });
+    return e;
+  }
+
+  function montar(alvo, dados) {
+    var servicos = (dados.servicos || []).filter(function (s) { return s && s.nome; }).map(function (s) {
+      return { nome: String(s.nome), categoria: s.categoria ? String(s.categoria) : "", preco: s.preco,
+               duracao: Math.max(15, Math.min(480, parseInt(s.duracao, 10) || 60)), exemplo: !!s.exemplo };
+    });
+    if (!servicos.length) return;
+    var equipe = (dados.equipe || []).filter(function (p) { return p && p.nome; });
+    var abreValido = dados.abre && DIAS.some(function (d) { return dados.abre[d] && dados.abre[d].length; });
+    var abre = abreValido ? dados.abre : PADRAO;
+    var semente = dados.semente || location.pathname;
+    var c = dados.cores || {};
+    ["fundo", "texto", "destaque", "linha", "suave"].forEach(function (k) {
+      if (c[k]) alvo.style.setProperty("--ag-" + k, c[k]);
+    });
+    if (c.botao) alvo.style.setProperty("--ag-fundo-botao", c.botao);
+    alvo.classList.add("ag");
+    var sel = { servico: null, dia: null, hora: null, profissional: null };
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var dias = [];
+    for (var i = 0; i < 30; i++) { var d = new Date(hoje); d.setDate(hoje.getDate() + i); dias.push(d); }
+    var categorias = servicos.reduce(function (a, s) { if (s.categoria && a.indexOf(s.categoria) < 0) a.push(s.categoria); return a; }, []);
+    var catAtual = categorias[0] || "";
+
+    function passo(n, titulo, corpo, resumo, aberto) {
+      var cab = el("div", { "class": "ag-cab" }, [el("span", { "class": "ag-n", texto: String(n) }),
+        el("span", { "class": "ag-tit", texto: titulo })]);
+      if (resumo && !aberto) {
+        cab.appendChild(el("button", { type: "button", "class": "ag-troca", texto: resumo + " · trocar",
+          onclick: function () { voltarPara(n); } }));
+      }
+      return el("div", { "class": "ag-passo" + (aberto ? " ag-aberto" : "") }, [cab, aberto ? corpo : null]);
+    }
+
+    function voltarPara(n) {
+      if (n <= 1) { sel.servico = null; }
+      if (n <= 2) { sel.dia = null; }
+      if (n <= 3) { sel.hora = null; }
+      if (n <= 4) { sel.profissional = null; sel.escolheuProf = false; }
+      desenhar(true);
+    }
+
+    function cartaoServico(s) {
+      return el("button", { type: "button", "class": "ag-serv", "aria-pressed": String(sel.servico === s),
+        onclick: function () { sel.servico = s; sel.dia = null; sel.hora = null; desenhar(true); } }, [
+        el("span", { "class": "ag-serv-nome", texto: s.nome }),
+        el("span", { "class": "ag-serv-info", texto: duracaoTxt(s.duracao) + " · " + preco(s) })]);
+    }
+
+    function blocoServicos() {
+      var corpo = el("div", {});
+      if (categorias.length > 1) {
+        var abas = el("div", { "class": "ag-abas", role: "tablist" });
+        categorias.forEach(function (cat) {
+          abas.appendChild(el("button", { type: "button", role: "tab", "class": "ag-aba", "aria-selected": String(cat === catAtual),
+            texto: cat, onclick: function () { catAtual = cat; desenhar(); } }));
+        });
+        corpo.appendChild(abas);
+      }
+      var grade = el("div", { "class": "ag-grade-serv" });
+      servicos.filter(function (s) { return categorias.length < 2 || s.categoria === catAtual; }).forEach(function (s) {
+        grade.appendChild(cartaoServico(s));
+      });
+      corpo.appendChild(grade);
+      if (servicos.some(function (s) { return s.exemplo; })) {
+        corpo.appendChild(el("p", { "class": "ag-nota", texto: "exemplo — ajustamos com as suas informações" }));
+      }
+      return corpo;
+    }
+
+    function blocoDias() {
+      var faixa = el("div", { "class": "ag-dias", role: "listbox", "aria-label": "Escolha o dia" });
+      dias.forEach(function (d) {
+        var fechado = !faixas(abre, d).length;
+        faixa.appendChild(el("button", { type: "button", "class": "ag-dia", "aria-pressed": String(sel.dia && +sel.dia === +d),
+          disabled: fechado ? "disabled" : null, "aria-label": DIA_LONGO[d.getDay()] + " " + d.getDate() + (fechado ? ", fechado" : ""),
+          onclick: function () { sel.dia = d; sel.hora = null; desenhar(true); } }, [
+          el("span", { "class": "ag-dia-sem", texto: NOME_DIA[d.getDay()] }),
+          el("span", { "class": "ag-dia-num", texto: String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") })]));
+      });
+      return faixa;
+    }
+
+    function blocoHoras() {
+      var corpo = el("div", {});
+      var lista = horarios({ abre: abre, dia: sel.dia, duracao: sel.servico.duracao, semente: semente + "|" + sel.servico.nome });
+      if (!lista.length) {
+        corpo.appendChild(el("p", { "class": "ag-vazio", texto: "Agenda cheia nesse dia. Que tal outra data?" }));
+        return corpo;
+      }
+      ["Manhã", "Tarde", "Noite"].forEach(function (p) {
+        var doPeriodo = lista.filter(function (t) { return periodo(t) === p; });
+        if (!doPeriodo.length) return;
+        var grade = el("div", { "class": "ag-horas" });
+        doPeriodo.forEach(function (t) {
+          grade.appendChild(el("button", { type: "button", "class": "ag-hora", "aria-pressed": String(sel.hora === t), texto: hhmm(t),
+            onclick: function () { sel.hora = t; sel.profissional = null; sel.escolheuProf = !equipe.length; desenhar(true); } }));
+        });
+        corpo.appendChild(el("p", { "class": "ag-periodo", texto: p }));
+        corpo.appendChild(grade);
+      });
+      return corpo;
+    }
+
+    function blocoEquipe() {
+      var grade = el("div", { "class": "ag-grade-serv" });
+      var quem = livres(equipe, semente, sel.dia, sel.hora);
+      if (!quem.length) quem = equipe.slice(0, 1);
+      [{ nome: "Sem preferência", funcao: "quem estiver livre" }].concat(quem).forEach(function (p) {
+        grade.appendChild(el("button", { type: "button", "class": "ag-serv", onclick: function () {
+          sel.profissional = p.nome === "Sem preferência" ? null : p; sel.escolheuProf = true; desenhar(true); } }, [
+          el("span", { "class": "ag-serv-nome", texto: p.nome }),
+          el("span", { "class": "ag-serv-info", texto: p.funcao || "" })]));
+      });
+      return grade;
+    }
+
+    function blocoFim() {
+      var corpo = el("div", { "class": "ag-fim" });
+      var nome = el("input", { type: "text", "class": "ag-campo", autocomplete: "given-name", placeholder: "Seu nome", "aria-label": "Seu nome" });
+      var extra = dados.campo_extra ? el("input", { type: "text", "class": "ag-campo", placeholder: String(dados.campo_extra), "aria-label": String(dados.campo_extra) }) : null;
+      var tel = String(dados.whatsapp || "").replace(/\D/g, "");
+      var botao = el("a", { "class": "ag-enviar", target: "_blank", rel: "noopener", href: "#",
+        texto: tel ? "Enviar pedido pelo WhatsApp" : (dados.telefone ? "Ligar para agendar" : "Pedir agendamento") });
+      function atualizar() {
+        var txt = mensagem({ servico: sel.servico, dia: sel.dia, hora: sel.hora, profissional: sel.profissional,
+          nome: nome.value.trim(), extra: extra ? extra.value.trim() : "", extraRotulo: dados.campo_extra });
+        previa.textContent = "“" + txt + "”";
+        botao.href = tel ? "https://wa.me/" + tel + "?text=" + encodeURIComponent(txt)
+                         : (dados.telefone ? "tel:" + String(dados.telefone).replace(/[^\d+]/g, "") : "#contato");
+      }
+      var previa = el("p", { "class": "ag-previa" });
+      nome.addEventListener("input", atualizar);
+      if (extra) extra.addEventListener("input", atualizar);
+      corpo.appendChild(nome); if (extra) corpo.appendChild(extra);
+      corpo.appendChild(previa); corpo.appendChild(botao);
+      corpo.appendChild(el("p", { "class": "ag-nota", texto: "Demonstração: os horários ocupados são simulados. A confirmação chega pelo WhatsApp." }));
+      atualizar();
+      return corpo;
+    }
+
+    function desenhar(rolar) {
+      alvo.innerHTML = "";
+      var etapa = !sel.servico ? 1 : !sel.dia ? 2 : sel.hora == null ? 3 : !sel.escolheuProf ? 4 : 5;
+      var dataTxt = sel.dia ? NOME_DIA[sel.dia.getDay()] + " " + String(sel.dia.getDate()).padStart(2, "0") + "/" + String(sel.dia.getMonth() + 1).padStart(2, "0") : "";
+      alvo.appendChild(passo(1, "Serviço", etapa === 1 ? blocoServicos() : null, sel.servico && sel.servico.nome, etapa === 1));
+      if (etapa >= 2) alvo.appendChild(passo(2, "Dia", etapa === 2 ? blocoDias() : null, dataTxt, etapa === 2));
+      if (etapa >= 3) alvo.appendChild(passo(3, "Horário", etapa === 3 ? blocoHoras() : null, sel.hora != null ? hhmm(sel.hora) : "", etapa === 3));
+      var n = 4;
+      if (equipe.length && etapa >= 4) { alvo.appendChild(passo(4, "Profissional", etapa === 4 ? blocoEquipe() : null, sel.profissional ? sel.profissional.nome : "Sem preferência", etapa === 4)); n = 5; }
+      if (etapa === 5) alvo.appendChild(passo(n, "Confirmar", blocoFim(), "", true));
+      if (rolar) {
+        var aberto = alvo.querySelector(".ag-aberto");
+        var r = aberto && aberto.getBoundingClientRect();
+        if (r && (r.top < 60 || r.top > innerHeight * 0.6)) aberto.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (aberto) { aberto.setAttribute("tabindex", "-1"); aberto.focus({ preventScroll: true }); }
+      }
+    }
+    desenhar(false);
+  }
+
+  function iniciar() {
+    var fonte = document.getElementById("agenda-dados"), alvo = document.querySelector("[data-agendar]");
+    if (!fonte || !alvo) return;
+    try { montar(alvo, JSON.parse(fonte.textContent)); } catch (e) { /* dado quebrado: o site segue sem o bloco */ }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script><!--agendar:fim--></body>
+</html>
